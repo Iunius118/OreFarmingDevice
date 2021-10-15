@@ -1,0 +1,5 @@
+# Credits
+## Author
+Ore Farming Furnace
+Copyright (c) 2021 Iunius118
+https://github.com/Iunius118/OreFarmingFurnace

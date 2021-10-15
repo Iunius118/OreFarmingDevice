@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="MIT License"
+issueTrackerURL="https://github.com/Iunius118/OreFarmingFurnace/issues"
+
+[[mods]]
+modId="orefarmingfurnace"
+version="${file.jarVersion}"
+displayName="Ore Farming Furnace"
+displayURL="https://github.com/Iunius118/OreFarmingFurnace"
+# logoFile="orefarmingfurnace_logo.png"
+credits="Iunius118"
+authors="Iunius118"
+description="Adds furnaces to farm ores"
+
+[[dependencies.orefarmingfurnace]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.orefarmingfurnace]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,1.17)"
+    ordering="NONE"
+    side="BOTH"
