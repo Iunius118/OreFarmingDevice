@@ -1,7 +1,7 @@
-package com.github.iunius118.orefarmingfurnace.data;
+package com.github.iunius118.orefarmingdevice.data;
 
-import com.github.iunius118.orefarmingfurnace.OreFarmingFurnace;
-import com.github.iunius118.orefarmingfurnace.world.level.block.entity.OFFDeviceType;
+import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
+import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 
@@ -13,7 +13,7 @@ public class ModLanguageProvider {
 
     public static class ModEnUsLanguageProvider extends LanguageProvider {
         public ModEnUsLanguageProvider(DataGenerator gen) {
-            super(gen, OreFarmingFurnace.MOD_ID, "en_us");
+            super(gen, OreFarmingDevice.MOD_ID, "en_us");
         }
 
         public ModEnUsLanguageProvider(DataGenerator gen, String modID, String locale) {
@@ -23,42 +23,42 @@ public class ModLanguageProvider {
         @Override
         protected void addTranslations() {
             // Item groups
-            add("itemGroup." + OreFarmingFurnace.MOD_ID, OreFarmingFurnace.MOD_NAME);
+            add("itemGroup." + OreFarmingDevice.MOD_ID, OreFarmingDevice.MOD_NAME);
 
             // Items
 
             // Blocks
 
             // Container titles
-            add(OFFDeviceType.MK_1.getContainerTranslationKey(), "O.F.F. Device Mk I");
-            add(OFFDeviceType.MK_2.getContainerTranslationKey(), "O.F.F. Device Mk II");
-            add(OFFDeviceType.MK_3.getContainerTranslationKey(), "O.F.F. Device Mk III");
+            add(OFDeviceType.MK_1.getContainerTranslationKey(), "OF Device Mk I");
+            add(OFDeviceType.MK_2.getContainerTranslationKey(), "OF Device Mk II");
+            add(OFDeviceType.MK_3.getContainerTranslationKey(), "OF Device Mk III");
         }
 
         @Override
         public String getName() {
-            return super.getName() + ": " + OreFarmingFurnace.MOD_NAME;
+            return super.getName() + ": " +  OreFarmingDevice.MOD_NAME;
         }
     }
 
     public static class ModJaJpLanguageProvider extends ModEnUsLanguageProvider {
         public ModJaJpLanguageProvider(DataGenerator gen) {
-            super(gen, OreFarmingFurnace.MOD_ID, "ja_jp");
+            super(gen,  OreFarmingDevice.MOD_ID, "ja_jp");
         }
 
         @Override
         protected void addTranslations() {
             // Item groups
-            add("itemGroup." + OreFarmingFurnace.MOD_ID, OreFarmingFurnace.MOD_NAME);
+            add("itemGroup." + OreFarmingDevice.MOD_ID, OreFarmingDevice.MOD_NAME);
 
             // Items
 
             // Blocks
 
             // Container titles
-            add(OFFDeviceType.MK_1.getContainerTranslationKey(), "O.F.F. 1号装置");
-            add(OFFDeviceType.MK_2.getContainerTranslationKey(), "O.F.F. 2号装置");
-            add(OFFDeviceType.MK_3.getContainerTranslationKey(), "O.F.F. 3号装置");
+            add(OFDeviceType.MK_1.getContainerTranslationKey(), "ＯＦ１号装置");
+            add(OFDeviceType.MK_2.getContainerTranslationKey(), "ＯＦ２号装置");
+            add(OFDeviceType.MK_3.getContainerTranslationKey(), "ＯＦ３号装置");
         }
     }
 }

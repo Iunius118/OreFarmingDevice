@@ -1,4 +1,4 @@
-package com.github.iunius118.orefarmingfurnace.world.level.block.entity;
+package com.github.iunius118.orefarmingdevice.world.level.block.entity;
 
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -8,14 +8,14 @@ import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 
-public class OFFDeviceBlockEntity extends AbstractFurnaceTileEntity {
-    public final OFFDeviceType type;
+public class OFDeviceBlockEntity extends AbstractFurnaceTileEntity {
+    public final OFDeviceType type;
     public final String containerTranslationKey;
 
-    public OFFDeviceBlockEntity(OFFDeviceType offDeviceType) {
+    public OFDeviceBlockEntity(OFDeviceType ofDeviceType) {
         super(TileEntityType.FURNACE, IRecipeType.SMELTING);
-        type = offDeviceType;
-        containerTranslationKey = offDeviceType.getContainerTranslationKey();
+        type = ofDeviceType;
+        containerTranslationKey = ofDeviceType.getContainerTranslationKey();
     }
 
     @Override

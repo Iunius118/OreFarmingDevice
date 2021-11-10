@@ -1,2 +1,2 @@
 # Cheatsheet
-Ore Farming Furnace v0.1.0
+O.F.Device v0.1.0

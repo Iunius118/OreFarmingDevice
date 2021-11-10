@@ -1,6 +1,6 @@
-# Ore Farming Furnace
+# O.F.Device
 
-Ore Farming Furnace is a Minecraft mod to add furnaces to farm ores.
+O.F.Device is a Minecraft mod to add devices for farming ores.
 
 ## License
 

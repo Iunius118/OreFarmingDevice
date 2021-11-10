@@ -1,6 +1,6 @@
-package com.github.iunius118.orefarmingfurnace.common;
+package com.github.iunius118.orefarmingdevice.common;
 
-import com.github.iunius118.orefarmingfurnace.data.ModLanguageProvider;
+import com.github.iunius118.orefarmingdevice.data.ModLanguageProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeBlockTagsProvider;

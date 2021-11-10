@@ -1,6 +1,6 @@
 # Change Log
-[Ore Farming Furnace](https://github.com/Iunius118/OreFarmingFurnace).
-[Source](https://github.com/Iunius118/OreFarmingFurnace).
+[O.F.Device](https://github.com/Iunius118/O.F.Device).
+[Source](https://github.com/Iunius118/O.F.Device).
 
 ## [Unreleased]
 

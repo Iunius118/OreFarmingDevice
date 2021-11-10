@@ -1,9 +1,9 @@
-package com.github.iunius118.orefarmingfurnace.world.level.block.entity;
+package com.github.iunius118.orefarmingdevice.world.level.block.entity;
 
-import com.github.iunius118.orefarmingfurnace.OreFarmingFurnace;
+import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
 import net.minecraft.util.ResourceLocation;
 
-public enum OFFDeviceType {
+public enum OFDeviceType {
     MK_1("device_mk_1"),
     MK_2("device_mk_2"),
     MK_3("device_mk_3"),
@@ -11,7 +11,7 @@ public enum OFFDeviceType {
 
     private final String name;
 
-    private OFFDeviceType(String name) {
+    private OFDeviceType(String name) {
         this.name = name;
     }
 
@@ -20,10 +20,10 @@ public enum OFFDeviceType {
     }
 
     public String getContainerTranslationKey() {
-        return "container.orefarmingfurnace." + name;
+        return "container." + OreFarmingDevice.MOD_ID + "." + name;
     }
 
     public ResourceLocation getID() {
-        return new ResourceLocation(OreFarmingFurnace.MOD_ID, name);
+        return new ResourceLocation(OreFarmingDevice.MOD_ID, name);
     }
 }

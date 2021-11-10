@@ -1,25 +1,25 @@
 modLoader="javafml"
 loaderVersion="[36,)"
 license="MIT License"
-issueTrackerURL="https://github.com/Iunius118/OreFarmingFurnace/issues"
+issueTrackerURL="https://github.com/Iunius118/O.F.Device/issues"
 
 [[mods]]
-modId="orefarmingfurnace"
+modId="orefarmingdevice"
 version="${file.jarVersion}"
-displayName="Ore Farming Furnace"
-displayURL="https://github.com/Iunius118/OreFarmingFurnace"
-# logoFile="orefarmingfurnace_logo.png"
+displayName="O.F.Device"
+displayURL="https://github.com/Iunius118/O.F.Device"
+# logoFile="orefarmingdevice_logo.png"
 credits="Iunius118"
 authors="Iunius118"
-description="Adds furnaces to farm ores"
+description="Adds devices for farming ores"
 
-[[dependencies.orefarmingfurnace]]
+[[dependencies.orefarmingdevice]]
     modId="forge"
     mandatory=true
     versionRange="[36,)"
     ordering="NONE"
     side="BOTH"
-[[dependencies.orefarmingfurnace]]
+[[dependencies.orefarmingdevice]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.16.5,1.17)"

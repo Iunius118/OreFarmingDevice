@@ -1,7 +1,7 @@
-package com.github.iunius118.orefarmingfurnace.world.level.block;
+package com.github.iunius118.orefarmingdevice.world.level.block;
 
-import com.github.iunius118.orefarmingfurnace.world.level.block.entity.OFFDeviceBlockEntity;
-import com.github.iunius118.orefarmingfurnace.world.level.block.entity.OFFDeviceType;
+import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceBlockEntity;
+import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
@@ -18,17 +18,17 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class OFFDeviceBlock extends AbstractFurnaceBlock {
-    public final OFFDeviceType type;
+public class OFDeviceBlock extends AbstractFurnaceBlock {
+    public final OFDeviceType type;
 
-    protected OFFDeviceBlock(Properties properties, OFFDeviceType offDeviceType) {
+    protected OFDeviceBlock(Properties properties, OFDeviceType offDeviceType) {
         super(properties);
         type = offDeviceType;
     }
     @Nullable
     @Override
     public TileEntity newBlockEntity(IBlockReader blockReader) {
-        return new OFFDeviceBlockEntity(type);
+        return new OFDeviceBlockEntity(type);
     }
 
 
@@ -41,7 +41,7 @@ public class OFFDeviceBlock extends AbstractFurnaceBlock {
     public void setPlacedBy(World level, BlockPos pos, BlockState state, @Nullable LivingEntity entity, ItemStack stack) {
         if (stack.hasCustomHoverName()) {
             TileEntity tileentity = level.getBlockEntity(pos);
-            if (tileentity instanceof OFFDeviceBlockEntity) {
+            if (tileentity instanceof OFDeviceBlockEntity) {
                 ((AbstractFurnaceTileEntity)tileentity).setCustomName(stack.getHoverName());
             }
         }
@@ -51,10 +51,10 @@ public class OFFDeviceBlock extends AbstractFurnaceBlock {
     public void onRemove(BlockState state, World level, BlockPos pos, BlockState oldState, boolean p_196243_5_) {
         if (!state.is(oldState.getBlock())) {
             TileEntity tileentity = level.getBlockEntity(pos);
-            if (tileentity instanceof OFFDeviceBlockEntity) {
-                OFFDeviceBlockEntity offDeviceBlockEntity = (OFFDeviceBlockEntity) tileentity;
-                InventoryHelper.dropContents(level, pos, offDeviceBlockEntity);
-                offDeviceBlockEntity.getRecipesToAwardAndPopExperience(level, Vector3d.atCenterOf(pos));
+            if (tileentity instanceof OFDeviceBlockEntity) {
+                OFDeviceBlockEntity ofDeviceBlockEntity = (OFDeviceBlockEntity) tileentity;
+                InventoryHelper.dropContents(level, pos, ofDeviceBlockEntity);
+                ofDeviceBlockEntity.getRecipesToAwardAndPopExperience(level, Vector3d.atCenterOf(pos));
                 level.updateNeighbourForOutputSignal(pos, this);
             }
 

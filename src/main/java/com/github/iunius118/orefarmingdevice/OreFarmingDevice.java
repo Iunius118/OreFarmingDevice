@@ -1,20 +1,20 @@
-package com.github.iunius118.orefarmingfurnace;
+package com.github.iunius118.orefarmingdevice;
 
-import com.github.iunius118.orefarmingfurnace.common.RegistryEventHandler;
+import com.github.iunius118.orefarmingdevice.common.RegistryEventHandler;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(OreFarmingFurnace.MOD_ID)
-public class OreFarmingFurnace {
-    public static final String MOD_ID = "orefarmingfurnace";
-    public static final String MOD_NAME = "Ore Farming Furnace";
+@Mod(OreFarmingDevice.MOD_ID)
+public class OreFarmingDevice {
+    public static final String MOD_ID = "orefarmingdevice";
+    public static final String MOD_NAME = "O.F.Device";
 
     public static final Logger LOGGER = LogManager.getLogger();
 
-    public OreFarmingFurnace() {
+    public OreFarmingDevice() {
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         // Register event handlers

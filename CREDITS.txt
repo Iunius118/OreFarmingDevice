@@ -1,5 +1,5 @@
 # Credits
 ## Author
-Ore Farming Furnace
+O.F.Device
 Copyright (c) 2021 Iunius118
-https://github.com/Iunius118/OreFarmingFurnace
+https://github.com/Iunius118/O.F.Device
