@@ -5,7 +5,7 @@
 ### OF Devices (ＯＦ装置)
 
 - Fuel: Same as Furnace
-- Energy: Max 72000 units (same as fuel's burning time in ticks)
+- Energy: Same as fuel's burning time in ticks
 - Smelting costs: 10 seconds and 200 units of energy
 
 #### OF Device Mk I (ＯＦ１号装置)
@@ -32,7 +32,7 @@
 
 ### OF Pickaxe (ＯＦツルハシ)
 
-- Energy: Max 2400
+- Energy: Max 2560
 - Recharging: Using energy of OF Device
 - Recharging rate: 1 unit of pickaxe energy every 10 units of device energy
 - Loot table of by‐products
