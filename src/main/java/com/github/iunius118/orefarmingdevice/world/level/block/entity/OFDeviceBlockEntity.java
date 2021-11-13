@@ -1,5 +1,6 @@
 package com.github.iunius118.orefarmingdevice.world.level.block.entity;
 
+import com.github.iunius118.orefarmingdevice.inventory.OFDeviceContainer;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.crafting.IRecipeType;
@@ -24,7 +25,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceTileEntity {
     }
 
     @Override
-    protected Container createMenu(int containerId, PlayerInventory inventory) {
-        return null;
+    protected Container createMenu(int containerId, PlayerInventory playerInventory) {
+        return new OFDeviceContainer(containerId, playerInventory, this, dataAccess);
     }
 }
