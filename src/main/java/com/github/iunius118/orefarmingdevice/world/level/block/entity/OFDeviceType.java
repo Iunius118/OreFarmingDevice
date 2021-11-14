@@ -4,9 +4,9 @@ import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
 import net.minecraft.util.ResourceLocation;
 
 public enum OFDeviceType {
-    MK_1("device_mk_1"),
-    MK_2("device_mk_2"),
-    MK_3("device_mk_3"),
+    MOD_0("device_0"),
+    MOD_1("device_1"),
+    MOD_2("device_2"),
     ;
 
     private final String name;

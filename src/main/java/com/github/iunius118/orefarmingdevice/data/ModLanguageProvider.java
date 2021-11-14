@@ -30,9 +30,9 @@ public class ModLanguageProvider {
             // Blocks
 
             // Container titles
-            add(OFDeviceType.MK_1.getContainerTranslationKey(), "OF Device Mk I");
-            add(OFDeviceType.MK_2.getContainerTranslationKey(), "OF Device Mk II");
-            add(OFDeviceType.MK_3.getContainerTranslationKey(), "OF Device Mk III");
+            add(OFDeviceType.MOD_0.getContainerTranslationKey(), "OF Device");
+            add(OFDeviceType.MOD_1.getContainerTranslationKey(), "OF Device Mod 1");
+            add(OFDeviceType.MOD_2.getContainerTranslationKey(), "OF Device Mod 2");
         }
 
         @Override
@@ -56,9 +56,9 @@ public class ModLanguageProvider {
             // Blocks
 
             // Container titles
-            add(OFDeviceType.MK_1.getContainerTranslationKey(), "ＯＦ１号装置");
-            add(OFDeviceType.MK_2.getContainerTranslationKey(), "ＯＦ２号装置");
-            add(OFDeviceType.MK_3.getContainerTranslationKey(), "ＯＦ３号装置");
+            add(OFDeviceType.MOD_0.getContainerTranslationKey(), "ヨ金物");
+            add(OFDeviceType.MOD_1.getContainerTranslationKey(), "ヨ金物改");
+            add(OFDeviceType.MOD_2.getContainerTranslationKey(), "ヨ金物改二");
         }
     }
 }
