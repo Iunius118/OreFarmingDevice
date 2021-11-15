@@ -43,6 +43,6 @@ public class OFDeviceScreen extends ContainerScreen<OFDeviceContainer> {
 
         // Render smelting progress bar
         int l = this.menu.getBurnProgress();
-        this.blit(matrixStack, leftPos + 109, topPos + 35, 176, 14, 16, l + 1);
+        this.blit(matrixStack, leftPos + 108, topPos + 35, 176, 30, 16, l + 1);
     }
 }
