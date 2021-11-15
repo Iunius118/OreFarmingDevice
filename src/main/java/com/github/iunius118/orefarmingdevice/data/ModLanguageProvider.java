@@ -1,64 +1,58 @@
 package com.github.iunius118.orefarmingdevice.data;
 
 import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
+import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 
-public class ModLanguageProvider {
+public class ModLanguageProvider extends LanguageProvider {
+    public final TranslatedNameProvider translatedNameProvider;
+
+    public ModLanguageProvider(DataGenerator gen, String locale, TranslatedNameProvider translatedNameProvider) {
+        super(gen, OreFarmingDevice.MOD_ID, locale);
+        this.translatedNameProvider = translatedNameProvider;
+    }
+
     public static void addProviders(DataGenerator gen) {
-        gen.addProvider(new ModEnUsLanguageProvider(gen));
-        gen.addProvider(new ModJaJpLanguageProvider(gen));
+        gen.addProvider(new ModLanguageProvider(gen, "en_us", new TranslatedNameProvider()));
+        gen.addProvider(new ModLanguageProvider(gen, "ja_jp", new JaJpNameProvider()));
     }
 
-    public static class ModEnUsLanguageProvider extends LanguageProvider {
-        public ModEnUsLanguageProvider(DataGenerator gen) {
-            super(gen, OreFarmingDevice.MOD_ID, "en_us");
-        }
+    public static class TranslatedNameProvider {
+        public String deviceModZeroName = "OF Device";
+        public String deviceModOneName = "OF Device Mod 1";
+        public String deviceModTwoName = "OF Device Mod 2";
+    }
 
-        public ModEnUsLanguageProvider(DataGenerator gen, String modID, String locale) {
-            super(gen, modID, locale);
-        }
-
-        @Override
-        protected void addTranslations() {
-            // Item groups
-            add("itemGroup." + OreFarmingDevice.MOD_ID, OreFarmingDevice.MOD_NAME);
-
-            // Items
-
-            // Blocks
-
-            // Container titles
-            add(OFDeviceType.MOD_0.getContainerTranslationKey(), "OF Device");
-            add(OFDeviceType.MOD_1.getContainerTranslationKey(), "OF Device Mod 1");
-            add(OFDeviceType.MOD_2.getContainerTranslationKey(), "OF Device Mod 2");
-        }
-
-        @Override
-        public String getName() {
-            return super.getName() + ": " +  OreFarmingDevice.MOD_NAME;
+    public static class JaJpNameProvider extends TranslatedNameProvider {
+        private JaJpNameProvider() {
+            deviceModZeroName = "ＯＦ装置";
+            deviceModOneName = "ＯＦ装置改";
+            deviceModTwoName = "ＯＦ装置改二";
         }
     }
 
-    public static class ModJaJpLanguageProvider extends ModEnUsLanguageProvider {
-        public ModJaJpLanguageProvider(DataGenerator gen) {
-            super(gen,  OreFarmingDevice.MOD_ID, "ja_jp");
-        }
+    @Override
+    protected void addTranslations() {
+        // Item groups
+        add("itemGroup." + OreFarmingDevice.MOD_ID, OreFarmingDevice.MOD_NAME);
 
-        @Override
-        protected void addTranslations() {
-            // Item groups
-            add("itemGroup." + OreFarmingDevice.MOD_ID, OreFarmingDevice.MOD_NAME);
+        // Items
 
-            // Items
+        // Blocks
+        add(ModBlocks.DEVICE_0, translatedNameProvider.deviceModZeroName);
+        add(ModBlocks.DEVICE_1, translatedNameProvider.deviceModOneName);
+        add(ModBlocks.DEVICE_2, translatedNameProvider.deviceModTwoName);
 
-            // Blocks
+        // Container titles
+        add(OFDeviceType.MOD_0.getContainerTranslationKey(), translatedNameProvider.deviceModZeroName);
+        add(OFDeviceType.MOD_1.getContainerTranslationKey(), translatedNameProvider.deviceModOneName);
+        add(OFDeviceType.MOD_2.getContainerTranslationKey(), translatedNameProvider.deviceModTwoName);
+    }
 
-            // Container titles
-            add(OFDeviceType.MOD_0.getContainerTranslationKey(), "ヨ金物");
-            add(OFDeviceType.MOD_1.getContainerTranslationKey(), "ヨ金物改");
-            add(OFDeviceType.MOD_2.getContainerTranslationKey(), "ヨ金物改二");
-        }
+    @Override
+    public String getName() {
+        return super.getName() + ": " +  OreFarmingDevice.MOD_ID;
     }
 }

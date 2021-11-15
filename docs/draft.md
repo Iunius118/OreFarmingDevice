@@ -2,13 +2,13 @@
 
 ## Blocks
 
-### OF Devices (ヨ金物)
+### OF Devices (ＯＦ装置)
 
 - Fuel: Same as Furnace
 - Energy: Same as fuel's burning time in ticks
 - Farming costs: 10 seconds and 200 units of energy
 
-#### OF Device (ヨ金物)
+#### OF Device (ＯＦ装置)
 
 - Loot table of product
   - Cobblestone -> Stone, Coal Ore, Copper Ore, Iron Ore, Lapis Lazuli Ore
@@ -17,7 +17,7 @@
   - Cobbled Deepslate -> Deepslate, Deepslate Coal Ore, Deepslate Copper Ore, Deepslate Iron Ore, Deepslate Lapis Lazuli Ore
     - Any Y: Deepslate (91.6%), Deepslate Coal Ore (5%), Deepslate Iron Ore (3%), Deepslate Lapis Lazuli Ore (0.4%)
 
-#### OF Device Mod 1 (ヨ金物改)
+#### OF Device Mod 1 (ＯＦ装置改)
 
 - Loot table of product
   - Cobblestone -> Mk I result, Gold Ore, Redstone Ore, Diamond Ore
@@ -27,7 +27,7 @@
     - Any Y: Deepslate (86.5%), Deepslate Coal Ore (5%), Deepslate Redstone Ore (4%), Deepslate Iron Ore (3%), Deepslate Gold Ore (0.6%), Deepslate Diamond Ore (0.5%), Deepslate Lapis Lazuli Ore (0.4%)
   - Netherrack -> Nether Brick, Nether Quartz Ore, Nether Gold Ore
 
-#### OF Device Mod 2 (ヨ金物改二)
+#### OF Device Mod 2 (ＯＦ装置改二)
 
 - Loot table of product
   - Cobblestone -> Mk II result, Emerald Ore
@@ -39,7 +39,7 @@
 
 ## Item
 
-### OF Pickaxe (ヨ号ツルハシ)
+### OF Pickaxe (ＯＦツルハシ)
 
 - Energy: Max 2560
 - Recharging: Using energy of OF Device
