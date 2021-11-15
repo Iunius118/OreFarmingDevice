@@ -9,7 +9,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.AbstractFurnaceTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
@@ -21,8 +20,9 @@ import javax.annotation.Nullable;
 public class OFDeviceBlock extends AbstractFurnaceBlock {
     public final OFDeviceType type;
 
-    protected OFDeviceBlock(Properties properties, OFDeviceType offDeviceType) {
+    public OFDeviceBlock(Properties properties, OFDeviceType offDeviceType) {
         super(properties);
+        registerDefaultState(this.stateDefinition.any().setValue(LIT, Boolean.FALSE));
         type = offDeviceType;
     }
     @Nullable
@@ -34,7 +34,10 @@ public class OFDeviceBlock extends AbstractFurnaceBlock {
 
     @Override
     protected void openContainer(World level, BlockPos pos, PlayerEntity player) {
-
+        TileEntity tileentity = level.getBlockEntity(pos);
+        if (tileentity instanceof OFDeviceBlockEntity) {
+            player.openMenu((OFDeviceBlockEntity) tileentity);
+        }
     }
 
     @Override
@@ -42,7 +45,7 @@ public class OFDeviceBlock extends AbstractFurnaceBlock {
         if (stack.hasCustomHoverName()) {
             TileEntity tileentity = level.getBlockEntity(pos);
             if (tileentity instanceof OFDeviceBlockEntity) {
-                ((AbstractFurnaceTileEntity)tileentity).setCustomName(stack.getHoverName());
+                ((OFDeviceBlockEntity)tileentity).setCustomName(stack.getHoverName());
             }
         }
     }
@@ -63,7 +66,7 @@ public class OFDeviceBlock extends AbstractFurnaceBlock {
     }
 
     @Override
-    public BlockRenderType getRenderShape(BlockState p_149645_1_) {
+    public BlockRenderType getRenderShape(BlockState state) {
         return BlockRenderType.MODEL;
     }
 }
