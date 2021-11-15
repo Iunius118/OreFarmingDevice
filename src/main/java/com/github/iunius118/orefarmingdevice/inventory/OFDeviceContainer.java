@@ -5,7 +5,6 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.inventory.container.FurnaceResultSlot;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
@@ -27,7 +26,7 @@ public class OFDeviceContainer extends Container {
     }
 
     public OFDeviceContainer(int containerCounter, PlayerInventory playerInventory, IInventory inventory, IIntArray dataAccess) {
-        super(ContainerType.FURNACE, containerCounter);
+        super(ModContainerTypes.DEVICE, containerCounter);
         this.container = inventory;
         this.data = dataAccess;
         this.level = playerInventory.player.level;
