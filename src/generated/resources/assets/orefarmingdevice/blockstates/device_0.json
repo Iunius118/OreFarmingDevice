@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "orefarmingdevice:block/device_0"
+    },
+    "lit=true": {
+      "model": "orefarmingdevice:block/device_0_on"
+    }
+  }
+}
