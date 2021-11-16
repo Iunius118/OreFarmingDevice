@@ -17,28 +17,28 @@
 **Table 1:** Cobblestone (device y > 32)
 
 | Block | Probability (%) |
-| :--- | ---: |
-| Stone | 92 |
-| Coal Ore | 5 |
-| Iron Ore | 3 |
+| --- | ---: |
+| Stone | 92.00 |
+| Coal Ore | 5.00 |
+| Iron Ore | 3.00 |
 
 **Table 2:** Cobblestone (device y ≤ 32)
 
 | Block | Probability (%) |
-| :--- | ---: |
-| Stone | 91.6 |
-| Coal Ore | 5 |
-| Iron Ore | 3 |
-| Lapis Lazuli Ore | 0.4 |
+| --- | ---: |
+| Stone | 91.60 |
+| Coal Ore | 5.00 |
+| Iron Ore | 3.00 |
+| Lapis Lazuli Ore | 0.40 |
 
 **Table 3:** [1.17+] Cobbled Deepslate (any device y)
 
 | Block | Probability (%) |
-| :--- | ---: |
-| Deepslate | 91.6 |
-| Deepslate Coal Ore | 5 |
-| Deepslate Iron Ore | 3 |
-| Deepslate Lapis Lazuli Ore | 0.4 |
+| --- | ---: |
+| Deepslate | 91.60 |
+| Deepslate Coal Ore | 5.00 |
+| Deepslate Iron Ore | 3.00 |
+| Deepslate Lapis Lazuli Ore | 0.40 |
 
 #### OF Device Mod 1 (ＯＦ装置改)
 
@@ -50,42 +50,42 @@
 **Table 4:** Cobblestone (device y > 32)
 
 | Block | Probability (%) |
-| :--- | ---: |
-| Stone | 92 |
-| Coal Ore | 5 |
-| Iron Ore | 3 |
+| --- | ---: |
+| Stone | 92.00 |
+| Coal Ore | 5.00 |
+| Iron Ore | 3.00 |
 
 **Table 5:** Cobblestone (device y ≤ 32)
 
 | Block | Probability (%) |
-| :--- | ---: |
-| Stone | 86.5 |
-| Coal Ore | 5 |
-| Redstone Ore | 4 |
-| Iron Ore | 3 |
-| Gold Ore | 0.6 |
-| Diamond Ore | 0.5 |
-| Lapis Lazuli Ore | 0.4 |
+| --- | ---: |
+| Stone | 86.50 |
+| Coal Ore | 5.00 |
+| Redstone Ore | 4.00 |
+| Iron Ore | 3.00 |
+| Gold Ore | 0.60 |
+| Diamond Ore | 0.50 |
+| Lapis Lazuli Ore | 0.40 |
 
 **Table 6:** [1.17+] Cobbled Deepslate (any device y)
 
 | Block | Probability (%) |
-| :--- | ---: |
-| Deepslate | 86.5 |
-| Deepslate Coal Ore | 5 |
-| Deepslate Redstone Ore | 4 |
-| Deepslate Iron Ore | 3 |
-| Deepslate Gold Ore | 0.6 |
-| Deepslate Diamond Ore | 0.5 |
-| Deepslate Lapis Lazuli Ore | 0.4 |
+| --- | ---: |
+| Deepslate | 86.50 |
+| Deepslate Coal Ore | 5.00 |
+| Deepslate Redstone Ore | 4.00 |
+| Deepslate Iron Ore | 3.00 |
+| Deepslate Gold Ore | 0.60 |
+| Deepslate Diamond Ore | 0.50 |
+| Deepslate Lapis Lazuli Ore | 0.40 |
 
 **Table 7:** Netherrack (any device y)
 
 | Block | Probability (%) |
-| :--- | ---: |
-| Nether Brick | 96 |
-| Nether Quartz Ore | 3 |
-| Nether Gold Ore | 1 |
+| --- | ---: |
+| Nether Brick | 96.00 |
+| Nether Quartz Ore | 3.00 |
+| Nether Gold Ore | 1.00 |
 
 #### OF Device Mod 2 (ＯＦ装置改二)
 
@@ -97,55 +97,55 @@
 **Table 8:** Cobblestone (device y > 32)
 
 | Block | Probability (%) |
-| :--- | ---: |
-| Stone | 91 |
-| Coal Ore | 5 |
-| Iron Ore | 3 |
-| Gold Ore | 1 |
+| --- | ---: |
+| Stone | 91.00 |
+| Coal Ore | 5.00 |
+| Iron Ore | 3.00 |
+| Gold Ore | 1.00 |
 
 **Table 9:** Cobblestone (device y ≤ 32)
 
 | Block | Probability (%) |
-| :--- | ---: |
-| Stone | 86.4 |
-| Coal Ore | 5 |
-| Redstone Ore | 4 |
-| Iron Ore | 3 |
-| Gold Ore | 0.6 |
-| Diamond Ore | 0.5 |
-| Lapis Lazuli Ore | 0.4 |
-| Emerald Ore | 0.1 |
+| --- | ---: |
+| Stone | 86.40 |
+| Coal Ore | 5.00 |
+| Redstone Ore | 4.00 |
+| Iron Ore | 3.00 |
+| Gold Ore | 0.60 |
+| Diamond Ore | 0.50 |
+| Lapis Lazuli Ore | 0.40 |
+| Emerald Ore | 0.10 |
 
 **Table 10:** [1.17+] Deepslate (any device y)
 
 | Block | Probability (%) |
-| :--- | ---: |
-| Deepslate | 86.4 |
-| Deepslate Coal Ore | 5 |
-| Deepslate Redstone Ore | 4 |
-| Deepslate Iron Ore | 3 |
-| Deepslate Gold Ore | 0.6 |
-| Deepslate Diamond Ore | 0.5 |
-| Deepslate Lapis Lazuli Ore | 0.4 |
-| Deepslate Emerald Ore | 0.1 |
+| --- | ---: |
+| Deepslate | 86.40 |
+| Deepslate Coal Ore | 5.00 |
+| Deepslate Redstone Ore | 4.00 |
+| Deepslate Iron Ore | 3.00 |
+| Deepslate Gold Ore | 0.60 |
+| Deepslate Diamond Ore | 0.50 |
+| Deepslate Lapis Lazuli Ore | 0.40 |
+| Deepslate Emerald Ore | 0.10 |
 
 **Table 11:** Netherrack (device y > 32)
 
 | Block | Probability (%) |
-| :--- | ---: |
+| --- | ---: |
 | Nether Brick | 95.97 |
-| Nether Quartz Ore | 3 |
-| Nether Gold Ore | 1 |
+| Nether Quartz Ore | 3.00 |
+| Nether Gold Ore | 1.00 |
 | Ancient Debris | 0.03 |
 
 **Table 12:** Netherrack (device y ≤ 32)
 
 | Block | Probability (%) |
-| :--- | ---: |
-| Nether Brick | 95.9 |
-| Nether Quartz Ore | 3 |
-| Nether Gold Ore | 1 |
-| Ancient Debris | 0.1 |
+| --- | ---: |
+| Nether Brick | 95.90 |
+| Nether Quartz Ore | 3.00 |
+| Nether Gold Ore | 1.00 |
+| Ancient Debris | 0.10 |
 
 ## Item
 
