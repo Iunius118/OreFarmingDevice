@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "orefarmingdevice:device_2"
+    ]
+  },
+  "criteria": {
+    "has_device_1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "orefarmingdevice:device_1"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "orefarmingdevice:device_2"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_device_1",
+      "has_the_recipe"
+    ]
+  ]
+}
