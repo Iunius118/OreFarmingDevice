@@ -1,8 +1,6 @@
 package com.github.iunius118.orefarmingdevice.common;
 
-import com.github.iunius118.orefarmingdevice.data.ModBlockStateProvider;
-import com.github.iunius118.orefarmingdevice.data.ModItemModelProvider;
-import com.github.iunius118.orefarmingdevice.data.ModLanguageProvider;
+import com.github.iunius118.orefarmingdevice.data.*;
 import com.github.iunius118.orefarmingdevice.inventory.OFDeviceContainer;
 import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import com.github.iunius118.orefarmingdevice.world.level.block.OFDeviceBlock;
@@ -73,7 +71,8 @@ public class RegistryEventHandler {
         ForgeBlockTagsProvider blockTagsProvider = new ForgeBlockTagsProvider(dataGenerator, existingFileHelper);
 
         if (event.includeServer()) {
-
+            dataGenerator.addProvider(new ModLootTableProvider(dataGenerator));
+            dataGenerator.addProvider(new ModRecipeProvider(dataGenerator));
         }
 
         if (event.includeClient()) {
