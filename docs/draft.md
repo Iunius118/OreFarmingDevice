@@ -10,6 +10,8 @@
 
 #### OF Device (ＯＦ装置)
 
+- Recipe
+  - Crafting Table (# = Stone, F = Furnace, P = Piston, x = Stone Pickaxe): <br/># F # <br/># P # <br /># x #
 - Loot table of product
   - Cobblestone -> Stone, Coal Ore, Copper Ore, Iron Ore, Lapis Lazuli Ore
   - Cobbled Deepslate -> Deepslate, Deepslate Coal Ore, Deepslate Copper Ore, Deepslate Iron Ore, Deepslate Lapis Lazuli Ore
@@ -42,6 +44,8 @@
 
 #### OF Device Mod 1 (ＯＦ装置改)
 
+- Recipe
+  - Smithing Table: OF Device + Iron Pickaxe
 - Loot table of product
   - Cobblestone -> Mk I result, Gold Ore, Redstone Ore, Diamond Ore
   - Cobbled Deepslate -> Mk I result, Deepslate Gold Ore, Deepslate Redstone Ore, Deepslate Diamond Ore
@@ -89,6 +93,8 @@
 
 #### OF Device Mod 2 (ＯＦ装置改二)
 
+- Recipe
+  - Smithing Table: OF Device Mod 1 + Diamond Pickaxe
 - Loot table of product
   - Cobblestone -> Mk II result, Emerald Ore
   - Cobbled Deepslate -> Mk II result, Deepslate Emerald Ore
