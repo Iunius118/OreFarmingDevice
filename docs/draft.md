@@ -26,16 +26,19 @@
   - Cobbled Deepslate -> Mk I result, Deepslate Gold Ore, Deepslate Redstone Ore, Deepslate Diamond Ore
     - Any Y: Deepslate (86.5%), Deepslate Coal Ore (5%), Deepslate Redstone Ore (4%), Deepslate Iron Ore (3%), Deepslate Gold Ore (0.6%), Deepslate Diamond Ore (0.5%), Deepslate Lapis Lazuli Ore (0.4%)
   - Netherrack -> Nether Brick, Nether Quartz Ore, Nether Gold Ore
+    - Any Y: Nether Brick (96%), Nether Quartz Ore (3%), Nether Gold Ore (1%)
 
 #### OF Device Mod 2 (ＯＦ装置改二)
 
 - Loot table of product
   - Cobblestone -> Mk II result, Emerald Ore
-    - Y > 32: Stone (92%), Coal Ore (5%), Iron Ore (3%)
+    - Y > 32: Stone (91%), Coal Ore (5%), Iron Ore (3%), Gold Ore (1%)
     - 32 >= Y: Stone (86.4%), Coal Ore (5%), Redstone Ore (4%), Iron Ore (3%), Gold Ore (0.6%), Diamond Ore (0.5%), Lapis Lazuli Ore (0.4%), Emerald Ore (0.1%)
   - Cobbled Deepslate -> Mk II result, Deepslate Emerald Ore
     - Any Y: Deepslate (86.4%), Deepslate Coal Ore (5%),Deepslate  Redstone Ore (4%), Deepslate Iron Ore (3%), Deepslate Gold Ore (0.6%), Deepslate Diamond Ore (0.5%), Deepslate Lapis Lazuli Ore (0.4%), Deepslate Emerald Ore (0.1%)
   - Netherrack -> Mk II result, Ancient Debris
+    - Y > 32: Nether Brick (95.97%), Nether Quartz Ore (3%), Nether Gold Ore (1%), Ancient Debris (0.03%)
+    - 32 >= Y: Nether Brick (95.9%), Nether Quartz Ore (3%), Nether Gold Ore (1%), Ancient Debris (0.1%)
 
 ## Item
 
