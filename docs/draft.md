@@ -134,7 +134,7 @@
 
 | Block | Probability (%) |
 | --- | ---: |
-| Stone | 87.30 |
+| Stone | 87.20 |
 | Coal Ore | 5.00 |
 | Iron Ore | 3.00 |
 | Redstone Ore | 2.00 |
@@ -142,6 +142,7 @@
 | Gold Ore | 1.00 |
 | Lapis Lazuli Ore | 0.40 |
 | Diamond Ore | 0.30 |
+| Emerald Ore | 0.10 |
 
 **Table 11:** [1.17+] Cobbled Deepslate (OF Device Mod 2)
 
@@ -157,7 +158,7 @@
 | Deepslate Lapis Lazuli Ore | 0.40 |
 | Deepslate Emerald Ore | 0.10 |
 
-**Table 18:** Netherrack (OF Device Mod 2)
+**Table 12:** Netherrack (OF Device Mod 2)
 
 | Block | Probability (%) |
 | --- | ---: |
