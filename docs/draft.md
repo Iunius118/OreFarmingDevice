@@ -130,7 +130,7 @@
 | Diamond Ore | 0.30 |
 | Emerald Ore | 0.10 |
 
-**Table 10:** [1.17+] Cobblestone (OF Device Mod 1)
+**Table 10:** [1.17+] Cobblestone (OF Device Mod 2)
 
 | Block | Probability (%) |
 | --- | ---: |
