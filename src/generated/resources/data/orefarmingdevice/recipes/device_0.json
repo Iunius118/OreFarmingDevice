@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "#F#",
-    "#P#",
-    "#x#"
+    "#L#",
+    "ixi"
   ],
   "key": {
     "#": {
@@ -12,8 +12,11 @@
     "F": {
       "item": "minecraft:furnace"
     },
-    "P": {
-      "item": "minecraft:piston"
+    "L": {
+      "item": "minecraft:lever"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
     },
     "x": {
       "item": "minecraft:stone_pickaxe"

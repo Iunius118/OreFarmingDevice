@@ -20,11 +20,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
         ShapedRecipeBuilder.shaped(ModBlocks.DEVICE_0)
                 .pattern("#F#")
-                .pattern("#P#")
-                .pattern("#x#")
+                .pattern("#L#")
+                .pattern("ixi")
                 .define('#', Blocks.STONE)
                 .define('F', Blocks.FURNACE)
-                .define('P', Blocks.PISTON)
+                .define('L', Blocks.LEVER)
+                .define('i', Items.IRON_INGOT)
                 .define('x', Items.STONE_PICKAXE)
                 .unlockedBy("has_furnace", has(Blocks.FURNACE)).save(consumer);
 

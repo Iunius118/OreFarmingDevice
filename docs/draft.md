@@ -11,7 +11,7 @@
 #### OF Device (ＯＦ装置)
 
 - Recipe
-  - Crafting Table (# = Stone, F = Furnace, P = Piston, x = Stone Pickaxe): <br/># F # <br/># P # <br /># x #
+  - Crafting Table: <br/># F # <br/># L # <br />i x i <br />(# = Stone, F = Furnace, L = Lever, i = Iron Ingot, x = Stone Pickaxe)
 - Loot table of product
   - Cobblestone -> Stone, Coal Ore, Copper Ore, Iron Ore, Lapis Lazuli Ore
   - Cobbled Deepslate -> Deepslate, Deepslate Coal Ore, Deepslate Copper Ore, Deepslate Iron Ore, Deepslate Lapis Lazuli Ore
