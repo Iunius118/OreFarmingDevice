@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:gift",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 96,
+          "name": "minecraft:nether_brick"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "minecraft:nether_quartz_ore"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:nether_gold_ore"
+        }
+      ]
+    }
+  ]
+}

@@ -16,7 +16,7 @@
   - Cobblestone -> Stone, Coal Ore, Copper Ore, Iron Ore, Lapis Lazuli Ore
   - Cobbled Deepslate -> Deepslate, Deepslate Coal Ore, Deepslate Copper Ore, Deepslate Iron Ore, Deepslate Lapis Lazuli Ore
 
-**Table 1:** Cobblestone
+**Table 1:** Cobblestone (OF Device)
 
 | Block | Probability (%) |
 | --- | ---: |
@@ -25,7 +25,7 @@
 | Iron Ore | 3.00 |
 | Lapis Lazuli Ore | 0.40 |
 
-**Table 2:** [1.17+] Cobbled Deepslate
+**Table 2:** [1.17+] Cobbled Deepslate (OF Device)
 
 | Block | Probability (%) |
 | --- | ---: |
@@ -34,7 +34,7 @@
 | Deepslate Iron Ore | 3.00 |
 | Deepslate Lapis Lazuli Ore | 0.40 |
 
-**Table 3:** Netherrack
+**Table 3:** Netherrack (OF Device)
 
 | Block | Probability (%) |
 | --- | ---: |
@@ -51,7 +51,7 @@
   - Cobbled Deepslate -> Mk I result, Deepslate Gold Ore, Deepslate Redstone Ore, Deepslate Diamond Ore
   - Netherrack -> Nether Brick, Nether Quartz Ore, Nether Gold Ore
 
-**Table 4:** Cobblestone
+**Table 4:** Cobblestone (OF Device Mod 1)
 
 | Block | Probability (%) |
 | --- | ---: |
@@ -63,7 +63,7 @@
 | Lapis Lazuli Ore | 0.40 |
 | Diamond Ore | 0.30 |
 
-**Table 5:** [1.17+] Cobbled Deepslate
+**Table 5:** [1.17+] Cobbled Deepslate (OF Device Mod 1)
 
 | Block | Probability (%) |
 | --- | ---: |
@@ -75,7 +75,7 @@
 | Deepslate Diamond Ore | 0.50 |
 | Deepslate Lapis Lazuli Ore | 0.40 |
 
-**Table 6:** Netherrack
+**Table 6:** Netherrack (OF Device Mod 1)
 
 | Block | Probability (%) |
 | --- | ---: |
@@ -92,7 +92,7 @@
   - Cobbled Deepslate -> Mk II result, Deepslate Emerald Ore
   - Netherrack -> Mk II result, Ancient Debris
 
-**Table 7:** Cobblestone
+**Table 7:** Cobblestone (OF Device Mod 2)
 
 | Block | Probability (%) |
 | --- | ---: |
@@ -105,7 +105,7 @@
 | Diamond Ore | 0.30 |
 | Emerald Ore | 0.10 |
 
-**Table 8:** [1.17+] Deepslate
+**Table 8:** [1.17+] Cobbled Deepslate (OF Device Mod 2)
 
 | Block | Probability (%) |
 | --- | ---: |
@@ -118,7 +118,7 @@
 | Deepslate Lapis Lazuli Ore | 0.40 |
 | Deepslate Emerald Ore | 0.10 |
 
-**Table 9:** Netherrack
+**Table 9:** Netherrack (OF Device Mod 2)
 
 | Block | Probability (%) |
 | --- | ---: |
