@@ -10,7 +10,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.LootTableProvider;
 import net.minecraft.data.loot.BlockLootTables;
-import net.minecraft.data.loot.GiftLootTables;
 import net.minecraft.item.Items;
 import net.minecraft.loot.*;
 import net.minecraft.util.ResourceLocation;
@@ -31,7 +30,7 @@ public class ModLootTableProvider extends LootTableProvider {
     protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootParameterSet>> getTables() {
         return ImmutableList.of(
                 Pair.of(ModBlockLootTables::new, LootParameterSets.BLOCK),
-                Pair.of(ModGiftLootTables::new, LootParameterSets.GIFT)
+                Pair.of(ModDeviceLootTables::new, LootParameterSets.EMPTY)
         );
     }
 
@@ -62,7 +61,7 @@ public class ModLootTableProvider extends LootTableProvider {
         }
     }
 
-    private static class ModGiftLootTables extends GiftLootTables {
+    private static class ModDeviceLootTables implements Consumer<BiConsumer<ResourceLocation, LootTable.Builder>> {
         @Override
         public void accept(BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
             // OF Device
