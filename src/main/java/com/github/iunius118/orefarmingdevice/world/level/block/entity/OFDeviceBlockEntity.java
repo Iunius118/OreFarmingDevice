@@ -1,13 +1,26 @@
 package com.github.iunius118.orefarmingdevice.world.level.block.entity;
 
 import com.github.iunius118.orefarmingdevice.inventory.OFDeviceContainer;
+import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
+import net.minecraft.block.AbstractFurnaceBlock;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeType;
+import net.minecraft.loot.LootContext;
+import net.minecraft.loot.LootParameterSets;
+import net.minecraft.loot.LootTable;
 import net.minecraft.tileentity.AbstractFurnaceTileEntity;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.server.ServerWorld;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class OFDeviceBlockEntity extends AbstractFurnaceTileEntity {
     public final OFDeviceType type;
@@ -34,6 +47,117 @@ public class OFDeviceBlockEntity extends AbstractFurnaceTileEntity {
         }
 
         return null;
+    }
+
+    @Override
+    public void tick() {
+        boolean isLitOld = isLit();
+        boolean hasChanged = false;
+
+        if (isLitOld) {
+            --litTime;
+        }
+
+        if (!level.isClientSide) {
+            ItemStack fuelStack = items.get(1);
+            ItemStack materialStack = items.get(0);
+
+            if ((isLit() || !fuelStack.isEmpty()) && !materialStack.isEmpty()) {
+                ModLootTables lootTableID = findLootTable(materialStack);
+                boolean canProcess = canProcess(lootTableID);
+
+                if (!isLit() && canProcess) {
+                    litTime = getBurnDuration(fuelStack);
+                    litDuration = litTime;
+
+                    if (isLit()) {
+                        hasChanged = true;
+
+                        if (fuelStack.hasContainerItem()) {
+                            items.set(1, fuelStack.getContainerItem());
+                        } else if (!fuelStack.isEmpty()) {
+                            fuelStack.shrink(1);
+
+                            if (fuelStack.isEmpty()) {
+                                items.set(1, fuelStack.getContainerItem());
+                            }
+                        }
+                    }
+                }
+
+                if (isLit() && canProcess) {
+                    ++cookingProgress;
+
+                    if (cookingProgress == cookingTotalTime) {
+                        // Cooking is done
+                        cookingProgress = 0;
+                        cookingTotalTime = getTotalCookTime();
+                        process(lootTableID);
+                        hasChanged = true;
+                    }
+                } else {
+                    cookingProgress = 0;
+                }
+            } else if (!isLit() && cookingProgress > 0) {
+                cookingProgress = MathHelper.clamp(cookingProgress - 2, 0, cookingTotalTime);
+            }
+
+            if (isLitOld != isLit()) {
+                hasChanged = true;
+                // Switch block state of lit
+                level.setBlock(worldPosition, level.getBlockState(worldPosition).setValue(AbstractFurnaceBlock.LIT, isLit()), 3);
+            }
+        }
+
+        if (hasChanged) {
+            setChanged();
+        }
+    }
+
+    private boolean isLit() {
+        return this.litTime > 0;
+    }
+
+    private ModLootTables findLootTable(ItemStack stack) {
+        return Arrays.stream(ModLootTables.values()).filter(t -> t.canProcess(type, stack)).findFirst().orElse(null);
+    }
+
+    private boolean canProcess(ModLootTables lootTableID) {
+        return !items.get(0).isEmpty() && lootTableID != null;
+    }
+
+    private void process(ModLootTables lootTableID) {
+        if (!level.isClientSide && canProcess(lootTableID)) {
+            // Server side
+            ItemStack materialStack = this.items.get(0);
+            LootTable lootTable = level.getServer().getLootTables().get(lootTableID.getID());
+            List<ItemStack> items = lootTable.getRandomItems(new LootContext.Builder((ServerWorld) level).withRandom(level.random).create(LootParameterSets.EMPTY));
+            ItemStack productStack = items.size() > 0 ? items.get(0) : ItemStack.EMPTY;
+            insertToProductSlot(productStack);
+            materialStack.shrink(1);
+        }
+    }
+
+    private void insertToProductSlot(ItemStack productStack) {
+        if (productStack.isEmpty()) return;
+
+        ItemStack productSlotStack = this.items.get(2);
+
+        if (productSlotStack.isEmpty()) {
+            this.items.set(2, productStack.copy());
+        } else if (productSlotStack.sameItem(productStack)) {
+            if (productSlotStack.getCount() + productStack.getCount() <= Math.min(getMaxStackSize(), productSlotStack.getMaxStackSize())) {
+                productSlotStack.grow(productStack.getCount());
+            } else {
+                BlockPos pos = getBlockPos();
+                level.addFreshEntity(new ItemEntity(level, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, productSlotStack));
+                this.items.set(2, productStack.copy());
+            }
+        } else {
+            BlockPos pos = getBlockPos();
+            level.addFreshEntity(new ItemEntity(level, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, productSlotStack));
+            this.items.set(2, productStack.copy());
+        }
     }
 
     @Override

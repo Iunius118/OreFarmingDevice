@@ -11,7 +11,6 @@ import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
@@ -57,7 +56,6 @@ public class OFDeviceBlock extends AbstractFurnaceBlock {
             if (tileentity instanceof OFDeviceBlockEntity) {
                 OFDeviceBlockEntity ofDeviceBlockEntity = (OFDeviceBlockEntity) tileentity;
                 InventoryHelper.dropContents(level, pos, ofDeviceBlockEntity);
-                ofDeviceBlockEntity.getRecipesToAwardAndPopExperience(level, Vector3d.atCenterOf(pos));
                 level.updateNeighbourForOutputSignal(pos, this);
             }
 
