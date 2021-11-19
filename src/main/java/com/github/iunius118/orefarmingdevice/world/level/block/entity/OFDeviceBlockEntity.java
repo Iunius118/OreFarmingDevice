@@ -67,10 +67,12 @@ public class OFDeviceBlockEntity extends AbstractFurnaceTileEntity {
                 boolean canProcess = canProcess(lootTableID);
 
                 if (!isLit() && canProcess) {
+                    // Burn new fuel stack
                     litTime = getBurnDuration(fuelStack);
                     litDuration = litTime;
 
                     if (isLit()) {
+                        // Handle fuel
                         hasChanged = true;
 
                         if (fuelStack.hasContainerItem()) {
@@ -86,10 +88,11 @@ public class OFDeviceBlockEntity extends AbstractFurnaceTileEntity {
                 }
 
                 if (isLit() && canProcess) {
+                    // Handle material stack
                     ++cookingProgress;
 
                     if (cookingProgress == cookingTotalTime) {
-                        // Cooking is done
+                        // Process completion
                         cookingProgress = 0;
                         cookingTotalTime = getTotalCookTime();
                         process(lootTableID);
@@ -103,9 +106,9 @@ public class OFDeviceBlockEntity extends AbstractFurnaceTileEntity {
             }
 
             if (isLitOld != isLit()) {
-                hasChanged = true;
-                // Switch block state of lit
+                // Switch on/off LIT of Device block
                 level.setBlock(worldPosition, level.getBlockState(worldPosition).setValue(AbstractFurnaceBlock.LIT, isLit()), 3);
+                hasChanged = true;
             }
         }
 
@@ -149,15 +152,18 @@ public class OFDeviceBlockEntity extends AbstractFurnaceTileEntity {
             if (productSlotStack.getCount() + productStack.getCount() <= Math.min(getMaxStackSize(), productSlotStack.getMaxStackSize())) {
                 productSlotStack.grow(productStack.getCount());
             } else {
-                BlockPos pos = getBlockPos();
-                level.addFreshEntity(new ItemEntity(level, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, productSlotStack));
-                this.items.set(2, productStack.copy());
+                replaceProductStack(productStack.copy());
             }
         } else {
-            BlockPos pos = getBlockPos();
-            level.addFreshEntity(new ItemEntity(level, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, productSlotStack));
-            this.items.set(2, productStack.copy());
+            replaceProductStack(productStack.copy());
         }
+    }
+
+    private void replaceProductStack(ItemStack newStack) {
+        BlockPos pos = getBlockPos();
+        ItemStack productSlotStack = this.items.get(2);
+        level.addFreshEntity(new ItemEntity(level, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, productSlotStack));
+        this.items.set(2, newStack);
     }
 
     @Override
