@@ -24,7 +24,7 @@ O.F.Device is a Minecraft mod to add devices for farming ores.
 
 If the output slot is full during operation, the products are ejected out of the block. Hopper can be used to push materials and fuel into device, and to pull products from device.
 
-ホッパーを上面・側面・下面（それぞれ材料搬入・燃料搬入・生成物搬出）へ接続可能。特に生成物スロットのアイテムは自動的に装置外へ排出されることがあるので下面への設置を強く推奨。
+装置の上面・側面・下面にはホッパーが接続可能（それぞれ材料搬入・燃料搬入・生成物搬出）。特に生成物スロットのアイテムは自動的に装置外へ排出されることがあるので、下面への設置を強く推奨。
 
 #### Products
 
