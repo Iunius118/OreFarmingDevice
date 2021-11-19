@@ -12,7 +12,7 @@ O.F.Device v1.16.5-0.1.0
 - Make Nether Bricks or Nether Ores from Netherrack
 - Products made from Netherrack: Nether Brick, Nether Quartz Ore, Nether Gold Ore
 - Require fuel to work
-- Put fuel in the left slot on the GUI and material in the upper right slot
+- Put materials in the upper right slot and fuel in the left slot on the GUI
 - Products will be output to the bottom right slot on the GUI
 - If the output slot is full during operation, the products are ejected out of the block
 - Hopper can be used to push materials and fuel into device, and to pull products from device
