@@ -15,6 +15,7 @@
 - Loot table of product
   - Cobblestone -> Stone, Coal Ore, Copper Ore, Iron Ore, Lapis Lazuli Ore
   - Cobbled Deepslate -> Deepslate, Deepslate Coal Ore, Deepslate Copper Ore, Deepslate Iron Ore, Deepslate Lapis Lazuli Ore
+  - Netherrack -> Nether Brick, Nether Quartz Ore, Nether Gold Ore
 
 **Table 1:** Cobblestone (OF Device)
 
