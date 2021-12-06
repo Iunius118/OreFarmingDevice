@@ -13,46 +13,37 @@
 - Recipe
   - Crafting Table: <br/>` # F # ` <br/>` # L # ` <br />` i x i ` <br />(# = Stone, F = Furnace, L = Lever, i = Iron Ingot, x = Stone Pickaxe)
 - Loot table of product
-  - Cobblestone -> Stone, Coal Ore, Copper Ore, Iron Ore, Lapis Lazuli Ore
-  - Cobbled Deepslate -> Deepslate, Deepslate Coal Ore, Deepslate Copper Ore, Deepslate Iron Ore, Deepslate Lapis Lazuli Ore
+  - Cobblestone -> Stone, Coal Ore, Copper Ore, Lapis Lazuli Ore, Iron Ore
+  - Cobbled Deepslate -> Deepslate, Deepslate Coal Ore, Deepslate Copper Ore, Deepslate Lapis Lazuli Ore, Deepslate Iron Ore
   - Netherrack -> Nether Brick, Nether Quartz Ore, Nether Gold Ore
 
-**Table 1:** Cobblestone (OF Device)
+**Table 1:** Loot Table of Cobblestone by OF Device
 
-| Block | Probability (%) |
+| Block | MC 1.16 | MC 1.17 | MC 1.18 |
+| --- | ---: | ---: | ---: |
+| Stone | 91.60% | 90.60% | 89.20% |
+| Coal Ore | 5.00% | 5.00% | 5.00% |
+| Copper Ore |  | 1.00% | 2.40% |
+| Lapis Lazuli Ore | 0.40% | 0.40% | 0.40% |
+| Iron Ore | 3.00% | 3.00% | 3.00% |
+
+**Table 2:** Loot Table of Cobblestone by Cobbled Deepslate
+
+| Block | MC 1.17 | MC 1.18 |
+| --- | ---: | ---: |
+| Deepslate | 91.00% | 97.60% |
+| Deepslate Coal Ore | 5.00% | 0.30% |
+| Deepslate Copper Ore | 0.60% | 0.60% |
+| Deepslate Lapis Lazuli Ore | 0.40% | 0.40% |
+| Deepslate Iron Ore | 3.00% | 1.10% |
+
+**Table 3:** Loot Table of Cobblestone by Netherrack
+
+| Block | MC 1.16 - 1.18 |
 | --- | ---: |
-| Stone | 91.60 |
-| Coal Ore | 5.00 |
-| Iron Ore | 3.00 |
-| Lapis Lazuli Ore | 0.40 |
-
-**Table 2:** [1.17+] Cobblestone (OF Device)
-
-| Block | Probability (%) |
-| --- | ---: |
-| Stone | 90.60 |
-| Coal Ore | 5.00 |
-| Iron Ore | 3.00 |
-| Copper Ore | 1.00 |
-| Lapis Lazuli Ore | 0.40 |
-
-**Table 3:** [1.17+] Cobbled Deepslate (OF Device)
-
-| Block | Probability (%) |
-| --- | ---: |
-| Deepslate | 91.00 |
-| Deepslate Coal Ore | 5.00 |
-| Deepslate Iron Ore | 3.00 |
-| Deepslate Copper Ore | 0.60 |
-| Deepslate Lapis Lazuli Ore | 0.40 |
-
-**Table 4:** Netherrack (OF Device)
-
-| Block | Probability (%) |
-| --- | ---: |
-| Nether Brick | 96.00 |
-| Nether Quartz Ore | 3.00 |
-| Nether Gold Ore | 1.00 |
+| Nether Brick | 96.00% |
+| Nether Quartz Ore | 3.00% |
+| Nether Gold Ore | 1.00% |
 
 #### OF Device Mod 1 (ＯＦ装置改)
 
@@ -63,51 +54,39 @@
   - Cobbled Deepslate -> Mk I result, Deepslate Gold Ore, Deepslate Redstone Ore, Deepslate Diamond Ore
   - Netherrack -> Nether Brick, Nether Quartz Ore, Nether Gold Ore
 
-**Table 5:** Cobblestone (OF Device Mod 1)
+**Table 4:** Loot Table of Cobblestone by OF Device Mod 1
 
-| Block | Probability (%) |
+| Block | MC 1.16 | MC 1.17 | MC 1.18 |
+| --- | ---: | ---: | ---: |
+| Stone | 88.70% | 87.70% | 88.20% |
+| Coal Ore | 5.00% | 5.00% | 5.00% |
+| Copper Ore |  | 1.00% | 2.40% |
+| Lapis Lazuli Ore | 0.40% | 0.40% | 0.40% |
+| Iron Ore | 3.00% | 3.00% | 3.00% |
+| Gold Ore | 0.60% | 0.60% | 0.40% |
+| Redstone Ore | 2.00% | 2.00% | 0.50% |
+| Diamond Ore | 0.30% | 0.30% | 0.10% |
+
+**Table 5:** Loot Table of Cobbled Deepslate by OF Device Mod 1
+
+| Block | MC 1.17 | MC 1.18 |
+| --- | ---: | ---: |
+| Deepslate | 85.90% | 94.40% |
+| Deepslate Coal Ore | 5.00% | 0.30% |
+| Deepslate Copper Ore | 0.60% | 0.60% |
+| Deepslate Lapis Lazuli Ore | 0.40% | 0.40% |
+| Deepslate Iron Ore | 3.00% | 1.10% |
+| Deepslate Gold Ore | 0.60% | 0.60% |
+| Deepslate Redstone Ore | 4.00% | 2.00% |
+| Deepslate Diamond Ore | 0.50% | 0.60% |
+
+**Table 6:** Loot Table of Netherrack by OF Device Mod 1
+
+| Block | MC 1.16 - 1.18 |
 | --- | ---: |
-| Stone | 88.70 |
-| Coal Ore | 5.00 |
-| Iron Ore | 3.00 |
-| Redstone Ore | 2.00 |
-| Gold Ore | 0.60 |
-| Lapis Lazuli Ore | 0.40 |
-| Diamond Ore | 0.30 |
-
-**Table 6:** [1.17+] Cobblestone (OF Device Mod 1)
-
-| Block | Probability (%) |
-| --- | ---: |
-| Stone | 87.70 |
-| Coal Ore | 5.00 |
-| Iron Ore | 3.00 |
-| Redstone Ore | 2.00 |
-| Copper Ore | 1.00 |
-| Gold Ore | 0.60 |
-| Lapis Lazuli Ore | 0.40 |
-| Diamond Ore | 0.30 |
-
-**Table 7:** [1.17+] Cobbled Deepslate (OF Device Mod 1)
-
-| Block | Probability (%) |
-| --- | ---: |
-| Deepslate | 85.90 |
-| Deepslate Coal Ore | 5.00 |
-| Deepslate Redstone Ore | 4.00 |
-| Deepslate Iron Ore | 3.00 |
-| Deepslate Copper Ore | 0.60 |
-| Deepslate Gold Ore | 0.60 |
-| Deepslate Diamond Ore | 0.50 |
-| Deepslate Lapis Lazuli Ore | 0.40 |
-
-**Table 8:** Netherrack (OF Device Mod 1)
-
-| Block | Probability (%) |
-| --- | ---: |
-| Nether Brick | 96.00 |
-| Nether Quartz Ore | 3.00 |
-| Nether Gold Ore | 1.00 |
+| Nether Brick | 96.00% |
+| Nether Quartz Ore | 3.00% |
+| Nether Gold Ore | 1.00% |
 
 #### OF Device Mod 2 (ＯＦ装置改二)
 
@@ -118,55 +97,42 @@
   - Cobbled Deepslate -> Mk II result, Deepslate Emerald Ore
   - Netherrack -> Mk II result, Ancient Debris
 
-**Table 9:** Cobblestone (OF Device Mod 2)
+**Table 7:** Loot Table of Cobblestone by OF Device Mod 2
 
-| Block | Probability (%) |
+| Block | MC 1.16 | MC 1.17 | MC 1.18 |
+| --- | ---: | ---: | ---: |
+| Stone | 88.20% | 87.20% | 84.10% |
+| Coal Ore | 5.00% | 5.00% | 5.00% |
+| Copper Ore |  | 1.00% | 4.70% |
+| Lapis Lazuli Ore | 0.40% | 0.40% | 0.40% |
+| Iron Ore | 3.00% | 3.00% | 3.00% |
+| Gold Ore | 1.00% | 1.00% | 2.00% |
+| Redstone Ore | 2.00% | 2.00% | 0.50% |
+| Diamond Ore | 0.30% | 0.30% | 0.10% |
+| Emerald Ore | 0.10% | 0.10% | 0.20% |
+
+**Table 8:** Loot Table of Cobbled Deepslate by OF Device Mod 2
+
+| Block | MC 1.17 | MC 1.18 |
+| --- | ---: | ---: |
+| Deepslate | 85.80% | 93.80% |
+| Deepslate Coal Ore | 5.00% | 0.30% |
+| Deepslate Copper Ore | 0.60% | 1.10% |
+| Deepslate Lapis Lazuli Ore | 0.40% | 0.40% |
+| Deepslate Iron Ore | 3.00% | 1.10% |
+| Deepslate Gold Ore | 0.60% | 0.60% |
+| Deepslate Redstone Ore | 4.00% | 2.00% |
+| Deepslate Diamond Ore | 0.50% | 0.60% |
+| Deepslate Emerald Ore | 0.10% | 0.10% |
+
+**Table 9:** Loot Table of Netherrack by OF Device Mod 2
+
+| Block | MC 1.16 - 1.18 |
 | --- | ---: |
-| Stone | 88.20 |
-| Coal Ore | 5.00 |
-| Iron Ore | 3.00 |
-| Redstone Ore | 2.00 |
-| Gold Ore | 1.00 |
-| Lapis Lazuli Ore | 0.40 |
-| Diamond Ore | 0.30 |
-| Emerald Ore | 0.10 |
-
-**Table 10:** [1.17+] Cobblestone (OF Device Mod 2)
-
-| Block | Probability (%) |
-| --- | ---: |
-| Stone | 87.20 |
-| Coal Ore | 5.00 |
-| Iron Ore | 3.00 |
-| Redstone Ore | 2.00 |
-| Copper Ore | 1.00 |
-| Gold Ore | 1.00 |
-| Lapis Lazuli Ore | 0.40 |
-| Diamond Ore | 0.30 |
-| Emerald Ore | 0.10 |
-
-**Table 11:** [1.17+] Cobbled Deepslate (OF Device Mod 2)
-
-| Block | Probability (%) |
-| --- | ---: |
-| Deepslate | 85.80 |
-| Deepslate Coal Ore | 5.00 |
-| Deepslate Redstone Ore | 4.00 |
-| Deepslate Iron Ore | 3.00 |
-| Deepslate Copper Ore | 0.60 |
-| Deepslate Gold Ore | 0.60 |
-| Deepslate Diamond Ore | 0.50 |
-| Deepslate Lapis Lazuli Ore | 0.40 |
-| Deepslate Emerald Ore | 0.10 |
-
-**Table 12:** Netherrack (OF Device Mod 2)
-
-| Block | Probability (%) |
-| --- | ---: |
-| Nether Brick | 95.90 |
-| Nether Quartz Ore | 3.00 |
-| Nether Gold Ore | 1.00 |
-| Ancient Debris | 0.10 |
+| Nether Brick | 95.90% |
+| Nether Quartz Ore | 3.00% |
+| Nether Gold Ore | 1.00% |
+| Ancient Debris | 0.10% |
 
 ## Item
 

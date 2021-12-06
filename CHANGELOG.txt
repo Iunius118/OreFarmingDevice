@@ -5,7 +5,7 @@
 ## [Unreleased]
 
 ## [1.16.5-0.1.0-Forge]
-### Add
+### Added
 - FO Device block.
 - FO Device Mod 1 block.
 - FO Device Mod 2 block.
