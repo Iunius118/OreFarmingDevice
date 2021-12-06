@@ -27,7 +27,7 @@
 | Lapis Lazuli Ore | 0.40% | 0.40% | 0.40% |
 | Iron Ore | 3.00% | 3.00% | 3.00% |
 
-**Table 2:** Loot Table of Cobblestone by Cobbled Deepslate
+**Table 2:** Loot Table of Cobbled Deepslate by OF Device
 
 | Block | MC 1.17 | MC 1.18 |
 | --- | ---: | ---: |
@@ -37,7 +37,7 @@
 | Deepslate Lapis Lazuli Ore | 0.40% | 0.40% |
 | Deepslate Iron Ore | 3.00% | 1.10% |
 
-**Table 3:** Loot Table of Cobblestone by Netherrack
+**Table 3:** Loot Table of Netherrack by OF Device
 
 | Block | MC 1.16 - 1.18 |
 | --- | ---: |
@@ -50,8 +50,8 @@
 - Recipe
   - Smithing Table: OF Device + Iron Pickaxe
 - Loot table of product
-  - Cobblestone -> Mk I result, Gold Ore, Redstone Ore, Diamond Ore
-  - Cobbled Deepslate -> Mk I result, Deepslate Gold Ore, Deepslate Redstone Ore, Deepslate Diamond Ore
+  - Cobblestone -> Device result, Gold Ore, Redstone Ore, Diamond Ore
+  - Cobbled Deepslate -> Device result, Deepslate Gold Ore, Deepslate Redstone Ore, Deepslate Diamond Ore
   - Netherrack -> Nether Brick, Nether Quartz Ore, Nether Gold Ore
 
 **Table 4:** Loot Table of Cobblestone by OF Device Mod 1
@@ -93,9 +93,9 @@
 - Recipe
   - Smithing Table: OF Device Mod 1 + Diamond Pickaxe
 - Loot table of product
-  - Cobblestone -> Mk II result, Emerald Ore
-  - Cobbled Deepslate -> Mk II result, Deepslate Emerald Ore
-  - Netherrack -> Mk II result, Ancient Debris
+  - Cobblestone -> Mod 1 result, Emerald Ore
+  - Cobbled Deepslate -> Mod 1 result, Deepslate Emerald Ore
+  - Netherrack -> Mod 1 result, Ancient Debris
 
 **Table 7:** Loot Table of Cobblestone by OF Device Mod 2
 
