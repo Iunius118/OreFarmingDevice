@@ -31,13 +31,27 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('x', Items.STONE_PICKAXE)
                 .unlockedBy("has_furnace", has(Blocks.FURNACE)).save(consumer);
 
-        SmithingRecipeBuilder.smithing(Ingredient.of(ModBlocks.DEVICE_0), Ingredient.of(Items.IRON_PICKAXE), Item.BY_BLOCK.get(ModBlocks.DEVICE_1))
-                .unlocks("has_device_0", has(ModBlocks.DEVICE_0))
-                .save(consumer, ModBlocks.DEVICE_1.getRegistryName());
+        // Devise 1
+        ShapelessRecipeBuilder.shapeless(ModBlocks.DEVICE_1)
+                .requires(ModBlocks.DEVICE_0)
+                .requires(Items.IRON_PICKAXE)
+                .unlockedBy("has_device_0", has(ModBlocks.DEVICE_0))
+                .save(consumer);
 
-        SmithingRecipeBuilder.smithing(Ingredient.of(ModBlocks.DEVICE_1), Ingredient.of(Items.DIAMOND_PICKAXE), Item.BY_BLOCK.get(ModBlocks.DEVICE_2))
+        UpgradeRecipeBuilder.smithing(Ingredient.of(ModBlocks.DEVICE_0), Ingredient.of(Items.IRON_PICKAXE), Item.BY_BLOCK.get(ModBlocks.DEVICE_1))
+                .unlocks("has_device_0", has(ModBlocks.DEVICE_0))
+                .save(consumer, ModBlocks.DEVICE_1.getRegistryName() + "_smithing");
+
+        // Devise 2
+        ShapelessRecipeBuilder.shapeless(ModBlocks.DEVICE_2)
+                .requires(ModBlocks.DEVICE_1)
+                .requires(Items.DIAMOND_PICKAXE)
+                .unlockedBy("has_device_1", has(ModBlocks.DEVICE_1))
+                .save(consumer);
+
+        UpgradeRecipeBuilder.smithing(Ingredient.of(ModBlocks.DEVICE_1), Ingredient.of(Items.DIAMOND_PICKAXE), Item.BY_BLOCK.get(ModBlocks.DEVICE_2))
                 .unlocks("has_device_1", has(ModBlocks.DEVICE_1))
-                .save(consumer, ModBlocks.DEVICE_2.getRegistryName());
+                .save(consumer, ModBlocks.DEVICE_2.getRegistryName() + "_smithing");
     }
 
     @Override
