@@ -25,8 +25,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
-    public static final int TOTAL_PROCESSING_TIME = 200;
-
     public final OFDeviceType type;
     public final String containerTranslationKey;
 
@@ -53,6 +51,19 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         return null;
     }
 
+    public static int getTotalProcessingTime(OFDeviceType type) {
+        switch(type) {
+            case MOD_0:
+                return 200;
+            case MOD_1:
+                return 100;
+            case MOD_2:
+                return 50;
+        }
+
+        return 200;
+    }
+
     public static void serverTick(Level level, BlockPos blockPos, BlockState blockState, OFDeviceBlockEntity device) {
         boolean isLitOld = device.isLit();
         boolean hasChanged = false;
@@ -61,58 +72,56 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
             --device.litTime;
         }
 
-        if (!level.isClientSide) {
-            ItemStack fuelStack = device.items.get(1);
-            ItemStack materialStack = device.items.get(0);
+        ItemStack fuelStack = device.items.get(1);
+        ItemStack materialStack = device.items.get(0);
 
-            if ((device.isLit() || !fuelStack.isEmpty()) && !materialStack.isEmpty()) {
-                ModLootTables lootTableID = device.findLootTable(materialStack);
-                boolean canProcess = device.canProcess(lootTableID);
+        if ((device.isLit() || !fuelStack.isEmpty()) && !materialStack.isEmpty()) {
+            ModLootTables lootTableID = device.findLootTable(materialStack);
+            boolean canProcess = device.canProcess(lootTableID);
 
-                if (!device.isLit() && canProcess) {
-                    // Burn new fuel stack
-                    device.litTime = device.getBurnDuration(fuelStack);
-                    device.litDuration = device.litTime;
+            if (!device.isLit() && canProcess) {
+                // Burn new fuel stack
+                device.litTime = device.getBurnDuration(fuelStack);
+                device.litDuration = device.litTime;
 
-                    if (device.isLit()) {
-                        // Handle fuel
-                        hasChanged = true;
+                if (device.isLit()) {
+                    // Handle fuel
+                    hasChanged = true;
 
-                        if (fuelStack.hasContainerItem()) {
+                    if (fuelStack.hasContainerItem()) {
+                        device.items.set(1, fuelStack.getContainerItem());
+                    } else if (!fuelStack.isEmpty()) {
+                        fuelStack.shrink(1);
+
+                        if (fuelStack.isEmpty()) {
                             device.items.set(1, fuelStack.getContainerItem());
-                        } else if (!fuelStack.isEmpty()) {
-                            fuelStack.shrink(1);
-
-                            if (fuelStack.isEmpty()) {
-                                device.items.set(1, fuelStack.getContainerItem());
-                            }
                         }
                     }
                 }
+            }
 
-                if (device.isLit() && canProcess) {
-                    // Handle material stack
-                    ++device.cookingProgress;
+            if (device.isLit() && canProcess) {
+                // Handle material stack
+                ++device.cookingProgress;
 
-                    if (device.cookingProgress == device.cookingTotalTime) {
-                        // Process completion
-                        device.cookingProgress = 0;
-                        device.cookingTotalTime = device.getTotalCookTime();
-                        device.process(lootTableID);
-                        hasChanged = true;
-                    }
-                } else {
+                if (device.cookingProgress == device.cookingTotalTime) {
+                    // Process completion
                     device.cookingProgress = 0;
+                    device.cookingTotalTime = getTotalProcessingTime(device.type);
+                    device.process(lootTableID);
+                    hasChanged = true;
                 }
-            } else if (!device.isLit() && device.cookingProgress > 0) {
-                device.cookingProgress = Mth.clamp(device.cookingProgress - 2, 0, device.cookingTotalTime);
+            } else {
+                device.cookingProgress = 0;
             }
+        } else if (!device.isLit() && device.cookingProgress > 0) {
+            device.cookingProgress = Mth.clamp(device.cookingProgress - 2, 0, device.cookingTotalTime);
+        }
 
-            if (isLitOld != device.isLit()) {
-                // Switch on/off LIT of Device block
-                level.setBlock(device.worldPosition, level.getBlockState(device.worldPosition).setValue(AbstractFurnaceBlock.LIT, device.isLit()), 3);
-                hasChanged = true;
-            }
+        if (isLitOld != device.isLit()) {
+            // Switch on/off LIT of Device block
+            level.setBlock(device.worldPosition, level.getBlockState(device.worldPosition).setValue(AbstractFurnaceBlock.LIT, device.isLit()), 3);
+            hasChanged = true;
         }
 
         if (hasChanged) {
@@ -132,10 +141,6 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         return !items.get(0).isEmpty() && lootTableID != null;
     }
 
-    private int getTotalCookTime() {
-        return TOTAL_PROCESSING_TIME;
-    }
-
     private void process(ModLootTables lootTableID) {
         if (!level.isClientSide && canProcess(lootTableID)) {
             // Server side
@@ -151,10 +156,10 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     private void insertToProductSlot(ItemStack productStack) {
         if (productStack.isEmpty()) return;
 
-        ItemStack productSlotStack = this.items.get(2);
+        ItemStack productSlotStack = items.get(2);
 
         if (productSlotStack.isEmpty()) {
-            this.items.set(2, productStack.copy());
+            items.set(2, productStack.copy());
         } else if (productSlotStack.sameItem(productStack)) {
             if (productSlotStack.getCount() + productStack.getCount() <= Math.min(getMaxStackSize(), productSlotStack.getMaxStackSize())) {
                 productSlotStack.grow(productStack.getCount());
@@ -168,9 +173,27 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
 
     private void replaceProductStack(ItemStack newStack) {
         BlockPos pos = getBlockPos();
-        ItemStack productSlotStack = this.items.get(2);
+        ItemStack productSlotStack = items.get(2);
         level.addFreshEntity(new ItemEntity(level, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, productSlotStack));
-        this.items.set(2, newStack);
+        items.set(2, newStack);
+    }
+
+    @Override
+    public void setItem(int slot, ItemStack newStack) {
+        ItemStack oldStack = items.get(slot);
+        boolean flag = !newStack.isEmpty() && newStack.sameItem(oldStack) && ItemStack.tagMatches(newStack, oldStack);
+        items.set(slot, newStack);
+
+        if (newStack.getCount() > getMaxStackSize()) {
+            newStack.setCount(getMaxStackSize());
+        }
+
+        if (slot == 0 && !flag) {
+            cookingTotalTime = getTotalProcessingTime(type);
+            cookingProgress = 0;
+            setChanged();
+        }
+
     }
 
     @Override
