@@ -11,12 +11,15 @@ import java.util.function.Function;
 
 public enum ModLootTables {
     DEVICE_0("device_0", Blocks.COBBLESTONE, OFDeviceType.MOD_0::equals),
+    DEVICE_0_DEEP("device_0_d", Blocks.COBBLED_DEEPSLATE, OFDeviceType.MOD_0::equals),
     DEVICE_0_NETHER("device_0_n", Blocks.NETHERRACK, OFDeviceType.MOD_0::equals),
 
     DEVICE_1("device_1", Blocks.COBBLESTONE, OFDeviceType.MOD_1::equals),
+    DEVICE_1_DEEP("device_1_d", Blocks.COBBLED_DEEPSLATE, OFDeviceType.MOD_1::equals),
     DEVICE_1_NETHER("device_1_n", Blocks.NETHERRACK, OFDeviceType.MOD_1::equals),
 
     DEVICE_2("device_2", Blocks.COBBLESTONE, OFDeviceType.MOD_2::equals),
+    DEVICE_2_DEEP("device_2_d", Blocks.COBBLED_DEEPSLATE, OFDeviceType.MOD_2::equals),
     DEVICE_2_NETHER("device_2_n", Blocks.NETHERRACK, OFDeviceType.MOD_2::equals),
     ;
 
