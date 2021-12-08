@@ -2,6 +2,8 @@
 
 O.F.Device is a Minecraft mod to add devices for farming ores.
 
+材料と燃料を消費して一定確率で鉱石を生成できる装置を追加するmodです。
+
 ## Download
 
 - [Download latest](https://github.com/Iunius118/O.F.Device/releases/latest)
@@ -22,7 +24,7 @@ v1.18-0.2.0
 
 <img src="docs/media/gui_device_0_v010.png" title="GUI: OF Device" alt="The upper right slot for materials, the left slot for fuel, and the bottom right slot for products">
 
-1. Material slot (材料), only Cobblestone or Netherrack (丸石かネザーラックのみ)
+1. Material slot (材料), only Cobblestone, Cobbled Deepslate or Netherrack (丸石か深層岩の丸石、ネザーラックのみ)
 2. Fuel slot (燃料)
 3. Product slot (生成物)
 
