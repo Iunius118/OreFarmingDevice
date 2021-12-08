@@ -7,28 +7,28 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 892,
-          "name": "minecraft:stone"
+          "weight": 976,
+          "name": "minecraft:deepslate"
         },
         {
           "type": "minecraft:item",
-          "weight": 50,
-          "name": "minecraft:coal_ore"
+          "weight": 3,
+          "name": "minecraft:deepslate_coal_ore"
         },
         {
           "type": "minecraft:item",
-          "weight": 24,
-          "name": "minecraft:copper_ore"
+          "weight": 6,
+          "name": "minecraft:deepslate_copper_ore"
         },
         {
           "type": "minecraft:item",
           "weight": 4,
-          "name": "minecraft:lapis_ore"
+          "name": "minecraft:deepslate_lapis_ore"
         },
         {
           "type": "minecraft:item",
-          "weight": 30,
-          "name": "minecraft:iron_ore"
+          "weight": 11,
+          "name": "minecraft:deepslate_iron_ore"
         }
       ]
     }

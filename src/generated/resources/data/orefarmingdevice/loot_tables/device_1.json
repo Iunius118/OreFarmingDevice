@@ -2,11 +2,12 @@
   "type": "minecraft:empty",
   "pools": [
     {
-      "rolls": 1,
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 887,
+          "weight": 882,
           "name": "minecraft:stone"
         },
         {
@@ -16,18 +17,8 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 30,
-          "name": "minecraft:iron_ore"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 20,
-          "name": "minecraft:redstone_ore"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 6,
-          "name": "minecraft:gold_ore"
+          "weight": 24,
+          "name": "minecraft:copper_ore"
         },
         {
           "type": "minecraft:item",
@@ -36,7 +27,21 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 3,
+          "weight": 30,
+          "name": "minecraft:iron_ore"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 4,
+          "name": "minecraft:gold_ore"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "minecraft:redstone_ore"
+        },
+        {
+          "type": "minecraft:item",
           "name": "minecraft:diamond_ore"
         }
       ]

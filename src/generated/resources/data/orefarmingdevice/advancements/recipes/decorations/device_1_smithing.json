@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "orefarmingdevice:device_0"
+      "orefarmingdevice:device_1_smithing"
     ]
   },
   "criteria": {
-    "has_furnace": {
+    "has_device_0": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:furnace"
+              "orefarmingdevice:device_0"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "orefarmingdevice:device_0"
+        "recipe": "orefarmingdevice:device_1_smithing"
       }
     }
   },
   "requirements": [
     [
-      "has_furnace",
+      "has_device_0",
       "has_the_recipe"
     ]
   ]

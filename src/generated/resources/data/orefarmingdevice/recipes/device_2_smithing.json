@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "orefarmingdevice:device_1"
+  },
+  "addition": {
+    "item": "minecraft:diamond_pickaxe"
+  },
+  "result": {
+    "item": "orefarmingdevice:device_2"
+  }
+}

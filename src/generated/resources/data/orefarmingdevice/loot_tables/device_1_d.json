@@ -7,47 +7,43 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 841,
-          "name": "minecraft:stone"
+          "weight": 944,
+          "name": "minecraft:deepslate"
         },
         {
           "type": "minecraft:item",
-          "weight": 50,
-          "name": "minecraft:coal_ore"
+          "weight": 3,
+          "name": "minecraft:deepslate_coal_ore"
         },
         {
           "type": "minecraft:item",
-          "weight": 47,
-          "name": "minecraft:copper_ore"
+          "weight": 6,
+          "name": "minecraft:deepslate_copper_ore"
         },
         {
           "type": "minecraft:item",
           "weight": 4,
-          "name": "minecraft:lapis_ore"
+          "name": "minecraft:deepslate_lapis_ore"
         },
         {
           "type": "minecraft:item",
-          "weight": 30,
-          "name": "minecraft:iron_ore"
+          "weight": 11,
+          "name": "minecraft:deepslate_iron_ore"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 6,
+          "name": "minecraft:deepslate_gold_ore"
         },
         {
           "type": "minecraft:item",
           "weight": 20,
-          "name": "minecraft:gold_ore"
+          "name": "minecraft:deepslate_redstone_ore"
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:redstone_ore"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:diamond_ore"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:emerald_ore"
+          "weight": 6,
+          "name": "minecraft:deepslate_diamond_ore"
         }
       ]
     }
