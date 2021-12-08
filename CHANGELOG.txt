@@ -11,6 +11,7 @@
 ### Changed
 - Port to 1.18.
 - Loot tables of FO Devices for 1.18.
+- Increase processing speed of OF Device MOD1 and MOD2.
 
 ## [1.16.5-0.1.0-Forge]
 ### Added
