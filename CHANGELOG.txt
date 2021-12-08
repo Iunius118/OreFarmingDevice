@@ -6,12 +6,12 @@
 
 ## [1.18-0.2.0-Forge]
 ### Added
-- Crafting recipes for FO Device Mod 1 and Mod 2.
+- Crafting recipes for OF Device Mod 1 and Mod 2.
 
 ### Changed
 - Port to 1.18.
-- Loot tables of FO Devices for 1.18.
-- Increase processing speed of OF Device MOD1 and MOD2.
+- Loot tables of OF Devices for 1.18.
+- Increase processing speed of OF Device Mod 1 and Mod 2.
 
 ## [1.16.5-0.1.0-Forge]
 ### Added
