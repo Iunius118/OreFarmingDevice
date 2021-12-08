@@ -2,17 +2,19 @@ package com.github.iunius118.orefarmingdevice.world.level.block;
 
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceBlockEntity;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
-import net.minecraft.block.AbstractFurnaceBlock;
-import net.minecraft.block.BlockRenderType;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.InventoryHelper;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.Containers;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.AbstractFurnaceBlock;
+import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 
@@ -24,38 +26,47 @@ public class OFDeviceBlock extends AbstractFurnaceBlock {
         registerDefaultState(this.stateDefinition.any().setValue(LIT, Boolean.FALSE));
         type = offDeviceType;
     }
+
     @Nullable
     @Override
-    public TileEntity newBlockEntity(IBlockReader blockReader) {
-        return new OFDeviceBlockEntity(type);
+    public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
+        return new OFDeviceBlockEntity(blockPos, blockState, type);
     }
 
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
+        return level.isClientSide ? null : createTickerHelper(blockEntityType, OFDeviceBlockEntity.getBlockEntityType(type), OFDeviceBlockEntity::serverTick);
+    }
 
     @Override
-    protected void openContainer(World level, BlockPos pos, PlayerEntity player) {
-        TileEntity tileentity = level.getBlockEntity(pos);
+    protected void openContainer(Level level, BlockPos pos, Player player) {
+        BlockEntity tileentity = level.getBlockEntity(pos);
         if (tileentity instanceof OFDeviceBlockEntity) {
             player.openMenu((OFDeviceBlockEntity) tileentity);
         }
     }
 
     @Override
-    public void setPlacedBy(World level, BlockPos pos, BlockState state, @Nullable LivingEntity entity, ItemStack stack) {
+    public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity entity, ItemStack stack) {
         if (stack.hasCustomHoverName()) {
-            TileEntity tileentity = level.getBlockEntity(pos);
-            if (tileentity instanceof OFDeviceBlockEntity) {
-                ((OFDeviceBlockEntity)tileentity).setCustomName(stack.getHoverName());
+            BlockEntity blockEntity = level.getBlockEntity(pos);
+            if (blockEntity instanceof OFDeviceBlockEntity deviceBlockEntity) {
+                deviceBlockEntity.setCustomName(stack.getHoverName());
             }
         }
     }
 
     @Override
-    public void onRemove(BlockState state, World level, BlockPos pos, BlockState oldState, boolean p_196243_5_) {
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean p_196243_5_) {
         if (!state.is(oldState.getBlock())) {
-            TileEntity tileentity = level.getBlockEntity(pos);
-            if (tileentity instanceof OFDeviceBlockEntity) {
-                OFDeviceBlockEntity ofDeviceBlockEntity = (OFDeviceBlockEntity) tileentity;
-                InventoryHelper.dropContents(level, pos, ofDeviceBlockEntity);
+            BlockEntity blockEntity = level.getBlockEntity(pos);
+
+            if (blockEntity instanceof OFDeviceBlockEntity deviceBlockEntity) {
+                if (level instanceof ServerLevel) {
+                    Containers.dropContents(level, pos, deviceBlockEntity);
+                }
+
                 level.updateNeighbourForOutputSignal(pos, this);
             }
 
@@ -64,7 +75,7 @@ public class OFDeviceBlock extends AbstractFurnaceBlock {
     }
 
     @Override
-    public BlockRenderType getRenderShape(BlockState state) {
-        return BlockRenderType.MODEL;
+    public RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
     }
 }

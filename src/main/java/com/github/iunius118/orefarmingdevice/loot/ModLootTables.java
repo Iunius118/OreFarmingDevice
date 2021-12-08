@@ -2,10 +2,10 @@ package com.github.iunius118.orefarmingdevice.loot;
 
 import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.IItemProvider;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.function.Function;
 
@@ -24,7 +24,7 @@ public enum ModLootTables {
     private final ItemStack material;
     private final Function<OFDeviceType, Boolean> canProcess;
 
-    ModLootTables(String key, IItemProvider item, Function<OFDeviceType, Boolean> canProcess) {
+    ModLootTables(String key, ItemLike item, Function<OFDeviceType, Boolean> canProcess) {
         id = new ResourceLocation(OreFarmingDevice.MOD_ID, key);
         this.material = new ItemStack(item);
         this.canProcess = canProcess;

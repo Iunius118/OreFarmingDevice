@@ -5,14 +5,20 @@ import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
 import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.LootTableProvider;
-import net.minecraft.data.loot.BlockLootTables;
-import net.minecraft.item.Items;
-import net.minecraft.loot.*;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.data.loot.BlockLoot;
+import net.minecraft.data.loot.LootTableProvider;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.ValidationContext;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
 import java.util.List;
 import java.util.Map;
@@ -27,15 +33,15 @@ public class ModLootTableProvider extends LootTableProvider {
     }
 
     @Override
-    protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootParameterSet>> getTables() {
+    protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
         return ImmutableList.of(
-                Pair.of(ModBlockLootTables::new, LootParameterSets.BLOCK),
-                Pair.of(ModDeviceLootTables::new, LootParameterSets.EMPTY)
+                Pair.of(ModBlockLootTables::new, LootContextParamSets.BLOCK),
+                Pair.of(ModDeviceLootTables::new, LootContextParamSets.EMPTY)
         );
     }
 
     @Override
-    protected void validate(Map<ResourceLocation, LootTable> map, ValidationTracker validationtracker) {
+    protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext validationtracker) {
     }
 
     @Override
@@ -43,7 +49,7 @@ public class ModLootTableProvider extends LootTableProvider {
         return super.getName() + ": " +  OreFarmingDevice.MOD_ID;
     }
 
-    private static class ModBlockLootTables extends BlockLootTables {
+    private static class ModBlockLootTables extends BlockLoot {
         private final List<Block> ofDeviceBlocks = Stream.of(
                 ModBlocks.DEVICE_0,
                 ModBlocks.DEVICE_1,
@@ -52,7 +58,7 @@ public class ModLootTableProvider extends LootTableProvider {
 
         @Override
         protected void addTables() {
-            ofDeviceBlocks.forEach(b -> add(b, BlockLootTables::createNameableBlockEntityTable));
+            ofDeviceBlocks.forEach(b -> add(b, BlockLoot::createNameableBlockEntityTable));
         }
 
         @Override

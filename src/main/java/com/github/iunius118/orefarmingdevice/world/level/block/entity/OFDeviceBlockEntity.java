@@ -2,41 +2,45 @@ package com.github.iunius118.orefarmingdevice.world.level.block.entity;
 
 import com.github.iunius118.orefarmingdevice.inventory.OFDeviceContainer;
 import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
-import net.minecraft.block.AbstractFurnaceBlock;
-import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.loot.LootContext;
-import net.minecraft.loot.LootParameterSets;
-import net.minecraft.loot.LootTable;
-import net.minecraft.tileentity.AbstractFurnaceTileEntity;
-import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.AbstractFurnaceBlock;
+import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class OFDeviceBlockEntity extends AbstractFurnaceTileEntity {
+public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
+    public static final int TOTAL_PROCESSING_TIME = 200;
+
     public final OFDeviceType type;
     public final String containerTranslationKey;
 
-    public OFDeviceBlockEntity(TileEntityType<?> blockEntityType, OFDeviceType ofDeviceType) {
-        super(blockEntityType, IRecipeType.SMELTING);
+    public OFDeviceBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState, OFDeviceType ofDeviceType) {
+        super(blockEntityType, blockPos, blockState, RecipeType.SMELTING);
         type = ofDeviceType;
         containerTranslationKey = ofDeviceType.getContainerTranslationKey();
     }
 
-    public OFDeviceBlockEntity(OFDeviceType type) {
-        this(getBlockEntityType(type), type);
+    public OFDeviceBlockEntity(BlockPos blockPos, BlockState blockState, OFDeviceType type) {
+        this(getBlockEntityType(type), blockPos, blockState, type);
     }
 
-    public static TileEntityType<?> getBlockEntityType(OFDeviceType type) {
+    public static BlockEntityType<OFDeviceBlockEntity> getBlockEntityType(OFDeviceType type) {
         switch(type) {
             case MOD_0:
                 return ModBlockEntityTypes.DEVICE_0;
@@ -49,71 +53,70 @@ public class OFDeviceBlockEntity extends AbstractFurnaceTileEntity {
         return null;
     }
 
-    @Override
-    public void tick() {
-        boolean isLitOld = isLit();
+    public static void serverTick(Level level, BlockPos blockPos, BlockState blockState, OFDeviceBlockEntity device) {
+        boolean isLitOld = device.isLit();
         boolean hasChanged = false;
 
         if (isLitOld) {
-            --litTime;
+            --device.litTime;
         }
 
         if (!level.isClientSide) {
-            ItemStack fuelStack = items.get(1);
-            ItemStack materialStack = items.get(0);
+            ItemStack fuelStack = device.items.get(1);
+            ItemStack materialStack = device.items.get(0);
 
-            if ((isLit() || !fuelStack.isEmpty()) && !materialStack.isEmpty()) {
-                ModLootTables lootTableID = findLootTable(materialStack);
-                boolean canProcess = canProcess(lootTableID);
+            if ((device.isLit() || !fuelStack.isEmpty()) && !materialStack.isEmpty()) {
+                ModLootTables lootTableID = device.findLootTable(materialStack);
+                boolean canProcess = device.canProcess(lootTableID);
 
-                if (!isLit() && canProcess) {
+                if (!device.isLit() && canProcess) {
                     // Burn new fuel stack
-                    litTime = getBurnDuration(fuelStack);
-                    litDuration = litTime;
+                    device.litTime = device.getBurnDuration(fuelStack);
+                    device.litDuration = device.litTime;
 
-                    if (isLit()) {
+                    if (device.isLit()) {
                         // Handle fuel
                         hasChanged = true;
 
                         if (fuelStack.hasContainerItem()) {
-                            items.set(1, fuelStack.getContainerItem());
+                            device.items.set(1, fuelStack.getContainerItem());
                         } else if (!fuelStack.isEmpty()) {
                             fuelStack.shrink(1);
 
                             if (fuelStack.isEmpty()) {
-                                items.set(1, fuelStack.getContainerItem());
+                                device.items.set(1, fuelStack.getContainerItem());
                             }
                         }
                     }
                 }
 
-                if (isLit() && canProcess) {
+                if (device.isLit() && canProcess) {
                     // Handle material stack
-                    ++cookingProgress;
+                    ++device.cookingProgress;
 
-                    if (cookingProgress == cookingTotalTime) {
+                    if (device.cookingProgress == device.cookingTotalTime) {
                         // Process completion
-                        cookingProgress = 0;
-                        cookingTotalTime = getTotalCookTime();
-                        process(lootTableID);
+                        device.cookingProgress = 0;
+                        device.cookingTotalTime = device.getTotalCookTime();
+                        device.process(lootTableID);
                         hasChanged = true;
                     }
                 } else {
-                    cookingProgress = 0;
+                    device.cookingProgress = 0;
                 }
-            } else if (!isLit() && cookingProgress > 0) {
-                cookingProgress = MathHelper.clamp(cookingProgress - 2, 0, cookingTotalTime);
+            } else if (!device.isLit() && device.cookingProgress > 0) {
+                device.cookingProgress = Mth.clamp(device.cookingProgress - 2, 0, device.cookingTotalTime);
             }
 
-            if (isLitOld != isLit()) {
+            if (isLitOld != device.isLit()) {
                 // Switch on/off LIT of Device block
-                level.setBlock(worldPosition, level.getBlockState(worldPosition).setValue(AbstractFurnaceBlock.LIT, isLit()), 3);
+                level.setBlock(device.worldPosition, level.getBlockState(device.worldPosition).setValue(AbstractFurnaceBlock.LIT, device.isLit()), 3);
                 hasChanged = true;
             }
         }
 
         if (hasChanged) {
-            setChanged();
+            device.setChanged();
         }
     }
 
@@ -129,12 +132,16 @@ public class OFDeviceBlockEntity extends AbstractFurnaceTileEntity {
         return !items.get(0).isEmpty() && lootTableID != null;
     }
 
+    private int getTotalCookTime() {
+        return TOTAL_PROCESSING_TIME;
+    }
+
     private void process(ModLootTables lootTableID) {
         if (!level.isClientSide && canProcess(lootTableID)) {
             // Server side
             ItemStack materialStack = this.items.get(0);
             LootTable lootTable = level.getServer().getLootTables().get(lootTableID.getID());
-            List<ItemStack> items = lootTable.getRandomItems(new LootContext.Builder((ServerWorld) level).withRandom(level.random).create(LootParameterSets.EMPTY));
+            List<ItemStack> items = lootTable.getRandomItems(new LootContext.Builder((ServerLevel) level).withRandom(level.random).create(LootContextParamSets.EMPTY));
             ItemStack productStack = items.size() > 0 ? items.get(0) : ItemStack.EMPTY;
             insertToProductSlot(productStack);
             materialStack.shrink(1);
@@ -167,12 +174,12 @@ public class OFDeviceBlockEntity extends AbstractFurnaceTileEntity {
     }
 
     @Override
-    protected ITextComponent getDefaultName() {
-        return new TranslationTextComponent(containerTranslationKey);
+    protected Component getDefaultName() {
+        return new TranslatableComponent(containerTranslationKey);
     }
 
     @Override
-    protected Container createMenu(int containerId, PlayerInventory playerInventory) {
+    protected AbstractContainerMenu createMenu(int containerId, Inventory playerInventory) {
         return new OFDeviceContainer(containerId, playerInventory, this, dataAccess);
     }
 }

@@ -1,7 +1,7 @@
 package com.github.iunius118.orefarmingdevice.world.level.block.entity;
 
 import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 
 public enum OFDeviceType {
     MOD_0("device_0"),

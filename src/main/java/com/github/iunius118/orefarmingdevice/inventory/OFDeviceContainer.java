@@ -1,31 +1,27 @@
 package com.github.iunius118.orefarmingdevice.inventory;
 
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.FurnaceResultSlot;
-import net.minecraft.inventory.container.Slot;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.util.IIntArray;
-import net.minecraft.util.IntArray;
-import net.minecraft.world.World;
+import net.minecraft.world.Container;
+import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.*;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class OFDeviceContainer extends Container {
-    private final IInventory container;
-    private final IIntArray data;
-    protected final World level;
+public class OFDeviceContainer extends AbstractContainerMenu {
+    private final Container container;
+    private final ContainerData data;
+    protected final Level level;
 
-    public OFDeviceContainer(int containerCounter, PlayerInventory playerInventory) {
-        this(containerCounter, playerInventory, new Inventory(3), new IntArray(4));
+    public OFDeviceContainer(int containerCounter, Inventory playerInventory) {
+        this(containerCounter, playerInventory, new SimpleContainer(3), new SimpleContainerData(4));
     }
 
-    public OFDeviceContainer(int containerCounter, PlayerInventory playerInventory, IInventory inventory, IIntArray dataAccess) {
+    public OFDeviceContainer(int containerCounter, Inventory playerInventory, Container inventory, ContainerData dataAccess) {
         super(ModContainerTypes.DEVICE, containerCounter);
         this.container = inventory;
         this.data = dataAccess;
@@ -48,12 +44,12 @@ public class OFDeviceContainer extends Container {
     }
 
     @Override
-    public boolean stillValid(PlayerEntity player) {
+    public boolean stillValid(Player player) {
         return container.stillValid(player);
     }
 
     @Override
-    public ItemStack quickMoveStack(PlayerEntity player, int slotIndex) {
+    public ItemStack quickMoveStack(Player player, int slotIndex) {
         ItemStack returnStack = ItemStack.EMPTY;
         Slot slot = this.slots.get(slotIndex);
 
@@ -104,11 +100,11 @@ public class OFDeviceContainer extends Container {
     }
 
     protected boolean canSmelt(ItemStack stack) {
-        return this.level.getRecipeManager().getRecipeFor(IRecipeType.SMELTING /* TODO: Fix recipe type */, new Inventory(stack), this.level).isPresent();
+        return this.level.getRecipeManager().getRecipeFor(RecipeType.SMELTING /* TODO: Fix recipe type */, new SimpleContainer(stack), this.level).isPresent();
     }
 
     protected boolean isFuel(ItemStack stack) {
-        return net.minecraftforge.common.ForgeHooks.getBurnTime(stack, IRecipeType.SMELTING) > 0;
+        return net.minecraftforge.common.ForgeHooks.getBurnTime(stack, RecipeType.SMELTING) > 0;
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -137,7 +133,7 @@ public class OFDeviceContainer extends Container {
     private static class FuelSlot extends Slot {
         private final OFDeviceContainer menu;
 
-        public FuelSlot(OFDeviceContainer ofDeviceContainer, IInventory inventory, int slotIndex, int x, int y) {
+        public FuelSlot(OFDeviceContainer ofDeviceContainer, Container inventory, int slotIndex, int x, int y) {
             super(inventory, slotIndex, x, y);
             this.menu = ofDeviceContainer;
         }
