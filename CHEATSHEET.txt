@@ -1,5 +1,5 @@
 # Cheatsheet
-O.F.Device v1.16.5-0.1.0
+O.F.Device v1.18-0.2.0
 
 ## Blocks
 ### FO Device
@@ -8,7 +8,9 @@ O.F.Device v1.16.5-0.1.0
   - # L #
   - i x i
 - Make Stones or Ores from Cobblestone
-- Products made from Cobblestone: Stone, Coal Ore, Iron Ore, Lapis Lazuli Ore
+- Products made from Cobblestone: Stone, Coal Ore, Iron Ore, Copper Ore, Lapis Lazuli Ore
+- Make Deepslates or Deepslate Ores from Cobbled Deepslate
+- Products made from Cobbled Deepslate: Deepslate, Deepslate Iron Ore, Deepslate Copper Ore, Deepslate Lapis Lazuli Ore, Deepslate Coal Ore
 - Make Nether Bricks or Nether Ores from Netherrack
 - Products made from Netherrack: Nether Brick, Nether Quartz Ore, Nether Gold Ore
 - Require fuel to work
@@ -18,11 +20,13 @@ O.F.Device v1.16.5-0.1.0
 - Hopper can be used to push materials and fuel into device, and to pull products from device
 
 ### FO Device Mod 1
-- Recipe (Smithing Table): OF Device + Iron Pickaxe
-- Products made from Cobblestone: Stone, Coal Ore, Iron Ore, Redstone Ore, Gold Ore, Lapis Lazuli Ore, Diamond Ore
+- Recipe (Crafting/Smithing Table): OF Device + Iron Pickaxe
+- Products made from Cobblestone: Stone, Coal Ore, Iron Ore, Copper Ore, Redstone Ore, Lapis Lazuli Ore, Gold Ore, Diamond Ore
+- Products made from Cobbled Deepslate: Deepslate, Deepslate Redstone Ore, Deepslate Iron Ore, Deepslate Copper Ore, Deepslate Gold Ore, Deepslate Diamond Ore, Deepslate Lapis Lazuli Ore, Deepslate Coal Ore
 - Products made from Netherrack: Nether Brick, Nether Quartz Ore, Nether Gold Ore
 
 ### FO Device Mod 2
-- Recipe (Smithing Table): OF Device Mod 1 + Diamond Pickaxe
-- Products made from Cobblestone: Stone, Coal Ore, Iron Ore, Redstone Ore, Gold Ore, Lapis Lazuli Ore, Diamond Ore, Emerald Ore
+- Recipe (Crafting/Smithing Table): OF Device Mod 1 + Diamond Pickaxe
+- Products made from Cobblestone: Stone, Coal Ore, Copper Ore, Iron Ore, Gold Ore, Redstone Ore, Lapis Lazuli Ore, Emerald Ore, Diamond Ore
+- Products made from Cobbled Deepslate: Deepslate, Deepslate Redstone Ore, Deepslate Copper Ore, Deepslate Iron Ore, Deepslate Gold Ore, Deepslate Diamond Ore, Deepslate Lapis Lazuli Ore, Deepslate Coal Ore, Deepslate Emerald Ore
 - Products made from Netherrack: Nether Brick, Nether Quartz Ore, Nether Gold Ore, Ancient Debris
