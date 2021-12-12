@@ -1,6 +1,7 @@
 package com.github.iunius118.orefarmingdevice.data;
 
 import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
+import com.github.iunius118.orefarmingdevice.world.item.ModItems;
 import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
@@ -52,6 +53,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         UpgradeRecipeBuilder.smithing(Ingredient.of(ModBlocks.DEVICE_1), Ingredient.of(Items.DIAMOND_PICKAXE), Item.BY_BLOCK.get(ModBlocks.DEVICE_2))
                 .unlocks("has_device_1", has(ModBlocks.DEVICE_1))
                 .save(consumer, ModBlocks.DEVICE_2.getRegistryName() + "_smithing");
+
+        // Cobblestone Feeder
+        ShapedRecipeBuilder.shaped(ModItems.COBBLESTONE_FEEDER)
+                .pattern("  L")
+                .pattern("RPx")
+                .pattern("  W")
+                .define('L', Items.LAVA_BUCKET)
+                .define('R', Blocks.REPEATER)
+                .define('P', Blocks.PISTON)
+                .define('x', Items.STONE_PICKAXE)
+                .define('W', Items.WATER_BUCKET)
+                .unlockedBy("has_device_0", has(ModBlocks.DEVICE_0)).save(consumer);
     }
 
     @Override

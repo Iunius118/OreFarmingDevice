@@ -1,6 +1,7 @@
 package com.github.iunius118.orefarmingdevice.data;
 
 import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
+import com.github.iunius118.orefarmingdevice.world.item.ModItems;
 import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
 import net.minecraft.data.DataGenerator;
@@ -19,17 +20,21 @@ public class ModLanguageProvider extends LanguageProvider {
         gen.addProvider(new ModLanguageProvider(gen, "ja_jp", new JaJpNameProvider()));
     }
 
+    // en_us
     public static class TranslatedNameProvider {
         public String deviceModZeroName = "OF Device";
         public String deviceModOneName = "OF Device Mod 1";
         public String deviceModTwoName = "OF Device Mod 2";
+        public String cobblestoneFeederName = "OF Cobblestone Feeder";
     }
 
+    // ja_jp
     public static class JaJpNameProvider extends TranslatedNameProvider {
         private JaJpNameProvider() {
             deviceModZeroName = "ＯＦ装置";
             deviceModOneName = "ＯＦ装置改";
             deviceModTwoName = "ＯＦ装置改二";
+            cobblestoneFeederName = "ＯＦ丸石供給装置";
         }
     }
 
@@ -39,6 +44,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("itemGroup." + OreFarmingDevice.MOD_ID, OreFarmingDevice.MOD_NAME);
 
         // Items
+        add(ModItems.COBBLESTONE_FEEDER, translatedNameProvider.cobblestoneFeederName);
 
         // Blocks
         add(ModBlocks.DEVICE_0, translatedNameProvider.deviceModZeroName);

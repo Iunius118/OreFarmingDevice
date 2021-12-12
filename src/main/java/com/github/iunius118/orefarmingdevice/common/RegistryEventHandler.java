@@ -2,6 +2,7 @@ package com.github.iunius118.orefarmingdevice.common;
 
 import com.github.iunius118.orefarmingdevice.data.*;
 import com.github.iunius118.orefarmingdevice.inventory.OFDeviceContainer;
+import com.github.iunius118.orefarmingdevice.world.item.ModItemGroups;
 import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import com.github.iunius118.orefarmingdevice.world.level.block.OFDeviceBlock;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceBlockEntity;
@@ -9,7 +10,6 @@ import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceTy
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -44,7 +44,8 @@ public class RegistryEventHandler {
         event.getRegistry().registerAll(
                 new BlockItem(ModBlocks.DEVICE_0, ofDevicePropertiesSupplier.get()).setRegistryName(OFDeviceType.MOD_0.getName()),
                 new BlockItem(ModBlocks.DEVICE_1, ofDevicePropertiesSupplier.get()).setRegistryName(OFDeviceType.MOD_1.getName()),
-                new BlockItem(ModBlocks.DEVICE_2, ofDevicePropertiesSupplier.get()).setRegistryName(OFDeviceType.MOD_2.getName())
+                new BlockItem(ModBlocks.DEVICE_2, ofDevicePropertiesSupplier.get()).setRegistryName(OFDeviceType.MOD_2.getName()),
+                new Item(new Item.Properties().tab(ModItemGroups.MAIN)).setRegistryName("cobblestone_feeder")
         );
     }
 
