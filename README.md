@@ -82,6 +82,12 @@ OF Device Mod 1 + Diamond Pickaxe
 | **Legendary** | Lapis Lazuli Ore, <br>Emerald Ore | Deepslate Lapis Lazuli Ore, <br>Deepslate Coal Ore |  |
 | **Mythic** | Diamond Ore | Deepslate Emerald Ore | Ancient Debris |
 
+### OF Cobblestone Feeder (ＯＦ丸石供給装置)
+
+#### Recipe
+
+(Unreleased)
+
 ## License
 
 - MIT license
