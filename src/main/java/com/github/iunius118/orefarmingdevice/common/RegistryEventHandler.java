@@ -38,7 +38,7 @@ public class RegistryEventHandler {
 
     @SubscribeEvent
     public static void onItemRegistry(RegistryEvent.Register<Item> event) {
-        Supplier<Item.Properties> ofDevicePropertiesSupplier = () -> new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS);
+        Supplier<Item.Properties> ofDevicePropertiesSupplier = () -> new Item.Properties().tab(ModItemGroups.MAIN);
 
         // Register items of OFDeviceBlocks
         event.getRegistry().registerAll(
