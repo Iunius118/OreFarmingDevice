@@ -1,5 +1,6 @@
 package com.github.iunius118.orefarmingdevice.inventory;
 
+import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceBlockEntity;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -100,7 +101,11 @@ public class OFDeviceContainer extends AbstractContainerMenu {
     }
 
     protected boolean canSmelt(ItemStack stack) {
-        return this.level.getRecipeManager().getRecipeFor(RecipeType.SMELTING /* TODO: Fix recipe type */, new SimpleContainer(stack), this.level).isPresent();
+        if (container instanceof OFDeviceBlockEntity device) {
+            return device.findLootTable(stack) != null;
+        }
+
+        return false;
     }
 
     protected boolean isFuel(ItemStack stack) {

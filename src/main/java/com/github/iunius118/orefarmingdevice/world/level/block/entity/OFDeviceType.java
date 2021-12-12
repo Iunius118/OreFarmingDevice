@@ -11,7 +11,7 @@ public enum OFDeviceType {
 
     private final String name;
 
-    private OFDeviceType(String name) {
+    OFDeviceType(String name) {
         this.name = name;
     }
 
@@ -25,5 +25,17 @@ public enum OFDeviceType {
 
     public ResourceLocation getID() {
         return new ResourceLocation(OreFarmingDevice.MOD_ID, name);
+    }
+
+    public boolean contains(OFDeviceBlockEntity device) {
+        return device != null && device.type == this;
+    }
+
+    public boolean isDeviceInShallowLayer(OFDeviceBlockEntity device) {
+        return contains(device) && device.getBlockPos().getY() > 0;
+    }
+
+    public boolean isDeviceInDeepLayer(OFDeviceBlockEntity device) {
+        return contains(device) && device.getBlockPos().getY() <= 0;
     }
 }

@@ -2,6 +2,7 @@ package com.github.iunius118.orefarmingdevice.world.level.block.entity;
 
 import com.github.iunius118.orefarmingdevice.inventory.OFDeviceContainer;
 import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
+import com.github.iunius118.orefarmingdevice.world.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -39,7 +40,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     }
 
     public static BlockEntityType<OFDeviceBlockEntity> getBlockEntityType(OFDeviceType type) {
-        switch(type) {
+        switch (type) {
             case MOD_0:
                 return ModBlockEntityTypes.DEVICE_0;
             case MOD_1:
@@ -52,16 +53,11 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     }
 
     public static int getTotalProcessingTime(OFDeviceType type) {
-        switch(type) {
-            case MOD_0:
-                return 200;
-            case MOD_1:
-                return 100;
-            case MOD_2:
-                return 50;
-        }
-
-        return 200;
+        return switch (type) {
+            case MOD_0 -> 200;
+            case MOD_1 -> 100;
+            case MOD_2 -> 50;
+        };
     }
 
     public static void serverTick(Level level, BlockPos blockPos, BlockState blockState, OFDeviceBlockEntity device) {
@@ -76,8 +72,8 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         ItemStack materialStack = device.items.get(0);
 
         if ((device.isLit() || !fuelStack.isEmpty()) && !materialStack.isEmpty()) {
-            ModLootTables lootTableID = device.findLootTable(materialStack);
-            boolean canProcess = device.canProcess(lootTableID);
+            ModLootTables productLootTable = device.findLootTable(materialStack);
+            boolean canProcess = device.canProcess(productLootTable);
 
             if (!device.isLit() && canProcess) {
                 // Burn new fuel stack
@@ -108,7 +104,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
                     // Process completion
                     device.cookingProgress = 0;
                     device.cookingTotalTime = getTotalProcessingTime(device.type);
-                    device.process(lootTableID);
+                    device.process(productLootTable);
                     hasChanged = true;
                 }
             } else {
@@ -133,23 +129,25 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         return this.litTime > 0;
     }
 
-    private ModLootTables findLootTable(ItemStack stack) {
-        return Arrays.stream(ModLootTables.values()).filter(t -> t.canProcess(type, stack)).findFirst().orElse(null);
+    public ModLootTables findLootTable(ItemStack stack) {
+        return Arrays.stream(ModLootTables.values()).filter(t -> t.canProcess(this, stack)).findFirst().orElse(null);
     }
 
     private boolean canProcess(ModLootTables lootTableID) {
         return !items.get(0).isEmpty() && lootTableID != null;
     }
 
-    private void process(ModLootTables lootTableID) {
-        if (!level.isClientSide && canProcess(lootTableID)) {
-            // Server side
+    private void process(ModLootTables productLootTable) {
+        if (canProcess(productLootTable)) {
             ItemStack materialStack = this.items.get(0);
-            LootTable lootTable = level.getServer().getLootTables().get(lootTableID.getID());
+            LootTable lootTable = level.getServer().getLootTables().get(productLootTable.getID());
             List<ItemStack> items = lootTable.getRandomItems(new LootContext.Builder((ServerLevel) level).withRandom(level.random).create(LootContextParamSets.EMPTY));
             ItemStack productStack = items.size() > 0 ? items.get(0) : ItemStack.EMPTY;
             insertToProductSlot(productStack);
-            materialStack.shrink(1);
+
+            if (!materialStack.is(ModItems.COBBLESTONE_FEEDER)) {
+                materialStack.shrink(1);
+            }
         }
     }
 
@@ -174,7 +172,9 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     private void replaceProductStack(ItemStack newStack) {
         BlockPos pos = getBlockPos();
         ItemStack productSlotStack = items.get(2);
+        // Eject old item stack
         level.addFreshEntity(new ItemEntity(level, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, productSlotStack));
+        // Set new item stack in product slot
         items.set(2, newStack);
     }
 
