@@ -10,7 +10,7 @@ O.F.Device is a Minecraft mod to add devices for farming ores.
 
 ## Description
 
-v1.18-0.2.0
+Version 1.18-0.3.0
 
 ### OF Device (ＯＦ装置)
 
@@ -34,13 +34,13 @@ If the output slot is full during operation, the products are ejected out of the
 
 #### Products
 
-|  | Cobblestone | Cobbled Deepslate | Netherrack |
-| :---: | :---: | :---: | :---: |
-| **Majority** | Stone | Deepslate | Nether Brick |
-| **Uncommon** | Coal Ore |  |  |
-| **Rare** | Iron Ore, <br>Copper Ore | Deepslate Iron Ore | Nether Quartz Ore |
-| **Very Rare** |  | Deepslate Copper Ore | Nether Gold Ore |
-| **Legendary** | Lapis Lazuli Ore | Deepslate Lapis Lazuli Ore, <br>Deepslate Coal Ore |  |
+|               |       Cobblestone        |                 Cobbled Deepslate                  |    Netherrack     |
+|:-------------:|:------------------------:|:--------------------------------------------------:|:-----------------:|
+| **Majority**  |          Stone           |                     Deepslate                      |   Nether Brick    |
+| **Uncommon**  |         Coal Ore         |                                                    |                   |
+|   **Rare**    | Iron Ore, <br>Copper Ore |                 Deepslate Iron Ore                 | Nether Quartz Ore |
+| **Very Rare** |                          |                Deepslate Copper Ore                |  Nether Gold Ore  |
+| **Legendary** |     Lapis Lazuli Ore     | Deepslate Lapis Lazuli Ore, <br>Deepslate Coal Ore |                   |
 
 ### OF Device Mod 1 (ＯＦ装置改)
 
@@ -53,14 +53,14 @@ OF Device + Iron Pickaxe
 
 #### Products
 
-|  | Cobblestone | Cobbled Deepslate | Netherrack |
-| :---: | :---: | :---: | :---: |
-| **Majority** | Stone | Deepslate | Nether Brick |
-| **Uncommon** | Coal Ore |  |  |
-| **Rare** | Iron Ore, <br>Copper Ore | Deepslate Redstone Ore, <br>Deepslate Iron Ore | Nether Quartz Ore |
-| **Very Rare** | Redstone Ore | Deepslate Copper Ore, <br>Deepslate Gold Ore, <br>Deepslate Diamond Ore | Nether Gold Ore |
-| **Legendary** | Lapis Lazuli Ore, <br>Gold Ore | Deepslate Lapis Lazuli Ore, <br>Deepslate Coal Ore |  |
-| **Mythic** | Diamond Ore |  |  |
+|               |          Cobblestone           |                            Cobbled Deepslate                            |    Netherrack     |
+|:-------------:|:------------------------------:|:-----------------------------------------------------------------------:|:-----------------:|
+| **Majority**  |             Stone              |                                Deepslate                                |   Nether Brick    |
+| **Uncommon**  |            Coal Ore            |                                                                         |                   |
+|   **Rare**    |    Iron Ore, <br>Copper Ore    |             Deepslate Redstone Ore, <br>Deepslate Iron Ore              | Nether Quartz Ore |
+| **Very Rare** |          Redstone Ore          | Deepslate Copper Ore, <br>Deepslate Gold Ore, <br>Deepslate Diamond Ore |  Nether Gold Ore  |
+| **Legendary** | Lapis Lazuli Ore, <br>Gold Ore |           Deepslate Lapis Lazuli Ore, <br>Deepslate Coal Ore            |                   |
+|  **Mythic**   |          Diamond Ore           |                                                                         |                   |
 
 ### OF Device Mod 2 (ＯＦ装置改二)
 
@@ -73,20 +73,28 @@ OF Device Mod 1 + Diamond Pickaxe
 
 #### Products
 
-|  | Cobblestone | Cobbled Deepslate | Netherrack |
-| :---: | :---: | :---: | :---: |
-| **Majority** | Stone | Deepslate | Nether Brick |
-| **Uncommon** | Coal Ore, <br>Copper Ore |  |  |
-| **Rare** | Iron Ore, <br>Gold Ore | Deepslate Redstone Ore, <br>Deepslate Copper Ore, <br>Deepslate Iron Ore | Nether Quartz Ore |
-| **Very Rare** | Redstone Ore | Deepslate Gold Ore, <br>Deepslate Diamond Ore | Nether Gold Ore |
-| **Legendary** | Lapis Lazuli Ore, <br>Emerald Ore | Deepslate Lapis Lazuli Ore, <br>Deepslate Coal Ore |  |
-| **Mythic** | Diamond Ore | Deepslate Emerald Ore | Ancient Debris |
+|               |            Cobblestone            |                            Cobbled Deepslate                             |    Netherrack     |
+|:-------------:|:---------------------------------:|:------------------------------------------------------------------------:|:-----------------:|
+| **Majority**  |               Stone               |                                Deepslate                                 |   Nether Brick    |
+| **Uncommon**  |     Coal Ore, <br>Copper Ore      |                                                                          |                   |
+|   **Rare**    |      Iron Ore, <br>Gold Ore       | Deepslate Redstone Ore, <br>Deepslate Copper Ore, <br>Deepslate Iron Ore | Nether Quartz Ore |
+| **Very Rare** |           Redstone Ore            |              Deepslate Gold Ore, <br>Deepslate Diamond Ore               |  Nether Gold Ore  |
+| **Legendary** | Lapis Lazuli Ore, <br>Emerald Ore |            Deepslate Lapis Lazuli Ore, <br>Deepslate Coal Ore            |                   |
+|  **Mythic**   |            Diamond Ore            |                          Deepslate Emerald Ore                           |  Ancient Debris   |
 
 ### OF Cobblestone Feeder (ＯＦ丸石供給装置)
 
+<img src="docs/media/gui_cobblestone_feeder_v030.png" title="GUI: Using OF Cobblestone Feeder" alt="Place this item in material slot of OF device">
+
+OF Cobblestone Feeder provides an infinite supply of Cobblestones to OF Devices.
+
+ＯＦ装置の材料スロットに入れると装置へ無限に丸石を供給する。
+
 #### Recipe
 
-(Unreleased)
+<img src="docs/media/recipe_cobblestone_feeder_v030.png" title="Crafting recipe: OF Cobblestone Feeder">
+
+Lava Bucket + Redstone Repeater + Piston + Stone Pickaxe + Water Bucket
 
 ## License
 

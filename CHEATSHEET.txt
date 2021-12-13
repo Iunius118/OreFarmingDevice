@@ -1,5 +1,5 @@
 # Cheatsheet
-O.F.Device v1.18-0.2.0
+O.F.Device v1.18-0.3.0
 
 ## Blocks
 ### OF Device
@@ -33,7 +33,7 @@ O.F.Device v1.18-0.2.0
 
 ## Item
 ### OF Cobblestone Feeder
-- Recipe (L = Lava Bucket , R = Redstone Repeater , P = Piston, x = Stone Pickaxe, W = Water Bucket)
+- Recipe (L = Lava Bucket, R = Redstone Repeater, P = Piston, x = Stone Pickaxe, W = Water Bucket)
   - ` _ _ L `
   - ` R P x `
   - ` _ _ W `

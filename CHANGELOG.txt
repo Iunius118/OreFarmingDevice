@@ -3,9 +3,11 @@
 [Source](https://github.com/Iunius118/O.F.Device).
 
 ## [Unreleased]
+
+## [1.18-0.3.0]
 ### Added
 - OF Cobblestone Feeder.
-- Creative mode tab for mod items.
+- Creative mode tab.
 
 ### Changed
 - Update Forge to 1.18-38.0.17.
