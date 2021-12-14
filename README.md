@@ -24,7 +24,7 @@ Version 1.18-0.3.0
 
 <img src="docs/media/gui_device_0_v010.png" title="GUI: OF Device" alt="The upper right slot for materials, the left slot for fuel, and the bottom right slot for products">
 
-1. Material slot (材料), only Cobblestone, Cobbled Deepslate, Netherrack, or OF Cobblestone Feeder (丸石・深層岩の丸石・ネザーラック・ＯＦ丸石供給装置のみ)
+1. Material slot (材料). Only Cobblestone, Cobbled Deepslate, Netherrack, or OF Cobblestone Feeder (丸石・深層岩の丸石・ネザーラック・ＯＦ丸石供給装置のみ)
 2. Fuel slot (燃料)
 3. Product slot (生成物)
 
