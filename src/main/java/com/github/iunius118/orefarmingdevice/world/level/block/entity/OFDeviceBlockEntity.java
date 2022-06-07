@@ -40,16 +40,12 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     }
 
     public static BlockEntityType<OFDeviceBlockEntity> getBlockEntityType(OFDeviceType type) {
-        switch (type) {
-            case MOD_0:
-                return ModBlockEntityTypes.DEVICE_0;
-            case MOD_1:
-                return ModBlockEntityTypes.DEVICE_1;
-            case MOD_2:
-                return ModBlockEntityTypes.DEVICE_2;
-        }
+        return switch (type) {
+            case MOD_0 -> ModBlockEntityTypes.DEVICE_0;
+            case MOD_1 -> ModBlockEntityTypes.DEVICE_1;
+            case MOD_2 -> ModBlockEntityTypes.DEVICE_2;
+        };
 
-        return null;
     }
 
     public static int getTotalProcessingTime(OFDeviceType type) {
@@ -139,16 +135,24 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
 
     private void process(ModLootTables productLootTable) {
         if (canProcess(productLootTable)) {
-            ItemStack materialStack = this.items.get(0);
-            LootTable lootTable = level.getServer().getLootTables().get(productLootTable.getID());
-            List<ItemStack> items = lootTable.getRandomItems(new LootContext.Builder((ServerLevel) level).withRandom(level.random).create(LootContextParamSets.EMPTY));
-            ItemStack productStack = items.size() > 0 ? items.get(0) : ItemStack.EMPTY;
+            ItemStack materialStack = items.get(0);
+            ItemStack productStack = getRandomItemFromLootTable(productLootTable);
             insertToProductSlot(productStack);
 
             if (!materialStack.is(ModItems.COBBLESTONE_FEEDER)) {
                 materialStack.shrink(1);
             }
         }
+    }
+
+    private ItemStack getRandomItemFromLootTable(ModLootTables productLootTable) {
+        if (level == null) return ItemStack.EMPTY;
+        var server = level.getServer();
+        if (server == null) return ItemStack.EMPTY;
+
+        LootTable lootTable = server.getLootTables().get(productLootTable.getID());
+        List<ItemStack> randomItems = lootTable.getRandomItems(new LootContext.Builder((ServerLevel) level).withRandom(level.random).create(LootContextParamSets.EMPTY));
+        return randomItems.size() > 0 ? randomItems.get(0) : ItemStack.EMPTY;
     }
 
     private void insertToProductSlot(ItemStack productStack) {
@@ -170,6 +174,8 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     }
 
     private void replaceProductStack(ItemStack newStack) {
+        if (level == null) return;
+
         BlockPos pos = getBlockPos();
         ItemStack productSlotStack = items.get(2);
         // Eject old item stack

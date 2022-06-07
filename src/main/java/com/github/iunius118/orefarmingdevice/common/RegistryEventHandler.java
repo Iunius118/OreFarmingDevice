@@ -7,7 +7,6 @@ import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import com.github.iunius118.orefarmingdevice.world.level.block.OFDeviceBlock;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceBlockEntity;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
-import net.minecraft.data.DataGenerator;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -15,7 +14,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
-import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeBlockTagsProvider;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -67,9 +65,9 @@ public class RegistryEventHandler {
 
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
-        DataGenerator dataGenerator = event.getGenerator();
-        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
-        ForgeBlockTagsProvider blockTagsProvider = new ForgeBlockTagsProvider(dataGenerator, existingFileHelper);
+        var dataGenerator = event.getGenerator();
+        var existingFileHelper = event.getExistingFileHelper();
+        var blockTagsProvider = new ForgeBlockTagsProvider(dataGenerator, existingFileHelper);
 
         if (event.includeServer()) {
             dataGenerator.addProvider(new ModLootTableProvider(dataGenerator));
