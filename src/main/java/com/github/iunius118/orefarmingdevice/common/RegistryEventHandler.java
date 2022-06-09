@@ -62,6 +62,7 @@ public class RegistryEventHandler {
 
         // Server
         boolean includesServer = event.includeServer();
+        dataGenerator.addProvider(includesServer, new ModBlockTagsProvider(dataGenerator, existingFileHelper));
         dataGenerator.addProvider(includesServer, new ModLootTableProvider(dataGenerator));
         dataGenerator.addProvider(includesServer, new ModRecipeProvider(dataGenerator));
 
