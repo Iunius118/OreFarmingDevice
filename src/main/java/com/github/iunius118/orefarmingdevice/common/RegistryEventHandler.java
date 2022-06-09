@@ -72,6 +72,7 @@ public class RegistryEventHandler {
         ForgeBlockTagsProvider blockTagsProvider = new ForgeBlockTagsProvider(dataGenerator, existingFileHelper);
 
         if (event.includeServer()) {
+            dataGenerator.addProvider(new ModBlockTagsProvider(dataGenerator, existingFileHelper));
             dataGenerator.addProvider(new ModLootTableProvider(dataGenerator));
             dataGenerator.addProvider(new ModRecipeProvider(dataGenerator));
         }
