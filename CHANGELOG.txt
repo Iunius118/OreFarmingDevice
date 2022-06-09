@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+## [1.18-0.3.1]
+### Fixed
+- Correct tool to remove OF Devices.
+
 ## [1.18-0.3.0]
 ### Added
 - OF Cobblestone Feeder.
@@ -23,6 +27,6 @@
 
 ## [1.16.5-0.1.0-Forge]
 ### Added
-- FO Device block.
-- FO Device Mod 1 block.
-- FO Device Mod 2 block.
+- OF Device block.
+- OF Device Mod 1 block.
+- OF Device Mod 2 block.
