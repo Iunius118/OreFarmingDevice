@@ -2,35 +2,36 @@
   "type": "minecraft:empty",
   "pools": [
     {
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 976,
-          "name": "minecraft:deepslate"
+          "name": "minecraft:deepslate",
+          "quality": -240,
+          "weight": 976
         },
         {
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "minecraft:deepslate_coal_ore"
+          "name": "minecraft:deepslate_coal_ore",
+          "weight": 3
         },
         {
           "type": "minecraft:item",
-          "weight": 6,
-          "name": "minecraft:deepslate_copper_ore"
+          "name": "minecraft:deepslate_copper_ore",
+          "weight": 6
         },
         {
           "type": "minecraft:item",
-          "weight": 4,
-          "name": "minecraft:deepslate_lapis_ore"
+          "name": "minecraft:deepslate_lapis_ore",
+          "weight": 4
         },
         {
           "type": "minecraft:item",
-          "weight": 11,
-          "name": "minecraft:deepslate_iron_ore"
+          "name": "minecraft:deepslate_iron_ore",
+          "weight": 11
         }
-      ]
+      ],
+      "rolls": 1.0
     }
   ]
 }

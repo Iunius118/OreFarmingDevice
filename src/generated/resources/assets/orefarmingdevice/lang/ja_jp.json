@@ -1,10 +1,10 @@
 {
-  "block.orefarmingdevice.device_0": "\uFF2F\uFF26\u88C5\u7F6E",
-  "block.orefarmingdevice.device_1": "\uFF2F\uFF26\u88C5\u7F6E\u6539",
-  "block.orefarmingdevice.device_2": "\uFF2F\uFF26\u88C5\u7F6E\u6539\u4E8C",
-  "container.orefarmingdevice.device_0": "\uFF2F\uFF26\u88C5\u7F6E",
-  "container.orefarmingdevice.device_1": "\uFF2F\uFF26\u88C5\u7F6E\u6539",
-  "container.orefarmingdevice.device_2": "\uFF2F\uFF26\u88C5\u7F6E\u6539\u4E8C",
-  "item.orefarmingdevice.cobblestone_feeder": "\uFF2F\uFF26\u4E38\u77F3\u4F9B\u7D66\u88C5\u7F6E",
+  "block.orefarmingdevice.device_0": "ＯＦ装置",
+  "block.orefarmingdevice.device_1": "ＯＦ装置改",
+  "block.orefarmingdevice.device_2": "ＯＦ装置改二",
+  "container.orefarmingdevice.device_0": "ＯＦ装置",
+  "container.orefarmingdevice.device_1": "ＯＦ装置改",
+  "container.orefarmingdevice.device_2": "ＯＦ装置改二",
+  "item.orefarmingdevice.cobblestone_feeder": "ＯＦ丸石供給装置",
   "itemGroup.orefarmingdevice": "O.F.Device"
 }

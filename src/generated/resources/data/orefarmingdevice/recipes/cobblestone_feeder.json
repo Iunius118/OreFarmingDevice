@@ -1,27 +1,27 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "L": {
+      "item": "minecraft:lava_bucket"
+    },
+    "P": {
+      "item": "minecraft:piston"
+    },
+    "R": {
+      "item": "minecraft:repeater"
+    },
+    "W": {
+      "item": "minecraft:water_bucket"
+    },
+    "x": {
+      "item": "minecraft:stone_pickaxe"
+    }
+  },
   "pattern": [
     "  L",
     "RPx",
     "  W"
   ],
-  "key": {
-    "L": {
-      "item": "minecraft:lava_bucket"
-    },
-    "R": {
-      "item": "minecraft:repeater"
-    },
-    "P": {
-      "item": "minecraft:piston"
-    },
-    "x": {
-      "item": "minecraft:stone_pickaxe"
-    },
-    "W": {
-      "item": "minecraft:water_bucket"
-    }
-  },
   "result": {
     "item": "orefarmingdevice:cobblestone_feeder"
   }
