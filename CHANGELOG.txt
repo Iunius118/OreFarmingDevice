@@ -3,6 +3,13 @@
 [Source](https://github.com/Iunius118/O.F.Device).
 
 ## [Unreleased]
+### Changed
+- Port to 1.19.
+- Require Forge 1.19-41.0.5+.
+
+## [1.18-0.3.1]
+### Fixed
+- Correct tool to remove OF Devices.
 
 ## [1.18-0.3.0]
 ### Added
