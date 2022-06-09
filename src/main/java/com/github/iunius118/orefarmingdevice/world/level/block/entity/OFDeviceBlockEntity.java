@@ -5,7 +5,7 @@ import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
 import com.github.iunius118.orefarmingdevice.world.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -146,17 +146,22 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     }
 
     private ItemStack getRandomItemFromLootTable(ModLootTables productLootTable) {
-        if (level == null) return ItemStack.EMPTY;
-        var server = level.getServer();
-        if (server == null) return ItemStack.EMPTY;
+        if (level == null)
+            return ItemStack.EMPTY;
 
-        LootTable lootTable = server.getLootTables().get(productLootTable.getID());
-        List<ItemStack> randomItems = lootTable.getRandomItems(new LootContext.Builder((ServerLevel) level).withRandom(level.random).create(LootContextParamSets.EMPTY));
+        var server = level.getServer();
+        if (server == null)
+            return ItemStack.EMPTY;
+
+        LootTable lootTable = server.getLootTables().get(productLootTable.getId());
+        float luck = 0;
+        List<ItemStack> randomItems = lootTable.getRandomItems(new LootContext.Builder((ServerLevel) level).withRandom(level.random).withLuck(luck).create(LootContextParamSets.EMPTY));
         return randomItems.size() > 0 ? randomItems.get(0) : ItemStack.EMPTY;
     }
 
     private void insertToProductSlot(ItemStack productStack) {
-        if (productStack.isEmpty()) return;
+        if (productStack.isEmpty())
+            return;
 
         ItemStack productSlotStack = items.get(2);
 
@@ -203,8 +208,8 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     }
 
     @Override
-    protected Component getDefaultName() {
-        return new TranslatableComponent(containerTranslationKey);
+    protected MutableComponent getDefaultName() {
+        return Component.translatable(containerTranslationKey);
     }
 
     @Override

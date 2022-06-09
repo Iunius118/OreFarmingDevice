@@ -1,11 +1,15 @@
 package com.github.iunius118.orefarmingdevice.world.level.block;
 
-import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
-import net.minecraftforge.registries.ObjectHolder;
+import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.Material;
 
-@ObjectHolder(OreFarmingDevice.MOD_ID)
+import java.util.function.Supplier;
+
 public class ModBlocks {
-    public static final OFDeviceBlock DEVICE_0 = null;
-    public static final OFDeviceBlock DEVICE_1 = null;
-    public static final OFDeviceBlock DEVICE_2 = null;
+    private static final Supplier<BlockBehaviour.Properties> ofDevicePropertiesSupplier = () -> BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.5F);
+
+    public static final OFDeviceBlock DEVICE_0 = new OFDeviceBlock(ofDevicePropertiesSupplier.get(), OFDeviceType.MOD_0);
+    public static final OFDeviceBlock DEVICE_1 = new OFDeviceBlock(ofDevicePropertiesSupplier.get(), OFDeviceType.MOD_1);
+    public static final OFDeviceBlock DEVICE_2 = new OFDeviceBlock(ofDevicePropertiesSupplier.get(), OFDeviceType.MOD_2);
 }

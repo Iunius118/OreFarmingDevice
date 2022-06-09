@@ -5,11 +5,13 @@ import com.github.iunius118.orefarmingdevice.world.item.ModItems;
 import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.Consumer;
 
@@ -41,7 +43,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         UpgradeRecipeBuilder.smithing(Ingredient.of(ModBlocks.DEVICE_0), Ingredient.of(Items.IRON_PICKAXE), Item.BY_BLOCK.get(ModBlocks.DEVICE_1))
                 .unlocks("has_device_0", has(ModBlocks.DEVICE_0))
-                .save(consumer, ModBlocks.DEVICE_1.getRegistryName() + "_smithing");
+                .save(consumer, getItemId(ModBlocks.DEVICE_1.asItem()) + "_smithing");
 
         // Devise 2
         ShapelessRecipeBuilder.shapeless(ModBlocks.DEVICE_2)
@@ -52,7 +54,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         UpgradeRecipeBuilder.smithing(Ingredient.of(ModBlocks.DEVICE_1), Ingredient.of(Items.DIAMOND_PICKAXE), Item.BY_BLOCK.get(ModBlocks.DEVICE_2))
                 .unlocks("has_device_1", has(ModBlocks.DEVICE_1))
-                .save(consumer, ModBlocks.DEVICE_2.getRegistryName() + "_smithing");
+                .save(consumer, getItemId(ModBlocks.DEVICE_2.asItem()) + "_smithing");
 
         // Cobblestone Feeder
         ShapedRecipeBuilder.shaped(ModItems.COBBLESTONE_FEEDER)
@@ -65,6 +67,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('x', Items.STONE_PICKAXE)
                 .define('W', Items.WATER_BUCKET)
                 .unlockedBy("has_device_0", has(ModBlocks.DEVICE_0)).save(consumer);
+    }
+
+    private ResourceLocation getItemId(Item item) {
+        return ForgeRegistries.ITEMS.getKey(item);
     }
 
     @Override

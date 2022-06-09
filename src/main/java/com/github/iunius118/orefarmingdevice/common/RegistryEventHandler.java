@@ -1,66 +1,57 @@
 package com.github.iunius118.orefarmingdevice.common;
 
+import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
 import com.github.iunius118.orefarmingdevice.data.*;
-import com.github.iunius118.orefarmingdevice.inventory.OFDeviceContainer;
-import com.github.iunius118.orefarmingdevice.world.item.ModItemGroups;
+import com.github.iunius118.orefarmingdevice.inventory.ModContainerTypes;
+import com.github.iunius118.orefarmingdevice.world.item.ModItems;
 import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
-import com.github.iunius118.orefarmingdevice.world.level.block.OFDeviceBlock;
-import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceBlockEntity;
+import com.github.iunius118.orefarmingdevice.world.level.block.entity.ModBlockEntityTypes;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
-import net.minecraft.world.inventory.MenuType;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.data.ForgeBlockTagsProvider;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
-
-import java.util.function.Supplier;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegisterEvent;
 
 public class RegistryEventHandler {
     @SubscribeEvent
-    public static void onBlockRegistry(RegistryEvent.Register<Block> event) {
-        Supplier<BlockBehaviour.Properties> ofDevicePropertiesSupplier = () -> BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.5F);
+    public static void registerBlocks(RegisterEvent event) {
+        if (!event.getRegistryKey().equals(ForgeRegistries.Keys.BLOCKS))
+            return;
 
-        // Register OFDeviceBlocks
-        event.getRegistry().registerAll(
-                new OFDeviceBlock(ofDevicePropertiesSupplier.get(), OFDeviceType.MOD_0).setRegistryName(OFDeviceType.MOD_0.getName()),
-                new OFDeviceBlock(ofDevicePropertiesSupplier.get(), OFDeviceType.MOD_1).setRegistryName(OFDeviceType.MOD_1.getName()),
-                new OFDeviceBlock(ofDevicePropertiesSupplier.get(), OFDeviceType.MOD_2).setRegistryName(OFDeviceType.MOD_2.getName())
-        );
+        event.register(ForgeRegistries.Keys.BLOCKS, OFDeviceType.MOD_0.getId(), () -> ModBlocks.DEVICE_0);
+        event.register(ForgeRegistries.Keys.BLOCKS, OFDeviceType.MOD_1.getId(), () -> ModBlocks.DEVICE_1);
+        event.register(ForgeRegistries.Keys.BLOCKS, OFDeviceType.MOD_2.getId(), () -> ModBlocks.DEVICE_2);
     }
 
     @SubscribeEvent
-    public static void onItemRegistry(RegistryEvent.Register<Item> event) {
-        Supplier<Item.Properties> ofDevicePropertiesSupplier = () -> new Item.Properties().tab(ModItemGroups.MAIN);
+    public static void registerItems(RegisterEvent event) {
+        if (!event.getRegistryKey().equals(ForgeRegistries.Keys.ITEMS))
+            return;
 
-        // Register items of OFDeviceBlocks
-        event.getRegistry().registerAll(
-                new BlockItem(ModBlocks.DEVICE_0, ofDevicePropertiesSupplier.get()).setRegistryName(OFDeviceType.MOD_0.getName()),
-                new BlockItem(ModBlocks.DEVICE_1, ofDevicePropertiesSupplier.get()).setRegistryName(OFDeviceType.MOD_1.getName()),
-                new BlockItem(ModBlocks.DEVICE_2, ofDevicePropertiesSupplier.get()).setRegistryName(OFDeviceType.MOD_2.getName()),
-                new Item(new Item.Properties().tab(ModItemGroups.MAIN)).setRegistryName("cobblestone_feeder")
-        );
+        event.register(ForgeRegistries.Keys.ITEMS, OFDeviceType.MOD_0.getId(), () -> ModItems.DEVICE_0);
+        event.register(ForgeRegistries.Keys.ITEMS, OFDeviceType.MOD_1.getId(), () -> ModItems.DEVICE_1);
+        event.register(ForgeRegistries.Keys.ITEMS, OFDeviceType.MOD_2.getId(), () -> ModItems.DEVICE_2);
+        event.register(ForgeRegistries.Keys.ITEMS, new ResourceLocation(OreFarmingDevice.MOD_ID, "cobblestone_feeder"), () -> ModItems.COBBLESTONE_FEEDER);
     }
 
     @SubscribeEvent
-    public static void onBlockEntityRegistry(RegistryEvent.Register<BlockEntityType<?>> event) {
-        // Register BEs of OFDeviceBlocks
-        event.getRegistry().registerAll(
-                BlockEntityType.Builder.of((pos, state) -> new OFDeviceBlockEntity(pos, state, OFDeviceType.MOD_0), ModBlocks.DEVICE_0).build(null).setRegistryName(OFDeviceType.MOD_0.getName()),
-                BlockEntityType.Builder.of((pos, state) -> new OFDeviceBlockEntity(pos, state, OFDeviceType.MOD_1), ModBlocks.DEVICE_1).build(null).setRegistryName(OFDeviceType.MOD_1.getName()),
-                BlockEntityType.Builder.of((pos, state) -> new OFDeviceBlockEntity(pos, state, OFDeviceType.MOD_2), ModBlocks.DEVICE_2).build(null).setRegistryName(OFDeviceType.MOD_2.getName())
-        );
+    public static void registerBlockEntityTypes(RegisterEvent event) {
+        if (!event.getRegistryKey().equals(ForgeRegistries.Keys.BLOCK_ENTITY_TYPES))
+            return;
+
+        event.register(ForgeRegistries.Keys.BLOCK_ENTITY_TYPES, OFDeviceType.MOD_0.getId(), () -> ModBlockEntityTypes.DEVICE_0);
+        event.register(ForgeRegistries.Keys.BLOCK_ENTITY_TYPES, OFDeviceType.MOD_1.getId(), () -> ModBlockEntityTypes.DEVICE_1);
+        event.register(ForgeRegistries.Keys.BLOCK_ENTITY_TYPES, OFDeviceType.MOD_2.getId(), () -> ModBlockEntityTypes.DEVICE_2);
     }
 
     @SubscribeEvent
-    public static void onContainerRegistry(RegistryEvent.Register<MenuType<?>> event) {
-        // Register Container of OFDeviceBlocks
-        event.getRegistry().register(new MenuType<>(OFDeviceContainer::new).setRegistryName("device"));
+    public static void registerContainerTypes(RegisterEvent event) {
+        if (!event.getRegistryKey().equals(ForgeRegistries.Keys.CONTAINER_TYPES))
+            return;
+
+        event.register(ForgeRegistries.Keys.CONTAINER_TYPES, new ResourceLocation(OreFarmingDevice.MOD_ID, "device"), () -> ModContainerTypes.DEVICE);
     }
 
     @SubscribeEvent
@@ -69,15 +60,15 @@ public class RegistryEventHandler {
         var existingFileHelper = event.getExistingFileHelper();
         var blockTagsProvider = new ForgeBlockTagsProvider(dataGenerator, existingFileHelper);
 
-        if (event.includeServer()) {
-            dataGenerator.addProvider(new ModLootTableProvider(dataGenerator));
-            dataGenerator.addProvider(new ModRecipeProvider(dataGenerator));
-        }
+        // Server
+        boolean includesServer = event.includeServer();
+        dataGenerator.addProvider(includesServer, new ModLootTableProvider(dataGenerator));
+        dataGenerator.addProvider(includesServer, new ModRecipeProvider(dataGenerator));
 
-        if (event.includeClient()) {
-            dataGenerator.addProvider(new ModBlockStateProvider(dataGenerator, existingFileHelper));
-            dataGenerator.addProvider(new ModItemModelProvider(dataGenerator, existingFileHelper));
-            ModLanguageProvider.addProviders(dataGenerator);
-        }
+        // Client
+        boolean includesClient = event.includeClient();
+        dataGenerator.addProvider(includesClient, new ModBlockStateProvider(dataGenerator, existingFileHelper));
+        dataGenerator.addProvider(includesClient, new ModItemModelProvider(dataGenerator, existingFileHelper));
+        ModLanguageProvider.addProviders(includesClient, dataGenerator);
     }
 }

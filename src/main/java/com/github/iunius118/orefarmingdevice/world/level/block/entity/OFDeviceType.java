@@ -23,7 +23,7 @@ public enum OFDeviceType {
         return "container." + OreFarmingDevice.MOD_ID + "." + name;
     }
 
-    public ResourceLocation getID() {
+    public ResourceLocation getId() {
         return new ResourceLocation(OreFarmingDevice.MOD_ID, name);
     }
 

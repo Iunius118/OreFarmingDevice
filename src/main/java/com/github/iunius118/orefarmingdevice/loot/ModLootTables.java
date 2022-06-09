@@ -41,7 +41,7 @@ public enum ModLootTables {
         this.canProcess = canProcess;
     }
 
-    public ResourceLocation getID() {
+    public ResourceLocation getId() {
         return id;
     }
 
