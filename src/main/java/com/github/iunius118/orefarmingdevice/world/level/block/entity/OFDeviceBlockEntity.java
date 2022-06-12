@@ -96,8 +96,6 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
                 device.litDuration = device.litTime;
 
                 if (device.isLit()) {
-                    device.updateFarmingEfficiency(level, blockPos, device);
-
                     // Handle fuel
                     hasChanged = true;
 
@@ -111,6 +109,11 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
                         }
                     }
                 }
+            }
+
+            if (device.isLit() && device.litTime == device.litDuration) {
+                // When device is refueled
+                device.updateFarmingEfficiency(level, blockPos, device);
             }
 
             if (device.isLit() && canProcess) {
