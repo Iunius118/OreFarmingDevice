@@ -3,9 +3,16 @@
 [Source](https://github.com/Iunius118/O.F.Device).
 
 ## [Unreleased]
+
+## [1.19-0.4.0]
+### Added
+- Increase appearance rate of ores with number (up to 3) of players, villagers, etc. around OF Devices.
+- Config whether OF Cobblestone Feeder is available for OF Devices.
+- Recipe to make Lava Bucket from OF Cobblestone Feeder and Bucket.
+
 ### Changed
 - Port to 1.19.
-- Require Forge 1.19-41.0.5+.
+- Require Forge 1.19-41.0.17+.
 
 ## [1.18-0.3.1]
 ### Fixed

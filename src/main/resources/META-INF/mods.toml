@@ -6,7 +6,7 @@ issueTrackerURL="https://github.com/Iunius118/O.F.Device/issues"
 [[mods]]
 modId="orefarmingdevice"
 version="${file.jarVersion}"
-displayName="O.F.Device"
+displayName="O.F.Device (Ore Farming Device)"
 displayURL="https://github.com/Iunius118/O.F.Device"
 # logoFile="orefarmingdevice_logo.png"
 credits="Iunius118"
