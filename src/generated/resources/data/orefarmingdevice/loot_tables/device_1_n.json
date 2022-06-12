@@ -2,24 +2,25 @@
   "type": "minecraft:empty",
   "pools": [
     {
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 96,
-          "name": "minecraft:nether_brick"
+          "name": "minecraft:nether_brick",
+          "quality": -240,
+          "weight": 96
         },
         {
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "minecraft:nether_quartz_ore"
+          "name": "minecraft:nether_quartz_ore",
+          "weight": 3
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:nether_gold_ore"
         }
-      ]
+      ],
+      "rolls": 1.0
     }
   ]
 }

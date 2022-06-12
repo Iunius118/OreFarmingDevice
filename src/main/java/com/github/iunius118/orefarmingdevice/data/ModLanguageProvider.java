@@ -15,9 +15,9 @@ public class ModLanguageProvider extends LanguageProvider {
         this.translatedNameProvider = translatedNameProvider;
     }
 
-    public static void addProviders(DataGenerator gen) {
-        gen.addProvider(new ModLanguageProvider(gen, "en_us", new TranslatedNameProvider()));
-        gen.addProvider(new ModLanguageProvider(gen, "ja_jp", new JaJpNameProvider()));
+    public static void addProviders(boolean needsRun, DataGenerator gen) {
+        gen.addProvider(needsRun, new ModLanguageProvider(gen, "en_us", new TranslatedNameProvider()));
+        gen.addProvider(needsRun, new ModLanguageProvider(gen, "ja_jp", new JaJpNameProvider()));
     }
 
     // en_us

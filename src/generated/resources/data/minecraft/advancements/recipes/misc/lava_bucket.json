@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_device_0": {
+    "has_cobblestone_feeder": {
       "conditions": {
         "items": [
           {
             "items": [
-              "orefarmingdevice:device_0"
+              "orefarmingdevice:cobblestone_feeder"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "orefarmingdevice:device_1"
+        "recipe": "minecraft:lava_bucket"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_device_0",
+      "has_cobblestone_feeder",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "orefarmingdevice:device_1"
+      "minecraft:lava_bucket"
     ]
   }
 }

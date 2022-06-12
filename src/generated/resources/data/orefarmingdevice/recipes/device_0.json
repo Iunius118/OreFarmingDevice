@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#F#",
-    "#L#",
-    "ixi"
-  ],
   "key": {
     "#": {
       "item": "minecraft:stone"
@@ -22,6 +17,11 @@
       "item": "minecraft:stone_pickaxe"
     }
   },
+  "pattern": [
+    "#F#",
+    "#L#",
+    "ixi"
+  ],
   "result": {
     "item": "orefarmingdevice:device_0"
   }

@@ -1,5 +1,5 @@
 # Credits
 ## Author
-O.F.Device
+O.F.Device (Ore Farming Device)
 Copyright (c) 2021 Iunius118
 https://github.com/Iunius118/O.F.Device

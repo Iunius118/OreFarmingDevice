@@ -4,11 +4,13 @@ import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
 import com.github.iunius118.orefarmingdevice.world.item.ModItems;
 import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModItemModelProvider  extends ItemModelProvider {
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
@@ -24,13 +26,17 @@ public class ModItemModelProvider  extends ItemModelProvider {
     }
 
     private void registerItemModel(Item item) {
-        String path = item.getRegistryName().getPath();
+        String path = getItemId(item).getPath();
         getBuilder(path).parent(new ModelFile.UncheckedModelFile("item/generated"))
                 .texture("layer0", "item/" + path);
     }
 
     private void registerBlockItemModel(Block block) {
-        String path = block.getRegistryName().getPath();
+        String path = getItemId(block.asItem()).getPath();
         getBuilder(path).parent(new ModelFile.UncheckedModelFile(modLoc("block/" + path)));
+    }
+
+    private ResourceLocation getItemId(Item item) {
+        return ForgeRegistries.ITEMS.getKey(item);
     }
 }

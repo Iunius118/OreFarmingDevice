@@ -4,6 +4,16 @@
 
 ## [Unreleased]
 
+## [1.19-0.4.0]
+### Added
+- Increase appearance rate of ores with number (up to 3) of players, villagers, etc. around OF Devices.
+- Config whether OF Cobblestone Feeder is available for OF Devices.
+- Recipe to make Lava Bucket from OF Cobblestone Feeder and Bucket.
+
+### Changed
+- Port to 1.19.
+- Require Forge 1.19-41.0.17+.
+
 ## [1.18-0.3.1]
 ### Fixed
 - Correct tool to remove OF Devices.
@@ -27,6 +37,6 @@
 
 ## [1.16.5-0.1.0-Forge]
 ### Added
-- OF Device block.
-- OF Device Mod 1 block.
-- OF Device Mod 2 block.
+- FO Device block.
+- FO Device Mod 1 block.
+- FO Device Mod 2 block.

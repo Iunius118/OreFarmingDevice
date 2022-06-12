@@ -1,12 +1,10 @@
 package com.github.iunius118.orefarmingdevice.world.level.block.entity;
 
-import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
+import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraftforge.registries.ObjectHolder;
 
-@ObjectHolder(OreFarmingDevice.MOD_ID)
 public class ModBlockEntityTypes {
-    public static final BlockEntityType<OFDeviceBlockEntity> DEVICE_0 = null;
-    public static final BlockEntityType<OFDeviceBlockEntity> DEVICE_1 = null;
-    public static final BlockEntityType<OFDeviceBlockEntity> DEVICE_2 = null;
+    public static final BlockEntityType<OFDeviceBlockEntity> DEVICE_0 = BlockEntityType.Builder.of((pos, state) -> new OFDeviceBlockEntity(pos, state, OFDeviceType.MOD_0), ModBlocks.DEVICE_0).build(null);
+    public static final BlockEntityType<OFDeviceBlockEntity> DEVICE_1 = BlockEntityType.Builder.of((pos, state) -> new OFDeviceBlockEntity(pos, state, OFDeviceType.MOD_1), ModBlocks.DEVICE_1).build(null);
+    public static final BlockEntityType<OFDeviceBlockEntity> DEVICE_2 = BlockEntityType.Builder.of((pos, state) -> new OFDeviceBlockEntity(pos, state, OFDeviceType.MOD_2), ModBlocks.DEVICE_2).build(null);
 }
