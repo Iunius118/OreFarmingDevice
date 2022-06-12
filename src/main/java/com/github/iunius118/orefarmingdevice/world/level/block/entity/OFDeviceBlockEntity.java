@@ -4,10 +4,12 @@ import com.github.iunius118.orefarmingdevice.inventory.OFDeviceContainer;
 import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
 import com.github.iunius118.orefarmingdevice.world.item.ModItems;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -21,6 +23,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.phys.AABB;
 
 import java.util.Arrays;
 import java.util.List;
@@ -28,6 +31,10 @@ import java.util.List;
 public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     public final OFDeviceType type;
     public final String containerTranslationKey;
+    public static final String KEY_EFFICIENCY = "Efficiency";
+    public static final float MAX_EFFICIENCY = 3F;
+
+    public float farmingEfficiency = 0F;
 
     public OFDeviceBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState, OFDeviceType ofDeviceType) {
         super(blockEntityType, blockPos, blockState, RecipeType.SMELTING);
@@ -56,6 +63,18 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         };
     }
 
+    @Override
+    public void load(CompoundTag compoundTag) {
+        super.load(compoundTag);
+        farmingEfficiency = Mth.clamp(compoundTag.getFloat(KEY_EFFICIENCY), 0F, MAX_EFFICIENCY);
+    }
+
+    @Override
+    protected void saveAdditional(CompoundTag compoundTag) {
+        super.saveAdditional(compoundTag);
+        compoundTag.putFloat(KEY_EFFICIENCY, Mth.clamp(farmingEfficiency, 0F, MAX_EFFICIENCY));
+    }
+
     public static void serverTick(Level level, BlockPos blockPos, BlockState blockState, OFDeviceBlockEntity device) {
         boolean isLitOld = device.isLit();
         boolean hasChanged = false;
@@ -77,6 +96,8 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
                 device.litDuration = device.litTime;
 
                 if (device.isLit()) {
+                    device.updateFarmingEfficiency(level, blockPos, device);
+
                     // Handle fuel
                     hasChanged = true;
 
@@ -125,6 +146,14 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         return this.litTime > 0;
     }
 
+    public void updateFarmingEfficiency(Level level, BlockPos blockPos, OFDeviceBlockEntity device) {
+        AABB aabb = new AABB(blockPos).inflate(2.0, 1.0, 2.0);
+        List<LivingEntity> entities = level.getEntitiesOfClass(LivingEntity.class, aabb);
+        int size = entities.size();
+        farmingEfficiency = Mth.clamp(size, 0F, MAX_EFFICIENCY);
+        // OreFarmingDevice.LOGGER.debug("Device ({}) changed efficiency: {}", blockPos, farmingEfficiency);
+    }
+
     public ModLootTables findLootTable(ItemStack stack) {
         return Arrays.stream(ModLootTables.values()).filter(t -> t.canProcess(this, stack)).findFirst().orElse(null);
     }
@@ -154,7 +183,8 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
             return ItemStack.EMPTY;
 
         LootTable lootTable = server.getLootTables().get(productLootTable.getId());
-        float luck = 0;
+        float luck = farmingEfficiency;
+        // OreFarmingDevice.LOGGER.debug("Device ({}) efficiency: {}", this.getBlockPos(), farmingEfficiency);
         List<ItemStack> randomItems = lootTable.getRandomItems(new LootContext.Builder((ServerLevel) level).withRandom(level.random).withLuck(luck).create(LootContextParamSets.EMPTY));
         return randomItems.size() > 0 ? randomItems.get(0) : ItemStack.EMPTY;
     }
