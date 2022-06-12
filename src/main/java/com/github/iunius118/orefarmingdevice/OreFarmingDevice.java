@@ -28,7 +28,7 @@ public class OreFarmingDevice {
         modEventBus.addListener(this::setup);
 
         // Register event handlers
-        RegistryEventHandler.registerGameObjects(modEventBus);
+        RegisterEventHandler.registerGameObjects(modEventBus);
         modEventBus.addListener(this::gatherData);
     }
 

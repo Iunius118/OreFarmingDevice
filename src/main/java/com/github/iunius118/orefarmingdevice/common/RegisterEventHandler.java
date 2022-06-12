@@ -10,7 +10,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class RegistryEventHandler {
+public class RegisterEventHandler {
     public static void registerGameObjects(IEventBus modEventBus) {
         registerBlocks(modEventBus);
         registerItems(modEventBus);
