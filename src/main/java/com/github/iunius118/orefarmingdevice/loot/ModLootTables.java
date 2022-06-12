@@ -1,6 +1,7 @@
 package com.github.iunius118.orefarmingdevice.loot;
 
 import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
+import com.github.iunius118.orefarmingdevice.config.OreFarmingDeviceConfig;
 import com.github.iunius118.orefarmingdevice.world.item.ModItems;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceBlockEntity;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
@@ -46,6 +47,12 @@ public enum ModLootTables {
     }
 
     public boolean canProcess(OFDeviceBlockEntity device, ItemStack stack) {
+        if (material.sameItem(new ItemStack(ModItems.COBBLESTONE_FEEDER))
+                && !OreFarmingDeviceConfig.SERVER.isCobblestoneFeederAvailable.get()) {
+            // OF Cobblestone Feeder is not available for OF Devices by config
+            return false;
+        }
+
         return canProcess.apply(device) && material.sameItem(stack);
     }
 }

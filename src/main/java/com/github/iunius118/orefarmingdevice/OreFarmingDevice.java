@@ -1,12 +1,15 @@
 package com.github.iunius118.orefarmingdevice;
 
 import com.github.iunius118.orefarmingdevice.client.ClientProxy;
-import com.github.iunius118.orefarmingdevice.common.RegistryEventHandler;
+import com.github.iunius118.orefarmingdevice.common.RegisterEventHandler;
 import com.github.iunius118.orefarmingdevice.common.ServerProxy;
+import com.github.iunius118.orefarmingdevice.config.OreFarmingDeviceConfig;
 import com.github.iunius118.orefarmingdevice.data.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
@@ -26,6 +29,9 @@ public class OreFarmingDevice {
 
         // Register mod lifecycle event handlers
         modEventBus.addListener(this::setup);
+
+        // Register config handlers
+        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, OreFarmingDeviceConfig.serverSpec);
 
         // Register event handlers
         RegisterEventHandler.registerGameObjects(modEventBus);
