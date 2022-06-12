@@ -32,7 +32,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('L', Blocks.LEVER)
                 .define('i', Items.IRON_INGOT)
                 .define('x', Items.STONE_PICKAXE)
-                .unlockedBy("has_furnace", has(Blocks.FURNACE)).save(consumer);
+                .unlockedBy("has_furnace", has(Blocks.FURNACE))
+                .save(consumer);
 
         // Devise 1
         ShapelessRecipeBuilder.shapeless(ModBlocks.DEVICE_1)
@@ -66,7 +67,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('P', Blocks.PISTON)
                 .define('x', Items.STONE_PICKAXE)
                 .define('W', Items.WATER_BUCKET)
-                .unlockedBy("has_device_0", has(ModBlocks.DEVICE_0)).save(consumer);
+                .unlockedBy("has_device_0", has(ModBlocks.DEVICE_0))
+                .save(consumer);
+
+        // Cobblestone Feeder -> Lava Bucket
+        ShapelessRecipeBuilder.shapeless(Items.LAVA_BUCKET)
+                .requires(ModItems.COBBLESTONE_FEEDER)
+                .requires(Items.BUCKET)
+                .unlockedBy("has_cobblestone_feeder", has(ModItems.COBBLESTONE_FEEDER))
+                .save(consumer);
     }
 
     private ResourceLocation getItemId(Item item) {
