@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:lava_bucket"
+        "recipe": "orefarmingdevice:feeder_to_lava_bucket"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:lava_bucket"
+      "orefarmingdevice:feeder_to_lava_bucket"
     ]
   }
 }

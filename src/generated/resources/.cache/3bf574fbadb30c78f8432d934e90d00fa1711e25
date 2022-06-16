@@ -1,6 +1,5 @@
-// 1.19	2022-06-12T16:59:17.9958939	Recipes: orefarmingdevice
-ae64c454fbe912997e069e22621650b51b8f52d1 data/minecraft/advancements/recipes/misc/lava_bucket.json
-68f71f7239bbe4c6cf5e39d38409bcf7ad443ca9 data/minecraft/recipes/lava_bucket.json
+// 1.19	2022-06-17T00:06:34.1914908	Recipes: orefarmingdevice
+c84cab547a353f7c4a59e9c17c40212769306e16 data/orefarmingdevice/advancements/recipes/misc/feeder_to_lava_bucket.json
 93cec49864dde4be4be250602859a025f79883e5 data/orefarmingdevice/advancements/recipes/orefarmingdevice/cobblestone_feeder.json
 209dff3262382baa2c04e217e77a0d75288350ba data/orefarmingdevice/advancements/recipes/orefarmingdevice/device_0.json
 6729f06a335e2999df1a84330c51e63759aaa379 data/orefarmingdevice/advancements/recipes/orefarmingdevice/device_1.json
@@ -13,3 +12,4 @@ af1fc8e9c5ee4dddf00684308d22627c4e9e5001 data/orefarmingdevice/recipes/cobblesto
 1bd4117599742dcc1f1d383725e5e70d39756c00 data/orefarmingdevice/recipes/device_1_smithing.json
 6e92d1993829b6264159ca1825efc83a90afb52d data/orefarmingdevice/recipes/device_2.json
 3fc60afc3523fc614f0ecc0c1bd978807783db44 data/orefarmingdevice/recipes/device_2_smithing.json
+68f71f7239bbe4c6cf5e39d38409bcf7ad443ca9 data/orefarmingdevice/recipes/feeder_to_lava_bucket.json

@@ -75,7 +75,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ModItems.COBBLESTONE_FEEDER)
                 .requires(Items.BUCKET)
                 .unlockedBy("has_cobblestone_feeder", has(ModItems.COBBLESTONE_FEEDER))
-                .save(consumer);
+                .save(consumer, OreFarmingDevice.MOD_ID + ":feeder_to_lava_bucket");
     }
 
     private ResourceLocation getItemId(Item item) {
