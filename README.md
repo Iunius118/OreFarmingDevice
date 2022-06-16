@@ -10,23 +10,25 @@ O.F.Device is a Minecraft mod to add devices for farming ores.
 
 ## Description
 
-Version 1.18-0.3.0
+Version 0.4.0
 
 ### OF Device (ＯＦ装置)
 
 #### Recipe
 
-<img src="docs/media/recipe_device_0_v010.png" title="Crafting recipe: OF Device">
+![ ](./docs/media/recipe_device_0_v010.png "Crafting recipe: OF Device")
 
 4 Stones + Furnace + Lever + 2 Iron Ingots + Stone Pickaxe
 
 #### GUI
 
-<img src="docs/media/gui_device_0_v010.png" title="GUI: OF Device" alt="The upper right slot for materials, the left slot for fuel, and the bottom right slot for products">
+![The upper right slot for materials, the left slot for fuel, and the bottom right slot for products](./docs/media/gui_device_0_v010.png "GUI: OF Device")
 
 1. Material slot (材料). Only Cobblestone, Cobbled Deepslate, Netherrack, or OF Cobblestone Feeder (丸石・深層岩の丸石・ネザーラック・ＯＦ丸石供給装置のみ)
 2. Fuel slot (燃料)
 3. Product slot (生成物)
+
+![ ](./docs/media/processing_line_v040.png "Hopper automation")
 
 If the output slot is full during operation, the products are ejected out of the block. Hopper can be used to push materials and fuel into device, and to pull products from device.
 
@@ -42,12 +44,17 @@ If the output slot is full during operation, the products are ejected out of the
 | **Very Rare** |                          |                Deepslate Copper Ore                |  Nether Gold Ore  |
 | **Legendary** |     Lapis Lazuli Ore     | Deepslate Lapis Lazuli Ore, <br>Deepslate Coal Ore |                   |
 
+Appearance rate of ores increases with number (up to 3) of players, villagers, etc. around OF Devices (5x3x5).
+
+ＯＦ装置の周囲にプレイヤーや村人など（最大3人まで）がいると、鉱石の出現率が上昇します。
+
 ### OF Device Mod 1 (ＯＦ装置改)
 
 #### Recipe
 
-<img src="docs/media/recipe_device_1_v020.png" title="Crafting recipe: OF Device Mod 1">
-<img src="docs/media/recipe_device_1_v010.png" title="Smithing recipe: OF Device Mod 1">
+![ ](./docs/media/recipe_device_1_v020.png "Crafting recipe: OF Device Mod 1")
+
+![ ](./docs/media/recipe_device_1_v010.png "Smithing recipe: OF Device Mod 1")
 
 OF Device + Iron Pickaxe
 
@@ -66,8 +73,9 @@ OF Device + Iron Pickaxe
 
 #### Recipe
 
-<img src="docs/media/recipe_device_2_v020.png" title="Crafting recipe: OF Device Mod 2">
-<img src="docs/media/recipe_device_2_v010.png" title="Smithing recipe: OF Device Mod 2">
+![ ](./docs/media/recipe_device_2_v020.png "Crafting recipe: OF Device Mod 2")
+
+![ ](./docs/media/recipe_device_2_v010.png "Smithing recipe: OF Device Mod 2")
 
 OF Device Mod 1 + Diamond Pickaxe
 
@@ -84,7 +92,7 @@ OF Device Mod 1 + Diamond Pickaxe
 
 ### OF Cobblestone Feeder (ＯＦ丸石供給装置)
 
-<img src="docs/media/gui_cobblestone_feeder_v030.png" title="GUI: Using OF Cobblestone Feeder" alt="Place this item in material slot of OF device">
+![Place this item in material slot of OF device](./docs/media/gui_cobblestone_feeder_v030.png "GUI: Using OF Cobblestone Feeder")
 
 OF Cobblestone Feeder provides an infinite supply of Cobblestones to OF Devices.
 
@@ -92,9 +100,15 @@ OF Cobblestone Feeder provides an infinite supply of Cobblestones to OF Devices.
 
 #### Recipe
 
-<img src="docs/media/recipe_cobblestone_feeder_v030.png" title="Crafting recipe: OF Cobblestone Feeder">
+![ ](./docs/media/recipe_cobblestone_feeder_v030.png "Crafting recipe: OF Cobblestone Feeder")
 
 Lava Bucket + Redstone Repeater + Piston + Stone Pickaxe + Water Bucket
+
+#### Recycling Recipe
+
+![ ](./docs/media/feeder_to_lava_bucket_v040.png "Crafting recipe: Lava Bucket")
+
+OF Cobblestone Feeder + Bucket -> Lava Bucket
 
 ## License
 

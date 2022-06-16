@@ -18,7 +18,7 @@ O.F.Device v0.4.0
 - Products will be output to the bottom right slot on the GUI
 - If the output slot is full during operation, the products are ejected out of the block
 - Hopper can be used to push materials and fuel into device, and to pull products from device
-- Appearance rate of ores increases with number (up to 3) of players, villagers, etc. around OF Devices
+- Appearance rate of ores increases with number (up to 3) of players, villagers, etc. around OF Devices (5x3x5)
 
 ### OF Device Mod 1
 - Recipe (Crafting/Smithing Table): OF Device + Iron Pickaxe
@@ -40,7 +40,7 @@ O.F.Device v0.4.0
   - ` _ _ W `
 - This item provides an infinite supply of Cobblestones to OF Devices
 - Place this item in the material slot of an OF device
-- Crafting recipe: OF Cobblestone Feeder + Bucket -> Lava Bucket
+- Recycling recipe (Crafting Table): OF Cobblestone Feeder + Bucket -> Lava Bucket
 
 ## Config
 `(world_save_dir)/serverconfig/orefarmingdevice-server.toml`
