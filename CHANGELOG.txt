@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+## [1.19-0.4.1]
+### Fixed
+- Recipe ID of Lava Bucket.
+
 ## [1.19-0.4.0]
 ### Added
 - Increase appearance rate of ores with number (up to 3) of players, villagers, etc. around OF Devices.
