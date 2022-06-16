@@ -110,6 +110,18 @@ Lava Bucket + Redstone Repeater + Piston + Stone Pickaxe + Water Bucket
 
 OF Cobblestone Feeder + Bucket -> Lava Bucket
 
+### Config
+
+`(world_save_dir)/serverconfig/orefarmingdevice-server.toml`
+
+Restart the game when you change the config. In multiplayer mode, server-side config will be used.
+
+コンフィグを変更したときはゲームを再起動してください。マルチプレイの場合はサーバー側のコンフィグが使われます。
+
+- isCobblestoneFeederAvailable (boolean, default value is true)
+  - Whether OF Cobblestone Feeder is available for OF Devices
+  - ＯＦ丸石供給装置がＯＦ装置で材料として使えるか（true→使える、false→使えない）
+
 ## License
 
 - MIT license
