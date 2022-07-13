@@ -15,7 +15,7 @@ public class RegisterEventHandler {
         registerBlocks(modEventBus);
         registerItems(modEventBus);
         registerBlockEntityTypes(modEventBus);
-        registerContainerTypes(modEventBus);
+        registerMenuTypes(modEventBus);
     }
 
     private static void registerBlocks(IEventBus modEventBus) {
@@ -40,7 +40,7 @@ public class RegisterEventHandler {
     }
 
     private static void registerBlockEntityTypes(IEventBus modEventBus) {
-        var blockEntityTypeDeferredRegister = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, OreFarmingDevice.MOD_ID);
+        var blockEntityTypeDeferredRegister = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, OreFarmingDevice.MOD_ID);
 
         blockEntityTypeDeferredRegister.register(OFDeviceType.MOD_0.getName(), () -> ModBlockEntityTypes.DEVICE_0);
         blockEntityTypeDeferredRegister.register(OFDeviceType.MOD_1.getName(), () -> ModBlockEntityTypes.DEVICE_1);
@@ -49,8 +49,8 @@ public class RegisterEventHandler {
         blockEntityTypeDeferredRegister.register(modEventBus);
     }
 
-    private static void registerContainerTypes(IEventBus modEventBus) {
-        var menuTypeDeferredRegister = DeferredRegister.create(ForgeRegistries.CONTAINERS, OreFarmingDevice.MOD_ID);
+    private static void registerMenuTypes(IEventBus modEventBus) {
+        var menuTypeDeferredRegister = DeferredRegister.create(ForgeRegistries.MENU_TYPES, OreFarmingDevice.MOD_ID);
 
         menuTypeDeferredRegister.register("device", () -> ModContainerTypes.DEVICE);
 

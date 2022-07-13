@@ -99,13 +99,13 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
                     // Handle fuel
                     hasChanged = true;
 
-                    if (fuelStack.hasContainerItem()) {
-                        device.items.set(1, fuelStack.getContainerItem());
+                    if (fuelStack.hasCraftingRemainingItem()) {
+                        device.items.set(1, fuelStack.getCraftingRemainingItem());
                     } else if (!fuelStack.isEmpty()) {
                         fuelStack.shrink(1);
 
                         if (fuelStack.isEmpty()) {
-                            device.items.set(1, fuelStack.getContainerItem());
+                            device.items.set(1, fuelStack.getCraftingRemainingItem());
                         }
                     }
                 }
