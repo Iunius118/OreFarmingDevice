@@ -1,7 +1,7 @@
 package com.github.iunius118.orefarmingdevice.common;
 
 import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
-import com.github.iunius118.orefarmingdevice.inventory.ModContainerTypes;
+import com.github.iunius118.orefarmingdevice.inventory.ModMenuTypes;
 import com.github.iunius118.orefarmingdevice.world.item.ModItems;
 import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.ModBlockEntityTypes;
@@ -52,7 +52,7 @@ public class RegisterEventHandler {
     private static void registerMenuTypes(IEventBus modEventBus) {
         var menuTypeDeferredRegister = DeferredRegister.create(ForgeRegistries.MENU_TYPES, OreFarmingDevice.MOD_ID);
 
-        menuTypeDeferredRegister.register("device", () -> ModContainerTypes.DEVICE);
+        menuTypeDeferredRegister.register("device", () -> ModMenuTypes.DEVICE);
 
         menuTypeDeferredRegister.register(modEventBus);
     }

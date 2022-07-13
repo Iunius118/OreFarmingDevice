@@ -13,17 +13,17 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class OFDeviceContainer extends AbstractContainerMenu {
+public class OFDeviceMenu extends AbstractContainerMenu {
     private final Container container;
     private final ContainerData data;
     protected final Level level;
 
-    public OFDeviceContainer(int containerCounter, Inventory playerInventory) {
+    public OFDeviceMenu(int containerCounter, Inventory playerInventory) {
         this(containerCounter, playerInventory, new SimpleContainer(3), new SimpleContainerData(4));
     }
 
-    public OFDeviceContainer(int containerCounter, Inventory playerInventory, Container inventory, ContainerData dataAccess) {
-        super(ModContainerTypes.DEVICE, containerCounter);
+    public OFDeviceMenu(int containerCounter, Inventory playerInventory, Container inventory, ContainerData dataAccess) {
+        super(ModMenuTypes.DEVICE, containerCounter);
         this.container = inventory;
         this.data = dataAccess;
         this.level = playerInventory.player.level;
@@ -136,11 +136,11 @@ public class OFDeviceContainer extends AbstractContainerMenu {
     }
 
     private static class FuelSlot extends Slot {
-        private final OFDeviceContainer menu;
+        private final OFDeviceMenu menu;
 
-        public FuelSlot(OFDeviceContainer ofDeviceContainer, Container inventory, int slotIndex, int x, int y) {
+        public FuelSlot(OFDeviceMenu ofDeviceMenu, Container inventory, int slotIndex, int x, int y) {
             super(inventory, slotIndex, x, y);
-            this.menu = ofDeviceContainer;
+            this.menu = ofDeviceMenu;
         }
 
         public boolean mayPlace(ItemStack stack) {

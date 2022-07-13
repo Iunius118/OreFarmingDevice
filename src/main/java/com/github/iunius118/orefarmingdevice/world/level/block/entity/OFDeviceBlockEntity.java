@@ -1,6 +1,6 @@
 package com.github.iunius118.orefarmingdevice.world.level.block.entity;
 
-import com.github.iunius118.orefarmingdevice.inventory.OFDeviceContainer;
+import com.github.iunius118.orefarmingdevice.inventory.OFDeviceMenu;
 import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
 import com.github.iunius118.orefarmingdevice.world.item.ModItems;
 import net.minecraft.core.BlockPos;
@@ -247,6 +247,6 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
 
     @Override
     protected AbstractContainerMenu createMenu(int containerId, Inventory playerInventory) {
-        return new OFDeviceContainer(containerId, playerInventory, this, dataAccess);
+        return new OFDeviceMenu(containerId, playerInventory, this, dataAccess);
     }
 }
