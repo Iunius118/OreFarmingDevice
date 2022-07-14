@@ -3,6 +3,8 @@
 [Source](https://github.com/Iunius118/O.F.Device).
 
 ## [Unreleased]
+
+## [1.19-0.4.2]
 ### Changed
 - Compatible with Forge 1.19-41.0.98.
 
