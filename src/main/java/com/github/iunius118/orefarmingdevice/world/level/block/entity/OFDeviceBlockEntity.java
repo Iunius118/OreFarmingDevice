@@ -29,17 +29,15 @@ import java.util.Arrays;
 import java.util.List;
 
 public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
-    public final OFDeviceType type;
-    public final String containerTranslationKey;
     public static final String KEY_EFFICIENCY = "Efficiency";
     public static final float MAX_EFFICIENCY = 3F;
+    public final OFDeviceType type;
 
-    public float farmingEfficiency = 0F;
+    private float farmingEfficiency = 0F;
 
     public OFDeviceBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState, OFDeviceType ofDeviceType) {
         super(blockEntityType, blockPos, blockState, RecipeType.SMELTING);
         type = ofDeviceType;
-        containerTranslationKey = ofDeviceType.getContainerTranslationKey();
     }
 
     public OFDeviceBlockEntity(BlockPos blockPos, BlockState blockState, OFDeviceType type) {
@@ -55,12 +53,16 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
 
     }
 
-    public static int getTotalProcessingTime(OFDeviceType type) {
-        return switch (type) {
-            case MOD_0 -> 200;
-            case MOD_1 -> 100;
-            case MOD_2 -> 50;
-        };
+    public int getTotalProcessingTime() {
+        return type.getTotalProcessingTime();
+    }
+
+    public int getFuelConsumption() {
+        return type.getFuelConsumption();
+    }
+
+    public float getFarmingEfficiency() {
+        return farmingEfficiency;
     }
 
     @Override
@@ -80,7 +82,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         boolean hasChanged = false;
 
         if (isLitOld) {
-            --device.litTime;
+            device.litTime -= device.getFuelConsumption();
         }
 
         ItemStack fuelStack = device.items.get(1);
@@ -123,7 +125,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
                 if (device.cookingProgress == device.cookingTotalTime) {
                     // Process completion
                     device.cookingProgress = 0;
-                    device.cookingTotalTime = getTotalProcessingTime(device.type);
+                    device.cookingTotalTime = device.getTotalProcessingTime();
                     device.process(productLootTable);
                     hasChanged = true;
                 }
@@ -186,7 +188,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
             return ItemStack.EMPTY;
 
         LootTable lootTable = server.getLootTables().get(productLootTable.getId());
-        float luck = farmingEfficiency;
+        float luck = getFarmingEfficiency();
         // OreFarmingDevice.LOGGER.debug("Device ({}) efficiency: {}", this.getBlockPos(), farmingEfficiency);
         List<ItemStack> randomItems = lootTable.getRandomItems(new LootContext.Builder((ServerLevel) level).withRandom(level.random).withLuck(luck).create(LootContextParamSets.EMPTY));
         return randomItems.size() > 0 ? randomItems.get(0) : ItemStack.EMPTY;
@@ -233,7 +235,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         }
 
         if (slot == 0 && !flag) {
-            cookingTotalTime = getTotalProcessingTime(type);
+            cookingTotalTime = getTotalProcessingTime();
             cookingProgress = 0;
             setChanged();
         }
@@ -242,7 +244,8 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
 
     @Override
     protected MutableComponent getDefaultName() {
-        return Component.translatable(containerTranslationKey);
+        String translationKey = type.getContainerTranslationKey();
+        return Component.translatable(translationKey);
     }
 
     @Override
