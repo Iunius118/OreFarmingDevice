@@ -3,6 +3,12 @@
 [Source](https://github.com/Iunius118/O.F.Device).
 
 ## [Unreleased]
+### Added
+- Server-side config: accelerateProcessingSpeedByTier, increaseFuelConsumptionByTier, and enableFarmingEfficiency.
+
+### Changed
+- Increase fuel consumption of device by modification.
+- Compatible with Forge 1.19-41.1.0.
 
 ## [1.19-0.4.2]
 ### Changed
