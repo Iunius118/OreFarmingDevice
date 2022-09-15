@@ -4,29 +4,23 @@ plugins {
     id 'net.minecraftforge.gradle' version '5.+'
 }
 
-version = minecraft_version + '-' + mod_version
-group = maven_group // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = archives_base_name
+version = project.minecraft_version + '-' + project.mod_version
+group = project.maven_group
+archivesBaseName = project.archives_base_name
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: "${mappings_channel}", version: "${mappings_version}"
-
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
-    
+    mappings channel: "${project.mappings_channel}", version: "${project.mappings_version}"
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     runs {
         client {
             workingDirectory project.file('run')
-
             // property 'forge.logging.markers', 'REGISTRIES'
-
             property 'forge.logging.console.level', 'debug'
-
             property 'forge.enabledGameTestNamespaces', 'orefarmingdevice'
 
             mods {
@@ -38,11 +32,8 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
-
             // property 'forge.logging.markers', 'REGISTRIES'
-
             property 'forge.logging.console.level', 'debug'
-
             property 'forge.enabledGameTestNamespaces', 'orefarmingdevice'
 
             mods {
@@ -54,11 +45,8 @@ minecraft {
 
         gameTestServer {
             workingDirectory project.file('run')
-
             // property 'forge.logging.markers', 'REGISTRIES'
-
             property 'forge.logging.console.level', 'debug'
-
             property 'forge.enabledGameTestNamespaces', 'orefarmingdevice'
 
             mods {
@@ -71,11 +59,8 @@ minecraft {
 
         data {
             workingDirectory project.file('run')
-
             // property 'forge.logging.markers', 'REGISTRIES'
-
             property 'forge.logging.console.level', 'debug'
-
             args '--mod', 'orefarmingdevice', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
@@ -96,16 +81,15 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:' + minecraft_version + '-' + forge_version
+    minecraft "net.minecraftforge:forge:${project.minecraft_version}-${project.forge_version}"
 }
 
-// Example for how to get properties into the manifest for reading by the runtime..
 jar {
     manifest {
         attributes([
             "Specification-Title": "orefarmingdevice",
             "Specification-Vendor": "Iunius118",
-            "Specification-Version": "1", // We are version 1 of ourselves
+            "Specification-Version": "1",
             "Implementation-Title": project.name,
             "Implementation-Version": project.version,
             "Implementation-Vendor" :"Iunius118",
@@ -117,7 +101,6 @@ jar {
 }
 
 jar.finalizedBy('reobfJar')
-
 // publish.dependsOn('reobfJar')
 
 publishing {
@@ -134,5 +117,5 @@ publishing {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+    options.encoding = 'UTF-8'
 }
