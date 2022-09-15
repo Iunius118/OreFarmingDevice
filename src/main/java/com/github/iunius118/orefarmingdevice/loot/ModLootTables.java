@@ -48,7 +48,7 @@ public enum ModLootTables {
 
     public boolean canProcess(OFDeviceBlockEntity device, ItemStack stack) {
         if (material.sameItem(new ItemStack(ModItems.COBBLESTONE_FEEDER))
-                && !OreFarmingDeviceConfig.SERVER.isCobblestoneFeederAvailable.get()) {
+                && !OreFarmingDeviceConfig.SERVER.isCobblestoneFeederAvailable()) {
             // OF Cobblestone Feeder is not available for OF Devices by config
             return false;
         }

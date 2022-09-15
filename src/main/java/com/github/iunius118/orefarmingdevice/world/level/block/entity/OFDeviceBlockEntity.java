@@ -1,5 +1,6 @@
 package com.github.iunius118.orefarmingdevice.world.level.block.entity;
 
+import com.github.iunius118.orefarmingdevice.config.OreFarmingDeviceConfig;
 import com.github.iunius118.orefarmingdevice.inventory.OFDeviceMenu;
 import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
 import com.github.iunius118.orefarmingdevice.world.item.ModItems;
@@ -54,15 +55,21 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     }
 
     public int getTotalProcessingTime() {
-        return type.getTotalProcessingTime();
+        return OreFarmingDeviceConfig.SERVER.canAccelerateProcessingSpeedByTier()
+                ? type.getTotalProcessingTime()
+                : OFDeviceType.MOD_0.getTotalProcessingTime();
     }
 
     public int getFuelConsumption() {
-        return type.getFuelConsumption();
+        return OreFarmingDeviceConfig.SERVER.canIncreaseFuelConsumptionByTier()
+                ? type.getFuelConsumption()
+                : OFDeviceType.MOD_0.getFuelConsumption();
     }
 
     public float getFarmingEfficiency() {
-        return farmingEfficiency;
+        return OreFarmingDeviceConfig.SERVER.isFarmingEfficiencyEnabled()
+                ? farmingEfficiency
+                : 0F;
     }
 
     @Override
