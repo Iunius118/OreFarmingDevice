@@ -115,7 +115,8 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
 
             if (device.isLit() && device.litTime == device.litDuration) {
                 // When device is refueled
-                device.updateFarmingEfficiency(level, blockPos, device);
+                device.updateFarmingEfficiency(level, blockPos);
+                device.cookingTotalTime = device.getTotalProcessingTime();
             }
 
             if (device.isLit() && canProcess) {
@@ -133,6 +134,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
                 device.cookingProgress = 0;
             }
         } else if (!device.isLit() && device.cookingProgress > 0) {
+            // Fire went out before the process was complete
             device.cookingProgress = Mth.clamp(device.cookingProgress - 2, 0, device.cookingTotalTime);
         }
 
@@ -151,7 +153,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         return this.litTime > 0;
     }
 
-    public void updateFarmingEfficiency(Level level, BlockPos blockPos, OFDeviceBlockEntity device) {
+    public void updateFarmingEfficiency(Level level, BlockPos blockPos) {
         AABB aabb = new AABB(blockPos).inflate(2.0, 1.0, 2.0);
         List<LivingEntity> entities = level.getEntitiesOfClass(LivingEntity.class, aabb);
         int size = entities.size();
