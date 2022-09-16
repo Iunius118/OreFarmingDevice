@@ -33,7 +33,7 @@ public class OreFarmingDeviceConfig {
                     .comment("#",
                             "accelerateProcessingSpeedByMod as boolean",
                             "  Whether to accelerate processing speed of device by modification.",
-                            "        Processing Speeds      ",
+                            "         Production time       ",
                             "        (Seconds/Product)      ",
                             "           Mod 0  Mod 1  Mod 2 ",
                             "    true    10.0    5.0    2.5 ",

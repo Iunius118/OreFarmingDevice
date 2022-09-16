@@ -1,5 +1,5 @@
 # Cheatsheet
-O.F.Device v0.4.0
+O.F.Device (Ore Farming Device) v0.5.0
 
 ## Blocks
 ### OF Device
@@ -22,12 +22,14 @@ O.F.Device v0.4.0
 
 ### OF Device Mod 1
 - Recipe (Crafting/Smithing Table): OF Device + Iron Pickaxe
+- Processing speed is faster than OF Device
 - Products made from Cobblestone: Stone, Coal Ore, Iron Ore, Copper Ore, Redstone Ore, Lapis Lazuli Ore, Gold Ore, Diamond Ore
 - Products made from Cobbled Deepslate: Deepslate, Deepslate Redstone Ore, Deepslate Iron Ore, Deepslate Copper Ore, Deepslate Gold Ore, Deepslate Diamond Ore, Deepslate Lapis Lazuli Ore, Deepslate Coal Ore
 - Products made from Netherrack: Nether Brick, Nether Quartz Ore, Nether Gold Ore
 
 ### OF Device Mod 2
 - Recipe (Crafting/Smithing Table): OF Device Mod 1 + Diamond Pickaxe
+- Processing speed is faster than OF Device Mod 1
 - Products made from Cobblestone: Stone, Coal Ore, Copper Ore, Iron Ore, Gold Ore, Redstone Ore, Lapis Lazuli Ore, Emerald Ore, Diamond Ore
 - Products made from Cobbled Deepslate: Deepslate, Deepslate Redstone Ore, Deepslate Copper Ore, Deepslate Iron Ore, Deepslate Gold Ore, Deepslate Diamond Ore, Deepslate Lapis Lazuli Ore, Deepslate Coal Ore, Deepslate Emerald Ore
 - Products made from Netherrack: Nether Brick, Nether Quartz Ore, Nether Gold Ore, Ancient Debris
@@ -48,9 +50,15 @@ O.F.Device v0.4.0
 Restart the game when you change the config. In multiplayer mode, server-side config will be used.
 
 - isCobblestoneFeederAvailable (boolean, default value is true)
-  - Whether OF Cobblestone Feeder is available for OF Devices
+  - Whether OF Cobblestone Feeder is available for devices
+- enableFarmingEfficiency (boolean, default value is true)
+  - Whether mobs around device increase farming efficiency of device
+- accelerateProcessingSpeedByMod (boolean, default value is true)
+  - Whether to accelerate processing speed of device by modification
+- increaseFuelConsumptionByMod (boolean, default value is true)
+  - Whether to increase fuel consumption of device by modification
 
-## Modifying Device Loot Tables
+## Modifying Product Tables
 The products and their probabilities of each device can be modified using loot table in data pack. JSON files for the loot tables corresponding to each device are as follows.
 
 - OF Device with cobblestone:

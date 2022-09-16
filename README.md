@@ -1,4 +1,4 @@
-# O.F.Device
+# O.F.Device (Ore Farming Device)
 
 O.F.Device is a Minecraft mod to add devices for farming ores.
 
@@ -10,7 +10,7 @@ O.F.Device is a Minecraft mod to add devices for farming ores.
 
 ## Description
 
-Version 0.4.0
+Version 0.5.0
 
 ### OF Device (ＯＦ装置)
 
@@ -50,6 +50,10 @@ Appearance rate of ores increases with number (up to 3) of players, villagers, e
 
 ### OF Device Mod 1 (ＯＦ装置改)
 
+Modified version of OF Device. Processing speed is faster than OF Device.
+
+ＯＦ装置の改造版。ＯＦ装置よりも処理速度が速い。
+
 #### Recipe
 
 ![ ](./docs/media/recipe_device_1_v020.png "Crafting recipe: OF Device Mod 1")
@@ -70,6 +74,10 @@ OF Device + Iron Pickaxe
 |  **Mythic**   |          Diamond Ore           |                                                                         |                   |
 
 ### OF Device Mod 2 (ＯＦ装置改二)
+
+Modified version of OF Device Mod 1. Processing speed is faster than OF Device Mod 1.
+
+ＯＦ装置改の改造版。ＯＦ装置改よりも処理速度が速い。
 
 #### Recipe
 
@@ -119,8 +127,17 @@ Restart the game when you change the config. In multiplayer mode, server-side co
 コンフィグを変更したときはゲームを再起動してください。マルチプレイの場合はサーバー側のコンフィグが使われます。
 
 - isCobblestoneFeederAvailable (boolean, default value is true)
-  - Whether OF Cobblestone Feeder is available for OF Devices
+  - Whether OF Cobblestone Feeder is available for devices
   - ＯＦ丸石供給装置がＯＦ装置で材料として使えるか（true→使える、false→使えない）
+- enableFarmingEfficiency (boolean, default value is true)
+  - Whether mobs around device increase farming efficiency of device
+  - ＯＦ装置の周囲にモブがいるとき、鉱石の出現率が上昇するか（true→する、false→しない）
+- accelerateProcessingSpeedByMod (boolean, default value is true)
+  - Whether to accelerate processing speed of device by modification
+  - ＯＦ装置の改造によって処理速度が上昇するか（true→する、false→しない）
+- increaseFuelConsumptionByMod (boolean, default value is true)
+  - Whether to increase fuel consumption of device by modification
+  - ＯＦ装置の改造によって燃料消費量が増加するか（true→する、false→しない）
 
 ## License
 
