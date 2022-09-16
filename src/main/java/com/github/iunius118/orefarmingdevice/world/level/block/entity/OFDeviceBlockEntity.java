@@ -55,13 +55,13 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     }
 
     public int getTotalProcessingTime() {
-        return OreFarmingDeviceConfig.SERVER.canAccelerateProcessingSpeedByTier()
+        return OreFarmingDeviceConfig.SERVER.canAccelerateProcessingSpeedByMod()
                 ? type.getTotalProcessingTime()
                 : OFDeviceType.MOD_0.getTotalProcessingTime();
     }
 
     public int getFuelConsumption() {
-        return OreFarmingDeviceConfig.SERVER.canIncreaseFuelConsumptionByTier()
+        return OreFarmingDeviceConfig.SERVER.canIncreaseFuelConsumptionByMod()
                 ? type.getFuelConsumption()
                 : OFDeviceType.MOD_0.getFuelConsumption();
     }
