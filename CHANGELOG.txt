@@ -6,7 +6,7 @@
 
 ## [1.19-0.5.0]
 ### Added
-- Server-side config: accelerateProcessingSpeedByTier, increaseFuelConsumptionByTier, and enableFarmingEfficiency.
+- Server-side config: enableFarmingEfficiency, accelerateProcessingSpeedByMod, and increaseFuelConsumptionByMod.
 
 ### Changed
 - Increase fuel consumption of device by modification.
