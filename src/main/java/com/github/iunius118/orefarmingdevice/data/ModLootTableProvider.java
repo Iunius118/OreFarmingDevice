@@ -91,9 +91,9 @@ public class ModLootTableProvider extends LootTableProvider {
 
             consumer.accept(ModLootTables.DEVICE_0_NETHER.getId(),
                     LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
-                            .add(LootItem.lootTableItem(Items.NETHER_BRICK).setWeight(96).setQuality(-240))
-                            .add(LootItem.lootTableItem(Blocks.NETHER_QUARTZ_ORE).setWeight(3))
-                            .add(LootItem.lootTableItem(Blocks.NETHER_GOLD_ORE).setWeight(1))
+                            .add(LootItem.lootTableItem(Items.NETHER_BRICK).setWeight(960).setQuality(-240))
+                            .add(LootItem.lootTableItem(Blocks.NETHER_QUARTZ_ORE).setWeight(30))
+                            .add(LootItem.lootTableItem(Blocks.NETHER_GOLD_ORE).setWeight(10))
                     )
             );
 
@@ -126,9 +126,9 @@ public class ModLootTableProvider extends LootTableProvider {
 
             consumer.accept(ModLootTables.DEVICE_1_NETHER.getId(),
                     LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
-                            .add(LootItem.lootTableItem(Items.NETHER_BRICK).setWeight(96).setQuality(-240))
-                            .add(LootItem.lootTableItem(Blocks.NETHER_QUARTZ_ORE).setWeight(3))
-                            .add(LootItem.lootTableItem(Blocks.NETHER_GOLD_ORE).setWeight(1))
+                            .add(LootItem.lootTableItem(Items.NETHER_BRICK).setWeight(960).setQuality(-240))
+                            .add(LootItem.lootTableItem(Blocks.NETHER_QUARTZ_ORE).setWeight(30))
+                            .add(LootItem.lootTableItem(Blocks.NETHER_GOLD_ORE).setWeight(10))
                     )
             );
 
