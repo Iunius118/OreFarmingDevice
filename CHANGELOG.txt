@@ -4,6 +4,14 @@
 
 ## [Unreleased]
 
+## [1.19.3-0.5.1]
+### Changed
+- Port to 1.19.3.
+- Require Forge 1.19.3-44.0.5+.
+
+### Fixed
+- Loot tables of processing netherrack with device mod 0 or mod 1.
+
 ## [1.19-0.5.0]
 ### Added
 - Server-side config: enableFarmingEfficiency, accelerateProcessingSpeedByMod, and increaseFuelConsumptionByMod.
