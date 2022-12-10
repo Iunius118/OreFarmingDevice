@@ -5,6 +5,8 @@ import com.github.iunius118.orefarmingdevice.common.RegisterEventHandler;
 import com.github.iunius118.orefarmingdevice.common.ServerProxy;
 import com.github.iunius118.orefarmingdevice.config.OreFarmingDeviceConfig;
 import com.github.iunius118.orefarmingdevice.data.*;
+import com.github.iunius118.orefarmingdevice.world.item.ModItemGroups;
+import com.mojang.logging.LogUtils;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -34,6 +36,7 @@ public class OreFarmingDevice {
 
         // Register event handlers
         RegisterEventHandler.registerGameObjects(modEventBus);
+        modEventBus.addListener(ModItemGroups::onCreativeModeTabRegister);
         modEventBus.addListener(this::gatherData);
     }
 
@@ -44,13 +47,15 @@ public class OreFarmingDevice {
     // Generate Data
     public void gatherData(GatherDataEvent event) {
         var dataGenerator = event.getGenerator();
+        var packOutput = dataGenerator.getPackOutput();
+        var lookupProvider = event.getLookupProvider();
         var existingFileHelper = event.getExistingFileHelper();
 
         // Server
         boolean includesServer = event.includeServer();
-        dataGenerator.addProvider(includesServer, new ModBlockTagsProvider(dataGenerator, existingFileHelper));
-        dataGenerator.addProvider(includesServer, new ModLootTableProvider(dataGenerator));
-        dataGenerator.addProvider(includesServer, new ModRecipeProvider(dataGenerator));
+        dataGenerator.addProvider(includesServer, new ModBlockTagsProvider(packOutput, lookupProvider, existingFileHelper));
+        dataGenerator.addProvider(includesServer, new ModLootTableProvider(packOutput));
+        dataGenerator.addProvider(includesServer, new ModRecipeProvider(packOutput));
 
         // Client
         boolean includesClient = event.includeClient();

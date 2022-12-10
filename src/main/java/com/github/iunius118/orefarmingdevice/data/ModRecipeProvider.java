@@ -3,7 +3,7 @@ package com.github.iunius118.orefarmingdevice.data;
 import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
 import com.github.iunius118.orefarmingdevice.world.item.ModItems;
 import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -16,14 +16,14 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
-    public ModRecipeProvider(DataGenerator generator) {
-        super(generator);
+    public ModRecipeProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         // Devise 0
-        ShapedRecipeBuilder.shaped(ModBlocks.DEVICE_0)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DEVICE_0)
                 .pattern("#F#")
                 .pattern("#L#")
                 .pattern("ixi")
@@ -36,29 +36,29 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer);
 
         // Devise 1
-        ShapelessRecipeBuilder.shapeless(ModBlocks.DEVICE_1)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, ModBlocks.DEVICE_1)
                 .requires(ModBlocks.DEVICE_0)
                 .requires(Items.IRON_PICKAXE)
                 .unlockedBy("has_device_0", has(ModBlocks.DEVICE_0))
                 .save(consumer);
 
-        UpgradeRecipeBuilder.smithing(Ingredient.of(ModBlocks.DEVICE_0), Ingredient.of(Items.IRON_PICKAXE), Item.BY_BLOCK.get(ModBlocks.DEVICE_1))
+        UpgradeRecipeBuilder.smithing(Ingredient.of(ModBlocks.DEVICE_0), Ingredient.of(Items.IRON_PICKAXE), RecipeCategory.DECORATIONS, Item.BY_BLOCK.get(ModBlocks.DEVICE_1))
                 .unlocks("has_device_0", has(ModBlocks.DEVICE_0))
                 .save(consumer, getItemId(ModBlocks.DEVICE_1.asItem()) + "_smithing");
 
         // Devise 2
-        ShapelessRecipeBuilder.shapeless(ModBlocks.DEVICE_2)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, ModBlocks.DEVICE_2)
                 .requires(ModBlocks.DEVICE_1)
                 .requires(Items.DIAMOND_PICKAXE)
                 .unlockedBy("has_device_1", has(ModBlocks.DEVICE_1))
                 .save(consumer);
 
-        UpgradeRecipeBuilder.smithing(Ingredient.of(ModBlocks.DEVICE_1), Ingredient.of(Items.DIAMOND_PICKAXE), Item.BY_BLOCK.get(ModBlocks.DEVICE_2))
+        UpgradeRecipeBuilder.smithing(Ingredient.of(ModBlocks.DEVICE_1), Ingredient.of(Items.DIAMOND_PICKAXE), RecipeCategory.DECORATIONS, Item.BY_BLOCK.get(ModBlocks.DEVICE_2))
                 .unlocks("has_device_1", has(ModBlocks.DEVICE_1))
                 .save(consumer, getItemId(ModBlocks.DEVICE_2.asItem()) + "_smithing");
 
         // Cobblestone Feeder
-        ShapedRecipeBuilder.shaped(ModItems.COBBLESTONE_FEEDER)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.COBBLESTONE_FEEDER)
                 .pattern("  L")
                 .pattern("RPx")
                 .pattern("  W")
@@ -71,7 +71,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer);
 
         // Cobblestone Feeder -> Lava Bucket
-        ShapelessRecipeBuilder.shapeless(Items.LAVA_BUCKET)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.LAVA_BUCKET)
                 .requires(ModItems.COBBLESTONE_FEEDER)
                 .requires(Items.BUCKET)
                 .unlockedBy("has_cobblestone_feeder", has(ModItems.COBBLESTONE_FEEDER))
@@ -80,10 +80,5 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private ResourceLocation getItemId(Item item) {
         return ForgeRegistries.ITEMS.getKey(item);
-    }
-
-    @Override
-    public String getName() {
-        return super.getName() + ": " +  OreFarmingDevice.MOD_ID;
     }
 }

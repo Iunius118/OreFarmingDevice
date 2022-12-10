@@ -1,17 +1,27 @@
 package com.github.iunius118.orefarmingdevice.world.item;
 
 import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
+import com.github.iunius118.orefarmingdevice.data.ModLanguageProvider;
+import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.event.CreativeModeTabEvent;
 
 public class ModItemGroups {
-    public static final CreativeModeTab MAIN = new CreativeModeTab(OreFarmingDevice.MOD_ID) {
-        @Override
-        @OnlyIn(Dist.CLIENT)
-        public ItemStack makeIcon() {
-            return new ItemStack(ModItems.DEVICE_2);
-        }
-    };
+    public static CreativeModeTab MAIN;
+
+    public static void onCreativeModeTabRegister(CreativeModeTabEvent.Register event) {
+        MAIN = event.registerCreativeModeTab(new ResourceLocation(OreFarmingDevice.MOD_ID, "main"),
+                builder -> builder.icon(() -> new ItemStack(ModBlocks.DEVICE_2))
+                        .title(Component.translatable(ModLanguageProvider.MOD_ITEM_GROUP_KEY))
+                        .displayItems((features, output, hasPermissions) -> {
+                            output.accept(ModItems.DEVICE_0);
+                            output.accept(ModItems.DEVICE_1);
+                            output.accept(ModItems.DEVICE_2);
+                            output.accept(ModItems.COBBLESTONE_FEEDER);
+                        })
+        );
+    }
 }

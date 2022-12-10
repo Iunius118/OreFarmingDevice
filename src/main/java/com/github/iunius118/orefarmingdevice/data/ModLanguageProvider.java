@@ -8,6 +8,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 
 public class ModLanguageProvider extends LanguageProvider {
+    public final static String MOD_ITEM_GROUP_KEY = "itemGroup." + OreFarmingDevice.MOD_ID + ".main";
     public final TranslatedNameProvider translatedNameProvider;
 
     public ModLanguageProvider(DataGenerator gen, String locale, TranslatedNameProvider translatedNameProvider) {
@@ -41,7 +42,7 @@ public class ModLanguageProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         // Item groups
-        add("itemGroup." + OreFarmingDevice.MOD_ID, OreFarmingDevice.MOD_NAME);
+        add(MOD_ITEM_GROUP_KEY, OreFarmingDevice.MOD_NAME);
 
         // Items
         add(ModItems.COBBLESTONE_FEEDER, translatedNameProvider.cobblestoneFeederName);
