@@ -6,5 +6,5 @@
   "container.orefarmingdevice.device_1": "ＯＦ装置改",
   "container.orefarmingdevice.device_2": "ＯＦ装置改二",
   "item.orefarmingdevice.cobblestone_feeder": "ＯＦ丸石供給装置",
-  "itemGroup.orefarmingdevice": "O.F.Device"
+  "itemGroup.orefarmingdevice.main": "O.F.Device"
 }
