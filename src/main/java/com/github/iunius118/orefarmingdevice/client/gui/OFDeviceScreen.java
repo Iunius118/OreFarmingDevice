@@ -35,16 +35,16 @@ public class OFDeviceScreen extends AbstractContainerScreen<OFDeviceMenu> {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
-        this.blit(matrixStack, leftPos, topPos, 0, 0, this.imageWidth, this.imageHeight);
+        blit(matrixStack, leftPos, topPos, 0, 0, this.imageWidth, this.imageHeight);
 
         if (this.menu.isLit()) {
             // Render remaining burn time bar
             int k = this.menu.getLitProgress();
-            this.blit(matrixStack, leftPos + 78, topPos + 28 + 29 - k, 176, 29 - k, 8, k + 1);
+            blit(matrixStack, leftPos + 78, topPos + 28 + 29 - k, 176, 29 - k, 8, k + 1);
         }
 
         // Render smelting progress bar
         int l = this.menu.getBurnProgress();
-        this.blit(matrixStack, leftPos + 108, topPos + 35, 176, 30, 16, l + 1);
+        blit(matrixStack, leftPos + 108, topPos + 35, 176, 30, 16, l + 1);
     }
 }

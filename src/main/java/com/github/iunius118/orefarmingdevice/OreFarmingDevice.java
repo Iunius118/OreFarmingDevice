@@ -59,8 +59,8 @@ public class OreFarmingDevice {
 
         // Client
         boolean includesClient = event.includeClient();
-        dataGenerator.addProvider(includesClient, new ModBlockStateProvider(dataGenerator, existingFileHelper));
-        dataGenerator.addProvider(includesClient, new ModItemModelProvider(dataGenerator, existingFileHelper));
+        dataGenerator.addProvider(includesClient, new ModBlockStateProvider(packOutput, existingFileHelper));
+        dataGenerator.addProvider(includesClient, new ModItemModelProvider(packOutput, existingFileHelper));
         ModLanguageProvider.addProviders(includesClient, dataGenerator);
     }
 }

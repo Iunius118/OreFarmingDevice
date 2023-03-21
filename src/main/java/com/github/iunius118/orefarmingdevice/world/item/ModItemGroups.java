@@ -16,7 +16,7 @@ public class ModItemGroups {
         MAIN = event.registerCreativeModeTab(new ResourceLocation(OreFarmingDevice.MOD_ID, "main"),
                 builder -> builder.icon(() -> new ItemStack(ModBlocks.DEVICE_2))
                         .title(Component.translatable(ModLanguageProvider.MOD_ITEM_GROUP_KEY))
-                        .displayItems((features, output, hasPermissions) -> {
+                        .displayItems((params, output) -> {
                             output.accept(ModItems.DEVICE_0);
                             output.accept(ModItems.DEVICE_1);
                             output.accept(ModItems.DEVICE_2);

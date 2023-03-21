@@ -11,8 +11,8 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagsProvider extends BlockTagsProvider {
-    public ModBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper exFileHelper) {
-        super(output, lookupProvider, OreFarmingDevice.MOD_ID, exFileHelper);
+    public ModBlockTagsProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper exFileHelper) {
+        super(packOutput, lookupProvider, OreFarmingDevice.MOD_ID, exFileHelper);
     }
 
     @Override
