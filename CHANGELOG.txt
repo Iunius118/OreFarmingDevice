@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+## [1.19.4-0.6.0]
+- Port to 1.19.4.
+- Require Forge 1.19.4-45.0.9+.
+
 ## [1.19.3-0.5.1]
 ### Changed
 - Port to 1.19.3.

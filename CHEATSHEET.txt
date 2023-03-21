@@ -1,5 +1,5 @@
 # Cheatsheet
-O.F.Device (Ore Farming Device) v0.5.0
+O.F.Device (Ore Farming Device) v0.6.0
 
 ## Blocks
 ### OF Device
@@ -61,21 +61,15 @@ Restart the game when you change the config. In multiplayer mode, server-side co
 ## Modifying Product Tables
 The products and their probabilities of each device can be modified using loot table in data pack. JSON files for the loot tables corresponding to each device are as follows.
 
-- OF Device with cobblestone:
-  - `(data_pack_root)/data/orefarmingdevice/loot_tables/device_0.json`
-- OF Device with cobbled deepslate:
-  - `(data_pack_root)/data/orefarmingdevice/loot_tables/device_0_d.json`
-- OF Device with netherrack:
-  - `(data_pack_root)/data/orefarmingdevice/loot_tables/device_0_n.json`
-- OF Device Mod 1 with cobblestone:
-  - `(data_pack_root)/data/orefarmingdevice/loot_tables/device_1.json`
-- OF Device Mod 1 with cobbled deepslate:
-  - `(data_pack_root)/data/orefarmingdevice/loot_tables/device_1_d.json`
-- OF Device Mod 1 with netherrack:
-  - `(data_pack_root)/data/orefarmingdevice/loot_tables/device_1_n.json`
-- OF Device Mod 2 with cobblestone:
-  - `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2.json`
-- OF Device Mod 2 with cobbled deepslate:
-  - `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2_d.json`
-- OF Device Mod 2 with netherrack:
-  - `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2_n.json`
+- OF Device
+  - Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_tables/device_0.json`
+  - Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_tables/device_0_d.json`
+  - Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_tables/device_0_n.json`
+- OF Device Mod 1
+  - Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_tables/device_1.json`
+  - Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_tables/device_1_d.json`
+  - Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_tables/device_1_n.json`
+- OF Device Mod 2
+  - Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2.json`
+  - Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2_d.json`
+  - Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2_n.json`
