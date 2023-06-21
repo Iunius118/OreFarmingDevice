@@ -1,5 +1,5 @@
 # Cheatsheet
-O.F.Device (Ore Farming Device) v0.6.0
+O.F.Device (Ore Farming Device) v0.7.0
 
 ## Blocks
 ### OF Device
@@ -21,14 +21,16 @@ O.F.Device (Ore Farming Device) v0.6.0
 - Appearance rate of ores increases with number (up to 3) of players, villagers, etc. around OF Devices (5x3x5)
 
 ### OF Device Mod 1
-- Recipe (Crafting/Smithing Table): OF Device + Iron Pickaxe
+- Recipe (Crafting): OF Device + Iron Pickaxe
+- Recipe (Smithing): Paper + OF Device + Iron Pickaxe
 - Processing speed is faster than OF Device
 - Products made from Cobblestone: Stone, Coal Ore, Iron Ore, Copper Ore, Redstone Ore, Lapis Lazuli Ore, Gold Ore, Diamond Ore
 - Products made from Cobbled Deepslate: Deepslate, Deepslate Redstone Ore, Deepslate Iron Ore, Deepslate Copper Ore, Deepslate Gold Ore, Deepslate Diamond Ore, Deepslate Lapis Lazuli Ore, Deepslate Coal Ore
 - Products made from Netherrack: Nether Brick, Nether Quartz Ore, Nether Gold Ore
 
 ### OF Device Mod 2
-- Recipe (Crafting/Smithing Table): OF Device Mod 1 + Diamond Pickaxe
+- Recipe (Crafting): OF Device Mod 1 + Diamond Pickaxe
+- Recipe (Smithing): Paper + OF Device Mod 1 + Diamond Pickaxe
 - Processing speed is faster than OF Device Mod 1
 - Products made from Cobblestone: Stone, Coal Ore, Copper Ore, Iron Ore, Gold Ore, Redstone Ore, Lapis Lazuli Ore, Emerald Ore, Diamond Ore
 - Products made from Cobbled Deepslate: Deepslate, Deepslate Redstone Ore, Deepslate Copper Ore, Deepslate Iron Ore, Deepslate Gold Ore, Deepslate Diamond Ore, Deepslate Lapis Lazuli Ore, Deepslate Coal Ore, Deepslate Emerald Ore
@@ -42,7 +44,7 @@ O.F.Device (Ore Farming Device) v0.6.0
   - ` _ _ W `
 - This item provides an infinite supply of Cobblestones to OF Devices
 - Place this item in the material slot of an OF device
-- Recycling recipe (Crafting Table): OF Cobblestone Feeder + Bucket -> Lava Bucket
+- Recycling recipe (Crafting): OF Cobblestone Feeder + Bucket -> Lava Bucket
 
 ## Config
 `(world_save_dir)/serverconfig/orefarmingdevice-server.toml`
@@ -61,15 +63,17 @@ Restart the game when you change the config. In multiplayer mode, server-side co
 ## Modifying Product Tables
 The products and their probabilities of each device can be modified using loot table in data pack. JSON files for the loot tables corresponding to each device are as follows.
 
-- OF Device
-  - Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_tables/device_0.json`
-  - Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_tables/device_0_d.json`
-  - Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_tables/device_0_n.json`
-- OF Device Mod 1
-  - Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_tables/device_1.json`
-  - Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_tables/device_1_d.json`
-  - Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_tables/device_1_n.json`
-- OF Device Mod 2
-  - Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2.json`
-  - Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2_d.json`
-  - Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2_n.json`
+### OF Device
+- Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_tables/device_0.json`
+- Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_tables/device_0_d.json`
+- Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_tables/device_0_n.json`
+
+### OF Device Mod 1
+- Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_tables/device_1.json`
+- Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_tables/device_1_d.json`
+- Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_tables/device_1_n.json`
+
+### OF Device Mod 2
+- Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2.json`
+- Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2_d.json`
+- Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2_n.json`

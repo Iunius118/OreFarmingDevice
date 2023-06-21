@@ -4,6 +4,15 @@
 
 ## [Unreleased]
 
+## [1.20.1-0.7.0]
+### Added
+- Individual random sequences to each loot table.
+
+### Changed
+- Port to 1.20.1.
+- Require Forge 1.20.1-47.0.14+.
+- All smithing recipes require paper as template.
+
 ## [1.19.4-0.6.0]
 ### Changed
 - Port to 1.19.4.

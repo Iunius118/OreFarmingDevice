@@ -10,7 +10,7 @@ O.F.Device is a Minecraft mod to add devices for farming ores.
 
 ## Description
 
-Version 0.5.0
+Version 0.7.0
 
 ### OF Device (ＯＦ装置)
 
@@ -58,8 +58,6 @@ Modified version of OF Device. Processing speed is faster than OF Device.
 
 ![ ](./docs/media/recipe_device_1_v020.png "Crafting recipe: OF Device Mod 1")
 
-![ ](./docs/media/recipe_device_1_v010.png "Smithing recipe: OF Device Mod 1")
-
 OF Device + Iron Pickaxe
 
 #### Products
@@ -82,8 +80,6 @@ Modified version of OF Device Mod 1. Processing speed is faster than OF Device M
 #### Recipe
 
 ![ ](./docs/media/recipe_device_2_v020.png "Crafting recipe: OF Device Mod 2")
-
-![ ](./docs/media/recipe_device_2_v010.png "Smithing recipe: OF Device Mod 2")
 
 OF Device Mod 1 + Diamond Pickaxe
 
