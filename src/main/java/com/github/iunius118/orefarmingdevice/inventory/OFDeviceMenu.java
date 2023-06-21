@@ -26,7 +26,7 @@ public class OFDeviceMenu extends AbstractContainerMenu {
         super(ModMenuTypes.DEVICE, containerCounter);
         this.container = inventory;
         this.data = dataAccess;
-        this.level = playerInventory.player.level;
+        this.level = playerInventory.player.level();
         this.addSlot(new Slot(inventory, 0, 108, 17));
         this.addSlot(new FuelSlot(this, inventory, 1, 56, 35));
         this.addSlot(new FurnaceResultSlot(playerInventory.player, inventory, 2, 108, 53));

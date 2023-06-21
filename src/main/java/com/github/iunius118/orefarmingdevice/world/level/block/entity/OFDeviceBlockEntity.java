@@ -21,8 +21,7 @@ import net.minecraft.world.level.block.AbstractFurnaceBlock;
 import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.loot.LootContext;
-import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.phys.AABB;
 
@@ -165,7 +164,6 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         List<LivingEntity> entities = level.getEntitiesOfClass(LivingEntity.class, aabb);
         int size = entities.size();
         farmingEfficiency = Mth.clamp(size, 0F, MAX_EFFICIENCY);
-        // OreFarmingDevice.LOGGER.debug("Device ({}) changed efficiency: {}", blockPos, farmingEfficiency);
     }
 
     public ModLootTables findLootTable(ItemStack stack) {
@@ -196,10 +194,14 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         if (server == null)
             return ItemStack.EMPTY;
 
-        LootTable lootTable = server.getLootTables().get(productLootTable.getId());
+        var lootTable = server.getLootData().getLootTable(productLootTable.getId());
         float luck = getFarmingEfficiency();
-        // OreFarmingDevice.LOGGER.debug("Device ({}) efficiency: {}", this.getBlockPos(), farmingEfficiency);
-        List<ItemStack> randomItems = lootTable.getRandomItems(new LootContext.Builder((ServerLevel) level).withRandom(level.random).withLuck(luck).create(LootContextParamSets.EMPTY));
+
+        /* DEBUG: log selected loot table
+        OreFarmingDevice.LOGGER.debug("Device ({}), loot table: {}, efficiency: {}", this.getBlockPos(), lootTable.getLootTableId(), farmingEfficiency);
+        // */
+
+        List<ItemStack> randomItems = lootTable.getRandomItems(new LootParams.Builder((ServerLevel) level).withLuck(luck).create(LootContextParamSets.EMPTY));
         return randomItems.size() > 0 ? randomItems.get(0) : ItemStack.EMPTY;
     }
 
@@ -211,7 +213,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
 
         if (productSlotStack.isEmpty()) {
             items.set(2, productStack.copy());
-        } else if (productSlotStack.sameItem(productStack)) {
+        } else if (productSlotStack.is(productStack.getItem())) {
             if (productSlotStack.getCount() + productStack.getCount() <= Math.min(getMaxStackSize(), productSlotStack.getMaxStackSize())) {
                 productSlotStack.grow(productStack.getCount());
             } else {
@@ -236,7 +238,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     @Override
     public void setItem(int slot, ItemStack newStack) {
         ItemStack oldStack = items.get(slot);
-        boolean flag = !newStack.isEmpty() && newStack.sameItem(oldStack) && ItemStack.tagMatches(newStack, oldStack);
+        boolean flag = !newStack.isEmpty() && ItemStack.isSameItemSameTags(newStack, oldStack);
         items.set(slot, newStack);
 
         if (newStack.getCount() > getMaxStackSize()) {

@@ -59,9 +59,4 @@ public class ModLanguageProvider extends LanguageProvider {
         add(OFDeviceType.MOD_1.getContainerTranslationKey(), translatedNameProvider.deviceModOneName);
         add(OFDeviceType.MOD_2.getContainerTranslationKey(), translatedNameProvider.deviceModTwoName);
     }
-
-    @Override
-    public String getName() {
-        return super.getName() + ": " +  OreFarmingDevice.MOD_ID;
-    }
 }

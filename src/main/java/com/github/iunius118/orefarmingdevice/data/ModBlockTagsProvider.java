@@ -19,9 +19,4 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.DEVICE_0).add(ModBlocks.DEVICE_1).add(ModBlocks.DEVICE_2);
     }
-
-    @Override
-    public String getName() {
-        return super.getName() + ": " +  OreFarmingDevice.MOD_ID;
-    }
 }
