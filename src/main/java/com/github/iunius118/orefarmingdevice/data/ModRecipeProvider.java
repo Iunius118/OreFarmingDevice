@@ -42,7 +42,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_device_0", has(ModBlocks.DEVICE_0))
                 .save(consumer);
 
-        LegacyUpgradeRecipeBuilder.smithing(Ingredient.of(ModBlocks.DEVICE_0), Ingredient.of(Items.IRON_PICKAXE), RecipeCategory.DECORATIONS, Item.BY_BLOCK.get(ModBlocks.DEVICE_1))
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.PAPER), Ingredient.of(ModBlocks.DEVICE_0), Ingredient.of(Items.IRON_PICKAXE), RecipeCategory.DECORATIONS, Item.BY_BLOCK.get(ModBlocks.DEVICE_1))
                 .unlocks("has_device_0", has(ModBlocks.DEVICE_0))
                 .save(consumer, getItemId(ModBlocks.DEVICE_1.asItem()) + "_smithing");
 
@@ -53,7 +53,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_device_1", has(ModBlocks.DEVICE_1))
                 .save(consumer);
 
-        LegacyUpgradeRecipeBuilder.smithing(Ingredient.of(ModBlocks.DEVICE_1), Ingredient.of(Items.DIAMOND_PICKAXE), RecipeCategory.DECORATIONS, Item.BY_BLOCK.get(ModBlocks.DEVICE_2))
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.PAPER), Ingredient.of(ModBlocks.DEVICE_1), Ingredient.of(Items.DIAMOND_PICKAXE), RecipeCategory.DECORATIONS, Item.BY_BLOCK.get(ModBlocks.DEVICE_2))
                 .unlocks("has_device_1", has(ModBlocks.DEVICE_1))
                 .save(consumer, getItemId(ModBlocks.DEVICE_2.asItem()) + "_smithing");
 
