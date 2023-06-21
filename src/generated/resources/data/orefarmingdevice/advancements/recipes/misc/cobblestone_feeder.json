@@ -30,5 +30,6 @@
     "recipes": [
       "orefarmingdevice:cobblestone_feeder"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

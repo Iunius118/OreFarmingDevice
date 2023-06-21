@@ -30,5 +30,6 @@
     "recipes": [
       "orefarmingdevice:device_2_smithing"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

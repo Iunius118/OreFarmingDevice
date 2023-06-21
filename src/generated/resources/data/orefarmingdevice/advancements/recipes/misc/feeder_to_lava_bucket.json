@@ -30,5 +30,6 @@
     "recipes": [
       "orefarmingdevice:feeder_to_lava_bucket"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }
