@@ -5,7 +5,6 @@ import com.github.iunius118.orefarmingdevice.common.RegisterEventHandler;
 import com.github.iunius118.orefarmingdevice.common.ServerProxy;
 import com.github.iunius118.orefarmingdevice.config.OreFarmingDeviceConfig;
 import com.github.iunius118.orefarmingdevice.data.*;
-import com.github.iunius118.orefarmingdevice.world.item.ModItemGroups;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -36,7 +35,6 @@ public class OreFarmingDevice {
 
         // Register event handlers
         RegisterEventHandler.registerGameObjects(modEventBus);
-        modEventBus.addListener(ModItemGroups::onCreativeModeTabRegister);
         modEventBus.addListener(this::gatherData);
     }
 

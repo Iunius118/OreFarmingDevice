@@ -2,10 +2,12 @@ package com.github.iunius118.orefarmingdevice.common;
 
 import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
 import com.github.iunius118.orefarmingdevice.inventory.ModMenuTypes;
+import com.github.iunius118.orefarmingdevice.world.item.ModCreativeModeTabs;
 import com.github.iunius118.orefarmingdevice.world.item.ModItems;
 import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.ModBlockEntityTypes;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
+import net.minecraft.core.registries.Registries;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -16,6 +18,7 @@ public class RegisterEventHandler {
         registerItems(modEventBus);
         registerBlockEntityTypes(modEventBus);
         registerMenuTypes(modEventBus);
+        registerCreativeModeTabs(modEventBus);
     }
 
     private static void registerBlocks(IEventBus modEventBus) {
@@ -55,5 +58,13 @@ public class RegisterEventHandler {
         menuTypeDeferredRegister.register("device", () -> ModMenuTypes.DEVICE);
 
         menuTypeDeferredRegister.register(modEventBus);
+    }
+
+    private static void registerCreativeModeTabs(IEventBus modEventBus) {
+        var creativeModeTabDeferredRegister = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, OreFarmingDevice.MOD_ID);
+
+        creativeModeTabDeferredRegister.register("general", () -> ModCreativeModeTabs.MAIN);
+
+        creativeModeTabDeferredRegister.register(modEventBus);
     }
 }
