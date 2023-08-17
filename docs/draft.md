@@ -153,8 +153,10 @@
 - When the device with this item is at Y<=0, this item works like a Cobbled Deepslate 
 
 ## Data Pack
-### `orefarmingdevice:experimental_1202`
-An experimental data pack for future versions
+### Experimental Data Pack 1.20.2
+ID: `orefarmingdevice:experimental_1202`
+
+An experimental data pack for future versions.
 
 Features:
 - Increase rate of Deepslate Diamond Ore in OF Device Mod 1+
