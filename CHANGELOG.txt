@@ -1,8 +1,16 @@
 # Change Log
-[O.F.Device (Ore Farming Device)](https://github.com/Iunius118/O.F.Device).
+[O.F.Device (Ore Farming Device)](https://www.curseforge.com/minecraft/mc-mods/o-f-device).
 [Source](https://github.com/Iunius118/O.F.Device).
 
 ## [Unreleased]
+
+## [0.8.0]
+### Added
+- Built-in optional data pack `orefarmingdevice:experimental_1202`. This is an experimental data pack, increasing rate of deepslate diamond ore in device mod 1+ and adding amethyst shard to device mod 2.
+
+### Changed
+- Require Forge 1.20.1-47.1.0+.
+- Version scheme.
 
 ## [1.20.1-0.7.0]
 ### Added

@@ -23,7 +23,7 @@
 | --- | ---: | ---: | ---: |
 | Stone | 91.60% | 90.60% | 89.20% |
 | Coal Ore | 5.00% | 5.00% | 5.00% |
-| Copper Ore |  | 1.00% | 2.40% |
+| Copper Ore | N/A | 1.00% | 2.40% |
 | Lapis Lazuli Ore | 0.40% | 0.40% | 0.40% |
 | Iron Ore | 3.00% | 3.00% | 3.00% |
 
@@ -60,7 +60,7 @@
 | --- | ---: | ---: | ---: |
 | Stone | 88.70% | 87.70% | 88.20% |
 | Coal Ore | 5.00% | 5.00% | 5.00% |
-| Copper Ore |  | 1.00% | 2.40% |
+| Copper Ore | N/A | 1.00% | 2.40% |
 | Lapis Lazuli Ore | 0.40% | 0.40% | 0.40% |
 | Iron Ore | 3.00% | 3.00% | 3.00% |
 | Gold Ore | 0.60% | 0.60% | 0.40% |
@@ -69,16 +69,16 @@
 
 **Table 1.1.2.2:** Loot Table of Cobbled Deepslate by OF Device Mod 1
 
-| Item | MC 1.17 | MC 1.18 |
-| --- | ---: | ---: |
-| Deepslate | 85.90% | 94.40% |
-| Deepslate Coal Ore | 5.00% | 0.30% |
-| Deepslate Copper Ore | 0.60% | 0.60% |
-| Deepslate Lapis Lazuli Ore | 0.40% | 0.40% |
-| Deepslate Iron Ore | 3.00% | 1.10% |
-| Deepslate Gold Ore | 0.60% | 0.60% |
-| Deepslate Redstone Ore | 4.00% | 2.00% |
-| Deepslate Diamond Ore | 0.50% | 0.60% |
+| Item | MC 1.17 | MC 1.18 | E_1.20.2 |
+| --- | ---: | ---: | ---: |
+| Deepslate | 85.90% | 94.40% | 94.10% |
+| Deepslate Coal Ore | 5.00% | 0.30% | 0.30% |
+| Deepslate Copper Ore | 0.60% | 0.60% | 0.60% |
+| Deepslate Lapis Lazuli Ore | 0.40% | 0.40% | 0.40% |
+| Deepslate Iron Ore | 3.00% | 1.10% | 1.10% |
+| Deepslate Gold Ore | 0.60% | 0.60% | 0.60% |
+| Deepslate Redstone Ore | 4.00% | 2.00% | 2.00% |
+| Deepslate Diamond Ore | 0.50% | 0.60% | 0.90% |
 
 **Table 1.1.2.3:** Loot Table of Netherrack by OF Device Mod 1
 
@@ -99,31 +99,33 @@
 
 **Table 1.1.3.1:** Loot Table of Cobblestone by OF Device Mod 2
 
-| Item | MC 1.16 | MC 1.17 | MC 1.18 |
-| --- | ---: | ---: | ---: |
-| Stone | 88.20% | 87.20% | 84.10% |
-| Coal Ore | 5.00% | 5.00% | 5.00% |
-| Copper Ore |  | 1.00% | 4.70% |
-| Lapis Lazuli Ore | 0.40% | 0.40% | 0.40% |
-| Iron Ore | 3.00% | 3.00% | 3.00% |
-| Gold Ore | 1.00% | 1.00% | 2.00% |
-| Redstone Ore | 2.00% | 2.00% | 0.50% |
-| Diamond Ore | 0.30% | 0.30% | 0.10% |
-| Emerald Ore | 0.10% | 0.10% | 0.20% |
+| Item | MC 1.16 | MC 1.17 | MC 1.18 | E_1.20.2 |
+| --- | ---: | ---: | ---: | ---: |
+| Stone | 88.20% | 87.20% | 84.10% | 83.90% |
+| Coal Ore | 5.00% | 5.00% | 5.00% | 5.00% |
+| Copper Ore | N/A | 1.00% | 4.70% | 4.70% |
+| Lapis Lazuli Ore | 0.40% | 0.40% | 0.40% | 0.40% |
+| Iron Ore | 3.00% | 3.00% | 3.00% | 3.00% |
+| Gold Ore | 1.00% | 1.00% | 2.00% | 2.00% |
+| Redstone Ore | 2.00% | 2.00% | 0.50% | 0.50% |
+| Diamond Ore | 0.30% | 0.30% | 0.10% | 0.10% |
+| Emerald Ore | 0.10% | 0.10% | 0.20% | 0.20% |
+| Amethyst Shard | N/A | N/A | N/A | 0.20% |
 
 **Table 1.1.3.2:** Loot Table of Cobbled Deepslate by OF Device Mod 2
 
-| Item | MC 1.17 | MC 1.18 |
-| --- | ---: | ---: |
-| Deepslate | 85.80% | 93.80% |
-| Deepslate Coal Ore | 5.00% | 0.30% |
-| Deepslate Copper Ore | 0.60% | 1.10% |
-| Deepslate Lapis Lazuli Ore | 0.40% | 0.40% |
-| Deepslate Iron Ore | 3.00% | 1.10% |
-| Deepslate Gold Ore | 0.60% | 0.60% |
-| Deepslate Redstone Ore | 4.00% | 2.00% |
-| Deepslate Diamond Ore | 0.50% | 0.60% |
-| Deepslate Emerald Ore | 0.10% | 0.10% |
+| Item | MC 1.17 | MC 1.18 | E_1.20.2 |
+| --- | ---: | ---: | ---: |
+| Deepslate | 85.80% | 93.80% | 93.10% |
+| Deepslate Coal Ore | 5.00% | 0.30% | 0.30% |
+| Deepslate Copper Ore | 0.60% | 1.10% | 1.10% |
+| Deepslate Lapis Lazuli Ore | 0.40% | 0.40% | 0.40% |
+| Deepslate Iron Ore | 3.00% | 1.10% | 1.10% |
+| Deepslate Gold Ore | 0.60% | 0.60% | 0.60% |
+| Deepslate Redstone Ore | 4.00% | 2.00% | 2.00% |
+| Deepslate Diamond Ore | 0.50% | 0.60% | 0.90% |
+| Deepslate Emerald Ore | 0.10% | 0.10% | 0.10% |
+| Amethyst Shard | N/A | N/A | 0.40% |
 
 **Table 1.1.3.3:** Loot Table of Netherrack by OF Device Mod 2
 
@@ -157,46 +159,3 @@ An experimental data pack for future versions
 Features:
 - Increase rate of Deepslate Diamond Ore in OF Device Mod 1+
 - Add Amethyst Shard to OF Device Mod 2
-
-**Table 3.1.1:** Loot Table of Cobbled Deepslate by OF Device Mod 1
-
-| Item | E._1202 |
-| --- | ---: |
-| Deepslate | **94.10%** |
-| Deepslate Coal Ore | 0.30% |
-| Deepslate Copper Ore | 0.60% |
-| Deepslate Lapis Lazuli Ore | 0.40% |
-| Deepslate Iron Ore | 1.10% |
-| Deepslate Gold Ore | 0.60% |
-| Deepslate Redstone Ore | 2.00% |
-| Deepslate Diamond Ore | **0.90%** |
-
-**Table 3.1.2:** Loot Table of Cobblestone by OF Device Mod 2
-
-| Item | E._1202 |
-| --- | ---: |
-| Stone | **83.90%** |
-| Coal Ore | 5.00% |
-| Copper Ore | 4.70% |
-| Lapis Lazuli Ore | 0.40% |
-| Iron Ore | 3.00% |
-| Gold Ore | 2.00% |
-| Redstone Ore | 0.50% |
-| Diamond Ore | 0.10% |
-| Emerald Ore | 0.20% |
-| **Amethyst Shard** | **0.20%** |
-
-**Table 3.1.3:** Loot Table of Cobbled Deepslate by OF Device Mod 2
-
-| Item | E._1202 |
-| --- | ---: |
-| Deepslate | **93.10%** |
-| Deepslate Coal Ore | 0.30% |
-| Deepslate Copper Ore | 1.10% |
-| Deepslate Lapis Lazuli Ore | 0.40% |
-| Deepslate Iron Ore | 1.10% |
-| Deepslate Gold Ore | 0.60% |
-| Deepslate Redstone Ore | 2.00% |
-| Deepslate Diamond Ore | **0.90%** |
-| Deepslate Emerald Ore | 0.10% |
-| **Amethyst Shard** | **0.40%** |
