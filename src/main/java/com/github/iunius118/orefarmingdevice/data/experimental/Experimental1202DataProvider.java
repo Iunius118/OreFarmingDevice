@@ -56,7 +56,7 @@ public class Experimental1202DataProvider {
 
         var resourcePath = ModList.get().getModFileById(OreFarmingDevice.MOD_ID).getFile().findResource(PACK_PATH);
         var pack = Pack.readMetaAndCreate(PACK_ID.toString(), Component.literal(PACK_NAME), false,
-                (path) -> new PathPackResources(path, resourcePath, false), PackType.SERVER_DATA, Pack.Position.TOP, PackSource.FEATURE);
+                new PathPackResources.PathResourcesSupplier(resourcePath, false), PackType.SERVER_DATA, Pack.Position.TOP, PackSource.FEATURE);
         event.addRepositorySource((packConsumer) -> packConsumer.accept(pack));
     }
 

@@ -23,7 +23,7 @@ public class OFDeviceScreen extends AbstractContainerScreen<OFDeviceMenu> {
 
     @Override
     public void render(GuiGraphics guiGraphics, int x, int y, float renderTicks) {
-        renderBackground(guiGraphics);
+        renderBackground(guiGraphics, x, y, renderTicks);
         super.render(guiGraphics, x, y, renderTicks);
         renderTooltip(guiGraphics, x, y);
     }

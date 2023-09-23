@@ -13,15 +13,13 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.function.Consumer;
-
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
     public ModRecipeProvider(PackOutput packOutput) {
         super(packOutput);
     }
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(RecipeOutput consumer) {
         // Devise 0
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DEVICE_0)
                 .pattern("#F#")
