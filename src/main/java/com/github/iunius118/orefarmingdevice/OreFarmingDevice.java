@@ -5,7 +5,6 @@ import com.github.iunius118.orefarmingdevice.common.RegisterEventHandler;
 import com.github.iunius118.orefarmingdevice.common.ServerProxy;
 import com.github.iunius118.orefarmingdevice.config.OreFarmingDeviceConfig;
 import com.github.iunius118.orefarmingdevice.data.*;
-import com.github.iunius118.orefarmingdevice.data.experimental.Experimental1202DataProvider;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -37,8 +36,9 @@ public class OreFarmingDevice {
         // Register event handlers
         RegisterEventHandler.registerGameObjects(modEventBus);
         modEventBus.addListener(this::gatherData);
-        // Register optional data pack handlers
-        modEventBus.addListener(Experimental1202DataProvider::addPackFinders);
+        // Disable data pack Experimental_1202 since 1.20.2
+        // // Register optional data pack handlers
+        // modEventBus.addListener(Experimental1202DataProvider::addPackFinders);
     }
 
     private void setup(FMLCommonSetupEvent event) {
@@ -57,7 +57,8 @@ public class OreFarmingDevice {
         dataGenerator.addProvider(includesServer, new ModBlockTagsProvider(packOutput, lookupProvider, existingFileHelper));
         dataGenerator.addProvider(includesServer, new ModLootTableProvider(packOutput));
         dataGenerator.addProvider(includesServer, new ModRecipeProvider(packOutput));
-        Experimental1202DataProvider.addProviders(event);
+        // Disable data pack Experimental_1202 since 1.20.2
+        // Experimental1202DataProvider.addProviders(event);
 
         // Client
         boolean includesClient = event.includeClient();
