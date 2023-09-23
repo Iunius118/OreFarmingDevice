@@ -93,8 +93,8 @@
 - Recipe
   - Smithing Table: OF Device Mod 1 + Diamond Pickaxe
 - Loot table of product
-  - Cobblestone -> Mod 1 result, Emerald Ore
-  - Cobbled Deepslate -> Mod 1 result, Deepslate Emerald Ore
+  - Cobblestone -> Mod 1 result, Emerald Ore, Amethyst Shard
+  - Cobbled Deepslate -> Mod 1 result, Deepslate Emerald Ore, Amethyst Shard
   - Netherrack -> Mod 1 result, Ancient Debris
 
 **Table 1.1.3.1:** Loot Table of Cobblestone by OF Device Mod 2
