@@ -8,7 +8,7 @@
           "type": "minecraft:item",
           "name": "minecraft:deepslate",
           "quality": -240,
-          "weight": 938
+          "weight": 931
         },
         {
           "type": "minecraft:item",
@@ -43,11 +43,16 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:deepslate_diamond_ore",
-          "weight": 6
+          "weight": 9
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:deepslate_emerald_ore"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:amethyst_shard",
+          "weight": 4
         }
       ],
       "rolls": 1.0

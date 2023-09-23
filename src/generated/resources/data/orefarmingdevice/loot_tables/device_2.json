@@ -8,7 +8,7 @@
           "type": "minecraft:item",
           "name": "minecraft:stone",
           "quality": -240,
-          "weight": 841
+          "weight": 839
         },
         {
           "type": "minecraft:item",
@@ -47,6 +47,11 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:emerald_ore",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:amethyst_shard",
           "weight": 2
         }
       ],
