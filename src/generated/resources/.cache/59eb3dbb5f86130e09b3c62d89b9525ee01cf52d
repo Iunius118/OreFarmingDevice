@@ -1,4 +1,4 @@
-// 1.20.1	2023-06-22T01:27:33.2313005	Loot Tables
+// 1.20.2	2023-09-23T21:32:43.5534206	Loot Tables
 12cf2b0ca3ec5dce7512c2834266e8bab44a8389 data/orefarmingdevice/loot_tables/blocks/device_0.json
 8b7ab5c5e4ed767c03743a0872349a70f80b36a6 data/orefarmingdevice/loot_tables/blocks/device_1.json
 14f44646af63dd1a06c4f0c09fc9a719445a46af data/orefarmingdevice/loot_tables/blocks/device_2.json
@@ -6,8 +6,8 @@
 ebe84d13f7d2a2b3550f42f9243dc08c4caa7bfa data/orefarmingdevice/loot_tables/device_0_d.json
 defe5b7c8a44056763a9a35689ec3ba89258285f data/orefarmingdevice/loot_tables/device_0_n.json
 8ba1104e4577b6dd1a2d6bbc83d530b12f7dd3d8 data/orefarmingdevice/loot_tables/device_1.json
-1256a22b11441b624433f012d917fce2999e68ea data/orefarmingdevice/loot_tables/device_1_d.json
+947d5700f3b3c7a0bd33250e9090c491fd99648a data/orefarmingdevice/loot_tables/device_1_d.json
 0df00b3cfc09b78a7bfef72698c214dd36567449 data/orefarmingdevice/loot_tables/device_1_n.json
-7f975b3d788f14e22349face783b25c469e59e22 data/orefarmingdevice/loot_tables/device_2.json
-b820ada8fdc0b01e35aff76fab1189e2065080f9 data/orefarmingdevice/loot_tables/device_2_d.json
+37aadfdf11053fcc8f4740df1ae6bbe976a7ac6f data/orefarmingdevice/loot_tables/device_2.json
+9a1a751e97661878f40bf64bf1c1f0110cb7ee60 data/orefarmingdevice/loot_tables/device_2_d.json
 a390d3f908f1eb7e7b279c68214d36db4342143c data/orefarmingdevice/loot_tables/device_2_n.json
