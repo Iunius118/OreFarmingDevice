@@ -4,6 +4,16 @@
 
 ## [Unreleased]
 
+## [0.9.0]
+### Changed
+- Port to 1.20.2.
+- Require Forge 1.20.2-48.0.1+.
+- Increase rate of deepslate diamond ore in device mod 1+.
+- Device mod 2 can produce amethyst shard now.
+
+### Removed
+- Built-in optional data pack `orefarmingdevice:experimental_1202`.
+
 ## [0.8.0]
 ### Added
 - Built-in optional data pack `orefarmingdevice:experimental_1202`. This is an experimental data pack, increasing rate of deepslate diamond ore in device mod 1+ and adding amethyst shard to device mod 2.
