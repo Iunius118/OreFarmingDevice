@@ -1,5 +1,5 @@
 # Cheatsheet
-O.F.Device (Ore Farming Device) v0.9.0
+O.F.Device (Ore Farming Device) v4.0.0
 
 ## Blocks
 ### OF Device
@@ -59,6 +59,8 @@ Restart the game when you change the config. In multiplayer mode, server-side co
   - Whether to accelerate processing speed of device by modification
 - increaseFuelConsumptionByMod (boolean, default value is true)
   - Whether to increase fuel consumption of device by modification
+- cobblestoneFeederConsumesDoubleFuel (boolean, default value is true)
+  - Whether OF Cobblestone Feeder consumes twice as much fuel as material blocks
 
 ## Modifying Product Tables
 The products and their probabilities of each device can be modified using loot table in data pack. JSON files for the loot tables corresponding to each device are as follows.

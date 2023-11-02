@@ -3,6 +3,12 @@
 [Source](https://github.com/Iunius118/O.F.Device).
 
 ## [Unreleased]
+### Added
+- Server-side config: cobblestoneFeederConsumesDoubleFuel.
+
+### Changed
+- Require Forge 1.20.2-48.0.33+.
+- Bump version.
 
 ## [0.9.0]
 ### Changed
