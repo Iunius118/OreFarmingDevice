@@ -8,6 +8,7 @@
 
 ### Changed
 - Require Forge 1.20.2-48.0.33+.
+- OF Cobblestone Feeder now consumes twice as much fuel as the previous version.
 - Bump version.
 
 ## [0.9.0]

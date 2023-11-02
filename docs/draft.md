@@ -138,7 +138,7 @@
 
 ## Item
 
-### OF Pickaxe (ＯＦツルハシ)
+### ~~OF Pickaxe (ＯＦツルハシ)~~
 
 - Energy: Max 2560
 - Recharging: Using energy of OF Device
@@ -149,9 +149,10 @@
 
 ### OF Cobblestone Feeder (ＯＦ丸石供給装置)
 
-- When this item is placed in the ingredient slot of an OF device, it will be smelted like Cobblestone without being consumed
+- When this item is placed in the material slot of an OF device, it will be smelted like Cobblestone without being consumed
+- When this item is placed in the material slot of an OF device, the device's fuel consumption will be doubled
 - When the device with this item is at Y<=0, this item works like a Cobbled Deepslate 
-
+ 
 ## Data Pack
 ### Experimental Data Pack 1.20.2 [Only v0.8.0]
 ID: `orefarmingdevice:experimental_1202`

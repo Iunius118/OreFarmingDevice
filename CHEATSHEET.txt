@@ -21,16 +21,16 @@ O.F.Device (Ore Farming Device) v4.0.0
 - Appearance rate of ores increases with number (up to 3) of players, villagers, etc. around OF Devices (5x3x5)
 
 ### OF Device Mod 1
-- Recipe (Crafting): OF Device + Iron Pickaxe
-- Recipe (Smithing): Paper + OF Device + Iron Pickaxe
+- Recipe (crafting): OF Device + Iron Pickaxe
+- Recipe (smithing): Paper + OF Device + Iron Pickaxe
 - Processing speed is faster than OF Device
 - Products made from Cobblestone: Stone, Coal Ore, Iron Ore, Copper Ore, Redstone Ore, Lapis Lazuli Ore, Gold Ore, Diamond Ore
 - Products made from Cobbled Deepslate: Deepslate, Deepslate Redstone Ore, Deepslate Iron Ore, Deepslate Diamond Ore, Deepslate Copper Ore, Deepslate Gold Ore, Deepslate Lapis Lazuli Ore, Deepslate Coal Ore
 - Products made from Netherrack: Nether Brick, Nether Quartz Ore, Nether Gold Ore
 
 ### OF Device Mod 2
-- Recipe (Crafting): OF Device Mod 1 + Diamond Pickaxe
-- Recipe (Smithing): Paper + OF Device Mod 1 + Diamond Pickaxe
+- Recipe (crafting): OF Device Mod 1 + Diamond Pickaxe
+- Recipe (smithing): Paper + OF Device Mod 1 + Diamond Pickaxe
 - Processing speed is faster than OF Device Mod 1
 - Products made from Cobblestone: Stone, Coal Ore, Copper Ore, Iron Ore, Gold Ore, Redstone Ore, Lapis Lazuli Ore, Amethyst Shard, Emerald Ore, Diamond Ore
 - Products made from Cobbled Deepslate: Deepslate, Deepslate Redstone Ore, Deepslate Copper Ore, Deepslate Iron Ore, Deepslate Diamond Ore, Deepslate Gold Ore, Deepslate Lapis Lazuli Ore, Amethyst Shard, Deepslate Coal Ore, Deepslate Emerald Ore
@@ -44,7 +44,8 @@ O.F.Device (Ore Farming Device) v4.0.0
   - ` _ _ W `
 - This item provides an infinite supply of Cobblestones to OF Devices
 - Place this item in the material slot of an OF device
-- Recycling recipe (Crafting): OF Cobblestone Feeder + Bucket -> Lava Bucket
+- This item consumes twice as much fuel as material blocks
+- Recycling recipe (crafting): OF Cobblestone Feeder + Bucket -> Lava Bucket
 
 ## Config
 `(world_save_dir)/serverconfig/orefarmingdevice-server.toml`

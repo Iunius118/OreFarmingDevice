@@ -60,10 +60,16 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
                 : OFDeviceType.MOD_0.getTotalProcessingTime();
     }
 
-    public int getFuelConsumption() {
-        return OreFarmingDeviceConfig.SERVER.canIncreaseFuelConsumptionByMod()
+    public int getFuelConsumption(boolean isCobblestoneFeeder) {
+        int fuel = OreFarmingDeviceConfig.SERVER.canIncreaseFuelConsumptionByMod()
                 ? type.getFuelConsumption()
                 : OFDeviceType.MOD_0.getFuelConsumption();
+
+        if (isCobblestoneFeeder && OreFarmingDeviceConfig.SERVER.canCobblestoneFeederConsumeDoubleFuel()) {
+            return fuel * 2;
+        } else {
+            return fuel;
+        }
     }
 
     public float getFarmingEfficiency() {
@@ -87,13 +93,13 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     public static void serverTick(Level level, BlockPos blockPos, BlockState blockState, OFDeviceBlockEntity device) {
         boolean isLitOld = device.isLit();
         boolean hasChanged = false;
-
-        if (isLitOld) {
-            device.litTime -= device.getFuelConsumption();
-        }
-
         ItemStack fuelStack = device.items.get(SLOT_FUEL);
         ItemStack materialStack = device.items.get(SLOT_INPUT);
+
+        if (isLitOld) {
+            boolean isCobblestoneFeeder = materialStack.is(ModItems.COBBLESTONE_FEEDER);
+            device.litTime -= device.getFuelConsumption(isCobblestoneFeeder);
+        }
 
         if ((device.isLit() || !fuelStack.isEmpty()) && !materialStack.isEmpty()) {
             ModLootTables productLootTable = device.findLootTable(materialStack);
