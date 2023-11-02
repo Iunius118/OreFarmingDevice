@@ -26,6 +26,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.phys.AABB;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
@@ -177,6 +178,8 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     private void process(ModLootTables productLootTable) {
         if (canProcess(productLootTable)) {
             ItemStack materialStack = items.get(SLOT_INPUT);
+            List<ItemStack> productStacks = getRandomItemsFromLootTable(productLootTable);
+            insertToProductSlot(productStacks);
 
             if (!materialStack.is(ModItems.COBBLESTONE_FEEDER)) {
                 materialStack.shrink(1);
@@ -184,13 +187,13 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         }
     }
 
-    private ItemStack getRandomItemFromLootTable(ModLootTables productLootTable) {
+    private List<ItemStack> getRandomItemsFromLootTable(ModLootTables productLootTable) {
         if (level == null)
-            return ItemStack.EMPTY;
+            return Collections.emptyList();
 
         var server = level.getServer();
         if (server == null)
-            return ItemStack.EMPTY;
+            return Collections.emptyList();
 
         var lootTable = server.getLootData().getLootTable(productLootTable.getId());
         float luck = getFarmingEfficiency();
@@ -199,8 +202,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         OreFarmingDevice.LOGGER.debug("Device ({}), loot table: {}, efficiency: {}", this.getBlockPos(), lootTable.getLootTableId(), farmingEfficiency);
         // */
 
-        List<ItemStack> randomItems = lootTable.getRandomItems(new LootParams.Builder((ServerLevel) level).withLuck(luck).create(LootContextParamSets.EMPTY));
-        return randomItems.size() > 0 ? randomItems.get(0) : ItemStack.EMPTY;
+        return lootTable.getRandomItems(new LootParams.Builder((ServerLevel) level).withLuck(luck).create(LootContextParamSets.EMPTY));
     }
 
     private void insertToProductSlot(List<ItemStack> productStacks) {
