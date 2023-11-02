@@ -91,8 +91,8 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
             device.litTime -= device.getFuelConsumption();
         }
 
-        ItemStack fuelStack = device.items.get(1);
-        ItemStack materialStack = device.items.get(0);
+        ItemStack fuelStack = device.items.get(SLOT_FUEL);
+        ItemStack materialStack = device.items.get(SLOT_INPUT);
 
         if ((device.isLit() || !fuelStack.isEmpty()) && !materialStack.isEmpty()) {
             ModLootTables productLootTable = device.findLootTable(materialStack);
@@ -108,12 +108,12 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
                     hasChanged = true;
 
                     if (fuelStack.hasCraftingRemainingItem()) {
-                        device.items.set(1, fuelStack.getCraftingRemainingItem());
+                        device.items.set(SLOT_FUEL, fuelStack.getCraftingRemainingItem());
                     } else if (!fuelStack.isEmpty()) {
                         fuelStack.shrink(1);
 
                         if (fuelStack.isEmpty()) {
-                            device.items.set(1, fuelStack.getCraftingRemainingItem());
+                            device.items.set(SLOT_FUEL, fuelStack.getCraftingRemainingItem());
                         }
                     }
                 }
@@ -171,14 +171,12 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     }
 
     private boolean canProcess(ModLootTables lootTableID) {
-        return !items.get(0).isEmpty() && lootTableID != null;
+        return !items.get(SLOT_INPUT).isEmpty() && lootTableID != null;
     }
 
     private void process(ModLootTables productLootTable) {
         if (canProcess(productLootTable)) {
-            ItemStack materialStack = items.get(0);
-            ItemStack productStack = getRandomItemFromLootTable(productLootTable);
-            insertToProductSlot(productStack);
+            ItemStack materialStack = items.get(SLOT_INPUT);
 
             if (!materialStack.is(ModItems.COBBLESTONE_FEEDER)) {
                 materialStack.shrink(1);
@@ -205,22 +203,21 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         return randomItems.size() > 0 ? randomItems.get(0) : ItemStack.EMPTY;
     }
 
-    private void insertToProductSlot(ItemStack productStack) {
-        if (productStack.isEmpty())
-            return;
+    private void insertToProductSlot(List<ItemStack> productStacks) {
+        for (ItemStack productStack : productStacks) {
+            ItemStack productSlotStack = items.get(SLOT_RESULT);
 
-        ItemStack productSlotStack = items.get(2);
-
-        if (productSlotStack.isEmpty()) {
-            items.set(2, productStack.copy());
-        } else if (productSlotStack.is(productStack.getItem())) {
-            if (productSlotStack.getCount() + productStack.getCount() <= Math.min(getMaxStackSize(), productSlotStack.getMaxStackSize())) {
+            if (productSlotStack.isEmpty()) {
+                // Insert product item stack to empty product slot
+                items.set(SLOT_RESULT, productStack.copy());
+            } else if (productSlotStack.is(productStack.getItem())
+                    && (productSlotStack.getCount() + productStack.getCount() <= Math.min(getMaxStackSize(), productSlotStack.getMaxStackSize()))) {
+                // Add same product item to item stack in product slot
                 productSlotStack.grow(productStack.getCount());
             } else {
+                // Replace item stack in product slot with another item stack
                 replaceProductStack(productStack.copy());
             }
-        } else {
-            replaceProductStack(productStack.copy());
         }
     }
 
@@ -228,11 +225,11 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         if (level == null) return;
 
         BlockPos pos = getBlockPos();
-        ItemStack productSlotStack = items.get(2);
+        ItemStack productSlotStack = items.get(SLOT_RESULT);
         // Eject old item stack
         level.addFreshEntity(new ItemEntity(level, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, productSlotStack));
         // Set new item stack in product slot
-        items.set(2, newStack);
+        items.set(SLOT_RESULT, newStack);
     }
 
     @Override
@@ -245,7 +242,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
             newStack.setCount(getMaxStackSize());
         }
 
-        if (slot == 0 && !flag) {
+        if (slot == SLOT_INPUT && !flag) {
             cookingTotalTime = getTotalProcessingTime();
             cookingProgress = 0;
             setChanged();
