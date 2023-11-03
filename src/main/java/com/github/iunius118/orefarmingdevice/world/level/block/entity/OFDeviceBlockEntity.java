@@ -56,26 +56,19 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
 
     public int getTotalProcessingTime() {
         return OreFarmingDeviceConfig.SERVER.canAccelerateProcessingSpeedByMod()
-                ? type.getTotalProcessingTime()
-                : OFDeviceType.MOD_0.getTotalProcessingTime();
+                ? type.getTotalProcessingTime() : OFDeviceType.MOD_0.getTotalProcessingTime();
     }
 
     public int getFuelConsumption(boolean isCobblestoneFeeder) {
         int fuel = OreFarmingDeviceConfig.SERVER.canIncreaseFuelConsumptionByMod()
-                ? type.getFuelConsumption()
-                : OFDeviceType.MOD_0.getFuelConsumption();
-
-        if (isCobblestoneFeeder && OreFarmingDeviceConfig.SERVER.canCobblestoneFeederConsumeDoubleFuel()) {
-            return fuel * 2;
-        } else {
-            return fuel;
-        }
+                ? type.getFuelConsumption() : OFDeviceType.MOD_0.getFuelConsumption();
+        return isCobblestoneFeeder && OreFarmingDeviceConfig.SERVER.canCobblestoneFeederConsumeDoubleFuel()
+                ? fuel * 2 : fuel;
     }
 
     public float getFarmingEfficiency() {
         return OreFarmingDeviceConfig.SERVER.isFarmingEfficiencyEnabled()
-                ? farmingEfficiency
-                : 0F;
+                ? farmingEfficiency : 0F;
     }
 
     @Override
