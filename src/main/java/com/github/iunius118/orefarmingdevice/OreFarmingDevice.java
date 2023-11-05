@@ -1,7 +1,7 @@
 package com.github.iunius118.orefarmingdevice;
 
 import com.github.iunius118.orefarmingdevice.client.ClientProxy;
-import com.github.iunius118.orefarmingdevice.common.RegistryEventHandler;
+import com.github.iunius118.orefarmingdevice.common.RegisterEventHandler;
 import com.github.iunius118.orefarmingdevice.common.ServerProxy;
 import com.github.iunius118.orefarmingdevice.config.OreFarmingDeviceConfig;
 import com.github.iunius118.orefarmingdevice.data.*;
@@ -14,6 +14,7 @@ import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -36,10 +37,28 @@ public class OreFarmingDevice {
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, OreFarmingDeviceConfig.serverSpec);
 
         // Register event handlers
-        modEventBus.register(RegistryEventHandler.class);
+        RegisterEventHandler.registerGameObjects(modEventBus);
+        modEventBus.addListener(this::gatherData);
     }
 
     private void setup(FMLCommonSetupEvent event) {
         proxy.setup(event);
+    }
+
+    public void gatherData(GatherDataEvent event) {
+        DataGenerator dataGenerator = event.getGenerator();
+        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+        ForgeBlockTagsProvider blockTagsProvider = new ForgeBlockTagsProvider(dataGenerator, existingFileHelper);
+
+        if (event.includeServer()) {
+            dataGenerator.addProvider(new ModLootTableProvider(dataGenerator));
+            dataGenerator.addProvider(new ModRecipeProvider(dataGenerator));
+        }
+
+        if (event.includeClient()) {
+            dataGenerator.addProvider(new ModBlockStateProvider(dataGenerator, existingFileHelper));
+            dataGenerator.addProvider(new ModItemModelProvider(dataGenerator, existingFileHelper));
+            ModLanguageProvider.addProviders(dataGenerator);
+        }
     }
 }
