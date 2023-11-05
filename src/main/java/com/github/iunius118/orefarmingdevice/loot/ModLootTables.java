@@ -30,7 +30,11 @@ public enum ModLootTables {
         this.canProcess = canProcess;
     }
 
-    public ResourceLocation getID() {
+    ModLootTables(String key, Block block, Function<OFDeviceBlockEntity, Boolean> canProcess) {
+        this(key, block.asItem(), canProcess);
+    }
+
+    public ResourceLocation getId() {
         return id;
     }
 

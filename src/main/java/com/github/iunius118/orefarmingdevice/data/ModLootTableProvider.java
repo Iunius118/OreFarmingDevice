@@ -65,7 +65,7 @@ public class ModLootTableProvider extends LootTableProvider {
         @Override
         public void accept(BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
             // OF Device
-            consumer.accept(ModLootTables.DEVICE_0.getID(),
+            consumer.accept(ModLootTables.DEVICE_0.getId(),
                     LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantRange.exactly(1))
                             .add(ItemLootEntry.lootTableItem(Blocks.STONE).setWeight(916))
                             .add(ItemLootEntry.lootTableItem(Blocks.COAL_ORE).setWeight(50))
@@ -74,7 +74,7 @@ public class ModLootTableProvider extends LootTableProvider {
                     )
             );
 
-            consumer.accept(ModLootTables.DEVICE_0_NETHER.getID(),
+            consumer.accept(ModLootTables.DEVICE_0_NETHER.getId(),
                     LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantRange.exactly(1))
                             .add(ItemLootEntry.lootTableItem(Items.NETHER_BRICK).setWeight(96))
                             .add(ItemLootEntry.lootTableItem(Blocks.NETHER_QUARTZ_ORE).setWeight(3))
@@ -83,7 +83,7 @@ public class ModLootTableProvider extends LootTableProvider {
             );
 
             // OF Device Mod 1
-            consumer.accept(ModLootTables.DEVICE_1.getID(),
+            consumer.accept(ModLootTables.DEVICE_1.getId(),
                     LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantRange.exactly(1))
                             .add(ItemLootEntry.lootTableItem(Blocks.STONE).setWeight(887))
                             .add(ItemLootEntry.lootTableItem(Blocks.COAL_ORE).setWeight(50))
@@ -95,7 +95,7 @@ public class ModLootTableProvider extends LootTableProvider {
                     )
             );
 
-            consumer.accept(ModLootTables.DEVICE_1_NETHER.getID(),
+            consumer.accept(ModLootTables.DEVICE_1_NETHER.getId(),
                     LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantRange.exactly(1))
                             .add(ItemLootEntry.lootTableItem(Items.NETHER_BRICK).setWeight(96))
                             .add(ItemLootEntry.lootTableItem(Blocks.NETHER_QUARTZ_ORE).setWeight(3))
@@ -104,7 +104,7 @@ public class ModLootTableProvider extends LootTableProvider {
             );
 
             // OF Device Mod 2
-            consumer.accept(ModLootTables.DEVICE_2.getID(),
+            consumer.accept(ModLootTables.DEVICE_2.getId(),
                     LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantRange.exactly(1))
                             .add(ItemLootEntry.lootTableItem(Blocks.STONE).setWeight(882))
                             .add(ItemLootEntry.lootTableItem(Blocks.COAL_ORE).setWeight(50))
@@ -117,7 +117,7 @@ public class ModLootTableProvider extends LootTableProvider {
                     )
             );
 
-            consumer.accept(ModLootTables.DEVICE_2_NETHER.getID(),
+            consumer.accept(ModLootTables.DEVICE_2_NETHER.getId(),
                     LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantRange.exactly(1))
                             .add(ItemLootEntry.lootTableItem(Items.NETHER_BRICK).setWeight(959))
                             .add(ItemLootEntry.lootTableItem(Blocks.NETHER_QUARTZ_ORE).setWeight(30))
