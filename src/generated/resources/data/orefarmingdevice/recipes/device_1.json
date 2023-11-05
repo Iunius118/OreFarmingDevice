@@ -1,11 +1,13 @@
 {
-  "type": "minecraft:smithing",
-  "base": {
-    "item": "orefarmingdevice:device_0"
-  },
-  "addition": {
-    "item": "minecraft:iron_pickaxe"
-  },
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "orefarmingdevice:device_0"
+    },
+    {
+      "item": "minecraft:iron_pickaxe"
+    }
+  ],
   "result": {
     "item": "orefarmingdevice:device_1"
   }
