@@ -1,6 +1,7 @@
 package com.github.iunius118.orefarmingdevice.data;
 
 import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
+import com.github.iunius118.orefarmingdevice.world.item.ModItems;
 import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
 import net.minecraft.data.DataGenerator;
@@ -23,6 +24,8 @@ public class ModLanguageProvider extends LanguageProvider {
         public String deviceModZeroName = "OF Device";
         public String deviceModOneName = "OF Device Mod 1";
         public String deviceModTwoName = "OF Device Mod 2";
+        public String cobblestoneFeederName = "OF C Feeder I";
+        public String cobblestoneFeeder2Name = "OF C Feeder II";
     }
 
     public static class JaJpNameProvider extends TranslatedNameProvider {
@@ -30,6 +33,8 @@ public class ModLanguageProvider extends LanguageProvider {
             deviceModZeroName = "ＯＦ装置";
             deviceModOneName = "ＯＦ装置改";
             deviceModTwoName = "ＯＦ装置改二";
+            cobblestoneFeederName = "ＯＦＣ供給装置一型";
+            cobblestoneFeeder2Name = "ＯＦＣ供給装置二型";
         }
     }
 
@@ -39,6 +44,8 @@ public class ModLanguageProvider extends LanguageProvider {
         add("itemGroup." + OreFarmingDevice.MOD_ID, OreFarmingDevice.MOD_NAME);
 
         // Items
+        add(ModItems.COBBLESTONE_FEEDER, translatedNameProvider.cobblestoneFeederName);
+        add(ModItems.COBBLESTONE_FEEDER_2, translatedNameProvider.cobblestoneFeeder2Name);
 
         // Blocks
         add(ModBlocks.DEVICE_0, translatedNameProvider.deviceModZeroName);
@@ -49,10 +56,5 @@ public class ModLanguageProvider extends LanguageProvider {
         add(OFDeviceType.MOD_0.getContainerTranslationKey(), translatedNameProvider.deviceModZeroName);
         add(OFDeviceType.MOD_1.getContainerTranslationKey(), translatedNameProvider.deviceModOneName);
         add(OFDeviceType.MOD_2.getContainerTranslationKey(), translatedNameProvider.deviceModTwoName);
-    }
-
-    @Override
-    public String getName() {
-        return super.getName() + ": " +  OreFarmingDevice.MOD_ID;
     }
 }
