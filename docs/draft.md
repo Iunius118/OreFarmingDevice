@@ -6,7 +6,6 @@
 
 - Fuel: Same as Furnace
 - Energy: Same as fuel's burning time in ticks
-- Farming costs: 10 seconds and 200 units of energy
 
 #### OF Device (ＯＦ装置)
 
@@ -16,6 +15,7 @@
   - Cobblestone -> Stone, Coal Ore, Copper Ore, Lapis Lazuli Ore, Iron Ore
   - Cobbled Deepslate -> Deepslate, Deepslate Coal Ore, Deepslate Copper Ore, Deepslate Lapis Lazuli Ore, Deepslate Iron Ore
   - Netherrack -> Nether Brick, Nether Quartz Ore, Nether Gold Ore
+- Farming costs: 10 seconds and 200 units of energy
 
 **Table 1.1.1.1:** Loot Table of Cobblestone by OF Device
 
@@ -48,11 +48,12 @@
 #### OF Device Mod 1 (ＯＦ装置改)
 
 - Recipe
-  - Smithing Table: OF Device + Iron Pickaxe
+  - Crafting/Smithing Table: OF Device + Iron Pickaxe
 - Loot table of product
   - Cobblestone -> Device result, Gold Ore, Redstone Ore, Diamond Ore
   - Cobbled Deepslate -> Device result, Deepslate Gold Ore, Deepslate Redstone Ore, Deepslate Diamond Ore
   - Netherrack -> Nether Brick, Nether Quartz Ore, Nether Gold Ore
+- Farming costs: 5 seconds and 200 units of energy
 
 **Table 1.1.2.1:** Loot Table of Cobblestone by OF Device Mod 1
 
@@ -91,11 +92,12 @@
 #### OF Device Mod 2 (ＯＦ装置改二)
 
 - Recipe
-  - Smithing Table: OF Device Mod 1 + Diamond Pickaxe
+  - Crafting/Smithing Table: OF Device Mod 1 + Diamond Pickaxe
 - Loot table of product
   - Cobblestone -> Mod 1 result, Emerald Ore, Amethyst Shard
   - Cobbled Deepslate -> Mod 1 result, Deepslate Emerald Ore, Amethyst Shard
   - Netherrack -> Mod 1 result, Ancient Debris
+- Farming costs: 2.5 seconds and 200 units of energy
 
 **Table 1.1.3.1:** Loot Table of Cobblestone by OF Device Mod 2
 
@@ -138,8 +140,11 @@
 
 ## Item
 
-### ~~OF Pickaxe (ＯＦツルハシ)~~
+### ~~OF Jig (ＯＦ治具)~~
 
+**Canceled**
+
+- Tool type: pickaxe
 - Energy: Max 2560
 - Recharging: Using energy of OF Device
 - Recharging rate: 1 unit of pickaxe energy every 10 units of device energy
@@ -147,14 +152,20 @@
   - Stone, Deepslate -> Coal, Raw Copper, Raw Iron, Lapis Lazuli, Raw Gold, Redstone, Diamond, Emerald
   - Netherrack -> Nether Quartz, Gold Nugget
 
-### OF Cobblestone Feeder (ＯＦ丸石供給装置)
+### OF C Feeder I (ＯＦ丙供給装置一型)
 
 - When this item is placed in the material slot of an OF device, it will be smelted like Cobblestone without being consumed
 - When this item is placed in the material slot of an OF device, the device's fuel consumption will be doubled
-- When the device with this item is at Y<=0, this item works like a Cobbled Deepslate 
+- When the device with this item is at Y<=0, this item works like Cobbled Deepslate 
+
+### OF C Feeder II (ＯＦ丙供給装置二型)
+
+- Improved version of Feeder I with no increase in fuel consumption
  
 ## Data Pack
+
 ### Experimental Data Pack 1.20.2 [Only v0.8.0]
+
 ID: `orefarmingdevice:experimental_1202`
 
 An experimental data pack for future versions.
