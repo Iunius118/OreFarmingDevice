@@ -33,8 +33,8 @@ public class ModLanguageProvider extends LanguageProvider {
             deviceModZeroName = "ＯＦ装置";
             deviceModOneName = "ＯＦ装置改";
             deviceModTwoName = "ＯＦ装置改二";
-            cobblestoneFeederName = "ＯＦＣ供給装置一型";
-            cobblestoneFeeder2Name = "ＯＦＣ供給装置二型";
+            cobblestoneFeederName = "ＯＦ丙供給装置一型";
+            cobblestoneFeeder2Name = "ＯＦ丙供給装置二型";
         }
     }
 
