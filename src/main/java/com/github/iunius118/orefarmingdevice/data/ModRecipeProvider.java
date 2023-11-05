@@ -1,6 +1,7 @@
 package com.github.iunius118.orefarmingdevice.data;
 
 import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
+import com.github.iunius118.orefarmingdevice.world.item.ModItems;
 import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.*;
@@ -53,8 +54,44 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlocks("has_device_1", has(ModBlocks.DEVICE_1))
                 .save(consumer, ModBlocks.DEVICE_2.getRegistryName() + "_smithing");
 
-    @Override
-    public String getName() {
-        return super.getName() + ": " +  OreFarmingDevice.MOD_ID;
+        // Cobblestone Feeder I
+        ShapedRecipeBuilder.shaped(ModItems.COBBLESTONE_FEEDER)
+                .pattern("  L")
+                .pattern("RPx")
+                .pattern("  W")
+                .define('L', Items.LAVA_BUCKET)
+                .define('R', Blocks.REPEATER)
+                .define('P', Blocks.PISTON)
+                .define('x', Items.STONE_PICKAXE)
+                .define('W', Items.WATER_BUCKET)
+                .unlockedBy("has_device_0", has(ModBlocks.DEVICE_0))
+                .save(consumer);
+
+        // Cobblestone Feeder II
+        ShapelessRecipeBuilder.shapeless(ModItems.COBBLESTONE_FEEDER_2)
+                .requires(ModItems.COBBLESTONE_FEEDER)
+                .requires(Items.DIAMOND_PICKAXE)
+                .unlockedBy("has_feeder", has(ModItems.COBBLESTONE_FEEDER))
+                .save(consumer);
+
+        SmithingRecipeBuilder.smithing(Ingredient.of(ModItems.COBBLESTONE_FEEDER), Ingredient.of(Items.DIAMOND_PICKAXE), ModItems.COBBLESTONE_FEEDER_2)
+                .unlocks("has_feeder", has(ModItems.COBBLESTONE_FEEDER))
+                .save(consumer, ModItems.COBBLESTONE_FEEDER_2.getRegistryName() + "_smithing");
+
+        // Cobblestone Feeder I -> Lava Bucket
+        ShapelessRecipeBuilder.shapeless(Items.LAVA_BUCKET)
+                .group(OreFarmingDevice.MOD_ID + ":feeders_to_lava_bucket")
+                .requires(ModItems.COBBLESTONE_FEEDER)
+                .requires(Items.BUCKET)
+                .unlockedBy("has_feeder", has(ModItems.COBBLESTONE_FEEDER))
+                .save(consumer, OreFarmingDevice.MOD_ID + ":feeder_to_lava_bucket");
+
+        // Cobblestone Feeder II -> Lava Bucket
+        ShapelessRecipeBuilder.shapeless(Items.LAVA_BUCKET)
+                .group(OreFarmingDevice.MOD_ID + ":feeders_to_lava_bucket")
+                .requires(ModItems.COBBLESTONE_FEEDER_2)
+                .requires(Items.BUCKET)
+                .unlockedBy("has_feeder_2", has(ModItems.COBBLESTONE_FEEDER_2))
+                .save(consumer, OreFarmingDevice.MOD_ID + ":feeder_2_to_lava_bucket");
     }
 }
