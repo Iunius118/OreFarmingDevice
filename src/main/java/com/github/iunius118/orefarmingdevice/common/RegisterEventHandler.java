@@ -16,6 +16,7 @@ import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -31,7 +32,7 @@ public class RegisterEventHandler {
     private static void registerBlocks(IEventBus modEventBus) {
         DeferredRegister<Block> blockDeferredRegister = DeferredRegister.create(ForgeRegistries.BLOCKS, OreFarmingDevice.MOD_ID);
         AbstractBlock.Properties properties = AbstractBlock.Properties.of(Material.STONE)
-                .requiresCorrectToolForDrops().strength(3.5F);
+                .requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).strength(3.5F);
 
         blockDeferredRegister.register(OFDeviceType.MOD_0.getName(), () -> new OFDeviceBlock(properties, OFDeviceType.MOD_0));
         blockDeferredRegister.register(OFDeviceType.MOD_1.getName(), () -> new OFDeviceBlock(properties, OFDeviceType.MOD_1));
