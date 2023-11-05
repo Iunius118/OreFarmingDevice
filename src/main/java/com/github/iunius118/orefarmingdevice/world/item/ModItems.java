@@ -11,4 +11,5 @@ public class ModItems {
     public static final BlockItem DEVICE_1 = null;
     public static final BlockItem DEVICE_2 = null;
     public static final Item COBBLESTONE_FEEDER = null;
+    public static final Item COBBLESTONE_FEEDER_2 = null;
 }
