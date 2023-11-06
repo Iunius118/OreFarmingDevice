@@ -94,5 +94,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(Items.BUCKET)
                 .unlockedBy("has_feeder_2", has(ModItems.COBBLESTONE_FEEDER_2))
                 .save(consumer, OreFarmingDevice.MOD_ID + ":feeder_2_to_lava_bucket");
+
+        // Cobblestone Feeder II -> Diamond Pickaxe
+        ShapelessRecipeBuilder.shapeless(Items.DIAMOND_PICKAXE)
+                .requires(ModItems.COBBLESTONE_FEEDER_2)
+                .requires(Tags.Items.RODS_WOODEN)
+                .unlockedBy("has_feeder_2", has(ModItems.COBBLESTONE_FEEDER_2))
+                .save(consumer, OreFarmingDevice.MOD_ID + ":feeder_2_to_diamond_pickaxe");
     }
 }
