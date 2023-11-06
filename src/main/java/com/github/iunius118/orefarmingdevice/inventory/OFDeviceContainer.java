@@ -1,6 +1,8 @@
 package com.github.iunius118.orefarmingdevice.inventory;
 
+import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederItem;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceBlockEntity;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
@@ -8,6 +10,7 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.FurnaceResultSlot;
 import net.minecraft.inventory.container.Slot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.IRecipeType;
@@ -105,6 +108,12 @@ public class OFDeviceContainer extends Container {
     }
 
     protected boolean canSmelt(ItemStack stack) {
+        // Temporary fix for client-side issue
+        if (level.isClientSide) {
+            Item item = stack.getItem();
+            return item == Blocks.COBBLESTONE.asItem() || item == Blocks.NETHERRACK.asItem() || item instanceof CobblestoneFeederItem;
+        }
+
         if (container instanceof OFDeviceBlockEntity) {
             return ((OFDeviceBlockEntity) container).findLootTable(stack) != null;
         }
