@@ -16,7 +16,7 @@
       "item": "minecraft:lever"
     },
     "i": {
-      "item": "minecraft:iron_ingot"
+      "tag": "forge:ingots/iron"
     },
     "x": {
       "item": "minecraft:stone_pickaxe"
