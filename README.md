@@ -18,7 +18,7 @@ Version 1.0.0
 
 ### OF Device (ＯＦ装置)
 
-OF Device can be mined using any pickaxe.
+OF Devices can be mined using any pickaxe.
 
 ＯＦ装置はツルハシで破壊できる。
 
@@ -52,9 +52,11 @@ If the product slot fills up during operation, the products are ejected out of t
 | **Very Rare** |                  |  Nether Gold Ore  |
 | **Legendary** | Lapis Lazuli Ore |                   |
 
-Appearance rate of ores increases with number (up to 3) of players, villagers, etc. around OF Devices (5x3x5).
+#### Farming Efficiency
 
-ＯＦ装置の周囲にプレイヤーや村人など（最大3人まで）がいると、鉱石の出現率が上昇する。
+Appearance rate of ores increases with number of players, villagers, etc. (up to 3) around the device (5x3x5).
+
+ＯＦ装置の周囲（5×3×5）にプレイヤーや村人など（最大3人まで）がいると、鉱石の出現率が上昇する。
 
 ### OF Device Mod 1 (ＯＦ装置改)
 
@@ -138,6 +140,10 @@ OF C Feeder I + Diamond Pickaxe
 ![ ](./docs/media/feeder_2_to_lava_bucket_v100.png "Crafting recipe: Lava Bucket")
 
 OF C Feeder II + Bucket -> Lava Bucket
+
+![ ](./docs/media/feeder_2_to_diamond_pickaxe_v100.png "Crafting recipe: Diamond Pickaxe")
+
+OF C Feeder II + Stick -> Diamond Pickaxe
 
 ### Config
 

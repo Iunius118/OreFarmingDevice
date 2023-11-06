@@ -6,6 +6,7 @@
 
 - Fuel: Same as Furnace
 - Energy: Same as fuel's burning time in ticks
+- Farming efficiency: appearance rate of ores increases with number of players, villagers, etc. (up to 3) around the device (5x3x5).
 
 #### OF Device (ＯＦ装置)
 
@@ -138,7 +139,7 @@
 | Nether Gold Ore   |   1.00% |
 | Ancient Debris    |   0.10% |
 
-## Item
+## Items
 
 ### ~~OF Jig (ＯＦ治具)~~
 

@@ -1,6 +1,5 @@
 package com.github.iunius118.orefarmingdevice.world.level.block.entity;
 
-import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
 import com.github.iunius118.orefarmingdevice.config.OreFarmingDeviceConfig;
 import com.github.iunius118.orefarmingdevice.inventory.OFDeviceContainer;
 import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
@@ -225,7 +224,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceTileEntity {
         LootTable lootTable = server.getLootTables().get(productLootTable.getId());
         float luck = getFarmingEfficiency();
 
-        //* DEBUG: log selected loot table
+        /* DEBUG: log selected loot table
         OreFarmingDevice.LOGGER.debug("Device ({}), loot table: {}, efficiency: {}", this.getBlockPos(), lootTable.getLootTableId(), farmingEfficiency);
         // */
 

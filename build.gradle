@@ -12,9 +12,9 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = minecraft_version + '-' + mod_version
+version = mod_version
 group = mod_group_id
-archivesBaseName = archives_base_name
+archivesBaseName = archives_base_name + '-' + minecraft_version
 
 // Mojang ships Java 8 to end users, so your mod should target Java 8.
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
