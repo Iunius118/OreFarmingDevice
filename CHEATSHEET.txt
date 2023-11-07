@@ -1,8 +1,8 @@
 # Cheatsheet
-O.F.Device v1.16.5-0.1.0
+O.F.Device (Ore Farming Device) v1.0.0
 
 ## Blocks
-### FO Device
+### OF Device
 - Recipe (# = Stone, F = Furnace, L = Lever, i = Iron Ingot, x = Stone Pickaxe)
   - ` # F # `
   - ` # L # `
@@ -18,14 +18,14 @@ O.F.Device v1.16.5-0.1.0
 - Hopper can be used to push materials and fuel into the device, and to pull products from the device
 - Farming efficiency: appearance rate of ores increases with number of players, villagers, etc. (up to 3) around the device (5x3x5)
 
-### FO Device Mod 1
+### OF Device Mod 1
 - Recipe (crafting): OF Device + Iron Pickaxe
 - Recipe (smithing): OF Device + Iron Pickaxe
 - Processing speed is faster than OF Device
 - Products made from Cobblestone: Stone, Coal Ore, Iron Ore, Redstone Ore, Gold Ore, Lapis Lazuli Ore, Diamond Ore
 - Products made from Netherrack: Nether Brick, Nether Quartz Ore, Nether Gold Ore
 
-### FO Device Mod 2
+### OF Device Mod 2
 - Recipe (crafting): OF Device Mod 1 + Diamond Pickaxe
 - Recipe (smithing): OF Device Mod 1 + Diamond Pickaxe
 - Processing speed is faster than OF Device Mod 1
