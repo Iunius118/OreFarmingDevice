@@ -3,7 +3,8 @@ package com.github.iunius118.orefarmingdevice.world.level.block.entity;
 import com.github.iunius118.orefarmingdevice.config.OreFarmingDeviceConfig;
 import com.github.iunius118.orefarmingdevice.inventory.OFDeviceMenu;
 import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
-import com.github.iunius118.orefarmingdevice.world.item.ModItems;
+import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederItem;
+import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -59,11 +60,10 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
                 ? type.getTotalProcessingTime() : OFDeviceType.MOD_0.getTotalProcessingTime();
     }
 
-    public int getFuelConsumption(boolean isCobblestoneFeeder) {
+    public int getFuelConsumption(boolean isFuelConsumptionDoubled) {
         int fuel = OreFarmingDeviceConfig.SERVER.canIncreaseFuelConsumptionByMod()
                 ? type.getFuelConsumption() : OFDeviceType.MOD_0.getFuelConsumption();
-        return isCobblestoneFeeder && OreFarmingDeviceConfig.SERVER.canCobblestoneFeederConsumeDoubleFuel()
-                ? fuel * 2 : fuel;
+        return isFuelConsumptionDoubled ? fuel * 2 : fuel;
     }
 
     public float getFarmingEfficiency() {
@@ -90,8 +90,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         ItemStack materialStack = device.items.get(SLOT_INPUT);
 
         if (isLitOld) {
-            boolean isCobblestoneFeeder = materialStack.is(ModItems.COBBLESTONE_FEEDER);
-            device.litTime -= device.getFuelConsumption(isCobblestoneFeeder);
+            device.litTime -= device.getFuelConsumption(isFuelConsumptionDoubled(materialStack));
         }
 
         if ((device.isLit() || !fuelStack.isEmpty()) && !materialStack.isEmpty()) {
@@ -159,6 +158,14 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         return this.litTime > 0;
     }
 
+    private static boolean isFuelConsumptionDoubled(ItemStack stack) {
+        if (stack.getItem() instanceof CobblestoneFeederItem feederItem) {
+            return feederItem.type == CobblestoneFeederType.BASIC;
+        }
+
+        return false;
+    }
+
     public void updateFarmingEfficiency(Level level, BlockPos blockPos) {
         AABB aabb = new AABB(blockPos).inflate(2.0, 1.0, 2.0);
         List<LivingEntity> entities = level.getEntitiesOfClass(LivingEntity.class, aabb);
@@ -180,7 +187,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
             List<ItemStack> productStacks = getRandomItemsFromLootTable(productLootTable);
             insertToProductSlot(productStacks);
 
-            if (!materialStack.is(ModItems.COBBLESTONE_FEEDER)) {
+            if (!(materialStack.getItem() instanceof CobblestoneFeederItem)) {
                 materialStack.shrink(1);
             }
         }

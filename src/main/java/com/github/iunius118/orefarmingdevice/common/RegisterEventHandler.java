@@ -38,6 +38,7 @@ public class RegisterEventHandler {
         itemDeferredRegister.register(OFDeviceType.MOD_1.getName(), () -> ModItems.DEVICE_1);
         itemDeferredRegister.register(OFDeviceType.MOD_2.getName(), () -> ModItems.DEVICE_2);
         itemDeferredRegister.register("cobblestone_feeder", () -> ModItems.COBBLESTONE_FEEDER);
+        itemDeferredRegister.register("cobblestone_feeder_2", () -> ModItems.COBBLESTONE_FEEDER_2);
 
         itemDeferredRegister.register(modEventBus);
     }

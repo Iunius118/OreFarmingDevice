@@ -10,6 +10,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -68,12 +69,38 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_device_0", has(ModBlocks.DEVICE_0))
                 .save(consumer);
 
+        // Cobblestone Feeder II
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.COBBLESTONE_FEEDER_2)
+                .requires(ModItems.COBBLESTONE_FEEDER)
+                .requires(Items.DIAMOND_PICKAXE)
+                .unlockedBy("has_feeder", has(ModItems.COBBLESTONE_FEEDER))
+                .save(consumer);
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.PAPER), Ingredient.of(ModItems.COBBLESTONE_FEEDER), Ingredient.of(Items.DIAMOND_PICKAXE), RecipeCategory.MISC, ModItems.COBBLESTONE_FEEDER_2)
+                .unlocks("has_feeder", has(ModItems.COBBLESTONE_FEEDER))
+                .save(consumer, getItemId(ModItems.COBBLESTONE_FEEDER_2) + "_smithing");
+
         // Cobblestone Feeder -> Lava Bucket
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.LAVA_BUCKET)
                 .requires(ModItems.COBBLESTONE_FEEDER)
                 .requires(Items.BUCKET)
                 .unlockedBy("has_cobblestone_feeder", has(ModItems.COBBLESTONE_FEEDER))
                 .save(consumer, OreFarmingDevice.MOD_ID + ":feeder_to_lava_bucket");
+
+        // Cobblestone Feeder II -> Lava Bucket
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.LAVA_BUCKET)
+                .group(OreFarmingDevice.MOD_ID + ":feeders_to_lava_bucket")
+                .requires(ModItems.COBBLESTONE_FEEDER_2)
+                .requires(Items.BUCKET)
+                .unlockedBy("has_feeder_2", has(ModItems.COBBLESTONE_FEEDER_2))
+                .save(consumer, OreFarmingDevice.MOD_ID + ":feeder_2_to_lava_bucket");
+
+        // Cobblestone Feeder II -> Diamond Pickaxe
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, Items.DIAMOND_PICKAXE)
+                .requires(ModItems.COBBLESTONE_FEEDER_2)
+                .requires(Tags.Items.RODS_WOODEN)
+                .unlockedBy("has_feeder_2", has(ModItems.COBBLESTONE_FEEDER_2))
+                .save(consumer, OreFarmingDevice.MOD_ID + ":feeder_2_to_diamond_pickaxe");
     }
 
     private ResourceLocation getItemId(Item item) {
