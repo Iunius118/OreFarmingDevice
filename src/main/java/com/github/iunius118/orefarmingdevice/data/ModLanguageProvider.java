@@ -28,7 +28,7 @@ public class ModLanguageProvider extends LanguageProvider {
         public String deviceModZeroName = "OF Device";
         public String deviceModOneName = "OF Device Mod 1";
         public String deviceModTwoName = "OF Device Mod 2";
-        public String cobblestoneFeederName = "OF Cobblestone Feeder";
+        public String cobblestoneFeederName = "OF C Feeder I";
     }
 
     // ja_jp
@@ -37,7 +37,7 @@ public class ModLanguageProvider extends LanguageProvider {
             deviceModZeroName = "ＯＦ装置";
             deviceModOneName = "ＯＦ装置改";
             deviceModTwoName = "ＯＦ装置改二";
-            cobblestoneFeederName = "ＯＦ丸石供給装置";
+            cobblestoneFeederName = "ＯＦ丙供給装置一型";
         }
     }
 
