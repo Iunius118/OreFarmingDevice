@@ -82,9 +82,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         // Cobblestone Feeder -> Lava Bucket
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.LAVA_BUCKET)
+                .group(OreFarmingDevice.MOD_ID + ":feeders_to_lava_bucket")
                 .requires(ModItems.COBBLESTONE_FEEDER)
                 .requires(Items.BUCKET)
-                .unlockedBy("has_cobblestone_feeder", has(ModItems.COBBLESTONE_FEEDER))
+                .unlockedBy("has_feeder", has(ModItems.COBBLESTONE_FEEDER))
                 .save(consumer, OreFarmingDevice.MOD_ID + ":feeder_to_lava_bucket");
 
         // Cobblestone Feeder II -> Lava Bucket
