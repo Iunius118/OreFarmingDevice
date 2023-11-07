@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+## [4.0.0-beta.3]
+### Fixed
+- Recipe of recycling OF C Feeder I.
+
 ## [4.0.0-beta.2]
 ### Added
 - OF C Feeder II item. This item is the improved version of OF C Feeder I and does not increase fuel consumption.
