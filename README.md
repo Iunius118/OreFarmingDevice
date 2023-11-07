@@ -135,7 +135,7 @@ OF C Feeder II is the improved version of the Feeder I and does not increase fue
 
 OF C Feeder I + Diamond Pickaxe
 
-#### Recycling Recipe
+#### Recycling Recipes
 
 ![ ](./docs/media/feeder_2_to_lava_bucket_v100.png "Crafting recipe: Lava Bucket")
 
