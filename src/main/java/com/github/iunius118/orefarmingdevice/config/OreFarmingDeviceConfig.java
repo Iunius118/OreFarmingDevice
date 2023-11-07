@@ -10,7 +10,6 @@ public class OreFarmingDeviceConfig {
         public final BooleanValue canAccelerateProcessingSpeedByMod;
         public final BooleanValue canIncreaseFuelConsumptionByMod;
         public final BooleanValue isFarmingEfficiencyEnabled;
-        public final BooleanValue canCobblestoneFeederConsumeDoubleFuel;
 
 
         Server(ForgeConfigSpec.Builder builder) {
@@ -54,13 +53,6 @@ public class OreFarmingDeviceConfig {
                             "  Default: true")
                     .define("increaseFuelConsumptionByMod", true);
 
-            canCobblestoneFeederConsumeDoubleFuel = builder
-                    .comment("===========================================================",
-                            "cobblestoneFeederConsumesDoubleFuel as boolean",
-                            "  Whether OF Cobblestone Feeder consumes twice as much fuel as material blocks.",
-                            "  Default: true")
-                    .define("cobblestoneFeederConsumesDoubleFuel", true);
-
             builder.pop();
         }
 
@@ -78,10 +70,6 @@ public class OreFarmingDeviceConfig {
 
         public boolean isFarmingEfficiencyEnabled() {
             return isFarmingEfficiencyEnabled.get();
-        }
-
-        public boolean canCobblestoneFeederConsumeDoubleFuel() {
-            return canCobblestoneFeederConsumeDoubleFuel.get();
         }
     }
 
