@@ -2,17 +2,25 @@
 
 O.F.Device is a Minecraft mod to add devices for farming ores.
 
-材料と燃料を消費して一定確率で鉱石を生成できる装置を追加するmodです。
+材料と燃料を消費して一定確率で鉱石を生成できる装置を追加するmod。
 
 ## Download
 
-[![O.F.Device (Ore Farming Device) - CurseForge](./docs/media/o-f-device_cf_badge.svg)](https://www.curseforge.com/minecraft/mc-mods/o-f-device)
+- [From CurseForge](https://www.curseforge.com/minecraft/mc-mods/o-f-device)
+
+## Requirement
+
+- Minecraft Forge
 
 ## Description
 
-Version 0.9.0
+Version 4.0.0
 
 ### OF Device (ＯＦ装置)
+
+OF Devices can be mined using any pickaxe.
+
+ＯＦ装置はツルハシで破壊できる。
 
 #### Recipe
 
@@ -24,29 +32,31 @@ Version 0.9.0
 
 ![The upper right slot for materials, the left slot for fuel, and the bottom right slot for products](./docs/media/gui_device_0_v010.png "GUI: OF Device")
 
-1. Material slot (材料). Only Cobblestone, Cobbled Deepslate, Netherrack, or OF Cobblestone Feeder (丸石・深層岩の丸石・ネザーラック・ＯＦ丸石供給装置のみ)
+1. Material slot (材料). Only Cobblestone, Cobbled Deepslate, Netherrack, or OF C Feeder (丸石・深層岩の丸石・ネザーラック・ＯＦ丙供給装置のみ)
 2. Fuel slot (燃料)
 3. Product slot (生成物)
 
 ![ ](./docs/media/processing_line_v040.png "Hopper automation")
 
-If the output slot is full during operation, the products are ejected out of the block. Hopper can be used to push materials and fuel into device, and to pull products from device.
+If the product slot fills up during operation, the products are ejected out of the block. Hopper can be used to push materials and fuel into the device, and to pull products from the device.
 
-装置の上面・側面・下面にホッパーを接続してアイテムの搬入出が可能（それぞれ材料搬入・燃料搬入・生成物搬出）。特に生成物スロットのアイテムは自動的に排出されることがあるため、下面へのホッパー設置を強く推奨。
+装置の上面・側面・下面にホッパーを接続してアイテムの搬入出が可能（それぞれ材料搬入・燃料搬入・生成物搬出）。特に生成物スロットのアイテムは自動的にブロック外へ排出されることがあるため、下面へのホッパー設置を強く推奨。
 
 #### Products
 
 |               |       Cobblestone        |                 Cobbled Deepslate                  |    Netherrack     |
 |:-------------:|:------------------------:|:--------------------------------------------------:|:-----------------:|
-| **Majority**  |          Stone           |                     Deepslate                      |   Nether Brick    |
+|   **Major**   |          Stone           |                     Deepslate                      |   Nether Brick    |
 | **Uncommon**  |         Coal Ore         |                                                    |                   |
 |   **Rare**    | Iron Ore, <br>Copper Ore |                 Deepslate Iron Ore                 | Nether Quartz Ore |
 | **Very Rare** |                          |                Deepslate Copper Ore                |  Nether Gold Ore  |
 | **Legendary** |     Lapis Lazuli Ore     | Deepslate Lapis Lazuli Ore, <br>Deepslate Coal Ore |                   |
 
-Appearance rate of ores increases with number (up to 3) of players, villagers, etc. around OF Devices (5x3x5).
+#### Farming Efficiency
 
-ＯＦ装置の周囲にプレイヤーや村人など（最大3人まで）がいると、鉱石の出現率が上昇します。
+Appearance rate of ores increases with number of players, villagers, etc. (up to 3) around the device (5x3x5).
+
+ＯＦ装置の周囲（5×3×5）にプレイヤーや村人など（最大3人まで）がいると、鉱石の出現率が上昇する。
 
 ### OF Device Mod 1 (ＯＦ装置改)
 
@@ -64,7 +74,7 @@ OF Device + Iron Pickaxe
 
 |               |          Cobblestone           |                            Cobbled Deepslate                            |    Netherrack     |
 |:-------------:|:------------------------------:|:-----------------------------------------------------------------------:|:-----------------:|
-| **Majority**  |             Stone              |                                Deepslate                                |   Nether Brick    |
+|   **Major**   |             Stone              |                                Deepslate                                |   Nether Brick    |
 | **Uncommon**  |            Coal Ore            |                                                                         |                   |
 |   **Rare**    |    Iron Ore, <br>Copper Ore    |             Deepslate Redstone Ore, <br>Deepslate Iron Ore              | Nether Quartz Ore |
 | **Very Rare** |          Redstone Ore          | Deepslate Diamond Ore, <br>Deepslate Copper Ore, <br>Deepslate Gold Ore |  Nether Gold Ore  |
@@ -87,24 +97,28 @@ OF Device Mod 1 + Diamond Pickaxe
 
 |               |                      Cobblestone                      |                                      Cobbled Deepslate                                       |    Netherrack     |
 |:-------------:|:-----------------------------------------------------:|:--------------------------------------------------------------------------------------------:|:-----------------:|
-| **Majority**  |                         Stone                         |                                          Deepslate                                           |   Nether Brick    |
+|   **Major**   |                         Stone                         |                                          Deepslate                                           |   Nether Brick    |
 | **Uncommon**  |               Coal Ore, <br>Copper Ore                |                                                                                              |                   |
 |   **Rare**    |                Iron Ore, <br>Gold Ore                 |           Deepslate Redstone Ore, <br>Deepslate Copper Ore, <br>Deepslate Iron Ore           | Nether Quartz Ore |
 | **Very Rare** |                     Redstone Ore                      |                        Deepslate Diamond Ore, <br>Deepslate Gold Ore                         |  Nether Gold Ore  |
 | **Legendary** | Lapis Lazuli Ore, <br>Amethyst Shard, <br>Emerald Ore |            Deepslate Lapis Lazuli Ore, <br>Amethyst Shard, <br>Deepslate Coal Ore            |                   |
 |  **Mythic**   |                      Diamond Ore                      |                                    Deepslate Emerald Ore                                     |  Ancient Debris   |
 
-### OF Cobblestone Feeder (ＯＦ丸石供給装置)
+### OF C Feeder I (ＯＦ丙供給装置一型)
 
-![Place this item in material slot of OF device](./docs/media/gui_cobblestone_feeder_v030.png "GUI: Using OF Cobblestone Feeder")
+![Place this item in material slot of OF device](./docs/media/gui_cobblestone_feeder_v030.png "GUI: Using OF C Feeder")
 
-OF Cobblestone Feeder provides an infinite supply of Cobblestones to OF Devices.
+OF C Feeder I provides an infinite supply of Cobblestones to OF Devices. However, the fuel consumption is doubled.
 
-ＯＦ装置の材料スロットに入れると装置へ無限に丸石を供給する。
+ＯＦ装置の材料スロットに入れると装置へ無限に丸石を供給する。ただし、燃料の消費速度が2倍になる。
+
+If the altitude of the device is 0 or below, this item will supply the device with Cobbled Deepslate.
+
+ＯＦ装置の高度が0以下の場合は、深層岩の丸石を供給する。
 
 #### Recipe
 
-![ ](./docs/media/recipe_cobblestone_feeder_v030.png "Crafting recipe: OF Cobblestone Feeder")
+![ ](./docs/media/recipe_cobblestone_feeder_v030.png "Crafting recipe: OF C Feeder I")
 
 Lava Bucket + Redstone Repeater + Piston + Stone Pickaxe + Water Bucket
 
@@ -112,7 +126,29 @@ Lava Bucket + Redstone Repeater + Piston + Stone Pickaxe + Water Bucket
 
 ![ ](./docs/media/feeder_to_lava_bucket_v040.png "Crafting recipe: Lava Bucket")
 
-OF Cobblestone Feeder + Bucket -> Lava Bucket
+OF C Feeder I + Bucket -> Lava Bucket
+
+### OF C Feeder II (ＯＦ丙供給装置二型)
+
+OF C Feeder II is the improved version of the Feeder I and does not increase fuel consumption.
+
+供給装置一型の改良版。燃料の消費速度が増加しない。
+
+#### Recipe
+
+![ ](./docs/media/recipe_cobblestone_feeder_2_v100.png "Crafting recipe: OF C Feeder II")
+
+OF C Feeder I + Diamond Pickaxe
+
+#### Recycling Recipes
+
+![ ](./docs/media/feeder_2_to_lava_bucket_v100.png "Crafting recipe: Lava Bucket")
+
+OF C Feeder II + Bucket -> Lava Bucket
+
+![ ](./docs/media/feeder_2_to_diamond_pickaxe_v100.png "Crafting recipe: Diamond Pickaxe")
+
+OF C Feeder II + Stick -> Diamond Pickaxe
 
 ### Config
 
@@ -120,7 +156,7 @@ OF Cobblestone Feeder + Bucket -> Lava Bucket
 
 Restart the game when you change the config. In multiplayer mode, server-side config will be used.
 
-コンフィグを変更したときはゲームを再起動してください。マルチプレイの場合はサーバー側のコンフィグが使われます。
+コンフィグを変更したときはゲームの再起動が必要。マルチプレイの場合はサーバー側の設定が使用される。
 
 - isCobblestoneFeederAvailable (boolean, default value is true)
   - Whether OF Cobblestone Feeder is available for devices
