@@ -1,7 +1,7 @@
 package com.github.iunius118.orefarmingdevice.client.gui;
 
 import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
-import com.github.iunius118.orefarmingdevice.inventory.OFDeviceContainer;
+import com.github.iunius118.orefarmingdevice.inventory.OFDeviceMenu;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -10,10 +10,10 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class OFDeviceScreen extends AbstractContainerScreen<OFDeviceContainer> {
+public class OFDeviceScreen extends AbstractContainerScreen<OFDeviceMenu> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(OreFarmingDevice.MOD_ID, "textures/gui/container/of_device.png");
 
-    public OFDeviceScreen(OFDeviceContainer menu, Inventory playerInventory, Component textComponent) {
+    public OFDeviceScreen(OFDeviceMenu menu, Inventory playerInventory, Component textComponent) {
         super(menu, playerInventory, textComponent);
     }
 
