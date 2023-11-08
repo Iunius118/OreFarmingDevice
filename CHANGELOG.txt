@@ -8,13 +8,16 @@
 ### Added
 - OF C Feeder I item. When this item is placed in the material slot of an OF device, the device is supplied with an unlimited supply of cobblestones. However, the fuel consumption is doubled.
 - OF C Feeder II item. This item is the improved version of OF C Feeder I and does not increase fuel consumption.
+- Crafting recipes for OF Device Mod 1 and Mod 2.
 - Farming efficiency: appearance rate of ores increases with number of players, villagers, etc. (up to 3) around the device (5x3x5).
 - Creative mode tab.
 - Server-side config file: `(world_save_dir)/serverconfig/orefarmingdevice-server.toml`.
 
 ### Changed
 - Require Forge 1.16.5-36.2.39+.
+- Increase processing speed of OF Device Mod 1 and Mod 2.
 - Increase fuel consumption of devices by modification.
+- Version scheme.
 - Bump version.
 
 ### Fixed
