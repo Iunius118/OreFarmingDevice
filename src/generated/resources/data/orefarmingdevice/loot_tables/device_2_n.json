@@ -8,6 +8,7 @@
         {
           "type": "minecraft:item",
           "weight": 959,
+          "quality": -240,
           "name": "minecraft:nether_brick"
         },
         {

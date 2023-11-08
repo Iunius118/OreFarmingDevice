@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "orefarmingdevice:feeder_2_to_diamond_pickaxe"
+    ]
+  },
+  "criteria": {
+    "has_feeder_2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "orefarmingdevice:cobblestone_feeder_2"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "orefarmingdevice:feeder_2_to_diamond_pickaxe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_feeder_2",
+      "has_the_recipe"
+    ]
+  ]
+}

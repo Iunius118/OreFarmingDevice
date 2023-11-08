@@ -8,6 +8,7 @@
         {
           "type": "minecraft:item",
           "weight": 892,
+          "quality": -240,
           "name": "minecraft:stone"
         },
         {

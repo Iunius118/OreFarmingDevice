@@ -7,7 +7,8 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 938,
+          "weight": 934,
+          "quality": -240,
           "name": "minecraft:deepslate"
         },
         {
@@ -48,6 +49,11 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:deepslate_emerald_ore"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 4,
+          "name": "minecraft:amethyst_shard"
         }
       ]
     }

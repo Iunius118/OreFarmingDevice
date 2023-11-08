@@ -8,6 +8,7 @@
         {
           "type": "minecraft:item",
           "weight": 944,
+          "quality": -240,
           "name": "minecraft:deepslate"
         },
         {
