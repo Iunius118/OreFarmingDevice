@@ -14,6 +14,7 @@
 
 ### Changed
 - Require Forge 1.16.5-36.2.39+.
+- Increase fuel consumption of devices by modification.
 - Bump version.
 
 ### Fixed
