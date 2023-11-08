@@ -52,7 +52,6 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
             case MOD_1 -> ModBlockEntityTypes.DEVICE_1;
             case MOD_2 -> ModBlockEntityTypes.DEVICE_2;
         };
-
     }
 
     public int getTotalProcessingTime() {
@@ -255,7 +254,6 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
             cookingProgress = 0;
             setChanged();
         }
-
     }
 
     @Override
