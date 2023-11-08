@@ -9,6 +9,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
 import java.util.function.Consumer;
@@ -28,7 +29,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('#', Blocks.STONE)
                 .define('F', Blocks.FURNACE)
                 .define('L', Blocks.LEVER)
-                .define('i', Items.IRON_INGOT)
+                .define('i', Tags.Items.INGOTS_IRON)
                 .define('x', Items.STONE_PICKAXE)
                 .unlockedBy("has_furnace", has(Blocks.FURNACE)).save(consumer);
 
