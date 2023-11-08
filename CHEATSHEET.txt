@@ -1,5 +1,5 @@
 # Cheatsheet
-O.F.Device v1.18-0.3.0
+O.F.Device (Ore Farming Device) v2.0.0
 
 ## Blocks
 ### OF Device
@@ -16,26 +16,73 @@ O.F.Device v1.18-0.3.0
 - Require fuel to work
 - Put materials in the upper right slot and fuel in the left slot on the GUI
 - Products will be output to the bottom right slot on the GUI
-- If the output slot is full during operation, the products are ejected out of the block
-- Hopper can be used to push materials and fuel into device, and to pull products from device
+- If the output slot fills up during operation, the products are ejected out of the block
+- Hopper can be used to push materials and fuel into the device, and to pull products from the device
+- Farming efficiency: appearance rate of ores increases with number of players, villagers, etc. (up to 3) around the device (5x3x5)
 
 ### OF Device Mod 1
-- Recipe (Crafting/Smithing Table): OF Device + Iron Pickaxe
+- Recipe (crafting): OF Device + Iron Pickaxe
+- Recipe (smithing): OF Device + Iron Pickaxe
 - Products made from Cobblestone: Stone, Coal Ore, Iron Ore, Copper Ore, Redstone Ore, Lapis Lazuli Ore, Gold Ore, Diamond Ore
 - Products made from Cobbled Deepslate: Deepslate, Deepslate Redstone Ore, Deepslate Iron Ore, Deepslate Copper Ore, Deepslate Gold Ore, Deepslate Diamond Ore, Deepslate Lapis Lazuli Ore, Deepslate Coal Ore
 - Products made from Netherrack: Nether Brick, Nether Quartz Ore, Nether Gold Ore
 
 ### OF Device Mod 2
-- Recipe (Crafting/Smithing Table): OF Device Mod 1 + Diamond Pickaxe
-- Products made from Cobblestone: Stone, Coal Ore, Copper Ore, Iron Ore, Gold Ore, Redstone Ore, Lapis Lazuli Ore, Emerald Ore, Diamond Ore
-- Products made from Cobbled Deepslate: Deepslate, Deepslate Redstone Ore, Deepslate Copper Ore, Deepslate Iron Ore, Deepslate Gold Ore, Deepslate Diamond Ore, Deepslate Lapis Lazuli Ore, Deepslate Coal Ore, Deepslate Emerald Ore
+- Recipe (crafting): OF Device Mod 1 + Diamond Pickaxe
+- Recipe (smithing): OF Device Mod 1 + Diamond Pickaxe
+- Products made from Cobblestone: Stone, Coal Ore, Copper Ore, Iron Ore, Gold Ore, Redstone Ore, Lapis Lazuli Ore, Amethyst Shard, Emerald Ore, Diamond Ore
+- Products made from Cobbled Deepslate: Deepslate, Deepslate Redstone Ore, Deepslate Copper Ore, Deepslate Iron Ore, Deepslate Gold Ore, Deepslate Diamond Ore, Deepslate Lapis Lazuli Ore, Amethyst Shard, Deepslate Coal Ore, Deepslate Emerald Ore
 - Products made from Netherrack: Nether Brick, Nether Quartz Ore, Nether Gold Ore, Ancient Debris
 
-## Item
-### OF Cobblestone Feeder
+## Items
+### OF C Feeder I
 - Recipe (L = Lava Bucket, R = Redstone Repeater, P = Piston, x = Stone Pickaxe, W = Water Bucket)
   - ` _ _ L `
   - ` R P x `
   - ` _ _ W `
 - This item provides an infinite supply of Cobblestones to OF Devices
+- If the altitude of the device is 0 or below, this item will supply the device with Cobbled Deepslate
 - Place this item in the material slot of an OF device
+- This item consumes twice as much fuel as material blocks
+- Recycling recipe (crafting): OF C Feeder I + Bucket -> Lava Bucket
+
+### OF C Feeder II
+- Recipe (crafting): OF C Feeder I + Diamond Pickaxe
+- Recipe (smithing): Paper + OF C Feeder I + Diamond Pickaxe
+- Improved version of Feeder I with no increase in fuel consumption
+- Recycling recipe (crafting): OF C Feeder II + Bucket -> Lava Bucket
+- Recycling recipe (crafting): OF C Feeder II + Stick -> Diamond Pickaxe
+
+## Config
+`(world_save_dir)/serverconfig/orefarmingdevice-server.toml`
+
+Restart the game when you change the config. In multiplayer mode, server-side config will be used.
+
+- isCobblestoneFeederAvailable (boolean, default value is true)
+  - Whether OF Cobblestone Feeder is available for devices
+- enableFarmingEfficiency (boolean, default value is true)
+  - Whether mobs around device increase farming efficiency of device
+- accelerateProcessingSpeedByMod (boolean, default value is true)
+  - Whether to accelerate processing speed of device by modification
+- increaseFuelConsumptionByMod (boolean, default value is true)
+  - Whether to increase fuel consumption of device by modification
+
+## Modifying Product Tables
+The products and their probabilities of each device can be modified using loot table in data pack. JSON files for the loot tables corresponding to each device are as follows.
+
+Here is the formula for the corrected weight: `weight + (farming_efficiency * quality)`.
+
+### OF Device
+- Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_tables/device_0.json`
+- Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_tables/device_0_d.json`
+- Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_tables/device_0_n.json`
+
+### OF Device Mod 1
+- Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_tables/device_1.json`
+- Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_tables/device_1_d.json`
+- Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_tables/device_1_n.json`
+
+### OF Device Mod 2
+- Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2.json`
+- Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2_d.json`
+- Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2_n.json`

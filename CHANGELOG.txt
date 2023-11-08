@@ -1,8 +1,25 @@
 # Change Log
-[O.F.Device](https://github.com/Iunius118/O.F.Device).
+[O.F.Device (Ore Farming Device)](https://github.com/Iunius118/O.F.Device).
 [Source](https://github.com/Iunius118/O.F.Device).
 
 ## [Unreleased]
+
+## [2.0.0-beta.1]
+### Added
+- OF C Feeder II item. This item is the improved version of OF C Feeder I and does not increase fuel consumption.
+- Recycling recipes for OF C Feeders.
+- Farming efficiency: appearance rate of ores increases with number of players, villagers, etc. (up to 3) around the device (5x3x5).
+- Server-side config file: `(world_save_dir)/serverconfig/orefarmingdevice-server.toml`.
+
+### Changed
+- Port to 1.18.2.
+- Require Forge 1.18.2-40.2.13+.
+- Increase fuel consumption of devices by modification.
+- Device mod 2 can produce amethyst shard now.
+- Rename OF Cobblestone Feeder to OF C Feeder I.
+- OF C Feeder I now consumes twice as much fuel as the previous version.
+- Version scheme.
+- Bump version.
 
 ## [1.18-0.3.1]
 ### Fixed
