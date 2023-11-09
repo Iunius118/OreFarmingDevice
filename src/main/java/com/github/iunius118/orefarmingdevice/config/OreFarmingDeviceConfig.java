@@ -16,21 +16,21 @@ public class OreFarmingDeviceConfig {
             builder.comment("O.F.Device's game server-side settings.").push("server");
 
             isCobblestoneFeederAvailable = builder
-                    .comment("#",
+                    .comment("===========================================================",
                             "isCobblestoneFeederAvailable as boolean",
                             "  Whether OF Cobblestone Feeder is available for devices.",
                             "  Default: true")
                     .define("isCobblestoneFeederAvailable", true);
 
             isFarmingEfficiencyEnabled = builder
-                    .comment("#",
+                    .comment("===========================================================",
                             "enableFarmingEfficiency as boolean",
                             "  Whether mobs around device increase farming efficiency of device.",
                             "  Default: true")
                     .define("enableFarmingEfficiency", true);
 
             canAccelerateProcessingSpeedByMod = builder
-                    .comment("#",
+                    .comment("===========================================================",
                             "accelerateProcessingSpeedByMod as boolean",
                             "  Whether to accelerate processing speed of device by modification.",
                             "         Production time       ",
@@ -42,7 +42,7 @@ public class OreFarmingDeviceConfig {
                     .define("accelerateProcessingSpeedByMod", true);
 
             canIncreaseFuelConsumptionByMod = builder
-                    .comment("#",
+                    .comment("===========================================================",
                             "increaseFuelConsumptionByMod as boolean",
                             "  Whether to increase fuel consumption of device by modification.",
                             "         Fuel Consumption      ",
