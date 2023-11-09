@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:diamond_pickaxe"
+  },
+  "base": {
+    "item": "orefarmingdevice:cobblestone_feeder"
+  },
+  "result": {
+    "item": "orefarmingdevice:cobblestone_feeder_2"
+  }
+}

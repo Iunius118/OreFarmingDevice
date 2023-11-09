@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "orefarmingdevice:feeder_to_lava_bucket"
+        "recipe": "orefarmingdevice:cobblestone_feeder_2_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "orefarmingdevice:feeder_to_lava_bucket"
+      "orefarmingdevice:cobblestone_feeder_2_smithing"
     ]
   }
 }

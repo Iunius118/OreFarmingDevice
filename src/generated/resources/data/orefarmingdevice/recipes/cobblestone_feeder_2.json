@@ -1,15 +1,14 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "orefarmingdevice:feeders_to_lava_bucket",
   "ingredients": [
     {
       "item": "orefarmingdevice:cobblestone_feeder"
     },
     {
-      "item": "minecraft:bucket"
+      "item": "minecraft:diamond_pickaxe"
     }
   ],
   "result": {
-    "item": "minecraft:lava_bucket"
+    "item": "orefarmingdevice:cobblestone_feeder_2"
   }
 }

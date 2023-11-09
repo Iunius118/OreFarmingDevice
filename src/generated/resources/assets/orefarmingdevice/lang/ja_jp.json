@@ -5,6 +5,7 @@
   "container.orefarmingdevice.device_0": "ＯＦ装置",
   "container.orefarmingdevice.device_1": "ＯＦ装置改",
   "container.orefarmingdevice.device_2": "ＯＦ装置改二",
-  "item.orefarmingdevice.cobblestone_feeder": "ＯＦ丸石供給装置",
+  "item.orefarmingdevice.cobblestone_feeder": "ＯＦ丙供給装置一型",
+  "item.orefarmingdevice.cobblestone_feeder_2": "ＯＦ丙供給装置二型",
   "itemGroup.orefarmingdevice": "O.F.Device"
 }

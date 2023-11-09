@@ -8,16 +8,17 @@
           "type": "minecraft:item",
           "name": "minecraft:nether_brick",
           "quality": -240,
-          "weight": 96
+          "weight": 960
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:nether_quartz_ore",
-          "weight": 3
+          "weight": 30
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:nether_gold_ore"
+          "name": "minecraft:nether_gold_ore",
+          "weight": 10
         }
       ],
       "rolls": 1.0

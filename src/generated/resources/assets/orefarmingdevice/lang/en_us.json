@@ -5,6 +5,7 @@
   "container.orefarmingdevice.device_0": "OF Device",
   "container.orefarmingdevice.device_1": "OF Device Mod 1",
   "container.orefarmingdevice.device_2": "OF Device Mod 2",
-  "item.orefarmingdevice.cobblestone_feeder": "OF Cobblestone Feeder",
+  "item.orefarmingdevice.cobblestone_feeder": "OF C Feeder I",
+  "item.orefarmingdevice.cobblestone_feeder_2": "OF C Feeder II",
   "itemGroup.orefarmingdevice": "O.F.Device"
 }

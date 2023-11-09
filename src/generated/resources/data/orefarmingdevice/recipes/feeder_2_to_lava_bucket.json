@@ -3,7 +3,7 @@
   "group": "orefarmingdevice:feeders_to_lava_bucket",
   "ingredients": [
     {
-      "item": "orefarmingdevice:cobblestone_feeder"
+      "item": "orefarmingdevice:cobblestone_feeder_2"
     },
     {
       "item": "minecraft:bucket"
