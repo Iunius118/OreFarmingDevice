@@ -3,7 +3,8 @@ package com.github.iunius118.orefarmingdevice.world.level.block.entity;
 import com.github.iunius118.orefarmingdevice.config.OreFarmingDeviceConfig;
 import com.github.iunius118.orefarmingdevice.inventory.OFDeviceMenu;
 import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
-import com.github.iunius118.orefarmingdevice.world.item.ModItems;
+import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederItem;
+import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -27,6 +28,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.phys.AABB;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
@@ -51,25 +53,22 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
             case MOD_1 -> ModBlockEntityTypes.DEVICE_1;
             case MOD_2 -> ModBlockEntityTypes.DEVICE_2;
         };
-
     }
 
     public int getTotalProcessingTime() {
         return OreFarmingDeviceConfig.SERVER.canAccelerateProcessingSpeedByMod()
-                ? type.getTotalProcessingTime()
-                : OFDeviceType.MOD_0.getTotalProcessingTime();
+                ? type.getTotalProcessingTime() : OFDeviceType.MOD_0.getTotalProcessingTime();
     }
 
-    public int getFuelConsumption() {
-        return OreFarmingDeviceConfig.SERVER.canIncreaseFuelConsumptionByMod()
-                ? type.getFuelConsumption()
-                : OFDeviceType.MOD_0.getFuelConsumption();
+    public int getFuelConsumption(boolean isFuelConsumptionDoubled) {
+        int fuel = OreFarmingDeviceConfig.SERVER.canIncreaseFuelConsumptionByMod()
+                ? type.getFuelConsumption() : OFDeviceType.MOD_0.getFuelConsumption();
+        return isFuelConsumptionDoubled ? fuel * 2 : fuel;
     }
 
     public float getFarmingEfficiency() {
         return OreFarmingDeviceConfig.SERVER.isFarmingEfficiencyEnabled()
-                ? farmingEfficiency
-                : 0F;
+                ? farmingEfficiency : 0F;
     }
 
     @Override
@@ -87,13 +86,12 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     public static void serverTick(Level level, BlockPos blockPos, BlockState blockState, OFDeviceBlockEntity device) {
         boolean isLitOld = device.isLit();
         boolean hasChanged = false;
+        ItemStack fuelStack = device.items.get(SLOT_FUEL);
+        ItemStack materialStack = device.items.get(SLOT_INPUT);
 
         if (isLitOld) {
-            device.litTime -= device.getFuelConsumption();
+            device.litTime -= device.getFuelConsumption(isFuelConsumptionDoubled(materialStack));
         }
-
-        ItemStack fuelStack = device.items.get(1);
-        ItemStack materialStack = device.items.get(0);
 
         if ((device.isLit() || !fuelStack.isEmpty()) && !materialStack.isEmpty()) {
             ModLootTables productLootTable = device.findLootTable(materialStack);
@@ -109,12 +107,12 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
                     hasChanged = true;
 
                     if (fuelStack.hasCraftingRemainingItem()) {
-                        device.items.set(1, fuelStack.getCraftingRemainingItem());
+                        device.items.set(SLOT_FUEL, fuelStack.getCraftingRemainingItem());
                     } else if (!fuelStack.isEmpty()) {
                         fuelStack.shrink(1);
 
                         if (fuelStack.isEmpty()) {
-                            device.items.set(1, fuelStack.getCraftingRemainingItem());
+                            device.items.set(SLOT_FUEL, fuelStack.getCraftingRemainingItem());
                         }
                     }
                 }
@@ -160,12 +158,19 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         return this.litTime > 0;
     }
 
+    private static boolean isFuelConsumptionDoubled(ItemStack stack) {
+        if (stack.getItem() instanceof CobblestoneFeederItem feederItem) {
+            return feederItem.type == CobblestoneFeederType.BASIC;
+        }
+
+        return false;
+    }
+
     public void updateFarmingEfficiency(Level level, BlockPos blockPos) {
         AABB aabb = new AABB(blockPos).inflate(2.0, 1.0, 2.0);
         List<LivingEntity> entities = level.getEntitiesOfClass(LivingEntity.class, aabb);
         int size = entities.size();
         farmingEfficiency = Mth.clamp(size, 0F, MAX_EFFICIENCY);
-        // OreFarmingDevice.LOGGER.debug("Device ({}) changed efficiency: {}", blockPos, farmingEfficiency);
     }
 
     public ModLootTables findLootTable(ItemStack stack) {
@@ -173,52 +178,54 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     }
 
     private boolean canProcess(ModLootTables lootTableID) {
-        return !items.get(0).isEmpty() && lootTableID != null;
+        return !items.get(SLOT_INPUT).isEmpty() && lootTableID != null;
     }
 
     private void process(ModLootTables productLootTable) {
         if (canProcess(productLootTable)) {
-            ItemStack materialStack = items.get(0);
-            ItemStack productStack = getRandomItemFromLootTable(productLootTable);
-            insertToProductSlot(productStack);
+            ItemStack materialStack = items.get(SLOT_INPUT);
+            List<ItemStack> productStacks = getRandomItemsFromLootTable(productLootTable);
+            insertToProductSlot(productStacks);
 
-            if (!materialStack.is(ModItems.COBBLESTONE_FEEDER)) {
+            if (!(materialStack.getItem() instanceof CobblestoneFeederItem)) {
                 materialStack.shrink(1);
             }
         }
     }
 
-    private ItemStack getRandomItemFromLootTable(ModLootTables productLootTable) {
+    private List<ItemStack> getRandomItemsFromLootTable(ModLootTables productLootTable) {
         if (level == null)
-            return ItemStack.EMPTY;
+            return Collections.emptyList();
 
         var server = level.getServer();
         if (server == null)
-            return ItemStack.EMPTY;
+            return Collections.emptyList();
 
         LootTable lootTable = server.getLootTables().get(productLootTable.getId());
         float luck = getFarmingEfficiency();
-        // OreFarmingDevice.LOGGER.debug("Device ({}) efficiency: {}", this.getBlockPos(), farmingEfficiency);
-        List<ItemStack> randomItems = lootTable.getRandomItems(new LootContext.Builder((ServerLevel) level).withRandom(level.random).withLuck(luck).create(LootContextParamSets.EMPTY));
-        return randomItems.size() > 0 ? randomItems.get(0) : ItemStack.EMPTY;
+
+        /* DEBUG: log selected loot table
+        OreFarmingDevice.LOGGER.debug("Device ({}), loot table: {}, efficiency: {}", this.getBlockPos(), lootTable.getLootTableId(), farmingEfficiency);
+        // */
+
+        return lootTable.getRandomItems(new LootContext.Builder((ServerLevel) level).withLuck(luck).create(LootContextParamSets.EMPTY));
     }
 
-    private void insertToProductSlot(ItemStack productStack) {
-        if (productStack.isEmpty())
-            return;
+    private void insertToProductSlot(List<ItemStack> productStacks) {
+        for (ItemStack productStack : productStacks) {
+            ItemStack productSlotStack = items.get(SLOT_RESULT);
 
-        ItemStack productSlotStack = items.get(2);
-
-        if (productSlotStack.isEmpty()) {
-            items.set(2, productStack.copy());
-        } else if (productSlotStack.sameItem(productStack)) {
-            if (productSlotStack.getCount() + productStack.getCount() <= Math.min(getMaxStackSize(), productSlotStack.getMaxStackSize())) {
+            if (productSlotStack.isEmpty()) {
+                // Insert product item stack to empty product slot
+                items.set(SLOT_RESULT, productStack.copy());
+            } else if (productSlotStack.is(productStack.getItem())
+                    && (productSlotStack.getCount() + productStack.getCount() <= Math.min(getMaxStackSize(), productSlotStack.getMaxStackSize()))) {
+                // Add same product item to item stack in product slot
                 productSlotStack.grow(productStack.getCount());
             } else {
+                // Replace item stack in product slot with another item stack
                 replaceProductStack(productStack.copy());
             }
-        } else {
-            replaceProductStack(productStack.copy());
         }
     }
 
@@ -226,29 +233,28 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         if (level == null) return;
 
         BlockPos pos = getBlockPos();
-        ItemStack productSlotStack = items.get(2);
+        ItemStack productSlotStack = items.get(SLOT_RESULT);
         // Eject old item stack
         level.addFreshEntity(new ItemEntity(level, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, productSlotStack));
         // Set new item stack in product slot
-        items.set(2, newStack);
+        items.set(SLOT_RESULT, newStack);
     }
 
     @Override
     public void setItem(int slot, ItemStack newStack) {
         ItemStack oldStack = items.get(slot);
-        boolean flag = !newStack.isEmpty() && newStack.sameItem(oldStack) && ItemStack.tagMatches(newStack, oldStack);
+        boolean flag = !newStack.isEmpty() && ItemStack.isSameItemSameTags(newStack, oldStack);
         items.set(slot, newStack);
 
         if (newStack.getCount() > getMaxStackSize()) {
             newStack.setCount(getMaxStackSize());
         }
 
-        if (slot == 0 && !flag) {
+        if (slot == SLOT_INPUT && !flag) {
             cookingTotalTime = getTotalProcessingTime();
             cookingProgress = 0;
             setChanged();
         }
-
     }
 
     @Override
