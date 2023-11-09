@@ -93,9 +93,9 @@ public class ModLootTableProvider extends LootTableProvider {
 
             consumer.accept(ModLootTables.DEVICE_0_NETHER.getId(),
                     LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
-                            .add(LootItem.lootTableItem(Items.NETHER_BRICK).setWeight(96).setQuality(-240))
-                            .add(LootItem.lootTableItem(Blocks.NETHER_QUARTZ_ORE).setWeight(3))
-                            .add(LootItem.lootTableItem(Blocks.NETHER_GOLD_ORE).setWeight(1))
+                            .add(LootItem.lootTableItem(Items.NETHER_BRICK).setWeight(960).setQuality(-240))
+                            .add(LootItem.lootTableItem(Blocks.NETHER_QUARTZ_ORE).setWeight(30))
+                            .add(LootItem.lootTableItem(Blocks.NETHER_GOLD_ORE).setWeight(10))
                     )
             );
 
@@ -128,16 +128,16 @@ public class ModLootTableProvider extends LootTableProvider {
 
             consumer.accept(ModLootTables.DEVICE_1_NETHER.getId(),
                     LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
-                            .add(LootItem.lootTableItem(Items.NETHER_BRICK).setWeight(96).setQuality(-240))
-                            .add(LootItem.lootTableItem(Blocks.NETHER_QUARTZ_ORE).setWeight(3))
-                            .add(LootItem.lootTableItem(Blocks.NETHER_GOLD_ORE).setWeight(1))
+                            .add(LootItem.lootTableItem(Items.NETHER_BRICK).setWeight(960).setQuality(-240))
+                            .add(LootItem.lootTableItem(Blocks.NETHER_QUARTZ_ORE).setWeight(30))
+                            .add(LootItem.lootTableItem(Blocks.NETHER_GOLD_ORE).setWeight(10))
                     )
             );
 
             // OF Device Mod 2
             consumer.accept(ModLootTables.DEVICE_2.getId(),
                     LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
-                            .add(LootItem.lootTableItem(Blocks.STONE).setWeight(841).setQuality(-240))
+                            .add(LootItem.lootTableItem(Blocks.STONE).setWeight(839).setQuality(-240))
                             .add(LootItem.lootTableItem(Blocks.COAL_ORE).setWeight(50))
                             .add(LootItem.lootTableItem(Blocks.COPPER_ORE).setWeight(47))
                             .add(LootItem.lootTableItem(Blocks.LAPIS_ORE).setWeight(4))
@@ -146,12 +146,13 @@ public class ModLootTableProvider extends LootTableProvider {
                             .add(LootItem.lootTableItem(Blocks.REDSTONE_ORE).setWeight(5))
                             .add(LootItem.lootTableItem(Blocks.DIAMOND_ORE).setWeight(1))
                             .add(LootItem.lootTableItem(Blocks.EMERALD_ORE).setWeight(2))
+                            .add(LootItem.lootTableItem(Items.AMETHYST_SHARD).setWeight(2))
                     )
             );
 
             consumer.accept(ModLootTables.DEVICE_2_DEEP.getId(),
                     LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
-                            .add(LootItem.lootTableItem(Blocks.DEEPSLATE).setWeight(938).setQuality(-240))
+                            .add(LootItem.lootTableItem(Blocks.DEEPSLATE).setWeight(934).setQuality(-240))
                             .add(LootItem.lootTableItem(Blocks.DEEPSLATE_COAL_ORE).setWeight(3))
                             .add(LootItem.lootTableItem(Blocks.DEEPSLATE_COPPER_ORE).setWeight(11))
                             .add(LootItem.lootTableItem(Blocks.DEEPSLATE_LAPIS_ORE).setWeight(4))
@@ -160,6 +161,7 @@ public class ModLootTableProvider extends LootTableProvider {
                             .add(LootItem.lootTableItem(Blocks.DEEPSLATE_REDSTONE_ORE).setWeight(20))
                             .add(LootItem.lootTableItem(Blocks.DEEPSLATE_DIAMOND_ORE).setWeight(6))
                             .add(LootItem.lootTableItem(Blocks.DEEPSLATE_EMERALD_ORE).setWeight(1))
+                            .add(LootItem.lootTableItem(Items.AMETHYST_SHARD).setWeight(4))
                     )
             );
 
