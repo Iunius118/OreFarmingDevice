@@ -3,13 +3,23 @@
 [Source](https://github.com/Iunius118/O.F.Device).
 
 ## [Unreleased]
+
+## [3.0.0-beta.1]
+### Added
+- OF C Feeder II item. This item is the improved version of OF C Feeder I and does not increase fuel consumption.
+
 ### Changed
 - Port to 1.19.2.
 - Require Forge 1.19.2-43.3.0+.
+- Device mod 2 can produce amethyst shard now.
+- Rename OF Cobblestone Feeder to OF C Feeder I.
+- OF C Feeder I now consumes twice as much fuel as the previous version.
+- Version scheme.
+- Bump version.
 
 ## [1.19-0.5.0]
 ### Added
-- Server-side config: enableFarmingEfficiency, accelerateProcessingSpeedByMod, and increaseFuelConsumptionByMod.
+- Server-side config items: `enableFarmingEfficiency`, `accelerateProcessingSpeedByMod`, and `increaseFuelConsumptionByMod`.
 
 ### Changed
 - Increase fuel consumption of device by modification.
@@ -25,7 +35,7 @@
 
 ## [1.19-0.4.0]
 ### Added
-- Increase appearance rate of ores with number (up to 3) of players, villagers, etc. around OF Devices.
+- Farming efficiency: appearance rate of ores increases with number of players, villagers, etc. (up to 3) around the device (5x3x5).
 - Config whether OF Cobblestone Feeder is available for OF Devices.
 - Recipe to make Lava Bucket from OF Cobblestone Feeder and Bucket.
 
