@@ -23,6 +23,7 @@ public class ModItemModelProvider  extends ItemModelProvider {
         registerBlockItemModel(ModBlocks.DEVICE_1);
         registerBlockItemModel(ModBlocks.DEVICE_2);
         registerItemModel(ModItems.COBBLESTONE_FEEDER);
+        registerItemModel(ModItems.COBBLESTONE_FEEDER_2);
     }
 
     private void registerItemModel(Item item) {

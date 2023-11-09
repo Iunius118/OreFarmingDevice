@@ -71,20 +71,42 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_device_0", has(ModBlocks.DEVICE_0))
                 .save(consumer);
 
-        // Cobblestone Feeder -> Lava Bucket
+        // Cobblestone Feeder II
+        ShapelessRecipeBuilder.shapeless(ModItems.COBBLESTONE_FEEDER_2)
+                .requires(ModItems.COBBLESTONE_FEEDER)
+                .requires(Items.DIAMOND_PICKAXE)
+                .unlockedBy("has_feeder", has(ModItems.COBBLESTONE_FEEDER))
+                .save(consumer);
+
+        UpgradeRecipeBuilder.smithing(Ingredient.of(ModItems.COBBLESTONE_FEEDER), Ingredient.of(Items.DIAMOND_PICKAXE), ModItems.COBBLESTONE_FEEDER_2)
+                .unlocks("has_feeder", has(ModItems.COBBLESTONE_FEEDER))
+                .save(consumer, getItemId(ModItems.COBBLESTONE_FEEDER_2) + "_smithing");
+
+        // Cobblestone Feeder I -> Lava Bucket
         ShapelessRecipeBuilder.shapeless(Items.LAVA_BUCKET)
+                .group(OreFarmingDevice.MOD_ID + ":feeders_to_lava_bucket")
                 .requires(ModItems.COBBLESTONE_FEEDER)
                 .requires(Items.BUCKET)
-                .unlockedBy("has_cobblestone_feeder", has(ModItems.COBBLESTONE_FEEDER))
+                .unlockedBy("has_feeder", has(ModItems.COBBLESTONE_FEEDER))
                 .save(consumer, OreFarmingDevice.MOD_ID + ":feeder_to_lava_bucket");
+
+        // Cobblestone Feeder II -> Lava Bucket
+        ShapelessRecipeBuilder.shapeless(Items.LAVA_BUCKET)
+                .group(OreFarmingDevice.MOD_ID + ":feeders_to_lava_bucket")
+                .requires(ModItems.COBBLESTONE_FEEDER_2)
+                .requires(Items.BUCKET)
+                .unlockedBy("has_feeder_2", has(ModItems.COBBLESTONE_FEEDER_2))
+                .save(consumer, OreFarmingDevice.MOD_ID + ":feeder_2_to_lava_bucket");
+
+        // Cobblestone Feeder II -> Diamond Pickaxe
+        ShapelessRecipeBuilder.shapeless(Items.DIAMOND_PICKAXE)
+                .requires(ModItems.COBBLESTONE_FEEDER_2)
+                .requires(Tags.Items.RODS_WOODEN)
+                .unlockedBy("has_feeder_2", has(ModItems.COBBLESTONE_FEEDER_2))
+                .save(consumer, OreFarmingDevice.MOD_ID + ":feeder_2_to_diamond_pickaxe");
     }
 
     private ResourceLocation getItemId(Item item) {
         return ForgeRegistries.ITEMS.getKey(item);
-    }
-
-    @Override
-    public String getName() {
-        return super.getName() + ": " +  OreFarmingDevice.MOD_ID;
     }
 }

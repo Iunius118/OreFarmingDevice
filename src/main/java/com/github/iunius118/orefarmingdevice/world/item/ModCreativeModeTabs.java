@@ -6,7 +6,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class ModItemGroups {
+public class ModCreativeModeTabs {
     public static final CreativeModeTab MAIN = new CreativeModeTab(OreFarmingDevice.MOD_ID) {
         @Override
         @OnlyIn(Dist.CLIENT)
