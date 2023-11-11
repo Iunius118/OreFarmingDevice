@@ -38,8 +38,4 @@ public enum OFDeviceType {
     public ResourceLocation getId() {
         return new ResourceLocation(OreFarmingDevice.MOD_ID, name);
     }
-
-    public boolean contains(OFDeviceBlockEntity device) {
-        return device != null && device.type == this;
-    }
 }

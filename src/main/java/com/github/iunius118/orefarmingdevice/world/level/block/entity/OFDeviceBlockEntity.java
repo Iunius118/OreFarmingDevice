@@ -3,6 +3,7 @@ package com.github.iunius118.orefarmingdevice.world.level.block.entity;
 import com.github.iunius118.orefarmingdevice.config.OreFarmingDeviceConfig;
 import com.github.iunius118.orefarmingdevice.inventory.OFDeviceContainer;
 import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
+import com.github.iunius118.orefarmingdevice.loot.OFDeviceLootCondition;
 import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederItem;
 import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederType;
 import net.minecraft.block.AbstractFurnaceBlock;
@@ -21,6 +22,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.AbstractFurnaceTileEntity;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.IIntArray;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -29,7 +31,6 @@ import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -40,6 +41,49 @@ public class OFDeviceBlockEntity extends AbstractFurnaceTileEntity {
     public static final int SLOT_FUEL = 1;
     public static final int SLOT_RESULT = 2;
     public final OFDeviceType type;
+    protected final IIntArray dataAccess = new IIntArray() {
+        public int get(int slot) {
+            switch(slot) {
+                case 0:
+                    return OFDeviceBlockEntity.this.litTime;
+                case 1:
+                    return OFDeviceBlockEntity.this.litDuration;
+                case 2:
+                    return OFDeviceBlockEntity.this.cookingProgress;
+                case 3:
+                    return OFDeviceBlockEntity.this.cookingTotalTime;
+                case 4:
+                    return OFDeviceLootCondition.find(OFDeviceBlockEntity.this).toInt();
+                default:
+                    return 0;
+            }
+        }
+
+        public void set(int slot, int value) {
+            switch(slot) {
+                case 0:
+                    OFDeviceBlockEntity.this.litTime = value;
+                    break;
+                case 1:
+                    OFDeviceBlockEntity.this.litDuration = value;
+                    break;
+                case 2:
+                    OFDeviceBlockEntity.this.cookingProgress = value;
+                    break;
+                case 3:
+                    OFDeviceBlockEntity.this.cookingTotalTime = value;
+                    break;
+                case 4:
+                    // Do nothing
+                    break;
+            }
+
+        }
+
+        public int getCount() {
+            return 5;
+        }
+    };
 
     private float farmingEfficiency = 0F;
 
@@ -190,7 +234,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceTileEntity {
     }
 
     public ModLootTables findLootTable(ItemStack stack) {
-        return Arrays.stream(ModLootTables.values()).filter(t -> t.canProcess(this, stack)).findFirst().orElse(null);
+        return ModLootTables.find(this, stack).orElse(null);
     }
 
     private boolean canProcess(ModLootTables productLootTable) {
@@ -225,7 +269,8 @@ public class OFDeviceBlockEntity extends AbstractFurnaceTileEntity {
         float luck = getFarmingEfficiency();
 
         /* DEBUG: log selected loot table
-        OreFarmingDevice.LOGGER.debug("Device ({}), loot table: {}, efficiency: {}", this.getBlockPos(), lootTable.getLootTableId(), farmingEfficiency);
+        com.github.iunius118.orefarmingdevice.OreFarmingDevice.LOGGER
+                .debug("Device ({}), loot table: {}, efficiency: {}", this.getBlockPos(), lootTable.getLootTableId(), farmingEfficiency);
         // */
 
         return lootTable.getRandomItems(new LootContext.Builder((ServerWorld) level).withLuck(luck).withRandom(level.random).create(LootParameterSets.EMPTY));

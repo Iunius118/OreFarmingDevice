@@ -1,8 +1,7 @@
 package com.github.iunius118.orefarmingdevice.inventory;
 
-import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederItem;
-import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceBlockEntity;
-import net.minecraft.block.Blocks;
+import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
+import com.github.iunius118.orefarmingdevice.loot.OFDeviceLootCondition;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
@@ -10,7 +9,6 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.FurnaceResultSlot;
 import net.minecraft.inventory.container.Slot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.IRecipeType;
@@ -26,7 +24,7 @@ public class OFDeviceContainer extends Container {
     protected final World level;
 
     public OFDeviceContainer(int containerCounter, PlayerInventory playerInventory) {
-        this(containerCounter, playerInventory, new Inventory(3), new IntArray(4));
+        this(containerCounter, playerInventory, new Inventory(3), new IntArray(5));
     }
 
     public OFDeviceContainer(int containerCounter, PlayerInventory playerInventory, IInventory inventory, IIntArray dataAccess) {
@@ -108,17 +106,9 @@ public class OFDeviceContainer extends Container {
     }
 
     protected boolean canSmelt(ItemStack stack) {
-        // Temporary fix for client-side issue
-        if (level.isClientSide) {
-            Item item = stack.getItem();
-            return item == Blocks.COBBLESTONE.asItem() || item == Blocks.NETHERRACK.asItem() || item instanceof CobblestoneFeederItem;
-        }
-
-        if (container instanceof OFDeviceBlockEntity) {
-            return ((OFDeviceBlockEntity) container).findLootTable(stack) != null;
-        }
-
-        return false;
+        int i = this.data.get(4);
+        OFDeviceLootCondition condition = OFDeviceLootCondition.fromInt(i);
+        return ModLootTables.find(condition, stack).isPresent();
     }
 
     protected boolean isFuel(ItemStack stack) {
