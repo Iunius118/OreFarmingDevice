@@ -53,6 +53,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceTileEntity {
                 case 3:
                     return OFDeviceBlockEntity.this.cookingTotalTime;
                 case 4:
+                    // Device status number for determining material items on client side
                     return OFDeviceLootCondition.find(OFDeviceBlockEntity.this).toInt();
                 default:
                     return 0;
