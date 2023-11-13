@@ -8,28 +8,29 @@ import java.util.Arrays;
 import java.util.function.Predicate;
 
 public enum OFDeviceLootCondition {
-    IS_MOD_0(isType(OFDeviceType.MOD_0)),
-    IS_MOD_1(isType(OFDeviceType.MOD_1)),
-    IS_MOD_2(isType(OFDeviceType.MOD_2)),
-    NOT_APPLICABLE(c -> false),
+    MOD_0_IN_SHALLOW_LAYER(OFDeviceType.MOD_0, false),
+    MOD_1_IN_SHALLOW_LAYER(OFDeviceType.MOD_1, false),
+    MOD_2_IN_SHALLOW_LAYER(OFDeviceType.MOD_2, false),
+    MOD_0_IN_DEEP_LAYER(OFDeviceType.MOD_0, true),
+    MOD_1_IN_DEEP_LAYER(OFDeviceType.MOD_1, true),
+    MOD_2_IN_DEEP_LAYER(OFDeviceType.MOD_2, true),
+    NOT_APPLICABLE(null, false),
     ;
 
-    private final Predicate<OFDeviceBlockEntity> predicate;
+    private final OFDeviceType type;
+    private final boolean isInDeepLayer;
 
-    OFDeviceLootCondition(Predicate<OFDeviceBlockEntity> lootPredicate) {
-        predicate = lootPredicate;
+    OFDeviceLootCondition(OFDeviceType deviceType, boolean isDeviceInDeepLayer) {
+        type = deviceType;
+        isInDeepLayer = isDeviceInDeepLayer;
     }
 
-    public boolean test(OFDeviceBlockEntity deviceCondition) {
-        return predicate.test(deviceCondition);
+    public boolean test(OFDeviceBlockEntity device) {
+        return (device.type == type) && ((device.getBlockPos().getY() <= 0) == isInDeepLayer);
     }
 
     public static OFDeviceLootCondition find(OFDeviceBlockEntity deviceCondition) {
         return Arrays.stream(values()).filter(c -> c.test(deviceCondition)).findFirst().orElse(NOT_APPLICABLE);
-    }
-
-    public int toInt() {
-        return ordinal();
     }
 
     public static OFDeviceLootCondition fromInt(int i) {
@@ -37,15 +38,31 @@ public enum OFDeviceLootCondition {
         return values[MathHelper.clamp(i, 0, values.length - 1)];
     }
 
-    private static Predicate<OFDeviceBlockEntity> isType(OFDeviceType deviceType) {
-        return device -> device.type == deviceType;
+    public int toInt() {
+        return ordinal();
     }
 
-    public Predicate<OFDeviceBlockEntity> isDeviceInShallowLayer() {
-        return  device -> device.getBlockPos().getY() > 0;
+    public static Predicate<OFDeviceLootCondition> is(OFDeviceType deviceType) {
+        return c -> c.contains(deviceType);
     }
 
-    public Predicate<OFDeviceBlockEntity> isDeviceInDeepLayer() {
-        return device -> device.getBlockPos().getY() <= 0;
+    public static Predicate<OFDeviceLootCondition> is(OFDeviceLootCondition condition) {
+        return c -> c.equals(condition);
+    }
+
+    public boolean contains(OFDeviceType deviceType) {
+        return type == deviceType;
+    }
+
+    public boolean equals(OFDeviceLootCondition condition) {
+        return this == condition;
+    }
+
+    public boolean isDeviceInShallowLayer() {
+        return !isInDeepLayer;
+    }
+
+    public boolean isDeviceInDeepLayer() {
+        return isInDeepLayer;
     }
 }

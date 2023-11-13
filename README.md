@@ -19,7 +19,7 @@ Version 1.0.0
 
 ### OF Device (ＯＦ装置)
 
-OF Devices can be mined using any pickaxe. The appearance of the OF Device block can be changed using a stick
+OF Devices can be mined using any pickaxe. The appearance of the OF Device block can be changed using a stick.
 
 ＯＦ装置はツルハシで破壊可能。ＯＦ装置ブロックに棒を使用することで外観を変更可能。
 
