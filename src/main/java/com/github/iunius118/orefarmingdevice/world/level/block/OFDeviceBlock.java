@@ -7,6 +7,8 @@ import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceTy
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Containers;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -20,6 +22,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.common.Tags;
 
 import javax.annotation.Nullable;
@@ -39,6 +42,24 @@ public class OFDeviceBlock extends AbstractFurnaceBlock {
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
         return new OFDeviceBlockEntity(blockPos, blockState, type);
+    }
+
+    @Override
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+        if (level.isClientSide) {
+            return InteractionResult.SUCCESS;
+        } else {
+            ItemStack stack = player.getItemInHand(hand);
+
+            if (stack.is(Tags.Items.RODS_WOODEN)) {
+                OFDeviceCasing casing = state.getValue(CASING);
+                level.setBlock(pos, state.setValue(CASING, casing.getNext()), 3);
+            } else {
+                openContainer(level, pos, player);
+            }
+
+            return InteractionResult.CONSUME;
+        }
     }
 
     @Nullable
