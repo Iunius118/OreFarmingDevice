@@ -4,6 +4,7 @@
 
 ## [Unreleased]
 
+## [2.0.0-beta.2]
 ### Added
 - Six new looks to OF device blocks. Stick can be used on placed OF device blocks to change their appearance.
 
