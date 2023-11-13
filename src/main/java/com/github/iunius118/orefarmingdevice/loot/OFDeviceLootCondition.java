@@ -18,7 +18,7 @@ public enum OFDeviceLootCondition {
     ;
 
     private final OFDeviceType type;
-    private boolean isInDeepLayer;
+    private final boolean isInDeepLayer;
 
     OFDeviceLootCondition(OFDeviceType deviceType, boolean isDeviceInDeepLayer) {
         type = deviceType;
