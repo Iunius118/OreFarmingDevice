@@ -1,5 +1,7 @@
 package com.github.iunius118.orefarmingdevice.world.level.block;
 
+import com.github.iunius118.orefarmingdevice.state.properties.ModBlockStateProperties;
+import com.github.iunius118.orefarmingdevice.state.properties.OFDeviceCasing;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceBlockEntity;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
 import net.minecraft.core.BlockPos;
@@ -10,20 +12,26 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractFurnaceBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraftforge.common.Tags;
 
 import javax.annotation.Nullable;
 
 public class OFDeviceBlock extends AbstractFurnaceBlock {
+    public static final EnumProperty<OFDeviceCasing> CASING = ModBlockStateProperties.CASING;
+
     public final OFDeviceType type;
 
     public OFDeviceBlock(Properties properties, OFDeviceType offDeviceType) {
         super(properties);
-        registerDefaultState(this.stateDefinition.any().setValue(LIT, Boolean.FALSE));
+        registerDefaultState(stateDefinition.any().setValue(LIT, Boolean.FALSE).setValue(CASING, OFDeviceCasing.NORMAL));
         type = offDeviceType;
     }
 
@@ -77,5 +85,11 @@ public class OFDeviceBlock extends AbstractFurnaceBlock {
     @Override
     public RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        super.createBlockStateDefinition(builder);
+        builder.add(CASING);
     }
 }

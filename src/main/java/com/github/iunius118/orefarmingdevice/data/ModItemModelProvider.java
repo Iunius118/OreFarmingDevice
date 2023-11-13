@@ -17,9 +17,9 @@ public class ModItemModelProvider  extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        registerBlockItemModel(ModBlocks.DEVICE_0);
-        registerBlockItemModel(ModBlocks.DEVICE_1);
-        registerBlockItemModel(ModBlocks.DEVICE_2);
+        registerBlockItemModel(ModBlocks.DEVICE_0, "_off_0");
+        registerBlockItemModel(ModBlocks.DEVICE_1, "_off_0");
+        registerBlockItemModel(ModBlocks.DEVICE_2, "_off_0");
         registerItemModel(ModItems.COBBLESTONE_FEEDER);
         registerItemModel(ModItems.COBBLESTONE_FEEDER_2);
     }
@@ -30,8 +30,8 @@ public class ModItemModelProvider  extends ItemModelProvider {
                 .texture("layer0", "item/" + path);
     }
 
-    private void registerBlockItemModel(Block block) {
+    private void registerBlockItemModel(Block block, String suffix) {
         String path = block.getRegistryName().getPath();
-        getBuilder(path).parent(new ModelFile.UncheckedModelFile(modLoc("block/" + path)));
+        getBuilder(path).parent(new ModelFile.UncheckedModelFile(modLoc("block/" + path + suffix)));
     }
 }
