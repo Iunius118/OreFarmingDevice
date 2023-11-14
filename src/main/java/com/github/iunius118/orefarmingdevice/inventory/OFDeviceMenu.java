@@ -1,6 +1,7 @@
 package com.github.iunius118.orefarmingdevice.inventory;
 
-import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceBlockEntity;
+import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
+import com.github.iunius118.orefarmingdevice.loot.OFDeviceLootCondition;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -19,7 +20,7 @@ public class OFDeviceMenu extends AbstractContainerMenu {
     protected final Level level;
 
     public OFDeviceMenu(int containerCounter, Inventory playerInventory) {
-        this(containerCounter, playerInventory, new SimpleContainer(3), new SimpleContainerData(4));
+        this(containerCounter, playerInventory, new SimpleContainer(3), new SimpleContainerData(5));
     }
 
     public OFDeviceMenu(int containerCounter, Inventory playerInventory, Container inventory, ContainerData dataAccess) {
@@ -101,11 +102,9 @@ public class OFDeviceMenu extends AbstractContainerMenu {
     }
 
     protected boolean canSmelt(ItemStack stack) {
-        if (container instanceof OFDeviceBlockEntity device) {
-            return device.findLootTable(stack) != null;
-        }
-
-        return false;
+        int i = this.data.get(4);
+        OFDeviceLootCondition condition = OFDeviceLootCondition.fromInt(i);
+        return ModLootTables.find(condition, stack).isPresent();
     }
 
     protected boolean isFuel(ItemStack stack) {

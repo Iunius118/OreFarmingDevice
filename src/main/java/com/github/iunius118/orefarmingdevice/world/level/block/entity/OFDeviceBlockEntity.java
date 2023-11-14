@@ -3,6 +3,7 @@ package com.github.iunius118.orefarmingdevice.world.level.block.entity;
 import com.github.iunius118.orefarmingdevice.config.OreFarmingDeviceConfig;
 import com.github.iunius118.orefarmingdevice.inventory.OFDeviceMenu;
 import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
+import com.github.iunius118.orefarmingdevice.loot.OFDeviceLootCondition;
 import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederItem;
 import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederType;
 import net.minecraft.core.BlockPos;
@@ -15,6 +16,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
@@ -26,7 +28,6 @@ import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.phys.AABB;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -34,6 +35,34 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     public static final String KEY_EFFICIENCY = "Efficiency";
     public static final float MAX_EFFICIENCY = 3F;
     public final OFDeviceType type;
+    protected final ContainerData dataAccess = new ContainerData() {
+        public int get(int slot) {
+            return switch (slot) {
+                case 0 -> OFDeviceBlockEntity.this.litTime;
+                case 1 -> OFDeviceBlockEntity.this.litDuration;
+                case 2 -> OFDeviceBlockEntity.this.cookingProgress;
+                case 3 -> OFDeviceBlockEntity.this.cookingTotalTime;
+                // Device status number for determining material items on client side
+                case 4 -> OFDeviceLootCondition.find(OFDeviceBlockEntity.this).toInt();
+                default -> 0;
+            };
+        }
+
+        public void set(int slot, int value) {
+            switch (slot) {
+                case 0 -> OFDeviceBlockEntity.this.litTime = value;
+                case 1 -> OFDeviceBlockEntity.this.litDuration = value;
+                case 2 -> OFDeviceBlockEntity.this.cookingProgress = value;
+                case 3 -> OFDeviceBlockEntity.this.cookingTotalTime = value;
+                case 4 -> { /* Do nothing */ }
+            }
+
+        }
+
+        public int getCount() {
+            return 5;
+        }
+    };
 
     private float farmingEfficiency = 0F;
 
@@ -173,7 +202,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     }
 
     public ModLootTables findLootTable(ItemStack stack) {
-        return Arrays.stream(ModLootTables.values()).filter(t -> t.canProcess(this, stack)).findFirst().orElse(null);
+        return ModLootTables.find(this, stack).orElse(null);
     }
 
     private boolean canProcess(ModLootTables lootTableID) {
@@ -204,7 +233,8 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         float luck = getFarmingEfficiency();
 
         /* DEBUG: log selected loot table
-        OreFarmingDevice.LOGGER.debug("Device ({}), loot table: {}, efficiency: {}", this.getBlockPos(), lootTable.getLootTableId(), farmingEfficiency);
+        com.github.iunius118.orefarmingdevice.OreFarmingDevice.LOGGER
+                .debug("Device ({}), loot table: {}, efficiency: {}", this.getBlockPos(), lootTable.getLootTableId(), farmingEfficiency);
         // */
 
         return lootTable.getRandomItems(new LootParams.Builder((ServerLevel) level).withLuck(luck).create(LootContextParamSets.EMPTY));
@@ -217,7 +247,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
             if (productSlotStack.isEmpty()) {
                 // Insert product item stack to empty product slot
                 items.set(SLOT_RESULT, productStack.copy());
-            } else if (productSlotStack.is(productStack.getItem())
+            } else if (ItemStack.isSameItem(productSlotStack, productStack)
                     && (productSlotStack.getCount() + productStack.getCount() <= Math.min(getMaxStackSize(), productSlotStack.getMaxStackSize()))) {
                 // Add same product item to item stack in product slot
                 productSlotStack.grow(productStack.getCount());
