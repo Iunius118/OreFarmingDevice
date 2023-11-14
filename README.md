@@ -6,6 +6,7 @@ O.F.Device is a Minecraft mod to add devices for farming ores.
 
 ## Download
 
+- [From Modrinth](https://modrinth.com/mod/o-f-device)
 - [From CurseForge](https://www.curseforge.com/minecraft/mc-mods/o-f-device)
 
 ## Requirement
@@ -18,9 +19,9 @@ Version 3.0.0
 
 ### OF Device (ＯＦ装置)
 
-OF Devices can be mined using any pickaxe.
+OF Devices can be mined using any pickaxe. The appearance of the OF Device block can be changed using a stick.
 
-ＯＦ装置はツルハシで破壊できる。
+ＯＦ装置はツルハシで破壊可能。ＯＦ装置ブロックに棒を使用することで外観を変更可能。
 
 #### Recipe
 

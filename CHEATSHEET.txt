@@ -19,6 +19,7 @@ O.F.Device (Ore Farming Device) v3.0.0
 - If the output slot fills up during operation, the products are ejected out of the block
 - Hopper can be used to push materials and fuel into the device, and to pull products from the device
 - Farming efficiency: appearance rate of ores increases with number of players, villagers, etc. (up to 3) around the device (5x3x5)
+- The appearance of the OF Device block can be changed using a stick
 
 ### OF Device Mod 1
 - Recipe (crafting): OF Device + Iron Pickaxe
