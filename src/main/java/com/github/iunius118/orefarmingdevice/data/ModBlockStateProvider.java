@@ -6,7 +6,6 @@ import com.github.iunius118.orefarmingdevice.world.level.block.OFDeviceBlock;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -24,12 +23,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
         ofDeviceBlock(ModBlocks.DEVICE_2, OFDeviceType.MOD_2.getName());
     }
 
-    public void ofDeviceBlock(Block block, String baseName) {
-        ModelFile device = models().cubeAll(baseName, new ResourceLocation(OreFarmingDevice.MOD_ID, "block/" + baseName));
-        ModelFile deviceOn = models().cubeAll(baseName + "_on", new ResourceLocation(OreFarmingDevice.MOD_ID, "block/" + baseName + "_on"));
-
+    public void ofDeviceBlock(OFDeviceBlock block, final String baseName) {
         getVariantBuilder(block).forAllStatesExcept(state -> {
-            ModelFile model = state.getValue(OFDeviceBlock.LIT) ? deviceOn : device;
+            String lit = state.getValue(OFDeviceBlock.LIT) ? "on" : "off";
+            int casing = state.getValue(OFDeviceBlock.CASING).ordinal();
+            String name = String.join("_", baseName, lit, String.valueOf(casing));
+            ModelFile model = models().cubeAll(name, new ResourceLocation(OreFarmingDevice.MOD_ID, "block/" + name));
             return ConfiguredModel.builder().modelFile(model).build();
         }, OFDeviceBlock.FACING);
     }

@@ -1,10 +1,46 @@
 {
   "variants": {
-    "lit=false": {
-      "model": "orefarmingdevice:block/device_0"
+    "casing=coal,lit=false": {
+      "model": "orefarmingdevice:block/device_0_off_3"
     },
-    "lit=true": {
-      "model": "orefarmingdevice:block/device_0_on"
+    "casing=coal,lit=true": {
+      "model": "orefarmingdevice:block/device_0_on_3"
+    },
+    "casing=copper,lit=false": {
+      "model": "orefarmingdevice:block/device_0_off_5"
+    },
+    "casing=copper,lit=true": {
+      "model": "orefarmingdevice:block/device_0_on_5"
+    },
+    "casing=iron,lit=false": {
+      "model": "orefarmingdevice:block/device_0_off_4"
+    },
+    "casing=iron,lit=true": {
+      "model": "orefarmingdevice:block/device_0_on_4"
+    },
+    "casing=log,lit=false": {
+      "model": "orefarmingdevice:block/device_0_off_2"
+    },
+    "casing=log,lit=true": {
+      "model": "orefarmingdevice:block/device_0_on_2"
+    },
+    "casing=machine,lit=false": {
+      "model": "orefarmingdevice:block/device_0_off_6"
+    },
+    "casing=machine,lit=true": {
+      "model": "orefarmingdevice:block/device_0_on_6"
+    },
+    "casing=normal,lit=false": {
+      "model": "orefarmingdevice:block/device_0_off_0"
+    },
+    "casing=normal,lit=true": {
+      "model": "orefarmingdevice:block/device_0_on_0"
+    },
+    "casing=stone,lit=false": {
+      "model": "orefarmingdevice:block/device_0_off_1"
+    },
+    "casing=stone,lit=true": {
+      "model": "orefarmingdevice:block/device_0_on_1"
     }
   }
 }
