@@ -6,6 +6,9 @@
 ### Added
 - Six new looks to OF device blocks. Stick can be used on placed OF device blocks to change their appearance.
 
+### Fixed
+- Quick movement of item stack from player inventory to material slot.
+
 ## [3.0.0-beta.1]
 ### Added
 - OF C Feeder II item. This item is the improved version of OF C Feeder I and does not increase fuel consumption.
