@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "orefarmingdevice:block/device_1_on_1"
+  }
+}
