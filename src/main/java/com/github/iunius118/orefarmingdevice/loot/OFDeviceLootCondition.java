@@ -58,6 +58,10 @@ public enum OFDeviceLootCondition {
         return this == condition;
     }
 
+    public OFDeviceType getType() {
+        return type;
+    }
+
     public boolean isDeviceInShallowLayer() {
         return !isInDeepLayer;
     }

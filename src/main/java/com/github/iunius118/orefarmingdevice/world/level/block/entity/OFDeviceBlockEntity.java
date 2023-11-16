@@ -65,6 +65,8 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     };
 
     private float farmingEfficiency = 0F;
+    private int productCount = 0;
+    private ModLootTables lastProcessedLootTable = null;
 
     public OFDeviceBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState, OFDeviceType ofDeviceType) {
         super(blockEntityType, blockPos, blockState, RecipeType.SMELTING);
@@ -97,6 +99,14 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     public float getFarmingEfficiency() {
         return OreFarmingDeviceConfig.SERVER.isFarmingEfficiencyEnabled()
                 ? farmingEfficiency : 0F;
+    }
+
+    public int getProductCount() {
+        return productCount;
+    }
+
+    public ModLootTables getLastProcessedLootTable() {
+        return lastProcessedLootTable;
     }
 
     @Override
@@ -211,6 +221,10 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
 
     private void process(ModLootTables productLootTable) {
         if (canProcess(productLootTable)) {
+            // For tests
+            productCount++;
+            lastProcessedLootTable = productLootTable;
+
             ItemStack materialStack = items.get(SLOT_INPUT);
             List<ItemStack> productStacks = getRandomItemsFromLootTable(productLootTable);
             insertToProductSlot(productStacks);

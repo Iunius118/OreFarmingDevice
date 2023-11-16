@@ -6,7 +6,7 @@ O.F.Device is a Minecraft mod to add devices for farming ores.
 
 ## Download
 
-  - [From Modrinth](https://modrinth.com/mod/o-f-device)
+- [From Modrinth](https://modrinth.com/mod/o-f-device)
 - [From CurseForge](https://www.curseforge.com/minecraft/mc-mods/o-f-device)
 
 ## Requirement
