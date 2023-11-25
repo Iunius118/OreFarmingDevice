@@ -18,7 +18,7 @@ public class OreFarmingDeviceConfig {
             isCobblestoneFeederAvailable = builder
                     .comment("===========================================================",
                             "isCobblestoneFeederAvailable as boolean",
-                            "  Whether OF Cobblestone Feeder is available for devices.",
+                            "  Whether OF C Feeders are available for devices.",
                             "  Default: true")
                     .define("isCobblestoneFeederAvailable", true);
 
