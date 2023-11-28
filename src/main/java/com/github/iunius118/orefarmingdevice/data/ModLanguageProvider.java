@@ -5,19 +5,22 @@ import com.github.iunius118.orefarmingdevice.world.item.ModItems;
 import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 
 public class ModLanguageProvider extends LanguageProvider {
+    public final static String MOD_ITEM_GROUP_KEY = "itemGroup." + OreFarmingDevice.MOD_ID + ".main";
     public final TranslatedNameProvider translatedNameProvider;
 
-    public ModLanguageProvider(DataGenerator gen, String locale, TranslatedNameProvider translatedNameProvider) {
-        super(gen, OreFarmingDevice.MOD_ID, locale);
+    public ModLanguageProvider(PackOutput packOutput, String locale, TranslatedNameProvider translatedNameProvider) {
+        super(packOutput, OreFarmingDevice.MOD_ID, locale);
         this.translatedNameProvider = translatedNameProvider;
     }
 
     public static void addProviders(boolean needsRun, DataGenerator gen) {
-        gen.addProvider(needsRun, new ModLanguageProvider(gen, "en_us", new TranslatedNameProvider()));
-        gen.addProvider(needsRun, new ModLanguageProvider(gen, "ja_jp", new JaJpNameProvider()));
+        var packOutput = gen.getPackOutput();
+        gen.addProvider(needsRun, new ModLanguageProvider(packOutput, "en_us", new TranslatedNameProvider()));
+        gen.addProvider(needsRun, new ModLanguageProvider(packOutput, "ja_jp", new JaJpNameProvider()));
     }
 
     // en_us
@@ -43,7 +46,7 @@ public class ModLanguageProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         // Item groups
-        add("itemGroup." + OreFarmingDevice.MOD_ID, OreFarmingDevice.MOD_NAME);
+        add(MOD_ITEM_GROUP_KEY, OreFarmingDevice.MOD_NAME);
 
         // Items
         add(ModItems.COBBLESTONE_FEEDER, translatedNameProvider.cobblestoneFeederName);

@@ -1,14 +1,15 @@
 package com.github.iunius118.orefarmingdevice.data;
 
-import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
 import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
 import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import com.google.common.collect.ImmutableList;
-import com.mojang.datafixers.util.Pair;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.loot.BlockLoot;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
+import net.minecraft.data.loot.LootTableSubProvider;
+import net.minecraft.data.loot.packs.VanillaLootTableProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -16,49 +17,46 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 public class ModLootTableProvider extends LootTableProvider {
-    public ModLootTableProvider(DataGenerator generator) {
-        super(generator);
+    public ModLootTableProvider(PackOutput packOutput) {
+        super(packOutput, Set.of(), VanillaLootTableProvider.create(packOutput).getTables());
     }
 
     @Override
-    protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
+    public List<LootTableProvider.SubProviderEntry> getTables() {
         return ImmutableList.of(
-                Pair.of(ModBlockLootTables::new, LootContextParamSets.BLOCK),
-                Pair.of(ModDeviceLootTables::new, LootContextParamSets.EMPTY)
+                new LootTableProvider.SubProviderEntry(ModBlockLootTables::new, LootContextParamSets.BLOCK),
+                new LootTableProvider.SubProviderEntry(ModDeviceLootTables::new, LootContextParamSets.EMPTY)
         );
     }
 
     @Override
-    protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext validationtracker) {
+    protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext validationContext) {
     }
 
-    @Override
-    public String getName() {
-        return super.getName() + ": " +  OreFarmingDevice.MOD_ID;
-    }
-
-    private static class ModBlockLootTables extends BlockLoot {
+    private static class ModBlockLootTables extends BlockLootSubProvider {
         private final List<Block> ofDeviceBlocks = Stream.of(
                 ModBlocks.DEVICE_0,
                 ModBlocks.DEVICE_1,
                 ModBlocks.DEVICE_2
         ).collect(ImmutableList.toImmutableList());
 
+        protected ModBlockLootTables() {
+            super(Set.of(), FeatureFlags.REGISTRY.allFlags());
+        }
+
         @Override
-        protected void addTables() {
-            ofDeviceBlocks.forEach(b -> add(b, BlockLoot::createNameableBlockEntityTable));
+        protected void generate() {
+            ofDeviceBlocks.forEach(b -> add(b, this::createNameableBlockEntityTable));
         }
 
         @Override
@@ -67,9 +65,9 @@ public class ModLootTableProvider extends LootTableProvider {
         }
     }
 
-    private static class ModDeviceLootTables implements Consumer<BiConsumer<ResourceLocation, LootTable.Builder>> {
+    private static class ModDeviceLootTables implements LootTableSubProvider {
         @Override
-        public void accept(BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
+        public void generate(BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
             // OF Device
             consumer.accept(ModLootTables.DEVICE_0.getId(),
                     LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
