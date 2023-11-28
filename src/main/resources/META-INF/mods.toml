@@ -1,12 +1,12 @@
 modLoader="javafml"
-loaderVersion="[43,)"
+loaderVersion="[45,)"
 license="MIT License"
 issueTrackerURL="https://github.com/Iunius118/O.F.Device/issues"
 
 [[mods]]
 modId="orefarmingdevice"
 version="${file.jarVersion}"
-displayName="O.F.Device"
+displayName="O.F.Device (Ore Farming Device)"
 displayURL="https://github.com/Iunius118/O.F.Device"
 logoFile="orefarmingdevice_logo.png"
 credits="Created by Iunius118."
@@ -16,12 +16,12 @@ description="Adds devices for farming ores"
 [[dependencies.orefarmingdevice]]
     modId="forge"
     mandatory=true
-    versionRange="[43,)"
+    versionRange="[45,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.orefarmingdevice]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19.2,1.20)"
+    versionRange="[1.19.4,1.20)"
     ordering="NONE"
     side="BOTH"
