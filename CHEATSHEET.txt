@@ -1,5 +1,5 @@
 # Cheatsheet
-O.F.Device (Ore Farming Device) v3.0.0
+O.F.Device (Ore Farming Device) v3.1.0
 
 ## Blocks
 ### OF Device
