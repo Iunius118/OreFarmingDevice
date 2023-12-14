@@ -8,9 +8,8 @@ import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.ModBlockEntityTypes;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
 import net.minecraft.core.registries.Registries;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class RegisterEventHandler {
     public static void registerGameObjects(IEventBus modEventBus) {
@@ -22,7 +21,7 @@ public class RegisterEventHandler {
     }
 
     private static void registerBlocks(IEventBus modEventBus) {
-        var blockDeferredRegister = DeferredRegister.create(ForgeRegistries.BLOCKS, OreFarmingDevice.MOD_ID);
+        var blockDeferredRegister = DeferredRegister.createBlocks(OreFarmingDevice.MOD_ID);
 
         blockDeferredRegister.register(OFDeviceType.MOD_0.getName(), () -> ModBlocks.DEVICE_0);
         blockDeferredRegister.register(OFDeviceType.MOD_1.getName(), () -> ModBlocks.DEVICE_1);
@@ -32,7 +31,7 @@ public class RegisterEventHandler {
     }
 
     private static void registerItems(IEventBus modEventBus) {
-        var itemDeferredRegister = DeferredRegister.create(ForgeRegistries.ITEMS, OreFarmingDevice.MOD_ID);
+        var itemDeferredRegister = DeferredRegister.createItems(OreFarmingDevice.MOD_ID);
 
         itemDeferredRegister.register(OFDeviceType.MOD_0.getName(), () -> ModItems.DEVICE_0);
         itemDeferredRegister.register(OFDeviceType.MOD_1.getName(), () -> ModItems.DEVICE_1);
@@ -44,7 +43,7 @@ public class RegisterEventHandler {
     }
 
     private static void registerBlockEntityTypes(IEventBus modEventBus) {
-        var blockEntityTypeDeferredRegister = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, OreFarmingDevice.MOD_ID);
+        var blockEntityTypeDeferredRegister = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, OreFarmingDevice.MOD_ID);
 
         blockEntityTypeDeferredRegister.register(OFDeviceType.MOD_0.getName(), () -> ModBlockEntityTypes.DEVICE_0);
         blockEntityTypeDeferredRegister.register(OFDeviceType.MOD_1.getName(), () -> ModBlockEntityTypes.DEVICE_1);
@@ -54,7 +53,7 @@ public class RegisterEventHandler {
     }
 
     private static void registerMenuTypes(IEventBus modEventBus) {
-        var menuTypeDeferredRegister = DeferredRegister.create(ForgeRegistries.MENU_TYPES, OreFarmingDevice.MOD_ID);
+        var menuTypeDeferredRegister = DeferredRegister.create(Registries.MENU, OreFarmingDevice.MOD_ID);
 
         menuTypeDeferredRegister.register("device", () -> ModMenuTypes.DEVICE);
 

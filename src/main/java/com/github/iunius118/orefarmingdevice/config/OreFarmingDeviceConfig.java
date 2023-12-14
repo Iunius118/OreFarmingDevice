@@ -1,18 +1,18 @@
 package com.github.iunius118.orefarmingdevice.config;
 
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
+
+import net.neoforged.neoforge.common.ModConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
 
 public class OreFarmingDeviceConfig {
     public static class Server {
-        public final BooleanValue isCobblestoneFeederAvailable;
-        public final BooleanValue canAccelerateProcessingSpeedByMod;
-        public final BooleanValue canIncreaseFuelConsumptionByMod;
-        public final BooleanValue isFarmingEfficiencyEnabled;
+        public final ModConfigSpec.BooleanValue isCobblestoneFeederAvailable;
+        public final ModConfigSpec.BooleanValue canAccelerateProcessingSpeedByMod;
+        public final ModConfigSpec.BooleanValue canIncreaseFuelConsumptionByMod;
+        public final ModConfigSpec.BooleanValue isFarmingEfficiencyEnabled;
 
 
-        Server(ForgeConfigSpec.Builder builder) {
+        Server(ModConfigSpec.Builder builder) {
             builder.comment("O.F.Device's game server-side settings.").push("server");
 
             isCobblestoneFeederAvailable = builder
@@ -73,11 +73,11 @@ public class OreFarmingDeviceConfig {
         }
     }
 
-    public static final ForgeConfigSpec serverSpec;
+    public static final ModConfigSpec serverSpec;
     public static final Server SERVER;
 
     static {
-        final Pair<Server, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Server::new);
+        final Pair<Server, ModConfigSpec> specPair = new ModConfigSpec.Builder().configure(Server::new);
         serverSpec = specPair.getRight();
         SERVER = specPair.getLeft();
     }

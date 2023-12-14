@@ -4,6 +4,7 @@ import com.github.iunius118.orefarmingdevice.state.properties.ModBlockStatePrope
 import com.github.iunius118.orefarmingdevice.state.properties.OFDeviceCasing;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceBlockEntity;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Containers;
@@ -23,7 +24,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.common.Tags;
+import net.neoforged.neoforge.common.Tags;
 
 import javax.annotation.Nullable;
 
@@ -31,11 +32,18 @@ public class OFDeviceBlock extends AbstractFurnaceBlock {
     public static final EnumProperty<OFDeviceCasing> CASING = ModBlockStateProperties.CASING;
 
     public final OFDeviceType type;
+    public final MapCodec<OFDeviceBlock> codec;
 
     public OFDeviceBlock(Properties properties, OFDeviceType offDeviceType) {
         super(properties);
         registerDefaultState(stateDefinition.any().setValue(LIT, Boolean.FALSE).setValue(CASING, OFDeviceCasing.NORMAL));
         type = offDeviceType;
+        codec = simpleCodec(p -> new OFDeviceBlock(p, type));
+    }
+
+    @Override
+    public MapCodec<OFDeviceBlock> codec() {
+        return codec;
     }
 
     @Nullable

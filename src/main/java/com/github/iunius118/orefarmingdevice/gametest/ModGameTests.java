@@ -14,7 +14,7 @@ import net.minecraft.gametest.framework.TestFunction;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.gametest.GameTestHolder;
+import net.neoforged.neoforge.gametest.GameTestHolder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,7 +23,7 @@ import java.util.List;
 
 @GameTestHolder(value = OreFarmingDevice.MOD_ID)
 public class ModGameTests {
-    private static final String TEST_STRUCTURE = "forge:empty3x3x3";
+    private static final String TEST_STRUCTURE = "%s:empty3x3x3".formatted(OreFarmingDevice.MOD_ID);
 
     /**
      * Test that {@link ModLootTables} returns the correct loot table for the specified device and coordinates.

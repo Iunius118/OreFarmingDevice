@@ -11,8 +11,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 public class OFDeviceMenu extends AbstractContainerMenu {
     private final Container container;
@@ -108,7 +108,7 @@ public class OFDeviceMenu extends AbstractContainerMenu {
     }
 
     protected boolean isFuel(ItemStack stack) {
-        return net.minecraftforge.common.ForgeHooks.getBurnTime(stack, RecipeType.SMELTING) > 0;
+        return net.neoforged.neoforge.common.CommonHooks.getBurnTime(stack, RecipeType.SMELTING) > 0;
     }
 
     @OnlyIn(Dist.CLIENT)
