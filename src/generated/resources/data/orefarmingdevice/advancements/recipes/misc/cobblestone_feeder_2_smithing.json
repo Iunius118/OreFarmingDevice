@@ -30,6 +30,5 @@
     "recipes": [
       "orefarmingdevice:cobblestone_feeder_2_smithing"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
