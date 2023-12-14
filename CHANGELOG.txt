@@ -4,6 +4,11 @@
 
 ## [Unreleased]
 
+## [4.0.0 for NeoForge]
+### Changed
+- Port to NeoForge.
+- Require NeoForge 1.20.4-20.4.24-beta+.
+
 ## [4.0.0]
 ### Changed
 - Release.

@@ -11,7 +11,7 @@ O.F.Device is a Minecraft mod to add devices for farming ores.
 
 ## Requirement
 
-- Minecraft Forge
+- NeoForge
 
 ## Description
 
@@ -153,7 +153,9 @@ OF C Feeder II + Stick -> Diamond Pickaxe
 
 ### Config
 
-`(world_save_dir)/serverconfig/orefarmingdevice-server.toml`
+The default config file is saved to the following path:
+
+- `<instance_path>/config/orefarmingdevice-server.toml`
 
 Restart the game when you change the config. In multiplayer mode, server-side config will be used.
 
