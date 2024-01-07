@@ -6,5 +6,5 @@ import net.minecraftforge.registries.ObjectHolder;
 
 @ObjectHolder(OreFarmingDevice.MOD_ID)
 public class ModRecipeSerializers {
-    public static final IRecipeSerializer<?> DEVICE = null;
+    public static final IRecipeSerializer<?> DEVICE_PROCESSING = null;
 }

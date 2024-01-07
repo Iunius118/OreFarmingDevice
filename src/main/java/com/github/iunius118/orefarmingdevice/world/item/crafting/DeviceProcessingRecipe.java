@@ -15,9 +15,9 @@ import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nullable;
 
-public class DeviceRecipe extends AbstractCookingRecipe {
-    public DeviceRecipe(ResourceLocation recipeId) {
-        super(ModRecipeTypes.DEVICE, recipeId, "", Ingredient.EMPTY, ItemStack.EMPTY, 0, 200);
+public class DeviceProcessingRecipe extends AbstractCookingRecipe {
+    public DeviceProcessingRecipe(ResourceLocation recipeId) {
+        super(ModRecipeTypes.DEVICE_PROCESSING, recipeId, "", Ingredient.EMPTY, ItemStack.EMPTY, 0, 200);
     }
 
     @Override
@@ -28,23 +28,23 @@ public class DeviceRecipe extends AbstractCookingRecipe {
 
     @Override
     public IRecipeSerializer<?> getSerializer() {
-        return ModRecipeSerializers.DEVICE;
+        return ModRecipeSerializers.DEVICE_PROCESSING;
     }
 
-    public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<DeviceRecipe> {
+    public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<DeviceProcessingRecipe> {
         @Override
-        public DeviceRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
-            return new DeviceRecipe(recipeId);
+        public DeviceProcessingRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
+            return new DeviceProcessingRecipe(recipeId);
         }
 
         @Nullable
         @Override
-        public DeviceRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
-            return new DeviceRecipe(recipeId);
+        public DeviceProcessingRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
+            return new DeviceProcessingRecipe(recipeId);
         }
 
         @Override
-        public void toNetwork(PacketBuffer buffer, DeviceRecipe recipe) {
+        public void toNetwork(PacketBuffer buffer, DeviceProcessingRecipe recipe) {
         }
     }
 }

@@ -89,7 +89,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceTileEntity {
     private float farmingEfficiency = 0F;
 
     public OFDeviceBlockEntity(TileEntityType<?> blockEntityType, OFDeviceType ofDeviceType) {
-        super(blockEntityType, ModRecipeTypes.DEVICE);
+        super(blockEntityType, ModRecipeTypes.DEVICE_PROCESSING);
         type = ofDeviceType;
     }
 
