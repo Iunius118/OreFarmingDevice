@@ -5,6 +5,7 @@ import com.github.iunius118.orefarmingdevice.inventory.OFDeviceContainer;
 import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederItem;
 import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederType;
 import com.github.iunius118.orefarmingdevice.world.item.ModItemGroups;
+import com.github.iunius118.orefarmingdevice.world.item.crafting.DeviceRecipe;
 import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import com.github.iunius118.orefarmingdevice.world.level.block.OFDeviceBlock;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceBlockEntity;
@@ -15,6 +16,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -26,6 +28,7 @@ public class RegisterEventHandler {
         registerBlocks(modEventBus);
         registerItems(modEventBus);
         registerTileEntityTypes(modEventBus);
+        registerRecipeSerializers(modEventBus);
         registerContainerTypes(modEventBus);
     }
 
@@ -62,6 +65,14 @@ public class RegisterEventHandler {
         tileEntityTypeDeferredRegister.register(OFDeviceType.MOD_2.getName(), () -> TileEntityType.Builder.of(() -> new OFDeviceBlockEntity(OFDeviceType.MOD_2), ModBlocks.DEVICE_2).build(null));
 
         tileEntityTypeDeferredRegister.register(modEventBus);
+    }
+
+    private static void registerRecipeSerializers(IEventBus modEventBus) {
+        DeferredRegister<IRecipeSerializer<?>> recipeSerializerDeferredRegister = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, OreFarmingDevice.MOD_ID);
+
+        recipeSerializerDeferredRegister.register("device", DeviceRecipe.Serializer::new);
+
+        recipeSerializerDeferredRegister.register(modEventBus);
     }
 
     private static void registerContainerTypes(IEventBus modEventBus) {

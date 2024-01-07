@@ -6,6 +6,7 @@ import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
 import com.github.iunius118.orefarmingdevice.loot.OFDeviceLootCondition;
 import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederItem;
 import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederType;
+import com.github.iunius118.orefarmingdevice.world.item.crafting.ModRecipeTypes;
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
@@ -14,7 +15,6 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.loot.LootContext;
 import net.minecraft.loot.LootParameterSets;
 import net.minecraft.loot.LootTable;
@@ -89,7 +89,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceTileEntity {
     private float farmingEfficiency = 0F;
 
     public OFDeviceBlockEntity(TileEntityType<?> blockEntityType, OFDeviceType ofDeviceType) {
-        super(blockEntityType, IRecipeType.SMELTING);
+        super(blockEntityType, ModRecipeTypes.DEVICE);
         type = ofDeviceType;
     }
 
