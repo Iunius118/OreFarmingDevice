@@ -6,6 +6,7 @@ import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
 import com.github.iunius118.orefarmingdevice.loot.OFDeviceLootCondition;
 import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederItem;
 import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederType;
+import com.github.iunius118.orefarmingdevice.world.item.crafting.ModRecipeTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -18,7 +19,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractFurnaceBlock;
 import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
@@ -68,7 +68,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     private float farmingEfficiency = 0F;
 
     public OFDeviceBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState, OFDeviceType ofDeviceType) {
-        super(blockEntityType, blockPos, blockState, RecipeType.SMELTING);
+        super(blockEntityType, blockPos, blockState, ModRecipeTypes.DEVICE_PROCESSING);
         type = ofDeviceType;
     }
 
