@@ -4,6 +4,8 @@ import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
 import com.github.iunius118.orefarmingdevice.inventory.ModMenuTypes;
 import com.github.iunius118.orefarmingdevice.world.item.ModCreativeModeTabs;
 import com.github.iunius118.orefarmingdevice.world.item.ModItems;
+import com.github.iunius118.orefarmingdevice.world.item.crafting.ModRecipeSerializers;
+import com.github.iunius118.orefarmingdevice.world.item.crafting.ModRecipeTypes;
 import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.ModBlockEntityTypes;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
@@ -16,6 +18,8 @@ public class RegisterEventHandler {
         registerBlocks(modEventBus);
         registerItems(modEventBus);
         registerBlockEntityTypes(modEventBus);
+        registerRecipeTypes(modEventBus);
+        registerRecipeSerializers(modEventBus);
         registerMenuTypes(modEventBus);
         registerCreativeModeTabs(modEventBus);
     }
@@ -50,6 +54,22 @@ public class RegisterEventHandler {
         blockEntityTypeDeferredRegister.register(OFDeviceType.MOD_2.getName(), () -> ModBlockEntityTypes.DEVICE_2);
 
         blockEntityTypeDeferredRegister.register(modEventBus);
+    }
+
+    private static void registerRecipeTypes(IEventBus modEventBus) {
+        var recipeTypeRegister = DeferredRegister.create(Registries.RECIPE_TYPE, OreFarmingDevice.MOD_ID);
+
+        recipeTypeRegister.register("device_processing", () -> ModRecipeTypes.DEVICE_PROCESSING);
+
+        recipeTypeRegister.register(modEventBus);
+    }
+
+    private static void registerRecipeSerializers(IEventBus modEventBus) {
+        var recipeSerializerDeferredRegister = DeferredRegister.create(Registries.RECIPE_SERIALIZER, OreFarmingDevice.MOD_ID);
+
+        recipeSerializerDeferredRegister.register("device_processing", () -> ModRecipeSerializers.DEVICE_PROCESSING);
+
+        recipeSerializerDeferredRegister.register(modEventBus);
     }
 
     private static void registerMenuTypes(IEventBus modEventBus) {

@@ -3,8 +3,10 @@
 [Source](https://github.com/Iunius118/O.F.Device).
 
 ## [Unreleased]
+### Fixed
+- Recipe type for OF devices.
 
-## [4.0.0 for NeoForge]
+## [4.0.0 NeoForge]
 ### Changed
 - Port to NeoForge.
 - Require NeoForge 1.20.4-20.4.24-beta+.
