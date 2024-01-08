@@ -5,13 +5,18 @@ import com.github.iunius118.orefarmingdevice.inventory.OFDeviceMenu;
 import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederItem;
 import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederType;
 import com.github.iunius118.orefarmingdevice.world.item.ModCreativeModeTabs;
+import com.github.iunius118.orefarmingdevice.world.item.crafting.DeviceProcessingRecipe;
+import com.github.iunius118.orefarmingdevice.world.item.crafting.ModRecipeTypes;
 import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import com.github.iunius118.orefarmingdevice.world.level.block.OFDeviceBlock;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceBlockEntity;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
+import net.minecraft.core.Registry;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -25,6 +30,8 @@ public class RegisterEventHandler {
         registerBlocks(modEventBus);
         registerItems(modEventBus);
         registerTileEntityTypes(modEventBus);
+        registerRecipeTypes(modEventBus);
+        registerRecipeSerializers(modEventBus);
         registerContainerTypes(modEventBus);
     }
 
@@ -60,6 +67,22 @@ public class RegisterEventHandler {
         tileEntityTypeDeferredRegister.register(OFDeviceType.MOD_2.getName(), () -> BlockEntityType.Builder.of((pos, state) -> new OFDeviceBlockEntity(pos, state, OFDeviceType.MOD_2), ModBlocks.DEVICE_2).build(null));
 
         tileEntityTypeDeferredRegister.register(modEventBus);
+    }
+
+    private static void registerRecipeTypes(IEventBus modEventBus) {
+        DeferredRegister<RecipeType<?>> recipeTypeRegister = DeferredRegister.create(Registry.RECIPE_TYPE_REGISTRY, OreFarmingDevice.MOD_ID);
+
+        recipeTypeRegister.register("device_processing", () -> ModRecipeTypes.DEVICE_PROCESSING);
+
+        recipeTypeRegister.register(modEventBus);
+    }
+
+    private static void registerRecipeSerializers(IEventBus modEventBus) {
+        DeferredRegister<RecipeSerializer<?>> recipeSerializerDeferredRegister = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, OreFarmingDevice.MOD_ID);
+
+        recipeSerializerDeferredRegister.register("device_processing", DeviceProcessingRecipe.Serializer::new);
+
+        recipeSerializerDeferredRegister.register(modEventBus);
     }
 
     private static void registerContainerTypes(IEventBus modEventBus) {
