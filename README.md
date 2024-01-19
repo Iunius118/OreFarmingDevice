@@ -15,7 +15,7 @@ O.F.Device is a Minecraft mod to add devices for farming ores.
 
 ## Description
 
-Version 4.0.0
+Version 3.2.0
 
 ### OF Device (ＯＦ装置)
 
@@ -78,7 +78,7 @@ OF Device + Iron Pickaxe
 |   **Major**   |             Stone              |                                Deepslate                                |   Nether Brick    |
 | **Uncommon**  |            Coal Ore            |                                                                         |                   |
 |   **Rare**    |    Iron Ore, <br>Copper Ore    |             Deepslate Redstone Ore, <br>Deepslate Iron Ore              | Nether Quartz Ore |
-| **Very Rare** |          Redstone Ore          | Deepslate Diamond Ore, <br>Deepslate Copper Ore, <br>Deepslate Gold Ore |  Nether Gold Ore  |
+| **Very Rare** |          Redstone Ore          | Deepslate Copper Ore, <br>Deepslate Gold Ore, <br>Deepslate Diamond Ore |  Nether Gold Ore  |
 | **Legendary** | Lapis Lazuli Ore, <br>Gold Ore |           Deepslate Lapis Lazuli Ore, <br>Deepslate Coal Ore            |                   |
 |  **Mythic**   |          Diamond Ore           |                                                                         |                   |
 
@@ -101,7 +101,7 @@ OF Device Mod 1 + Diamond Pickaxe
 |   **Major**   |                         Stone                         |                                          Deepslate                                           |   Nether Brick    |
 | **Uncommon**  |               Coal Ore, <br>Copper Ore                |                                                                                              |                   |
 |   **Rare**    |                Iron Ore, <br>Gold Ore                 |           Deepslate Redstone Ore, <br>Deepslate Copper Ore, <br>Deepslate Iron Ore           | Nether Quartz Ore |
-| **Very Rare** |                     Redstone Ore                      |                        Deepslate Diamond Ore, <br>Deepslate Gold Ore                         |  Nether Gold Ore  |
+| **Very Rare** |                     Redstone Ore                      |                        Deepslate Gold Ore, <br>Deepslate Diamond Ore                         |  Nether Gold Ore  |
 | **Legendary** | Lapis Lazuli Ore, <br>Amethyst Shard, <br>Emerald Ore |            Deepslate Lapis Lazuli Ore, <br>Amethyst Shard, <br>Deepslate Coal Ore            |                   |
 |  **Mythic**   |                      Diamond Ore                      |                                    Deepslate Emerald Ore                                     |  Ancient Debris   |
 
@@ -150,6 +150,24 @@ OF C Feeder II + Bucket -> Lava Bucket
 ![ ](./docs/media/feeder_2_to_diamond_pickaxe_v100.png "Crafting recipe: Diamond Pickaxe")
 
 OF C Feeder II + Stick -> Diamond Pickaxe
+
+### Data Pack
+
+Built-in optional data pack.
+
+任意で適用可能な同梱のデータパック。
+
+#### Experimental Data Pack 1.20.2
+
+ID: `orefarmingdevice:experimental_1202`
+
+An experimental data pack for future versions.
+
+将来バージョンのための試験的なデータパック。
+
+Feature:
+- Increase rate of Deepslate Diamond Ore in OF Device Mod 1+  
+ＯＦ装置改・改二で深層ダイヤモンド鉱石の生成率が増加する
 
 ### Config
 

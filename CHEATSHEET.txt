@@ -1,5 +1,5 @@
 # Cheatsheet
-O.F.Device (Ore Farming Device) v4.0.0
+O.F.Device (Ore Farming Device) v3.2.0
 
 ## Blocks
 ### OF Device
@@ -26,7 +26,7 @@ O.F.Device (Ore Farming Device) v4.0.0
 - Recipe (smithing): Paper + OF Device + Iron Pickaxe
 - Processing speed is faster than OF Device
 - Products made from Cobblestone: Stone, Coal Ore, Iron Ore, Copper Ore, Redstone Ore, Lapis Lazuli Ore, Gold Ore, Diamond Ore
-- Products made from Cobbled Deepslate: Deepslate, Deepslate Redstone Ore, Deepslate Iron Ore, Deepslate Diamond Ore, Deepslate Copper Ore, Deepslate Gold Ore, Deepslate Lapis Lazuli Ore, Deepslate Coal Ore
+- Products made from Cobbled Deepslate: Deepslate, Deepslate Redstone Ore, Deepslate Iron Ore, Deepslate Copper Ore, Deepslate Gold Ore, Deepslate Diamond Ore, Deepslate Lapis Lazuli Ore, Deepslate Coal Ore
 - Products made from Netherrack: Nether Brick, Nether Quartz Ore, Nether Gold Ore
 
 ### OF Device Mod 2
@@ -34,7 +34,7 @@ O.F.Device (Ore Farming Device) v4.0.0
 - Recipe (smithing): Paper + OF Device Mod 1 + Diamond Pickaxe
 - Processing speed is faster than OF Device Mod 1
 - Products made from Cobblestone: Stone, Coal Ore, Copper Ore, Iron Ore, Gold Ore, Redstone Ore, Lapis Lazuli Ore, Amethyst Shard, Emerald Ore, Diamond Ore
-- Products made from Cobbled Deepslate: Deepslate, Deepslate Redstone Ore, Deepslate Copper Ore, Deepslate Iron Ore, Deepslate Diamond Ore, Deepslate Gold Ore, Deepslate Lapis Lazuli Ore, Amethyst Shard, Deepslate Coal Ore, Deepslate Emerald Ore
+- Products made from Cobbled Deepslate: Deepslate, Deepslate Redstone Ore, Deepslate Copper Ore, Deepslate Iron Ore, Deepslate Gold Ore, Deepslate Diamond Ore, Deepslate Lapis Lazuli Ore, Amethyst Shard, Deepslate Coal Ore, Deepslate Emerald Ore
 - Products made from Netherrack: Nether Brick, Nether Quartz Ore, Nether Gold Ore, Ancient Debris
 
 ## Items
@@ -89,3 +89,14 @@ Here is the formula for the corrected weight: `weight + (farming_efficiency * qu
 - Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2.json`
 - Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2_d.json`
 - Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2_n.json`
+
+## Data Pack
+Built-in optional data pack
+
+### Experimental Data Pack 1.20.2
+ID: `orefarmingdevice:experimental_1202`
+
+An experimental data pack for future versions.
+
+Feature:
+- Increase rate of Deepslate Diamond Ore in OF Device Mod 1+
