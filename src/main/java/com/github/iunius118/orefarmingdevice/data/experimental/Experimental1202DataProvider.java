@@ -56,7 +56,7 @@ public class Experimental1202DataProvider {
 
         var resourcePath = ModList.get().getModFileById(OreFarmingDevice.MOD_ID).getFile().findResource(PACK_PATH);
         var pack = Pack.readMetaAndCreate(PACK_ID.toString(), Component.literal(PACK_NAME), false,
-                new PathPackResources.PathResourcesSupplier(resourcePath, false), PackType.SERVER_DATA, Pack.Position.TOP, PackSource.FEATURE);
+                (path) -> new PathPackResources(path, resourcePath, false), PackType.SERVER_DATA, Pack.Position.TOP, PackSource.FEATURE);
         event.addRepositorySource((packConsumer) -> packConsumer.accept(pack));
     }
 
@@ -96,22 +96,6 @@ public class Experimental1202DataProvider {
             );
 
             // OF Device Mod 2
-            consumer.accept(ModLootTables.DEVICE_2.getId(),
-                    LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
-                            // STONE - 2, AMETHYST_SHARD + 2
-                            .add(LootItem.lootTableItem(Blocks.STONE).setWeight(839).setQuality(-240))
-                            .add(LootItem.lootTableItem(Blocks.COAL_ORE).setWeight(50))
-                            .add(LootItem.lootTableItem(Blocks.COPPER_ORE).setWeight(47))
-                            .add(LootItem.lootTableItem(Blocks.LAPIS_ORE).setWeight(4))
-                            .add(LootItem.lootTableItem(Blocks.IRON_ORE).setWeight(30))
-                            .add(LootItem.lootTableItem(Blocks.GOLD_ORE).setWeight(20))
-                            .add(LootItem.lootTableItem(Blocks.REDSTONE_ORE).setWeight(5))
-                            .add(LootItem.lootTableItem(Blocks.DIAMOND_ORE).setWeight(1))
-                            .add(LootItem.lootTableItem(Blocks.EMERALD_ORE).setWeight(2))
-                            .add(LootItem.lootTableItem(Items.AMETHYST_SHARD).setWeight(2))
-                    )
-            );
-
             consumer.accept(ModLootTables.DEVICE_2_DEEP.getId(),
                     LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
                             // DEEPSLATE - 7, DEEPSLATE_DIAMOND_ORE + 3, AMETHYST_SHARD + 4

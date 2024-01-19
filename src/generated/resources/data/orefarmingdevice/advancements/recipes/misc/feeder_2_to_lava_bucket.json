@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_feeder_2"
+      "has_feeder_2",
+      "has_the_recipe"
     ]
   ],
   "rewards": {

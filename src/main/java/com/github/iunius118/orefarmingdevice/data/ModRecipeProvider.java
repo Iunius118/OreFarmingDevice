@@ -14,13 +14,15 @@ import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.function.Consumer;
+
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
     public ModRecipeProvider(PackOutput packOutput) {
         super(packOutput);
     }
 
     @Override
-    protected void buildRecipes(RecipeOutput consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         // Devise 0
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DEVICE_0)
                 .pattern("#F#")

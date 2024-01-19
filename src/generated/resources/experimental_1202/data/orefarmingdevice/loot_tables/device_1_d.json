@@ -8,7 +8,7 @@
           "type": "minecraft:item",
           "name": "minecraft:deepslate",
           "quality": -240,
-          "weight": 944
+          "weight": 941
         },
         {
           "type": "minecraft:item",
@@ -43,7 +43,7 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:deepslate_diamond_ore",
-          "weight": 6
+          "weight": 9
         }
       ],
       "rolls": 1.0

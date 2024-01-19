@@ -2,9 +2,9 @@ package com.github.iunius118.orefarmingdevice.world.item.crafting;
 
 import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
 import com.github.iunius118.orefarmingdevice.loot.OFDeviceLootCondition;
-import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.google.gson.JsonObject;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
@@ -13,11 +13,11 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
 
-import java.util.Optional;
+import javax.annotation.Nullable;
 
 public class DeviceProcessingRecipe extends AbstractCookingRecipe {
-    public DeviceProcessingRecipe() {
-        super(ModRecipeTypes.DEVICE_PROCESSING, "", CookingBookCategory.MISC, Ingredient.EMPTY, ItemStack.EMPTY, 0, 200);
+    public DeviceProcessingRecipe(ResourceLocation recipeId) {
+        super(ModRecipeTypes.DEVICE_PROCESSING, recipeId, "", CookingBookCategory.MISC, Ingredient.EMPTY, ItemStack.EMPTY, 0, 200);
     }
 
     @Override
@@ -32,19 +32,15 @@ public class DeviceProcessingRecipe extends AbstractCookingRecipe {
     }
 
     public static class Serializer implements RecipeSerializer<DeviceProcessingRecipe> {
-        private static final Codec<DeviceProcessingRecipe> CODEC = RecordCodecBuilder.create(
-                (instance) -> instance.group(
-                        Codec.STRING.optionalFieldOf("dummy").forGetter(recipe -> Optional.empty())
-                ).apply(instance, (dummy) -> new DeviceProcessingRecipe()));
-
         @Override
-        public Codec<DeviceProcessingRecipe> codec() {
-            return CODEC;
+        public DeviceProcessingRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
+            return new DeviceProcessingRecipe(recipeId);
         }
 
+        @Nullable
         @Override
-        public DeviceProcessingRecipe fromNetwork(FriendlyByteBuf buffer) {
-            return new DeviceProcessingRecipe();
+        public DeviceProcessingRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
+            return new DeviceProcessingRecipe(recipeId);
         }
 
         @Override

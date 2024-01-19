@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_device_0"
+      "has_device_0",
+      "has_the_recipe"
     ]
   ],
   "rewards": {

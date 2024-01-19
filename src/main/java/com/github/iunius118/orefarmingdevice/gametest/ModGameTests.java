@@ -23,7 +23,7 @@ import java.util.List;
 
 @GameTestHolder(value = OreFarmingDevice.MOD_ID)
 public class ModGameTests {
-    private static final String TEST_STRUCTURE = "forge:empty3x3x3";
+    private static final String TEST_STRUCTURE = "orefarmingdevice:device_test";
 
     /**
      * Test that {@link ModLootTables} returns the correct loot table for the specified device and coordinates.
