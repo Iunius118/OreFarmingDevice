@@ -57,28 +57,28 @@ public class OreFarmingDeviceConfig {
         }
 
         public boolean isCobblestoneFeederAvailable() {
-            return isCobblestoneFeederAvailable.get();
+            return SERVER_SPEC.isLoaded() ? isCobblestoneFeederAvailable.get() : isCobblestoneFeederAvailable.getDefault();
         }
 
         public boolean canAccelerateProcessingSpeedByMod() {
-            return canAccelerateProcessingSpeedByMod.get();
+            return SERVER_SPEC.isLoaded() ? canAccelerateProcessingSpeedByMod.get() : canAccelerateProcessingSpeedByMod.getDefault();
         }
 
         public boolean canIncreaseFuelConsumptionByMod() {
-            return canIncreaseFuelConsumptionByMod.get();
+            return SERVER_SPEC.isLoaded() ? canIncreaseFuelConsumptionByMod.get() : canIncreaseFuelConsumptionByMod.getDefault();
         }
 
         public boolean isFarmingEfficiencyEnabled() {
-            return isFarmingEfficiencyEnabled.get();
+            return SERVER_SPEC.isLoaded() ? isFarmingEfficiencyEnabled.get() : isFarmingEfficiencyEnabled.getDefault();
         }
     }
 
-    public static final ForgeConfigSpec serverSpec;
+    public static final ForgeConfigSpec SERVER_SPEC;
     public static final Server SERVER;
 
     static {
         final Pair<Server, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Server::new);
-        serverSpec = specPair.getRight();
+        SERVER_SPEC = specPair.getRight();
         SERVER = specPair.getLeft();
     }
 }

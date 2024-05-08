@@ -31,7 +31,7 @@ public class OreFarmingDevice {
         modEventBus.addListener(this::setup);
 
         // Register config handlers
-        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, OreFarmingDeviceConfig.serverSpec);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, OreFarmingDeviceConfig.SERVER_SPEC);
 
         // Register event handlers
         RegisterEventHandler.registerGameObjects(modEventBus);
