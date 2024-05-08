@@ -9,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class OFDeviceScreen extends AbstractContainerScreen<OFDeviceMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(OreFarmingDevice.MOD_ID, "textures/gui/container/of_device.png");
+    private static final ResourceLocation TEXTURE = OreFarmingDevice.makeId("textures/gui/container/of_device.png");
 
     public OFDeviceScreen(OFDeviceMenu menu, Inventory playerInventory, Component textComponent) {
         super(menu, playerInventory, textComponent);

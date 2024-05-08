@@ -6,6 +6,7 @@ import com.github.iunius118.orefarmingdevice.common.ServerProxy;
 import com.github.iunius118.orefarmingdevice.config.OreFarmingDeviceConfig;
 import com.github.iunius118.orefarmingdevice.data.*;
 import com.mojang.logging.LogUtils;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -43,6 +44,10 @@ public class OreFarmingDevice {
 
     private void setup(FMLCommonSetupEvent event) {
         proxy.setup(event);
+    }
+
+    public static ResourceLocation makeId(String name) {
+        return new ResourceLocation(MOD_ID, name);
     }
 
     // Generate Data

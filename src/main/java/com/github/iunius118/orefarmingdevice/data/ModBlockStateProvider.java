@@ -5,7 +5,6 @@ import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
 import com.github.iunius118.orefarmingdevice.world.level.block.OFDeviceBlock;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -28,7 +27,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
             String lit = state.getValue(OFDeviceBlock.LIT) ? "on" : "off";
             int casing = state.getValue(OFDeviceBlock.CASING).ordinal();
             String name = String.join("_", baseName, lit, String.valueOf(casing));
-            ModelFile model = models().cubeAll(name, new ResourceLocation(OreFarmingDevice.MOD_ID, "block/" + name));
+            ModelFile model = models().cubeAll(name, OreFarmingDevice.makeId("block/" + name));
             return ConfiguredModel.builder().modelFile(model).build();
         }, OFDeviceBlock.FACING);
     }

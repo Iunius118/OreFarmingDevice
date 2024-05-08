@@ -36,6 +36,6 @@ public enum OFDeviceType {
     }
 
     public ResourceLocation getId() {
-        return new ResourceLocation(OreFarmingDevice.MOD_ID, name);
+        return OreFarmingDevice.makeId(name);
     }
 }

@@ -33,7 +33,7 @@ import java.util.function.BiConsumer;
 
 public class Experimental1202DataProvider {
     private final static String PACK_PATH = "experimental_1202";
-    private final static ResourceLocation PACK_ID = new ResourceLocation(OreFarmingDevice.MOD_ID, PACK_PATH);
+    private final static ResourceLocation PACK_ID = OreFarmingDevice.makeId(PACK_PATH);
     private final static String PACK_NAME = "O.F.Device Experimental 1202";
 
     private Experimental1202DataProvider() {}

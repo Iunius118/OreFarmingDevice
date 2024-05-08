@@ -46,7 +46,7 @@ public enum ModLootTables {
     private final Predicate<OFDeviceLootCondition> canProcess;
 
     ModLootTables(String key, ItemLike item, Predicate<OFDeviceLootCondition> canProcess) {
-        id = new ResourceLocation(OreFarmingDevice.MOD_ID, key);
+        this.id = OreFarmingDevice.makeId(key);
         this.material = new ItemStack(item);
         this.canProcess = canProcess;
     }
