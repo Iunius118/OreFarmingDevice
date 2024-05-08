@@ -15,7 +15,7 @@ O.F.Device is a Minecraft mod to add devices for farming ores.
 
 ## Description
 
-Version 4.0.0
+Version 4.0.0+
 
 ### OF Device (ＯＦ装置)
 
@@ -160,8 +160,8 @@ Restart the game when you change the config. In multiplayer mode, server-side co
 コンフィグを変更したときはゲームの再起動が必要。マルチプレイの場合はサーバー側の設定が使用される。
 
 - isCobblestoneFeederAvailable (boolean, default value is true)
-  - Whether OF Cobblestone Feeder is available for devices
-  - ＯＦ丸石供給装置がＯＦ装置で材料として使えるか（true→使える、false→使えない）
+  - Whether OF C Feeders are available for devices
+  - ＯＦ丙供給装置がＯＦ装置で材料として使えるか（true→使える、false→使えない）
 - enableFarmingEfficiency (boolean, default value is true)
   - Whether mobs around device increase farming efficiency of device
   - ＯＦ装置の周囲にモブがいるとき、鉱石の出現率が上昇するか（true→する、false→しない）
