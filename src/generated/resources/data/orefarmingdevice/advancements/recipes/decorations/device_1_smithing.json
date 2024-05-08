@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "orefarmingdevice:device_0"
-            ]
+            "items": "orefarmingdevice:device_0"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "orefarmingdevice:device_1_smithing"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

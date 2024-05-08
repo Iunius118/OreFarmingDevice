@@ -11,6 +11,7 @@
     }
   ],
   "result": {
-    "item": "minecraft:lava_bucket"
+    "count": 1,
+    "id": "minecraft:lava_bucket"
   }
 }

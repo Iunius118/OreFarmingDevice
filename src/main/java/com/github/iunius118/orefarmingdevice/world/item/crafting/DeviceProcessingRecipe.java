@@ -3,8 +3,10 @@ package com.github.iunius118.orefarmingdevice.world.item.crafting;
 import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
 import com.github.iunius118.orefarmingdevice.loot.OFDeviceLootCondition;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
@@ -32,23 +34,30 @@ public class DeviceProcessingRecipe extends AbstractCookingRecipe {
     }
 
     public static class Serializer implements RecipeSerializer<DeviceProcessingRecipe> {
-        private static final Codec<DeviceProcessingRecipe> CODEC = RecordCodecBuilder.create(
+        private static final MapCodec<DeviceProcessingRecipe> CODEC = RecordCodecBuilder.mapCodec(
                 (instance) -> instance.group(
                         Codec.STRING.optionalFieldOf("dummy").forGetter(recipe -> Optional.empty())
-                ).apply(instance, (dummy) -> new DeviceProcessingRecipe()));
+                ).apply(instance, (dummy) -> new DeviceProcessingRecipe())
+        );
+        private static final StreamCodec<RegistryFriendlyByteBuf, DeviceProcessingRecipe> STREAM_CODEC = StreamCodec.of(
+                DeviceProcessingRecipe.Serializer::toNetwork, DeviceProcessingRecipe.Serializer::fromNetwork
+        );
 
         @Override
-        public Codec<DeviceProcessingRecipe> codec() {
+        public MapCodec<DeviceProcessingRecipe> codec() {
             return CODEC;
         }
 
         @Override
-        public DeviceProcessingRecipe fromNetwork(FriendlyByteBuf buffer) {
+        public StreamCodec<RegistryFriendlyByteBuf, DeviceProcessingRecipe> streamCodec() {
+            return STREAM_CODEC;
+        }
+
+        private static DeviceProcessingRecipe fromNetwork(RegistryFriendlyByteBuf buffer) {
             return new DeviceProcessingRecipe();
         }
 
-        @Override
-        public void toNetwork(FriendlyByteBuf buffer, DeviceProcessingRecipe recipe) {
+        private static void toNetwork(RegistryFriendlyByteBuf buffer, DeviceProcessingRecipe recipe) {
         }
     }
 }

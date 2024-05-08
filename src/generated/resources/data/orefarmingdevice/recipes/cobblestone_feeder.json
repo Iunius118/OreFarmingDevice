@@ -24,7 +24,7 @@
     "  W"
   ],
   "result": {
-    "item": "orefarmingdevice:cobblestone_feeder"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "orefarmingdevice:cobblestone_feeder"
+  }
 }

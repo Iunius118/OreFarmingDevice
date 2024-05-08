@@ -7,7 +7,8 @@
     "item": "orefarmingdevice:device_0"
   },
   "result": {
-    "item": "orefarmingdevice:device_1"
+    "count": 1,
+    "id": "orefarmingdevice:device_1"
   },
   "template": {
     "item": "minecraft:paper"

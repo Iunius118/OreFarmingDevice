@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "orefarmingdevice:cobblestone_feeder_2"
-            ]
+            "items": "orefarmingdevice:cobblestone_feeder_2"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "orefarmingdevice:feeder_2_to_diamond_pickaxe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

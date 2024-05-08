@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "orefarmingdevice:cobblestone_feeder"
-            ]
+            "items": "orefarmingdevice:cobblestone_feeder"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "orefarmingdevice:feeder_to_lava_bucket"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

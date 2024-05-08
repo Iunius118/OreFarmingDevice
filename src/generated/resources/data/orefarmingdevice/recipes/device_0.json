@@ -24,7 +24,7 @@
     "ixi"
   ],
   "result": {
-    "item": "orefarmingdevice:device_0"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "orefarmingdevice:device_0"
+  }
 }

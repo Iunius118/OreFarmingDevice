@@ -60,8 +60,8 @@ public class OreFarmingDevice {
         // Server
         boolean includesServer = event.includeServer();
         dataGenerator.addProvider(includesServer, new ModBlockTagsProvider(packOutput, lookupProvider, existingFileHelper));
-        dataGenerator.addProvider(includesServer, new ModLootTableProvider(packOutput));
-        dataGenerator.addProvider(includesServer, new ModRecipeProvider(packOutput));
+        dataGenerator.addProvider(includesServer, new ModLootTableProvider(packOutput, lookupProvider));
+        dataGenerator.addProvider(includesServer, new ModRecipeProvider(packOutput, lookupProvider));
         // Disable data pack Experimental_1202 since 1.20.2
         // Experimental1202DataProvider.addProviders(event);
 

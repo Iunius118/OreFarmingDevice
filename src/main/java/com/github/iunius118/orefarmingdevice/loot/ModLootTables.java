@@ -6,10 +6,13 @@ import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederItem;
 import com.github.iunius118.orefarmingdevice.world.item.ModItems;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceBlockEntity;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.storage.loot.LootTable;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -42,11 +45,13 @@ public enum ModLootTables {
     ;
 
     private final ResourceLocation id;
+    private final ResourceKey<LootTable> resourceKey;
     private final ItemStack material;
     private final Predicate<OFDeviceLootCondition> canProcess;
 
     ModLootTables(String key, ItemLike item, Predicate<OFDeviceLootCondition> canProcess) {
         this.id = OreFarmingDevice.makeId(key);
+        this.resourceKey = ResourceKey.create(Registries.LOOT_TABLE, id);
         this.material = new ItemStack(item);
         this.canProcess = canProcess;
     }
@@ -61,6 +66,10 @@ public enum ModLootTables {
 
     public ResourceLocation getId() {
         return id;
+    }
+
+    public ResourceKey<LootTable> getResourceKey() {
+        return resourceKey;
     }
 
     public ItemStack getMaterial() {

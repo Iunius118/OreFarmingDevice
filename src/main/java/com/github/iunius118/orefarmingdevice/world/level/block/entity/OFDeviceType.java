@@ -3,6 +3,8 @@ package com.github.iunius118.orefarmingdevice.world.level.block.entity;
 import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
 import net.minecraft.resources.ResourceLocation;
 
+import java.util.Arrays;
+
 public enum OFDeviceType {
     MOD_0("device_0", 200, 1),
     MOD_1("device_1", 100, 2),
@@ -17,6 +19,10 @@ public enum OFDeviceType {
         this.name = name;
         this.totalProcessingTime = totalProcessingTime;
         this.fuelConsumption = fuelConsumption;
+    }
+
+    public static OFDeviceType valueOf (ResourceLocation id) {
+        return Arrays.stream(OFDeviceType.values()).filter(t -> t.getId().equals(id)).findFirst().orElse(MOD_0);
     }
 
     public String getName() {
