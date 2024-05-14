@@ -15,13 +15,13 @@ description='''${mod_description}'''
 
 [[dependencies.${mod_id}]]
     modId="neoforge"
-    mandatory=true
+    type="required"
     versionRange="${neo_version_range}"
     ordering="NONE"
     side="${side}"
 [[dependencies.${mod_id}]]
     modId="minecraft"
-    mandatory=true
+    type="required"
     versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="${side}"
