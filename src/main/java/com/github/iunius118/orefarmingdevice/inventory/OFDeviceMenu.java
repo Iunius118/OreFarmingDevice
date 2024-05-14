@@ -108,7 +108,7 @@ public class OFDeviceMenu extends AbstractContainerMenu {
     }
 
     protected boolean isFuel(ItemStack stack) {
-        return net.neoforged.neoforge.common.CommonHooks.getBurnTime(stack, RecipeType.SMELTING) > 0;
+        return stack.getBurnTime(RecipeType.SMELTING) > 0;
     }
 
     @OnlyIn(Dist.CLIENT)

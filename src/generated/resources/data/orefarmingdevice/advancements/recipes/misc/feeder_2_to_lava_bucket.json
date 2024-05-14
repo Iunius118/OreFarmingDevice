@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "orefarmingdevice:cobblestone_feeder_2"
-            ]
+            "items": "orefarmingdevice:cobblestone_feeder_2"
           }
         ]
       },

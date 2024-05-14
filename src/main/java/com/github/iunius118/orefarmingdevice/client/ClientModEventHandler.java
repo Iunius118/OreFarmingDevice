@@ -2,11 +2,12 @@ package com.github.iunius118.orefarmingdevice.client;
 
 import com.github.iunius118.orefarmingdevice.client.gui.OFDeviceScreen;
 import com.github.iunius118.orefarmingdevice.inventory.ModMenuTypes;
-import net.minecraft.client.gui.screens.MenuScreens;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 
 public class ClientModEventHandler {
-    public static void setup(FMLClientSetupEvent event) {
-        MenuScreens.register(ModMenuTypes.DEVICE, OFDeviceScreen::new);
+    @SubscribeEvent
+    public static void onRegisterMenuScreens(RegisterMenuScreensEvent event) {
+        event.register(ModMenuTypes.DEVICE, OFDeviceScreen::new);
     }
 }

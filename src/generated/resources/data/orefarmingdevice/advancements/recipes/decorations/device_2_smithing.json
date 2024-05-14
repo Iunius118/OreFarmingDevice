@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "orefarmingdevice:device_1"
-            ]
+            "items": "orefarmingdevice:device_1"
           }
         ]
       },

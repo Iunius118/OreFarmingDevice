@@ -8,6 +8,7 @@ import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederItem;
 import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederType;
 import com.github.iunius118.orefarmingdevice.world.item.crafting.ModRecipeTypes;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -110,14 +111,14 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     }
 
     @Override
-    public void load(CompoundTag compoundTag) {
-        super.load(compoundTag);
+    public void loadAdditional(CompoundTag compoundTag, HolderLookup.Provider provider) {
+        super.loadAdditional(compoundTag, provider);
         farmingEfficiency = Mth.clamp(compoundTag.getFloat(KEY_EFFICIENCY), 0F, MAX_EFFICIENCY);
     }
 
     @Override
-    protected void saveAdditional(CompoundTag compoundTag) {
-        super.saveAdditional(compoundTag);
+    protected void saveAdditional(CompoundTag compoundTag, HolderLookup.Provider provider) {
+        super.saveAdditional(compoundTag, provider);
         compoundTag.putFloat(KEY_EFFICIENCY, Mth.clamp(farmingEfficiency, 0F, MAX_EFFICIENCY));
     }
 
@@ -243,7 +244,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         if (server == null)
             return Collections.emptyList();
 
-        var lootTable = server.getLootData().getLootTable(productLootTable.getId());
+        var lootTable = server.reloadableRegistries().getLootTable(productLootTable.getResourceKey());
         float luck = getFarmingEfficiency();
 
         /* DEBUG: log selected loot table
@@ -286,7 +287,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     @Override
     public void setItem(int slot, ItemStack newStack) {
         ItemStack oldStack = items.get(slot);
-        boolean flag = !newStack.isEmpty() && ItemStack.isSameItemSameTags(newStack, oldStack);
+        boolean flag = !newStack.isEmpty() && ItemStack.isSameItemSameComponents(newStack, oldStack);
         items.set(slot, newStack);
 
         if (newStack.getCount() > getMaxStackSize()) {
