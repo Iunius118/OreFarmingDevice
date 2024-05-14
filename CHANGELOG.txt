@@ -4,6 +4,14 @@
 
 ## [Unreleased]
 
+## [5.0.0 NeoForge]
+### Changed
+- Port to 1.20.6.
+- Require NeoForge 20.6.62-beta+.
+
+### Fixed
+- Fix access to unloaded config values.
+
 ## [4.0.1 NeoForge]
 ### Fixed
 - Recipe type for OF devices.

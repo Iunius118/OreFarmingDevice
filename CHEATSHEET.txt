@@ -1,5 +1,5 @@
 # Cheatsheet
-O.F.Device (Ore Farming Device) for NeoForge v4.0.0
+O.F.Device (Ore Farming Device) for NeoForge v5.0.0
 
 ## Blocks
 ### OF Device
