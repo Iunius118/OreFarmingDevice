@@ -15,7 +15,7 @@ O.F.Device is a Minecraft mod to add devices for farming ores.
 
 ## Description
 
-Version 4.0.0+
+Version 4.0.0 (Minecraft 1.20.2) or later.
 
 ### OF Device (ＯＦ装置)
 
@@ -153,7 +153,7 @@ OF C Feeder II + Stick -> Diamond Pickaxe
 
 ### Config
 
-`(world_save_dir)/serverconfig/orefarmingdevice-server.toml`
+`<world_save_dir>/serverconfig/orefarmingdevice-server.toml`
 
 Restart the game when you change the config. In multiplayer mode, server-side config will be used.
 
@@ -174,7 +174,4 @@ Restart the game when you change the config. In multiplayer mode, server-side co
 
 ## License
 
-- MIT license
-
-----
-Copyright © 2021 Iunius118
+This project is licensed under the MIT license.

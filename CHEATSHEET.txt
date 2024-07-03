@@ -1,5 +1,5 @@
 # Cheatsheet
-O.F.Device (Ore Farming Device) v5.0.0
+O.F.Device (Ore Farming Device) v6.0.0
 
 ## Blocks
 ### OF Device
@@ -61,7 +61,7 @@ O.F.Device (Ore Farming Device) v5.0.0
 - Recycling recipe (crafting): OF C Feeder II + Stick -> Diamond Pickaxe
 
 ## Config
-`(world_save_dir)/serverconfig/orefarmingdevice-server.toml`
+`<world_save_dir>/serverconfig/orefarmingdevice-server.toml`
 
 Restart the game when you change the config. In multiplayer mode, server-side config will be used.
 
