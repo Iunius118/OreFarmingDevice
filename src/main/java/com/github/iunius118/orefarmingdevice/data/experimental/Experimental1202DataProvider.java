@@ -17,6 +17,7 @@ import net.minecraft.server.packs.PackLocationInfo;
 import net.minecraft.server.packs.PackSelectionConfig;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.PathPackResources;
+import net.minecraft.server.packs.repository.KnownPack;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.util.ProblemReporter;
@@ -62,11 +63,15 @@ public class Experimental1202DataProvider {
             return;
         }
 
-        var packInfo = new PackLocationInfo(PACK_ID.toString(), Component.literal(PACK_PATH), PackSource.FEATURE, Optional.empty());
+        var knownPack = new KnownPack(OreFarmingDevice.MOD_ID, PACK_PATH, "1.0");
+        var packInfo = new PackLocationInfo(PACK_ID.toString(), Component.literal(PACK_PATH), PackSource.FEATURE, Optional.of(knownPack));
         var resourcePath = ModList.get().getModFileById(OreFarmingDevice.MOD_ID).getFile().findResource(PACK_PATH);
         var packConfig = new PackSelectionConfig(false, Pack.Position.TOP, false);
         var pack = Pack.readMetaAndCreate(packInfo, new PathPackResources.PathResourcesSupplier(resourcePath), PackType.SERVER_DATA, packConfig);
-        event.addRepositorySource((packConsumer) -> packConsumer.accept(pack));
+
+        if (pack != null) {
+            event.addRepositorySource((packConsumer) -> packConsumer.accept(pack));
+        }
     }
 
     private static class ExperimentalLootTableProvider extends LootTableProvider {
@@ -87,8 +92,14 @@ public class Experimental1202DataProvider {
     }
 
     private static class ExperimentalDeviceLootTables implements LootTableSubProvider {
+        private final HolderLookup.Provider provider;
+
+        public ExperimentalDeviceLootTables(HolderLookup.Provider lookupProvider) {
+            provider = lookupProvider;
+        }
+
         @Override
-        public void generate(HolderLookup.Provider provider, BiConsumer<ResourceKey<LootTable>, LootTable.Builder> consumer) {
+        public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> consumer) {
             // OF Device Mod 1
             consumer.accept(ModLootTables.DEVICE_1_DEEP.getResourceKey(),
                     LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))

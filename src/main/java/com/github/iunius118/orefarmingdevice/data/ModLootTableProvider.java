@@ -53,8 +53,8 @@ public class ModLootTableProvider extends LootTableProvider {
                 ModBlocks.DEVICE_2
         ).collect(ImmutableList.toImmutableList());
 
-        protected ModBlockLootTables() {
-            super(Set.of(), FeatureFlags.REGISTRY.allFlags());
+        public ModBlockLootTables(HolderLookup.Provider provider) {
+            super(Set.of(), FeatureFlags.REGISTRY.allFlags(), provider);
         }
 
         @Override
@@ -69,8 +69,14 @@ public class ModLootTableProvider extends LootTableProvider {
     }
 
     private static class ModDeviceLootTables implements LootTableSubProvider {
+        private final HolderLookup.Provider provider;
+
+        public ModDeviceLootTables(HolderLookup.Provider lookupProvider) {
+            provider = lookupProvider;
+        }
+
         @Override
-        public void generate(HolderLookup.Provider provider, BiConsumer<ResourceKey<LootTable>, LootTable.Builder> consumer) {
+        public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> consumer) {
             // OF Device
             consumer.accept(ModLootTables.DEVICE_0.getResourceKey(),
                     LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
