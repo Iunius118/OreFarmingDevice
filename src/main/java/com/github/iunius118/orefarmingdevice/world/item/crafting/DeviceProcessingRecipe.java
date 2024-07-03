@@ -7,12 +7,8 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
-import net.minecraft.world.item.crafting.CookingBookCategory;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 
 import java.util.Optional;
@@ -23,8 +19,8 @@ public class DeviceProcessingRecipe extends AbstractCookingRecipe {
     }
 
     @Override
-    public boolean matches(Container container, Level level) {
-        ItemStack stack = container.getItem(0);
+    public boolean matches(SingleRecipeInput recipeInput, Level level) {
+        ItemStack stack = recipeInput.item();
         return ModLootTables.find(OFDeviceLootCondition.MOD_0_IN_SHALLOW_LAYER, stack).isPresent();
     }
 
