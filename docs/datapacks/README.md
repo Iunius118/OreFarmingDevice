@@ -1,4 +1,4 @@
-# Example Data packs
+# Example Data Packs
 
 Example data packs to modify loot tables of devices.
 
