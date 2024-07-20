@@ -6,17 +6,17 @@
 
 - Fuel: Same as Furnace
 - Energy: Same as fuel's burning time in ticks
-- Farming efficiency: appearance rate of ores increases with number of players, villagers, etc. (up to 3) around the device (5x3x5).
+- Farming efficiency: appearance rate of ores increases with number of players, villagers, etc. (up to 3) around the device (5x3x5) 
 
 #### OF Device (ＯＦ装置)
 
 - Recipe
   - Crafting Table: <br/>` # F # ` <br/>` # L # ` <br />` i x i ` <br />(# = Stone, F = Furnace, L = Lever, i = Iron Ingot, x = Stone Pickaxe)
-- Loot table of product
+- Loot tables of products
   - Cobblestone -> Stone, Coal Ore, Copper Ore, Lapis Lazuli Ore, Iron Ore
   - Cobbled Deepslate -> Deepslate, Deepslate Coal Ore, Deepslate Copper Ore, Deepslate Lapis Lazuli Ore, Deepslate Iron Ore
   - Netherrack -> Nether Brick, Nether Quartz Ore, Nether Gold Ore
-- Farming costs: 10 seconds and 200 units of energy
+- Farming cost: 10 seconds and 200 units of energy
 
 **Table 1.1.1.1:** Loot Table of Cobblestone by OF Device
 
@@ -48,13 +48,14 @@
 
 #### OF Device Mod 1 (ＯＦ装置改)
 
-- Recipe
-  - Crafting/Smithing Table: OF Device + Iron Pickaxe
-- Loot table of product
+- Recipes
+  - Crafting Table: OF Device + Iron Pickaxe
+  - Smithing Table: Paper + OF Device + Iron Pickaxe
+- Loot tables of products
   - Cobblestone -> Device result, Gold Ore, Redstone Ore, Diamond Ore
   - Cobbled Deepslate -> Device result, Deepslate Gold Ore, Deepslate Redstone Ore, Deepslate Diamond Ore
   - Netherrack -> Nether Brick, Nether Quartz Ore, Nether Gold Ore
-- Farming costs: 5 seconds and 200 units of energy
+- Farming cost: 5 seconds and 200 units of energy
 
 **Table 1.1.2.1:** Loot Table of Cobblestone by OF Device Mod 1
 
@@ -92,13 +93,14 @@
 
 #### OF Device Mod 2 (ＯＦ装置改二)
 
-- Recipe
-  - Crafting/Smithing Table: OF Device Mod 1 + Diamond Pickaxe
-- Loot table of product
+- Recipes
+  - Crafting Table: OF Device Mod 1 + Diamond Pickaxe
+  - Smithing Table: Paper + OF Device Mod 1 + Diamond Pickaxe
+- Loot tables of products
   - Cobblestone -> Mod 1 result, Emerald Ore, Amethyst Shard
   - Cobbled Deepslate -> Mod 1 result, Deepslate Emerald Ore, Amethyst Shard
   - Netherrack -> Mod 1 result, Ancient Debris
-- Farming costs: 2.5 seconds and 200 units of energy
+- Farming cost: 2.5 seconds and 200 units of energy
 
 **Table 1.1.3.1:** Loot Table of Cobblestone by OF Device Mod 2
 
@@ -139,6 +141,12 @@
 | Nether Gold Ore   |   1.00% |
 | Ancient Debris    |   0.10% |
 
+
+### OF C Davice (ＯＦ丙装置)
+
+- Cobblestone generator
+- 2.5 cobblestones/sec (8 ticks/cobblestone)
+
 ## Items
 
 ### ~~OF Jig (ＯＦ治具)~~
@@ -149,7 +157,7 @@
 - Energy: Max 2560
 - Recharging: Using energy of OF Device
 - Recharging rate: 1 unit of pickaxe energy every 10 units of device energy
-- Loot table of product
+- Loot tables of products
   - Stone, Deepslate -> Coal, Raw Copper, Raw Iron, Lapis Lazuli, Raw Gold, Redstone, Diamond, Emerald
   - Netherrack -> Nether Quartz, Gold Nugget
 
@@ -157,12 +165,12 @@
 
 - When this item is placed in the material slot of an OF device, it will be smelted like Cobblestone without being consumed
 - When this item is placed in the material slot of an OF device, the device's fuel consumption will be doubled
-- When the device with this item is at Y<=0, this item works like Cobbled Deepslate 
+- When the device with this item is at Y<=0, this item works like Cobbled Deepslate
 
 ### OF C Feeder II (ＯＦ丙供給装置二型)
 
 - Improved version of Feeder I with no increase in fuel consumption
- 
+
 ## Data Pack
 
 ### Experimental Data Pack 1.20.2 [Only v0.8.0]
