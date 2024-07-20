@@ -9,4 +9,5 @@ public class ModBlockEntityTypes {
     public static final TileEntityType<OFDeviceBlockEntity> DEVICE_0 = null;
     public static final TileEntityType<OFDeviceBlockEntity> DEVICE_1 = null;
     public static final TileEntityType<OFDeviceBlockEntity> DEVICE_2 = null;
+    public static final TileEntityType<CobblestoneDeviceBlockEntity> COBBLESTONE_DEVICE_0 = null;
 }

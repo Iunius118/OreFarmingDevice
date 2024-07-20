@@ -41,7 +41,8 @@ public class ModLootTableProvider extends LootTableProvider {
         private final List<Block> ofDeviceBlocks = Stream.of(
                 ModBlocks.DEVICE_0,
                 ModBlocks.DEVICE_1,
-                ModBlocks.DEVICE_2
+                ModBlocks.DEVICE_2,
+                ModBlocks.COBBLESTONE_DEVICE_0
         ).collect(ImmutableList.toImmutableList());
 
         @Override
