@@ -1,12 +1,14 @@
 # Cheatsheet
-O.F.Device (Ore Farming Device) v1.0.0
+O.F.Device (Ore Farming Device) v1.1.0
 
 ## Blocks
 ### OF Device
-- Recipe (# = Stone, F = Furnace, L = Lever, i = Iron Ingot, x = Stone Pickaxe)
-  - ` # F # `
-  - ` # L # `
-  - ` i x i `
+- Recipe (# = Stone, F = Furnace, L = Lever, i = Iron Ingot, x = Stone Pickaxe):
+
+    # F #
+    # L #
+    i x i
+
 - Make Stones or Ores from Cobblestone
 - Products made from Cobblestone: Stone, Coal Ore, Iron Ore, Lapis Lazuli Ore
 - Make Nether Bricks or Nether Ores from Netherrack
@@ -33,12 +35,25 @@ O.F.Device (Ore Farming Device) v1.0.0
 - Products made from Cobblestone: Stone, Coal Ore, Iron Ore, Redstone Ore, Gold Ore, Lapis Lazuli Ore, Diamond Ore, Emerald Ore
 - Products made from Netherrack: Nether Brick, Nether Quartz Ore, Nether Gold Ore, Ancient Debris
 
+### OF C Device
+- Recipe (# = Stone, f = OF C Feeder II, R = Redstone Torch):
+
+    # # #
+    # f #
+    # R #
+
+- Generate Cobblestones
+- Hopper can be used to pull cobblestones from underside of the device
+- Recycling recipe (crafting): OF C Device -> OF C Feeder II
+
 ## Items
 ### OF C Feeder I
-- Recipe (L = Lava Bucket, R = Redstone Repeater, P = Piston, x = Stone Pickaxe, W = Water Bucket)
-  - ` _ _ L `
-  - ` R P x `
-  - ` _ _ W `
+- Recipe (L = Lava Bucket, R = Redstone Repeater, P = Piston, x = Stone Pickaxe, W = Water Bucket):
+
+    _ _ L
+    R P x
+    _ _ W
+
 - This item provides an infinite supply of Cobblestones to OF Devices
 - Place this item in the material slot of an OF device
 - This item consumes twice as much fuel as material blocks
