@@ -141,6 +141,12 @@
 | Nether Gold Ore   |   1.00% |
 | Ancient Debris    |   0.10% |
 
+
+### OF C Davice (ＯＦ丙装置)
+
+- Cobblestone generator
+- 2.5 cobblestones/sec (8 ticks/cobblestone)
+
 ## Items
 
 ### ~~OF Jig (ＯＦ治具)~~
@@ -164,11 +170,6 @@
 ### OF C Feeder II (ＯＦ丙供給装置二型)
 
 - Improved version of Feeder I with no increase in fuel consumption
-
-### OF C Davice (ＯＦ丙装置)
-
-- Cobblestone generator
-- 2.5 cobblestones/sec (8 ticks/cobblestone)
 
 ## Data Pack
 
