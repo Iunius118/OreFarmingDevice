@@ -165,6 +165,11 @@
 
 - Improved version of Feeder I with no increase in fuel consumption
 
+### OF C Davice (ＯＦ丙装置)
+
+- Cobblestone generator
+- 2.5 cobblestones/sec (8 ticks/cobblestone)
+
 ## Data Pack
 
 ### Experimental Data Pack 1.20.2 [Only v0.8.0]
