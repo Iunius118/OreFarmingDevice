@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "casing=normal": {
+      "model": "orefarmingdevice:block/cobblestone_device_0_0"
+    },
+    "casing=stone": {
+      "model": "orefarmingdevice:block/cobblestone_device_0_1"
+    },
+    "casing=log": {
+      "model": "orefarmingdevice:block/cobblestone_device_0_2"
+    },
+    "casing=coal": {
+      "model": "orefarmingdevice:block/cobblestone_device_0_3"
+    },
+    "casing=iron": {
+      "model": "orefarmingdevice:block/cobblestone_device_0_4"
+    },
+    "casing=copper": {
+      "model": "orefarmingdevice:block/cobblestone_device_0_5"
+    },
+    "casing=machine": {
+      "model": "orefarmingdevice:block/cobblestone_device_0_6"
+    }
+  }
+}

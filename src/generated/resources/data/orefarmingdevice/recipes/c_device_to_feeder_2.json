@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "orefarmingdevice:cobblestone_device_0"
+    }
+  ],
+  "result": {
+    "item": "orefarmingdevice:cobblestone_feeder_2"
+  }
+}

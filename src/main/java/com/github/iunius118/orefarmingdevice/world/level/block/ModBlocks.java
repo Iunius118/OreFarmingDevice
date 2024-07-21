@@ -8,4 +8,5 @@ public class ModBlocks {
     public static final OFDeviceBlock DEVICE_0 = null;
     public static final OFDeviceBlock DEVICE_1 = null;
     public static final OFDeviceBlock DEVICE_2 = null;
+    public static final CobblestoneDeviceBlock COBBLESTONE_DEVICE_0 = null;
 }
