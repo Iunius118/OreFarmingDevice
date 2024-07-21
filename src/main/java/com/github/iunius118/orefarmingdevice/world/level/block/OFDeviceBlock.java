@@ -63,6 +63,7 @@ public class OFDeviceBlock extends AbstractFurnaceBlock {
     @Override
     protected void openContainer(World level, BlockPos pos, PlayerEntity player) {
         TileEntity tileentity = level.getBlockEntity(pos);
+
         if (tileentity instanceof OFDeviceBlockEntity) {
             player.openMenu((OFDeviceBlockEntity) tileentity);
         }
@@ -72,6 +73,7 @@ public class OFDeviceBlock extends AbstractFurnaceBlock {
     public void setPlacedBy(World level, BlockPos pos, BlockState state, @Nullable LivingEntity entity, ItemStack stack) {
         if (stack.hasCustomHoverName()) {
             TileEntity tileentity = level.getBlockEntity(pos);
+
             if (tileentity instanceof OFDeviceBlockEntity) {
                 ((OFDeviceBlockEntity)tileentity).setCustomName(stack.getHoverName());
             }
@@ -82,6 +84,7 @@ public class OFDeviceBlock extends AbstractFurnaceBlock {
     public void onRemove(BlockState state, World level, BlockPos pos, BlockState oldState, boolean p_196243_5_) {
         if (!state.is(oldState.getBlock())) {
             TileEntity tileentity = level.getBlockEntity(pos);
+
             if (tileentity instanceof OFDeviceBlockEntity) {
                 OFDeviceBlockEntity ofDeviceBlockEntity = (OFDeviceBlockEntity) tileentity;
                 InventoryHelper.dropContents(level, pos, ofDeviceBlockEntity);

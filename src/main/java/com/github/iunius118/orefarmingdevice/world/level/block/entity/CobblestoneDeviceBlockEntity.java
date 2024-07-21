@@ -23,6 +23,7 @@ import net.minecraft.util.text.TranslationTextComponent;
 import javax.annotation.Nullable;
 
 public class CobblestoneDeviceBlockEntity extends LockableTileEntity implements ISidedInventory, ITickableTileEntity {
+    public static final String KEY_INTERVAL_TIME = "IntervalTime";
     private static final int[] SLOTS_FOR_DOWN = new int[]{0};
     private static final int CONTAINER_SIZE = 1;
     public static final int SLOT_RESULT = 0;
@@ -31,9 +32,9 @@ public class CobblestoneDeviceBlockEntity extends LockableTileEntity implements 
     public final CobblestoneDeviceType type;
     protected final IIntArray dataAccess = new IntArray(0);
 
-    protected CobblestoneDeviceBlockEntity(TileEntityType<?> blockEntityType, CobblestoneDeviceType feederType) {
+    protected CobblestoneDeviceBlockEntity(TileEntityType<?> blockEntityType, CobblestoneDeviceType cobblestoneDeviceType) {
         super(blockEntityType);
-        type = feederType;
+        type = cobblestoneDeviceType;
     }
 
     public CobblestoneDeviceBlockEntity(CobblestoneDeviceType type) {
@@ -57,13 +58,13 @@ public class CobblestoneDeviceBlockEntity extends LockableTileEntity implements 
         super.load(state, nbt);
         items = NonNullList.withSize(getContainerSize(), ItemStack.EMPTY);
         ItemStackHelper.loadAllItems(nbt, items);
-        intervalTime = nbt.getInt("IntervalTime");
+        intervalTime = nbt.getInt(KEY_INTERVAL_TIME);
     }
 
     @Override
     public CompoundNBT save(CompoundNBT nbt) {
         super.save(nbt);
-        nbt.putInt("IntervalTime", intervalTime);
+        nbt.putInt(KEY_INTERVAL_TIME, intervalTime);
         ItemStackHelper.saveAllItems(nbt, items);
         return nbt;
     }

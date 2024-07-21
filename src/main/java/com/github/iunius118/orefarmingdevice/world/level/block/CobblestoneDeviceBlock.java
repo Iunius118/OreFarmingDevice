@@ -30,15 +30,15 @@ public class CobblestoneDeviceBlock extends ContainerBlock {
 
     public final CobblestoneDeviceType type;
 
-    public CobblestoneDeviceBlock(Properties properties, CobblestoneDeviceType feederType) {
+    public CobblestoneDeviceBlock(Properties properties, CobblestoneDeviceType cobblestoneDeviceType) {
         super(properties);
         registerDefaultState(stateDefinition.any().setValue(CASING, OFDeviceCasing.NORMAL));
-        type = feederType;
+        type = cobblestoneDeviceType;
     }
 
     @Nullable
     @Override
-    public TileEntity newBlockEntity(IBlockReader p_196283_1_) {
+    public TileEntity newBlockEntity(IBlockReader blockReader) {
         return new CobblestoneDeviceBlockEntity(type);
     }
 
@@ -62,6 +62,7 @@ public class CobblestoneDeviceBlock extends ContainerBlock {
 
     protected void openContainer(World level, BlockPos pos, PlayerEntity player) {
         TileEntity tileentity = level.getBlockEntity(pos);
+
         if (tileentity instanceof CobblestoneDeviceBlockEntity) {
             player.openMenu((CobblestoneDeviceBlockEntity) tileentity);
         }
@@ -71,6 +72,7 @@ public class CobblestoneDeviceBlock extends ContainerBlock {
     public void setPlacedBy(World level, BlockPos pos, BlockState state, @Nullable LivingEntity entity, ItemStack stack) {
         if (stack.hasCustomHoverName()) {
             TileEntity tileentity = level.getBlockEntity(pos);
+
             if (tileentity instanceof CobblestoneDeviceBlockEntity) {
                 ((CobblestoneDeviceBlockEntity)tileentity).setCustomName(stack.getHoverName());
             }
@@ -81,6 +83,7 @@ public class CobblestoneDeviceBlock extends ContainerBlock {
     public void onRemove(BlockState state, World level, BlockPos pos, BlockState oldState, boolean p_196243_5_) {
         if (!state.is(oldState.getBlock())) {
             TileEntity tileentity = level.getBlockEntity(pos);
+
             if (tileentity instanceof CobblestoneDeviceBlockEntity) {
                 CobblestoneDeviceBlockEntity cobblestoneDeviceBlockEntity = (CobblestoneDeviceBlockEntity) tileentity;
                 InventoryHelper.dropContents(level, pos, cobblestoneDeviceBlockEntity);

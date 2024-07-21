@@ -33,7 +33,7 @@ public class OFDeviceScreen extends ContainerScreen<OFDeviceContainer> {
     protected void renderBg(MatrixStack matrixStack, float renderTicks, int mouseX, int mouseY) {
         RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
         this.minecraft.getTextureManager().bind(TEXTURE);
-        this.blit(matrixStack, this.leftPos, topPos, 0, 0, this.imageWidth, this.imageHeight);
+        this.blit(matrixStack, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight);
 
         if (this.menu.isLit()) {
             // Render remaining burn time bar
