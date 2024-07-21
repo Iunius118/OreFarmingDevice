@@ -4,7 +4,7 @@
 
 ## [Unreleased]
 
-## [1.1.0-beta.1]
+## [1.1.0]
 ### Added
 - Add OF C Device, a cobblestone generator.
 
