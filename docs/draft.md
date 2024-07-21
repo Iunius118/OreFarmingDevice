@@ -11,7 +11,12 @@
 #### OF Device (ＯＦ装置)
 
 - Recipe
-  - Crafting Table: <br/>` # F # ` <br/>` # L # ` <br />` i x i ` <br />(# = Stone, F = Furnace, L = Lever, i = Iron Ingot, x = Stone Pickaxe)
+  - Crafting Table (# = Stone, F = Furnace, L = Lever, i = Iron Ingot, x = Stone Pickaxe)
+
+        # F #
+        # L #
+        i x i
+
 - Loot tables of products
   - Cobblestone -> Stone, Coal Ore, Copper Ore, Lapis Lazuli Ore, Iron Ore
   - Cobbled Deepslate -> Deepslate, Deepslate Coal Ore, Deepslate Copper Ore, Deepslate Lapis Lazuli Ore, Deepslate Iron Ore
@@ -140,6 +145,18 @@
 | Nether Quartz Ore |   3.00% |
 | Nether Gold Ore   |   1.00% |
 | Ancient Debris    |   0.10% |
+
+
+### OF C Davice (ＯＦ丙装置)
+
+- Cobblestone generator
+- 2.5 cobblestones/sec (8 ticks/cobblestone)
+- Recipe
+  - Crafting Table (# = Stone, f = OF C Feeder II, R = Redstone Torch)
+
+        # # #
+        # f #
+        # R #
 
 ## Items
 
