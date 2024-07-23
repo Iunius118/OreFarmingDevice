@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+## [3.0.2]
+### Added
+- Add OF C Device, a cobblestone generator.
+
 ## [3.0.1]
 ### Fixed
 - Recipe type for OF devices.
