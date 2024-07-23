@@ -22,14 +22,14 @@ public class OFDeviceScreen extends AbstractContainerScreen<OFDeviceMenu> {
     }
 
     @Override
-    public void render(GuiGraphics guiGraphics, int x, int y, float renderTicks) {
+    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float renderTicks) {
         renderBackground(guiGraphics);
-        super.render(guiGraphics, x, y, renderTicks);
-        renderTooltip(guiGraphics, x, y);
+        super.render(guiGraphics, mouseX, mouseY, renderTicks);
+        renderTooltip(guiGraphics, mouseX, mouseY);
     }
 
     @Override
-    protected void renderBg(GuiGraphics guiGraphics, float renderTicks, int x, int y) {
+    protected void renderBg(GuiGraphics guiGraphics, float renderTicks, int mouseX, int mouseY) {
         int left = this.leftPos;
         int top = this.topPos;
         guiGraphics.blit(TEXTURE, left, top, 0, 0, this.imageWidth, this.imageHeight);
