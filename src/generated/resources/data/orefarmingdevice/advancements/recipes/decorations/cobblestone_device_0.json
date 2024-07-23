@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_feeder_2": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "orefarmingdevice:cobblestone_feeder_2"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "orefarmingdevice:cobblestone_device_0"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_feeder_2",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "orefarmingdevice:cobblestone_device_0"
+    ]
+  }
+}
