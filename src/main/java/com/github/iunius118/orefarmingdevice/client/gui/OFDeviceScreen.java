@@ -24,27 +24,27 @@ public class OFDeviceScreen extends AbstractContainerScreen<OFDeviceMenu> {
     }
 
     @Override
-    public void render(PoseStack matrixStack, int x, int y, float renderTicks) {
+    public void render(PoseStack matrixStack, int mouseX, int mouseY, float renderTicks) {
         renderBackground(matrixStack);
-        super.render(matrixStack, x, y, renderTicks);
-        renderTooltip(matrixStack, x, y);
+        super.render(matrixStack, mouseX, mouseY, renderTicks);
+        renderTooltip(matrixStack, mouseX, mouseY);
     }
 
     @Override
-    protected void renderBg(PoseStack matrixStack, float p_230450_2_, int p_230450_3_, int p_230450_4_) {
+    protected void renderBg(PoseStack matrixStack, float renderTicks, int mouseX, int mouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
-        blit(matrixStack, leftPos, topPos, 0, 0, this.imageWidth, this.imageHeight);
+        this.blit(matrixStack, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight);
 
         if (this.menu.isLit()) {
             // Render remaining burn time bar
             int k = this.menu.getLitProgress();
-            blit(matrixStack, leftPos + 78, topPos + 28 + 29 - k, 176, 29 - k, 8, k + 1);
+            this.blit(matrixStack, this.leftPos + 78, this.topPos + 28 + 29 - k, 176, 29 - k, 8, k + 1);
         }
 
         // Render smelting progress bar
         int l = this.menu.getBurnProgress();
-        blit(matrixStack, leftPos + 108, topPos + 35, 176, 30, 16, l + 1);
+        this.blit(matrixStack, this.leftPos + 108, this.topPos + 35, 176, 30, 16, l + 1);
     }
 }
