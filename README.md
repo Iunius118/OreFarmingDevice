@@ -15,7 +15,7 @@ O.F.Device is a Minecraft mod to add devices for farming ores.
 
 ## Description
 
-Version 3.2.0
+Version 3.2.2
 
 ### OF Device (ＯＦ装置)
 
@@ -151,6 +151,32 @@ OF C Feeder II + Bucket -> Lava Bucket
 
 OF C Feeder II + Stick -> Diamond Pickaxe
 
+### OF C Device (ＯＦ丙装置)
+
+OF C Device is a cobblestone generator.
+
+丸石を生成する装置。
+
+#### Recipe
+
+![ ](./docs/media/recipe_cobblestone_device_0_v110.png "Crafting recipe: OF C Device")
+
+7 Stones + OF C Feeder II + Redstone Torch
+
+#### GUI
+
+![ ](./docs/media/gui_cobblestone_device_0_v110.png "GUI: OF C Device")
+
+Hopper can be used to pull cobblestones from underside of the device.
+
+装置の下面にホッパーを接続して丸石の搬出が可能。
+
+#### Recycling Recipes
+
+![ ](./docs/media/recipe_c_device_to_feeder_2_v110.png "Crafting recipe: OF C Feeder II")
+
+OF C Device -> OF C Feeder II
+
 ### Data Pack
 
 Built-in optional data pack.
@@ -192,7 +218,4 @@ Restart the game when you change the config. In multiplayer mode, server-side co
 
 ## License
 
-- MIT license
-
-----
-Copyright © 2021 Iunius118
+This project is licensed under the MIT license.

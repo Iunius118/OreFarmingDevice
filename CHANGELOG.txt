@@ -4,6 +4,13 @@
 
 ## [Unreleased]
 
+## [3.2.2]
+### Added
+- Add OF C Device, a cobblestone generator.
+
+### Changed
+- Bump up version from 3.2.0 to 3.2.2.
+
 ## [3.2.0]
 ### Added
 - OF C Feeder II item. This item is the improved version of OF C Feeder I and does not increase fuel consumption.
