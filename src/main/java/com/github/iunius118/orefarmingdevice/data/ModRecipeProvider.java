@@ -104,6 +104,23 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(Tags.Items.RODS_WOODEN)
                 .unlockedBy("has_feeder_2", has(ModItems.COBBLESTONE_FEEDER_2))
                 .save(consumer, OreFarmingDevice.MOD_ID + ":feeder_2_to_diamond_pickaxe");
+
+        // Cobblestone Devise
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.COBBLESTONE_DEVICE_0)
+                .pattern("###")
+                .pattern("#f#")
+                .pattern("#R#")
+                .define('#', Blocks.STONE)
+                .define('f', ModItems.COBBLESTONE_FEEDER_2)
+                .define('R', Blocks.REDSTONE_TORCH)
+                .unlockedBy("has_feeder_2", has(ModItems.COBBLESTONE_FEEDER_2))
+                .save(consumer);
+
+        // Cobblestone Devise -> Cobblestone Feeder II
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.COBBLESTONE_FEEDER_2)
+                .requires(ModItems.COBBLESTONE_DEVICE_0)
+                .unlockedBy("has_c_device", has(ModItems.COBBLESTONE_DEVICE_0))
+                .save(consumer, OreFarmingDevice.MOD_ID + ":c_device_to_feeder_2");
     }
 
     private ResourceLocation getItemId(Item item) {
