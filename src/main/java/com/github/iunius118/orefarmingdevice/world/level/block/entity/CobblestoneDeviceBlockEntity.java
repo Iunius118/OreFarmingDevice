@@ -167,6 +167,16 @@ public class CobblestoneDeviceBlockEntity extends BaseContainerBlockEntity imple
     public void setItem(int index, ItemStack newStack) {
     }
 
+    public void setItemForGameTest(int index, ItemStack newStack) {
+        items.set(index, newStack);
+
+        if (!newStack.isEmpty() && newStack.getCount() > this.getMaxStackSize()) {
+            newStack.setCount(this.getMaxStackSize());
+        }
+
+        this.setChanged();
+    }
+
     @Override
     public boolean stillValid(Player player) {
         if (level.getBlockEntity(worldPosition) != this) {

@@ -63,6 +63,17 @@ public enum ModLootTables {
         return id;
     }
 
+
+    public ItemStack getMaterial() {
+        return material;
+    }
+
+    public OFDeviceLootCondition getLootCondition() {
+        return Arrays.stream(OFDeviceLootCondition.values())
+                .filter(canProcess)
+                .findFirst().orElse(OFDeviceLootCondition.NOT_APPLICABLE);
+    }
+
     public boolean canProcess(OFDeviceBlockEntity device, ItemStack stack) {
         if (material.getItem() instanceof CobblestoneFeederItem
                 && !OreFarmingDeviceConfig.SERVER.isCobblestoneFeederAvailable()) {
