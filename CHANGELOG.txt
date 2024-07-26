@@ -4,6 +4,13 @@
 
 ## [Unreleased]
 
+## [5.1.0 Forge]
+### Added
+- Add OF C Device, a cobblestone generator.
+
+### Changed
+- Require Forge 1.20.6-50.1.0+.
+
 ## [5.0.0 Forge]
 ### Changed
 - Port to 1.20.6.
