@@ -2,11 +2,13 @@ package com.github.iunius118.orefarmingdevice.common;
 
 import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
 import com.github.iunius118.orefarmingdevice.inventory.ModMenuTypes;
+import com.github.iunius118.orefarmingdevice.world.item.CobblestoneFeederType;
 import com.github.iunius118.orefarmingdevice.world.item.ModCreativeModeTabs;
 import com.github.iunius118.orefarmingdevice.world.item.ModItems;
 import com.github.iunius118.orefarmingdevice.world.item.crafting.ModRecipeSerializers;
 import com.github.iunius118.orefarmingdevice.world.item.crafting.ModRecipeTypes;
 import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
+import com.github.iunius118.orefarmingdevice.world.level.block.entity.CobblestoneDeviceType;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.ModBlockEntityTypes;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
 import net.minecraft.core.registries.Registries;
@@ -31,6 +33,7 @@ public class RegisterEventHandler {
         blockRegister.register(OFDeviceType.MOD_0.getName(), () -> ModBlocks.DEVICE_0);
         blockRegister.register(OFDeviceType.MOD_1.getName(), () -> ModBlocks.DEVICE_1);
         blockRegister.register(OFDeviceType.MOD_2.getName(), () -> ModBlocks.DEVICE_2);
+        blockRegister.register(CobblestoneDeviceType.BASIC.getName(), () -> ModBlocks.COBBLESTONE_DEVICE_0);
 
         blockRegister.register(modEventBus);
     }
@@ -41,8 +44,9 @@ public class RegisterEventHandler {
         itemRegister.register(OFDeviceType.MOD_0.getName(), () -> ModItems.DEVICE_0);
         itemRegister.register(OFDeviceType.MOD_1.getName(), () -> ModItems.DEVICE_1);
         itemRegister.register(OFDeviceType.MOD_2.getName(), () -> ModItems.DEVICE_2);
-        itemRegister.register("cobblestone_feeder", () -> ModItems.COBBLESTONE_FEEDER);
-        itemRegister.register("cobblestone_feeder_2", () -> ModItems.COBBLESTONE_FEEDER_2);
+        itemRegister.register(CobblestoneDeviceType.BASIC.getName(), () -> ModItems.COBBLESTONE_DEVICE_0);
+        itemRegister.register(CobblestoneFeederType.BASIC.getName(), () -> ModItems.COBBLESTONE_FEEDER);
+        itemRegister.register(CobblestoneFeederType.UPGRADED.getName(), () -> ModItems.COBBLESTONE_FEEDER_2);
 
         itemRegister.register(modEventBus);
     }
@@ -53,6 +57,7 @@ public class RegisterEventHandler {
         blockEntityTypeRegister.register(OFDeviceType.MOD_0.getName(), () -> ModBlockEntityTypes.DEVICE_0);
         blockEntityTypeRegister.register(OFDeviceType.MOD_1.getName(), () -> ModBlockEntityTypes.DEVICE_1);
         blockEntityTypeRegister.register(OFDeviceType.MOD_2.getName(), () -> ModBlockEntityTypes.DEVICE_2);
+        blockEntityTypeRegister.register(CobblestoneDeviceType.BASIC.getName(), () -> ModBlockEntityTypes.COBBLESTONE_DEVICE_0);
 
         blockEntityTypeRegister.register(modEventBus);
     }
@@ -77,6 +82,7 @@ public class RegisterEventHandler {
         var menuTypeRegister = DeferredRegister.create(ForgeRegistries.MENU_TYPES, OreFarmingDevice.MOD_ID);
 
         menuTypeRegister.register("device", () -> ModMenuTypes.DEVICE);
+        menuTypeRegister.register("cobblestone_device", () -> ModMenuTypes.COBBLESTONE_DEVICE);
 
         menuTypeRegister.register(modEventBus);
     }
