@@ -1,4 +1,5 @@
-// 1.20.2	2023-11-14T21:52:17.6485904	Loot Tables
+// 1.20.2	2024-07-27T00:04:15.8734031	Loot Tables
+c901d3d5ae6dc939f73a9d479f3da482d3630a6c data/orefarmingdevice/loot_tables/blocks/cobblestone_device_0.json
 12cf2b0ca3ec5dce7512c2834266e8bab44a8389 data/orefarmingdevice/loot_tables/blocks/device_0.json
 8b7ab5c5e4ed767c03743a0872349a70f80b36a6 data/orefarmingdevice/loot_tables/blocks/device_1.json
 14f44646af63dd1a06c4f0c09fc9a719445a46af data/orefarmingdevice/loot_tables/blocks/device_2.json
