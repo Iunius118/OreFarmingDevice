@@ -1,13 +1,17 @@
 # Cheatsheet
-O.F.Device (Ore Farming Device) v6.0.0
+
+[O.F.Device (Ore Farming Device)](https://github.com/Iunius118/O.F.Device)
+Version 6.1.0
 
 ## Blocks
+
 ### OF Device
+
 - Recipe (# = Stone, F = Furnace, L = Lever, i = Iron Ingot, x = Stone Pickaxe):
 
-    # F #
-    # L #
-    i x i
+      # F #
+      # L #
+      i x i
 
 - Make Stones or Ores from Cobblestone
 - Products made from Cobblestone: Stone, Coal Ore, Iron Ore, Copper Ore, Lapis Lazuli Ore
@@ -24,6 +28,7 @@ O.F.Device (Ore Farming Device) v6.0.0
 - The appearance of the OF Device block can be changed using a stick
 
 ### OF Device Mod 1
+
 - Recipe (crafting): OF Device + Iron Pickaxe
 - Recipe (smithing): Paper + OF Device + Iron Pickaxe
 - Processing speed is faster than OF Device
@@ -32,6 +37,7 @@ O.F.Device (Ore Farming Device) v6.0.0
 - Products made from Netherrack: Nether Brick, Nether Quartz Ore, Nether Gold Ore
 
 ### OF Device Mod 2
+
 - Recipe (crafting): OF Device Mod 1 + Diamond Pickaxe
 - Recipe (smithing): Paper + OF Device Mod 1 + Diamond Pickaxe
 - Processing speed is faster than OF Device Mod 1
@@ -39,13 +45,27 @@ O.F.Device (Ore Farming Device) v6.0.0
 - Products made from Cobbled Deepslate: Deepslate, Deepslate Redstone Ore, Deepslate Copper Ore, Deepslate Iron Ore, Deepslate Diamond Ore, Deepslate Gold Ore, Deepslate Lapis Lazuli Ore, Amethyst Shard, Deepslate Coal Ore, Deepslate Emerald Ore
 - Products made from Netherrack: Nether Brick, Nether Quartz Ore, Nether Gold Ore, Ancient Debris
 
+### OF C Device
+
+- Recipe (# = Stone, f = OF C Feeder II, R = Redstone Torch):
+
+      # # #
+      # f #
+      # R #
+
+- Generate Cobblestones
+- Hopper can be used to pull cobblestones from underside of the device
+- Recycling recipe (crafting): OF C Device -> OF C Feeder II
+
 ## Items
+
 ### OF C Feeder I
+
 - Recipe (L = Lava Bucket, R = Redstone Repeater, P = Piston, x = Stone Pickaxe, W = Water Bucket):
 
-    _ _ L
-    R P x
-    _ _ W
+      _ _ L
+      R P x
+      _ _ W
 
 - This item provides an infinite supply of Cobblestones to OF Devices
 - If the altitude of the device is 0 or below, this item will supply the device with Cobbled Deepslate
@@ -54,6 +74,7 @@ O.F.Device (Ore Farming Device) v6.0.0
 - Recycling recipe (crafting): OF C Feeder I + Bucket -> Lava Bucket
 
 ### OF C Feeder II
+
 - Recipe (crafting): OF C Feeder I + Diamond Pickaxe
 - Recipe (smithing): Paper + OF C Feeder I + Diamond Pickaxe
 - Improved version of Feeder I with no increase in fuel consumption
@@ -61,6 +82,7 @@ O.F.Device (Ore Farming Device) v6.0.0
 - Recycling recipe (crafting): OF C Feeder II + Stick -> Diamond Pickaxe
 
 ## Config
+
 The default config file is saved to the following path:
 
 - `<instance_path>/config/orefarmingdevice-server.toml`
@@ -68,7 +90,7 @@ The default config file is saved to the following path:
 Restart the game when you change the config. In multiplayer mode, server-side config will be used.
 
 - isCobblestoneFeederAvailable (boolean, default value is true)
-  - Whether OF C Feeders are available for devices
+  - Whether OF Cobblestone Feeder is available for devices
 - enableFarmingEfficiency (boolean, default value is true)
   - Whether mobs around device increase farming efficiency of device
 - accelerateProcessingSpeedByMod (boolean, default value is true)
@@ -77,21 +99,26 @@ Restart the game when you change the config. In multiplayer mode, server-side co
   - Whether to increase fuel consumption of device by modification
 
 ## Modifying Product Tables
-The products and their probabilities of each device can be modified using loot table in data pack. JSON files for the loot tables corresponding to each device are as follows.
+
+The products and their probabilities of each device can be modified using loot table in data pack.
+JSON files for the loot tables corresponding to each device are as follows.
 
 Here is the formula for the corrected weight: `weight + (farming_efficiency * quality)`.
 
-### OF Device
-- Cobblestone      : `(data_pack_root)/data/orefarmingdevice/loot_table/device_0.json`
+OF Device:
+
+- Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_table/device_0.json`
 - Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_table/device_0_d.json`
-- Netherrack       : `(data_pack_root)/data/orefarmingdevice/loot_table/device_0_n.json`
+- Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_table/device_0_n.json`
 
-### OF Device Mod 1
-- Cobblestone      : `(data_pack_root)/data/orefarmingdevice/loot_table/device_1.json`
+OF Device Mod 1:
+
+- Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_table/device_1.json`
 - Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_table/device_1_d.json`
-- Netherrack       : `(data_pack_root)/data/orefarmingdevice/loot_table/device_1_n.json`
+- Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_table/device_1_n.json`
 
-### OF Device Mod 2
-- Cobblestone      : `(data_pack_root)/data/orefarmingdevice/loot_table/device_2.json`
+OF Device Mod 2:
+
+- Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_table/device_2.json`
 - Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_table/device_2_d.json`
-- Netherrack       : `(data_pack_root)/data/orefarmingdevice/loot_table/device_2_n.json`
+- Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_table/device_2_n.json`
