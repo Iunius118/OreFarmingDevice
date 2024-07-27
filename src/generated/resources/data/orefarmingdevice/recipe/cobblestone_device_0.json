@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stone"
+    },
+    "R": {
+      "item": "minecraft:redstone_torch"
+    },
+    "f": {
+      "item": "orefarmingdevice:cobblestone_feeder_2"
+    }
+  },
+  "pattern": [
+    "###",
+    "#f#",
+    "#R#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "orefarmingdevice:cobblestone_device_0"
+  }
+}
