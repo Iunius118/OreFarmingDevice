@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+## [5.1.0 NeoForge]
+### Added
+- Add OF C Device, a cobblestone generator.
+
 ## [5.0.0 NeoForge]
 ### Changed
 - Port to 1.20.6.
