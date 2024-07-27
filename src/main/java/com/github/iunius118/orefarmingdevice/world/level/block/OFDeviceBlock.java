@@ -101,8 +101,8 @@ public class OFDeviceBlock extends AbstractFurnaceBlock {
     protected void openContainer(Level level, BlockPos pos, Player player) {
         var blockEntity = level.getBlockEntity(pos);
 
-        if (blockEntity instanceof OFDeviceBlockEntity) {
-            player.openMenu((OFDeviceBlockEntity) blockEntity);
+        if (blockEntity instanceof OFDeviceBlockEntity deviceBlockEntity) {
+            player.openMenu(deviceBlockEntity);
         }
     }
 
