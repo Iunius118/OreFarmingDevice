@@ -103,18 +103,18 @@ Here is the formula for the corrected weight: `weight + (farming_efficiency * qu
 
 OF Device:
 
-- Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_tables/device_0.json`
-- Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_tables/device_0_d.json`
-- Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_tables/device_0_n.json`
+- Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_table/device_0.json`
+- Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_table/device_0_d.json`
+- Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_table/device_0_n.json`
 
 OF Device Mod 1:
 
-- Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_tables/device_1.json`
-- Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_tables/device_1_d.json`
-- Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_tables/device_1_n.json`
+- Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_table/device_1.json`
+- Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_table/device_1_d.json`
+- Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_table/device_1_n.json`
 
 OF Device Mod 2:
 
-- Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2.json`
-- Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2_d.json`
-- Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_tables/device_2_n.json`
+- Cobblestone:       `(data_pack_root)/data/orefarmingdevice/loot_table/device_2.json`
+- Cobbled deepslate: `(data_pack_root)/data/orefarmingdevice/loot_table/device_2_d.json`
+- Netherrack:        `(data_pack_root)/data/orefarmingdevice/loot_table/device_2_n.json`
