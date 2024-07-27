@@ -3,6 +3,7 @@ package com.github.iunius118.orefarmingdevice.data;
 import com.github.iunius118.orefarmingdevice.OreFarmingDevice;
 import com.github.iunius118.orefarmingdevice.world.item.ModItems;
 import com.github.iunius118.orefarmingdevice.world.level.block.ModBlocks;
+import com.github.iunius118.orefarmingdevice.world.level.block.entity.CobblestoneDeviceType;
 import com.github.iunius118.orefarmingdevice.world.level.block.entity.OFDeviceType;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -28,6 +29,7 @@ public class ModLanguageProvider extends LanguageProvider {
         public String deviceModZeroName = "OF Device";
         public String deviceModOneName = "OF Device Mod 1";
         public String deviceModTwoName = "OF Device Mod 2";
+        public String cobblestoneDeviceName = "OF C Device";
         public String cobblestoneFeederName = "OF C Feeder I";
         public String cobblestoneFeeder2Name = "OF C Feeder II";
     }
@@ -38,6 +40,7 @@ public class ModLanguageProvider extends LanguageProvider {
             deviceModZeroName = "ＯＦ装置";
             deviceModOneName = "ＯＦ装置改";
             deviceModTwoName = "ＯＦ装置改二";
+            cobblestoneDeviceName = "ＯＦ丙装置";
             cobblestoneFeederName = "ＯＦ丙供給装置一型";
             cobblestoneFeeder2Name = "ＯＦ丙供給装置二型";
         }
@@ -56,10 +59,12 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModBlocks.DEVICE_0, translatedNameProvider.deviceModZeroName);
         add(ModBlocks.DEVICE_1, translatedNameProvider.deviceModOneName);
         add(ModBlocks.DEVICE_2, translatedNameProvider.deviceModTwoName);
+        add(ModBlocks.COBBLESTONE_DEVICE_0, translatedNameProvider.cobblestoneDeviceName);
 
         // Container titles
         add(OFDeviceType.MOD_0.getContainerTranslationKey(), translatedNameProvider.deviceModZeroName);
         add(OFDeviceType.MOD_1.getContainerTranslationKey(), translatedNameProvider.deviceModOneName);
         add(OFDeviceType.MOD_2.getContainerTranslationKey(), translatedNameProvider.deviceModTwoName);
+        add(CobblestoneDeviceType.BASIC.getContainerTranslationKey(), translatedNameProvider.cobblestoneDeviceName);
     }
 }
