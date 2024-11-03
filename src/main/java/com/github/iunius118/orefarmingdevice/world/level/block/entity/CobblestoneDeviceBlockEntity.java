@@ -12,7 +12,7 @@ import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.player.StackedContents;
+import net.minecraft.world.entity.player.StackedItemContents;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.SimpleContainerData;
@@ -140,7 +140,7 @@ public class CobblestoneDeviceBlockEntity extends BaseContainerBlockEntity imple
 
     @Override
     public boolean isEmpty() {
-        for(ItemStack itemstack : items) {
+        for (ItemStack itemstack : items) {
             if (!itemstack.isEmpty()) {
                 return false;
             }
@@ -215,9 +215,9 @@ public class CobblestoneDeviceBlockEntity extends BaseContainerBlockEntity imple
     /*  StackedContentsCompatible */
 
     @Override
-    public void fillStackedContents(StackedContents stackedContents) {
-        for(ItemStack itemstack : this.items) {
-            stackedContents.accountStack(itemstack);
+    public void fillStackedContents(StackedItemContents itemContents) {
+        for (ItemStack itemstack : items) {
+            itemContents.accountStack(itemstack);
         }
     }
 }
