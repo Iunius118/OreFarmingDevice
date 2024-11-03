@@ -27,13 +27,13 @@ public class CobblestoneDeviceMenu extends AbstractContainerMenu {
         this.level = playerInventory.player.level();
         this.addSlot(new CobblestoneDeviceResultSlot(inventory, 0, 80, 20));
 
-        for(int i = 0; i < 3; ++i) {
-            for(int j = 0; j < 9; ++j) {
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 9; ++j) {
                 this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 51 + i * 18));
             }
         }
 
-        for(int k = 0; k < 9; ++k) {
+        for (int k = 0; k < 9; ++k) {
             this.addSlot(new Slot(playerInventory, k, 8 + k * 18, 109));
         }
 
@@ -50,7 +50,7 @@ public class CobblestoneDeviceMenu extends AbstractContainerMenu {
         ItemStack returnStack = ItemStack.EMPTY;
         Slot slot = this.slots.get(slotIndex);
 
-        if (slot != null && slot.hasItem()) {
+        if (slot.hasItem()) {
             ItemStack srcStack = slot.getItem();
             returnStack = srcStack.copy();
 

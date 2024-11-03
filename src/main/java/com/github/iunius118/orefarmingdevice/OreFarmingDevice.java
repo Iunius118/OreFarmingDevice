@@ -9,7 +9,6 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -24,14 +23,14 @@ public class OreFarmingDevice {
 
     public static ServerProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> ServerProxy::new);
 
-    public OreFarmingDevice() {
-        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    public OreFarmingDevice(FMLJavaModLoadingContext context) {
+        final IEventBus modEventBus = context.getModEventBus();
 
         // Register mod lifecycle event handlers
         modEventBus.addListener(this::setup);
 
         // Register config handlers
-        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, OreFarmingDeviceConfig.SERVER_SPEC);
+        context.registerConfig(ModConfig.Type.SERVER, OreFarmingDeviceConfig.SERVER_SPEC);
 
         // Register event handlers
         RegisterEventHandler.registerGameObjects(modEventBus);
