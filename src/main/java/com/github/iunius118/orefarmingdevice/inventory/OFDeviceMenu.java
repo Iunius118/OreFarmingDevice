@@ -2,6 +2,7 @@ package com.github.iunius118.orefarmingdevice.inventory;
 
 import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
 import com.github.iunius118.orefarmingdevice.loot.OFDeviceLootCondition;
+import net.minecraft.util.Mth;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -9,10 +10,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class OFDeviceMenu extends AbstractContainerMenu {
     private final Container container;
@@ -108,28 +106,25 @@ public class OFDeviceMenu extends AbstractContainerMenu {
     }
 
     protected boolean isFuel(ItemStack stack) {
-        return net.minecraftforge.common.ForgeHooks.getBurnTime(stack, RecipeType.SMELTING) > 0;
+        return this.level.fuelValues().isFuel(stack);
     }
 
-    @OnlyIn(Dist.CLIENT)
-    public int getBurnProgress() {
+    public float getBurnProgress() {
         int i = this.data.get(2);
         int j = this.data.get(3);
-        return j != 0 && i != 0 ? i * 16 / j : 0;
+        return j != 0 && i != 0 ? Mth.clamp((float)i / (float)j, 0.0F, 1.0F) : 0.0F;
     }
 
-    @OnlyIn(Dist.CLIENT)
-    public int getLitProgress() {
+    public float getLitProgress() {
         int i = this.data.get(1);
 
         if (i == 0) {
             i = 200;
         }
 
-        return this.data.get(0) * 30 / i;
+        return Mth.clamp((float) this.data.get(0) / (float) i, 0.0F, 1.0F);
     }
 
-    @OnlyIn(Dist.CLIENT)
     public boolean isLit() {
         return this.data.get(0) > 0;
     }
