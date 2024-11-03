@@ -2,12 +2,15 @@ package com.github.iunius118.orefarmingdevice.world.item.crafting;
 
 import com.github.iunius118.orefarmingdevice.loot.ModLootTables;
 import com.github.iunius118.orefarmingdevice.loot.OFDeviceLootCondition;
+import com.github.iunius118.orefarmingdevice.world.item.ModItems;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 
@@ -15,7 +18,7 @@ import java.util.Optional;
 
 public class DeviceProcessingRecipe extends AbstractCookingRecipe {
     public DeviceProcessingRecipe() {
-        super(ModRecipeTypes.DEVICE_PROCESSING, "", CookingBookCategory.MISC, Ingredient.EMPTY, ItemStack.EMPTY, 0, 200);
+        super("", CookingBookCategory.MISC, Ingredient.of(Items.COBBLESTONE), ItemStack.EMPTY, 0, 200);
     }
 
     @Override
@@ -25,7 +28,22 @@ public class DeviceProcessingRecipe extends AbstractCookingRecipe {
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {
+    public RecipeType<? extends AbstractCookingRecipe> getType() {
+        return ModRecipeTypes.DEVICE_PROCESSING;
+    }
+
+    @Override
+    public RecipeBookCategory recipeBookCategory() {
+        return null;
+    }
+
+    @Override
+    protected Item furnaceIcon() {
+        return ModItems.DEVICE_0;
+    }
+
+    @Override
+    public RecipeSerializer<DeviceProcessingRecipe> getSerializer() {
         return ModRecipeSerializers.DEVICE_PROCESSING;
     }
 
