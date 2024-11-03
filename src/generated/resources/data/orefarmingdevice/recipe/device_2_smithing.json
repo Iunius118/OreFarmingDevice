@@ -1,16 +1,10 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": {
-    "item": "minecraft:diamond_pickaxe"
-  },
-  "base": {
-    "item": "orefarmingdevice:device_1"
-  },
+  "addition": "minecraft:diamond_pickaxe",
+  "base": "orefarmingdevice:device_1",
   "result": {
     "count": 1,
     "id": "orefarmingdevice:device_2"
   },
-  "template": {
-    "item": "minecraft:paper"
-  }
+  "template": "minecraft:paper"
 }

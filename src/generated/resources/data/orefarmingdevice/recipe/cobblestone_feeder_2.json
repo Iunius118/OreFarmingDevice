@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "orefarmingdevice:cobblestone_feeder"
-    },
-    {
-      "item": "minecraft:diamond_pickaxe"
-    }
+    "orefarmingdevice:cobblestone_feeder",
+    "minecraft:diamond_pickaxe"
   ],
   "result": {
     "count": 1,

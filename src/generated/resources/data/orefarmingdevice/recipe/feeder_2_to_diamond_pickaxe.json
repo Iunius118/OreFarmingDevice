@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "equipment",
   "ingredients": [
-    {
-      "item": "orefarmingdevice:cobblestone_feeder_2"
-    },
-    {
-      "tag": "forge:rods/wooden"
-    }
+    "orefarmingdevice:cobblestone_feeder_2",
+    "#c:rods/wooden"
   ],
   "result": {
     "count": 1,

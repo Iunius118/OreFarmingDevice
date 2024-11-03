@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "orefarmingdevice:device_1"
-    },
-    {
-      "item": "minecraft:diamond_pickaxe"
-    }
+    "orefarmingdevice:device_1",
+    "minecraft:diamond_pickaxe"
   ],
   "result": {
     "count": 1,

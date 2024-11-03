@@ -2,21 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:stone"
-    },
-    "F": {
-      "item": "minecraft:furnace"
-    },
-    "L": {
-      "item": "minecraft:lever"
-    },
-    "i": {
-      "tag": "forge:ingots/iron"
-    },
-    "x": {
-      "item": "minecraft:stone_pickaxe"
-    }
+    "#": "minecraft:stone",
+    "F": "minecraft:furnace",
+    "L": "minecraft:lever",
+    "i": "#c:ingots/iron",
+    "x": "minecraft:stone_pickaxe"
   },
   "pattern": [
     "#F#",
