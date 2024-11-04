@@ -30,13 +30,13 @@ public class OFDeviceMenu extends AbstractContainerMenu {
         this.addSlot(new FuelSlot(this, inventory, 1, 56, 35));
         this.addSlot(new FurnaceResultSlot(playerInventory.player, inventory, 2, 108, 53));
 
-        for(int i = 0; i < 3; ++i) {
-            for(int j = 0; j < 9; ++j) {
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 9; ++j) {
                 this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
         }
 
-        for(int k = 0; k < 9; ++k) {
+        for (int k = 0; k < 9; ++k) {
             this.addSlot(new Slot(playerInventory, k, 8 + k * 18, 142));
         }
 
@@ -53,7 +53,7 @@ public class OFDeviceMenu extends AbstractContainerMenu {
         ItemStack returnStack = ItemStack.EMPTY;
         Slot slot = this.slots.get(slotIndex);
 
-        if (slot != null && slot.hasItem()) {
+        if (slot.hasItem()) {
             ItemStack srcStack = slot.getItem();
             returnStack = srcStack.copy();
 

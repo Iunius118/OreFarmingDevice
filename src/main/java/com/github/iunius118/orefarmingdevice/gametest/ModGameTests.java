@@ -49,7 +49,7 @@ public class ModGameTests {
         return  new ArrayList<>(Arrays.asList(createCobblestoneDeviceTestFunction(true), createCobblestoneDeviceTestFunction(false)));
     }
 
-    private static final List<OFDeviceBlock> DEVICE_BLOCKS = new ArrayList<>(Arrays.asList(ModBlocks.DEVICE_0, ModBlocks.DEVICE_1, ModBlocks.DEVICE_2));
+    private static final List<OFDeviceBlock> DEVICE_BLOCKS = List.of(ModBlocks.DEVICE_0, ModBlocks.DEVICE_1, ModBlocks.DEVICE_2);
 
     private static TestFunction createLootTableLookupTestFunction(ModLootTables lootTable) {
         return new TestFunction(

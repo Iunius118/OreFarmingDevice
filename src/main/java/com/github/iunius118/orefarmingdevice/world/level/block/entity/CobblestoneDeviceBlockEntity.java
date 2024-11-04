@@ -141,7 +141,7 @@ public class CobblestoneDeviceBlockEntity extends BaseContainerBlockEntity imple
 
     @Override
     public boolean isEmpty() {
-        for(ItemStack itemstack : items) {
+        for (ItemStack itemstack : items) {
             if (!itemstack.isEmpty()) {
                 return false;
             }
