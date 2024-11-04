@@ -2,21 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "L": {
-      "item": "minecraft:lava_bucket"
-    },
-    "P": {
-      "item": "minecraft:piston"
-    },
-    "R": {
-      "item": "minecraft:repeater"
-    },
-    "W": {
-      "item": "minecraft:water_bucket"
-    },
-    "x": {
-      "item": "minecraft:stone_pickaxe"
-    }
+    "L": "minecraft:lava_bucket",
+    "P": "minecraft:piston",
+    "R": "minecraft:repeater",
+    "W": "minecraft:water_bucket",
+    "x": "minecraft:stone_pickaxe"
   },
   "pattern": [
     "  L",

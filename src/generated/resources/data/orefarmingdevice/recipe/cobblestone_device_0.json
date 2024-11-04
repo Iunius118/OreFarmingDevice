@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:stone"
-    },
-    "R": {
-      "item": "minecraft:redstone_torch"
-    },
-    "f": {
-      "item": "orefarmingdevice:cobblestone_feeder_2"
-    }
+    "#": "minecraft:stone",
+    "R": "minecraft:redstone_torch",
+    "f": "orefarmingdevice:cobblestone_feeder_2"
   },
   "pattern": [
     "###",
