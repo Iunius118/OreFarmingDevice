@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [7.0.0 NeoForge]
+### Changed
+- Port to 1.21.3.
+- Require NeoForge 21.3.10-beta+.
+- Use sprite textures in OF device GUI.
+
 ## [6.1.0 NeoForge]
 ### Added
 - Add OF C Device, a cobblestone generator.
