@@ -12,7 +12,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -66,7 +65,12 @@ public class OFDeviceBlock extends AbstractFurnaceBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
-        return level.isClientSide ? null : createTickerHelper(blockEntityType, OFDeviceBlockEntity.getBlockEntityType(type), OFDeviceBlockEntity::serverTick);
+        if (level instanceof ServerLevel serverLevel) {
+            return createTickerHelper(blockEntityType, OFDeviceBlockEntity.getBlockEntityType(type),
+                    (l, p, s, e) -> OFDeviceBlockEntity.serverTick(serverLevel, p, s, e));
+        } else {
+            return null;
+        }
     }
 
     @Override
@@ -81,9 +85,9 @@ public class OFDeviceBlock extends AbstractFurnaceBlock {
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+    protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (level.isClientSide) {
-            return ItemInteractionResult.SUCCESS;
+            return InteractionResult.SUCCESS;
         }
 
         // Server side
@@ -94,7 +98,7 @@ public class OFDeviceBlock extends AbstractFurnaceBlock {
             openContainer(level, pos, player);
         }
 
-        return ItemInteractionResult.CONSUME;
+        return InteractionResult.CONSUME;
     }
 
     @Override
