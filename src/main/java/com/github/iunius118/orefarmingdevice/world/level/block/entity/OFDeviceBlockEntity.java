@@ -122,7 +122,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         compoundTag.putFloat(KEY_EFFICIENCY, Mth.clamp(farmingEfficiency, 0F, MAX_EFFICIENCY));
     }
 
-    public static void serverTick(Level level, BlockPos blockPos, BlockState blockState, OFDeviceBlockEntity device) {
+    public static void serverTick(ServerLevel level, BlockPos blockPos, BlockState blockState, OFDeviceBlockEntity device) {
         boolean isLitOld = device.isLit();
         boolean hasChanged = false;
         ItemStack fuelStack = device.items.get(SLOT_FUEL);
@@ -138,20 +138,21 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
 
             if (!device.isLit() && canProcess) {
                 // Burn new fuel stack
-                device.litTime = device.getBurnDuration(fuelStack);
+                device.litTime = device.getBurnDuration(level.fuelValues(), fuelStack);
                 device.litDuration = device.litTime;
 
                 if (device.isLit()) {
                     // Handle fuel
                     hasChanged = true;
+                    ItemStack remainderStack = fuelStack.getCraftingRemainder();
 
-                    if (fuelStack.hasCraftingRemainingItem()) {
-                        device.items.set(SLOT_FUEL, fuelStack.getCraftingRemainingItem());
+                    if (!remainderStack.isEmpty()) {
+                        device.items.set(SLOT_FUEL, remainderStack);
                     } else if (!fuelStack.isEmpty()) {
                         fuelStack.shrink(1);
 
                         if (fuelStack.isEmpty()) {
-                            device.items.set(SLOT_FUEL, fuelStack.getCraftingRemainingItem());
+                            device.items.set(SLOT_FUEL, remainderStack);
                         }
                     }
                 }
