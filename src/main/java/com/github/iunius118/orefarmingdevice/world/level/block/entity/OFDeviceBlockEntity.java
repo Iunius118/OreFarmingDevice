@@ -39,9 +39,9 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     protected final ContainerData dataAccess = new ContainerData() {
         public int get(int slot) {
             return switch (slot) {
-                case 0 -> OFDeviceBlockEntity.this.litTime;
-                case 1 -> OFDeviceBlockEntity.this.litDuration;
-                case 2 -> OFDeviceBlockEntity.this.cookingProgress;
+                case 0 -> OFDeviceBlockEntity.this.litTimeRemaining;
+                case 1 -> OFDeviceBlockEntity.this.litTotalTime;
+                case 2 -> OFDeviceBlockEntity.this.cookingTimer;
                 case 3 -> OFDeviceBlockEntity.this.cookingTotalTime;
                 // Device status number for determining material items on client side
                 case 4 -> OFDeviceLootCondition.find(OFDeviceBlockEntity.this).toInt();
@@ -51,9 +51,9 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
 
         public void set(int slot, int value) {
             switch (slot) {
-                case 0 -> OFDeviceBlockEntity.this.litTime = value;
-                case 1 -> OFDeviceBlockEntity.this.litDuration = value;
-                case 2 -> OFDeviceBlockEntity.this.cookingProgress = value;
+                case 0 -> OFDeviceBlockEntity.this.litTimeRemaining = value;
+                case 1 -> OFDeviceBlockEntity.this.litTotalTime = value;
+                case 2 -> OFDeviceBlockEntity.this.cookingTimer = value;
                 case 3 -> OFDeviceBlockEntity.this.cookingTotalTime = value;
                 case 4 -> { /* Do nothing */ }
             }
@@ -129,7 +129,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
         ItemStack materialStack = device.items.get(SLOT_INPUT);
 
         if (isLitOld) {
-            device.litTime -= device.getFuelConsumption(isFuelConsumptionDoubled(materialStack));
+            device.litTimeRemaining -= device.getFuelConsumption(isFuelConsumptionDoubled(materialStack));
         }
 
         if ((device.isLit() || !fuelStack.isEmpty()) && !materialStack.isEmpty()) {
@@ -138,8 +138,8 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
 
             if (!device.isLit() && canProcess) {
                 // Burn new fuel stack
-                device.litTime = device.getBurnDuration(level.fuelValues(), fuelStack);
-                device.litDuration = device.litTime;
+                device.litTimeRemaining = device.getBurnDuration(level.fuelValues(), fuelStack);
+                device.litTotalTime = device.litTimeRemaining;
 
                 if (device.isLit()) {
                     // Handle fuel
@@ -158,7 +158,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
                 }
             }
 
-            if (device.isLit() && device.litTime == device.litDuration) {
+            if (device.isLit() && device.litTimeRemaining == device.litTotalTime) {
                 // When device is refueled
                 device.updateFarmingEfficiency(level, blockPos);
                 device.cookingTotalTime = device.getTotalProcessingTime();
@@ -166,21 +166,21 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
 
             if (device.isLit() && canProcess) {
                 // Handle material stack
-                ++device.cookingProgress;
+                ++device.cookingTimer;
 
-                if (device.cookingProgress == device.cookingTotalTime) {
+                if (device.cookingTimer == device.cookingTotalTime) {
                     // Process completion
-                    device.cookingProgress = 0;
+                    device.cookingTimer = 0;
                     device.cookingTotalTime = device.getTotalProcessingTime();
                     device.process(productLootTable);
                     hasChanged = true;
                 }
             } else {
-                device.cookingProgress = 0;
+                device.cookingTimer = 0;
             }
-        } else if (!device.isLit() && device.cookingProgress > 0) {
+        } else if (!device.isLit() && device.cookingTimer > 0) {
             // Fire went out before the process was complete
-            device.cookingProgress = Mth.clamp(device.cookingProgress - 2, 0, device.cookingTotalTime);
+            device.cookingTimer = Mth.clamp(device.cookingTimer - 2, 0, device.cookingTotalTime);
         }
 
         if (isLitOld != device.isLit()) {
@@ -195,7 +195,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
     }
 
     private boolean isLit() {
-        return this.litTime > 0;
+        return this.litTimeRemaining > 0;
     }
 
     private static boolean isFuelConsumptionDoubled(ItemStack stack) {
@@ -297,7 +297,7 @@ public class OFDeviceBlockEntity extends AbstractFurnaceBlockEntity {
 
         if (slot == SLOT_INPUT && !flag) {
             cookingTotalTime = getTotalProcessingTime();
-            cookingProgress = 0;
+            cookingTimer = 0;
             setChanged();
         }
     }
