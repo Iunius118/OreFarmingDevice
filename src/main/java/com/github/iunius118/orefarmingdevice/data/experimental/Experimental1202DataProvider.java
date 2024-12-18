@@ -46,13 +46,11 @@ public class Experimental1202DataProvider {
 
     private Experimental1202DataProvider() {}
 
-    public static void addProviders(final GatherDataEvent event) {
+    public static void addProviders(final GatherDataEvent.Client event) {
         var dataGenerator = event.getGenerator();
         var packOutput = new PackOutput(dataGenerator.getPackOutput().getOutputFolder().resolve(PACK_PATH));
         var lookupProvider = event.getLookupProvider();
-
-        final boolean includesServer = event.includeServer();
-        var packGenerator = dataGenerator.getBuiltinDatapack(includesServer, PACK_PATH);
+        var packGenerator = dataGenerator.getBuiltinDatapack(true, PACK_PATH);
 
         packGenerator.addProvider((o) -> PackMetadataGenerator.forFeaturePack(packOutput, Component.literal("O.F.Device - experimental data pack 1.20.2")));
         packGenerator.addProvider((o) -> new ExperimentalLootTableProvider(packOutput, lookupProvider));
